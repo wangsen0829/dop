@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Koho admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Koho admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="pixelstrap">
+    <link rel="icon" href="__CDN__/assets/koho/assets/images/favicon/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="__CDN__/assets/koho/assets/images/favicon/favicon.png" type="image/x-icon">
+    <title>Koho - Premium Admin Template</title>
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/font-awesome.css">
+    <!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/icofont.css">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/themify.css">
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/flag-icon.css">
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/feather-icon.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/select2.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/sweetalert2.css">
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/bootstrap.css">
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/style.css">
+    <link id="color" rel="stylesheet" href="__CDN__/assets/koho/assets/css/color-1.css" media="screen">
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/responsive.css">
+</head>
+<style>
+
+    .page-body-wrapper .page-body{
+        padding-top: 40px !important;
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+    }
+    .page-title {
+        padding-top: 0px !important;
+    }
+    .flex-grow-1 {
+        padding-left: 15px;
+    }
+    .list-persons .profile-mail .email-general {
+        padding-top: 0px !important;
+        margin-top: 0px !important;
+        border-top: 0px !important;
+    }
+</style>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Examine</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">
+                                    <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">
+                                    <a  style="cursor:pointer;" onClick="javascript :history.back(-1);"> Surrogacy</a>
+                                </li>
+                                <!--                                <li class="breadcrumb-item">Surrogacy</li>-->
+                                <li class="breadcrumb-item active">Examine</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="email-wrap bookmark-wrap">
+                    <div class="row">
+
+                        <div class="col-sm-12 ">
+                            <div class="email-right-aside bookmark-tabcontent contacts-tabs">
+                                <div class="card email-body radius-left">
+                                    <div class="ps-0">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade active show" id="pills-personal" role="tabpanel" aria-labelledby="pills-personal-tab">
+                                                <div class="card mb-0">
+                                                    <div class="card-header d-flex">
+                                                        <div class="d-flex"><img class="img-50 img-fluid m-r-20 rounded-circle update_img_0" src="{$row['avatar']}" alt="">
+                                                            <div class="flex-grow-1">
+                                                                <h6> <span class="first_name_0">{$row['first_name']} </span><span class="last_name_0">{$row['last_name']}</span></h6>
+                                                                <p class="email_add_0">{$row['email']}</p>
+                                                            </div>
+                                                        </div>
+                                                        <!--                                                        <div style="float: right">-->
+                                                        <!--                                                            <button class="btn btn-light" style="margin-right: 20px" type="submit" data-bs-original-title="" title="">examine</button>-->
+                                                        <!--                                                        </div>-->
+                                                    </div>
+
+                                                    <div class="card-body p-0">
+                                                        <div class="row list-persons" id="addcon">
+                                                            <div class="col-sm-2">
+                                                                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                                                    <a class="contact-tab-0 nav-link active" id="v-pills-user-tab" data-bs-toggle="pill" onclick="activeDiv(0)" href="#v-pills-user" role="tab" aria-controls="v-pills-user" aria-selected="true">
+                                                                        <div class="d-flex">
+                                                                            <div class="flex-grow-1">
+                                                                                <h6>Pre-screening</h6>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <a class="contact-tab-1 nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" onclick="activeDiv(1)" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                                                        <div class="d-flex">
+                                                                            <div class="flex-grow-1">
+                                                                                <h6>Personal Info</h6>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <a class="contact-tab-2 nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" onclick="activeDiv(2)" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                                                                        <div class="d-flex">
+                                                                            <div class="flex-grow-1">
+                                                                                <h6>Obstetric History</h6>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <a class="contact-tab-3 nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" onclick="activeDiv(3)" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                                                        <div class="d-flex">
+                                                                            <div class="flex-grow-1">
+                                                                                <h6>Medical Information</h6>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <a class="contact-tab-4 nav-link" id="v-pills-contact1-tab" data-bs-toggle="pill" onclick="activeDiv(4)" href="#v-pills-contact1" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                                                        <div class="d-flex">
+                                                                            <div class="flex-grow-1">
+                                                                                <h6>About Surrogacy</h6>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <a class="contact-tab-5 nav-link" id="v-pills-contact8-tab" data-bs-toggle="pill" onclick="activeDiv(5)" href="#v-pills-contact2" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                                                        <div class="d-flex">
+                                                                            <div class="flex-grow-1">
+                                                                                <h6>Other Information</h6>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <a class="contact-tab-6 nav-link" id="v-pills-contact3-tab" data-bs-toggle="pill" onclick="activeDiv(6)" href="#v-pills-contact3" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                                                        <div class="d-flex">
+                                                                            <div class="flex-grow-1">
+                                                                                <h6>Photo</h6>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+
+                                                                    <a class="contact-tab-11 nav-link" id="v-pills-contact11-tab" data-bs-toggle="pill" onclick="activeDiv(11)" href="#v-pills-contact11" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                                                        <div class="d-flex">
+                                                                            <div class="flex-grow-1">
+                                                                                <h6>Additional Information</h6>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+
+                                                                    <a class="contact-tab-10 nav-link" id="v-pills-contact10-tab" data-bs-toggle="pill" onclick="activeDiv(10)" href="#v-pills-contact10" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                                                        <div class="d-flex">
+                                                                            <div class="flex-grow-1">
+                                                                                <h6>Health Record Release</h6>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <div class="tab-content" id="v-pills-tabContent">
+                                                                    <div class="tab-pane contact-tab-0 tab-content-child fade show active" id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab">
+                                                                        <div class="profile-mail">
+
+                                                                            <div class="email-general">
+                                                                                <h4 class="mb-3">Examine Status
+                                                                                    <div class="flex-grow-1 text-start icon-state" style="float: right;margin-top: -15px">
+                                                                                        <label class="switch">
+                                                                                            <input id="bootstrap-notify-url1" type="checkbox"
+                                                                                                   {if condition="$examine&&$examine['pre_screen']=='1'"}checked{/if}
+                                                                                            ><span class="switch-state"></span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </h4>
+
+
+                                                                                <ul>
+                                                                                    <li>First Name *
+                                                                                        <span class="font-primary first_name_0" > {if condition="$pre_screen"} {$pre_screen['first_name']} {/if}</span>
+                                                                                    </li>
+                                                                                    <li>Last Name *
+                                                                                        <span class="font-primary"> {if condition="$pre_screen"} {$pre_screen['last_name']} {/if}</span></li>
+                                                                                    <li>Address *
+                                                                                        <span class="font-primary"> {if condition="$pre_screen"} {$pre_screen['address']} {/if}</span></li>
+                                                                                    <li>City *<span class="font-primary personality_0">{if condition="$pre_screen"} {$pre_screen['city']} {/if}</span></li>
+                                                                                    <li>State *<span class="font-primary city_0">{if condition="$pre_screen"} {$pre_screen['state']} {/if}</span></li>
+                                                                                    <li>Postal Code<span class="font-primary mobile_num_0">{if condition="$pre_screen"} {$pre_screen['postal_code']} {/if}</span></li>
+                                                                                    <li>Email *<span class="font-primary email_add_0">{if condition="$pre_screen"} {$pre_screen['email']} {/if}</span></li>
+                                                                                    <li>Phone *<span class="font-primary url_add_0">{if condition="$pre_screen"} {$pre_screen['phone']} {/if}</span></li>
+                                                                                    <li>Age *<span class="font-primary interest_0">{if condition="$pre_screen"} {$pre_screen['age']} {/if}</span></li>
+                                                                                    <li>City *<span class="font-primary interest_0">{if condition="$pre_screen"} {$pre_screen['city']} {/if}</span></li>
+                                                                                    <li>Address *<span class="font-primary interest_0">{if condition="$pre_screen"} {$pre_screen['address']} {/if}</span></li>
+                                                                                    <li>Height *<span class="font-primary interest_0">{if condition="$pre_screen"} {$pre_screen['height']} {/if}</span></li>
+                                                                                    <li>Weight *<span class="font-primary interest_0">{if condition="$pre_screen"} {$pre_screen['weight']} {/if}</span></li>
+
+                                                                                    <li>Marital status *<span class="font-primary interest_0">
+                                                                                     {if condition="$pre_screen&&$pre_screen['marital_status']==0"}
+                                                                                    not married
+                                                                                    {elseif condition="$pre_screen&&$pre_screen['marital_status']==1"}
+                                                                                   married
+                                                                                    {elseif condition="$pre_screen&&$pre_screen['marital_status']==2"}
+                                                                                   divorce
+                                                                                    {/if}
+                                                                                    </span>
+                                                                                    </li>
+                                                                                    <li>Production times <span class="font-primary interest_0">{if condition="$pre_screen"} {$pre_screen['product_number']} {/if}</span></li>
+                                                                                    <li>Number of caesarean sections <span class="font-primary interest_0">{if condition="$pre_screen"} {$pre_screen['caesarean_number']} {/if}</span></li>
+                                                                                    <li>Number of miscarriages <span class="font-primary interest_0">{if condition="$pre_screen"} {$pre_screen['miscarriage_number']} {/if}</span></li>
+                                                                                    <li>If there is any miscarriage, please give a brief reason <span class="font-primary interest_0">{if condition="$pre_screen"} {$pre_screen['abortion_reason']} {/if}</span></li>
+                                                                                    <li>Is there any complication of pregnancy or childbirth <span class="font-primary interest_0">{if condition="$pre_screen"} {$pre_screen['complications_of_pregnancy']} {/if}</span></li>
+                                                                                    <li>Current contraceptive measures <span class="font-primary interest_0">{if condition="$pre_screen"} {$pre_screen['contraceptive_measures']} {/if}</span></li>
+                                                                                    <li>Have you ever taken drugs for depression or anxiety<span class="font-primary interest_0">{if condition="$pre_screen"} {$pre_screen['taken_drugs']} {/if}</span></li>
+                                                                                    <li>Please provide your current drug list <span class="font-primary interest_0">{if condition="$pre_screen"} {$pre_screen['current_drug_list']} {/if}</span></li>
+                                                                                    <li>Do you have abnormal cervical diaphragm examination in the past 3 years<span class="font-primary interest_0">{if condition="$pre_screen"} {$pre_screen['uterine_examination']} {/if}</span></li>
+                                                                                    <!--                                                                                    <li>Operate-->
+                                                                                    <!--                                                                                        <span class="font-primary interest_0">-->
+                                                                                    <!--                                                                                        <button class="btn btn-light btn-examine" data-type="1" data-uid="{$ids}"  type="submit" data-bs-original-title="" title="">-->
+                                                                                    <!--                                                                                            examine-->
+                                                                                    <!--                                                                                        </button>-->
+                                                                                    <!--                                                                                    </span>-->
+                                                                                    <!--                                                                                    </li>-->
+
+                                                                                    <div class="col-md-12 position-relative">
+                                                                                        <div class="flex-grow-1" style="padding-left: 0px">
+                                                                                            <h6>Operate *</h6>
+                                                                                        </div>
+                                                                                        <textarea class="form-control remarks" id="remarks_pre"
+                                                                                                  placeholder="If the review fails, please fill in the reason"  data-rule="required" name="remarks_pre"  rows="3">{if condition="$examine"} {$examine['remarks_pre']} {/if}</textarea>
+                                                                                        <button class="btn btn-primary btn-examine"
+                                                                                                style="float: right;margin-top: 10px;margin-bottom: 20px"
+                                                                                                data-type="1" data-uid="{$ids}"  type="submit">
+                                                                                            process
+                                                                                        </button>
+                                                                                        <button class="btn btn-light btn-refuse"
+                                                                                                style="float: right;margin-top: 10px;margin-bottom: 20px;margin-right: 20px"
+                                                                                                data-type="1" data-uid="{$ids}"  type="submit">
+                                                                                            refuse
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="tab-pane contact-tab-1 tab-content-child fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                                        <div class="profile-mail">
+                                                                            <div class="email-general">
+                                                                                <h4 class="mb-3">Examine Status   <div class="flex-grow-1 text-start icon-state" style="float: right;margin-top: -15px">
+                                                                                    <label class="switch">
+                                                                                        <input id="bootstrap-notify-url2" type="checkbox"
+                                                                                               {if condition="$examine&&$examine['personal_info']=='1'"}checked{/if}
+                                                                                        ><span class="switch-state"></span>
+                                                                                    </label>
+                                                                                </div></h4>
+                                                                                <ul>
+                                                                                    <li>Date of birth
+                                                                                        <span class="font-primary first_name_0" > {if condition="$personal_info"} {$personal_info['birthday_time']|date="Y-m-d",###} {/if}</span>
+                                                                                    </li>
+                                                                                    <li>Blood type
+                                                                                        <span class="font-primary">
+
+                                                                                            {if condition="$personal_info&&$personal_info['blood_type']=='0'"}
+                                                                                            A
+                                                                                            {elseif condition="$personal_info&&$personal_info['blood_type']=='1'"}
+                                                                                            B
+                                                                                            {elseif condition="$personal_info&&$personal_info['blood_type']=='2'"}
+                                                                                            O
+                                                                                            {elseif condition="$personal_info&&$personal_info['blood_type']=='3'"}
+                                                                                            AB
+                                                                                            {elseif condition="$personal_info&&$personal_info['blood_type']=='4'"}
+                                                                                            Other
+                                                                                            {/if}
+
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Highest education
+                                                                                        <span class="font-primary">
+                                                                                            {if condition="$personal_info"} {$personal_info['highest_education']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Religion
+                                                                                        <span class="font-primary personality_0">
+                                                                                          {if condition="$personal_info"} {$personal_info['religion']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Race
+                                                                                        <span class="font-primary city_0">
+                                                                                             {if condition="$personal_info&&$personal_info['race']=='0'"}
+                                                                                            White person
+                                                                                            {elseif condition="$personal_info&&$personal_info['race']=='1'"}
+                                                                                            Black race
+                                                                                            {elseif condition="$personal_info&&$personal_info['race']=='2'"}
+                                                                                            Yellow race
+                                                                                            {elseif condition="$personal_info&&$personal_info['race']=='3'"}
+                                                                                            Mixed blood
+                                                                                            {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Sexual orientation
+                                                                                        <span class="font-primary mobile_num_0">
+                                                                                            {if condition="$personal_info&&$personal_info['sexual_orientation']=='0'"}
+                                                                                            Heterosexuality
+                                                                                            {elseif condition="$personal_info&&$personal_info['sexual_orientation']=='1'"}
+                                                                                            Homosexuality
+                                                                                            {elseif condition="$personal_info&&$personal_info['sexual_orientation']=='2'"}
+                                                                                            Bisexuality
+                                                                                            {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Number of surrogacy
+                                                                                        <span class="font-primary url_add_0">
+                                                                                            {if condition="$personal_info"} {$personal_info['surrogate_number']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Source of income
+                                                                                        <span class="font-primary interest_0">
+                                                                                            {if condition="$personal_info"} {$personal_info['source_of_income']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Whether the family supports
+                                                                                        <span class="font-primary interest_0">
+                                                                                            {if condition="$personal_info&&$personal_info['family_attitude']=='yes'"}
+                                                                                            Yes
+                                                                                            {elseif condition="$personal_info&&$personal_info['family_attitude']=='no'"}
+                                                                                            No
+                                                                                            {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <!--                                                                                    <li>Operate-->
+                                                                                    <!--                                                                                        <span class="font-primary interest_0">-->
+                                                                                    <!--                                                                                        <button class="btn btn-light btn-examine" data-type="2" data-uid="{$ids}"  type="submit" data-bs-original-title="" title="">-->
+                                                                                    <!--                                                                                            examine-->
+                                                                                    <!--                                                                                        </button>-->
+                                                                                    <!--                                                                                        </span>-->
+                                                                                    <!--                                                                                    </li>-->
+                                                                                    <div class="col-md-12 position-relative">
+                                                                                        <div class="flex-grow-1" style="padding-left: 0px">
+                                                                                            <h6>Operate *</h6>
+                                                                                        </div>
+                                                                                        <textarea class="form-control remarks"
+                                                                                                  placeholder="If the review fails, please fill in the reason"  data-rule="required" name="remarks_info"  rows="3">{if condition="$examine"} {$examine['remarks_info']} {/if}</textarea>
+                                                                                        <button class="btn btn-primary btn-examine"
+                                                                                                style="float: right;margin-top: 10px;margin-bottom: 20px"
+                                                                                                data-type="2" data-uid="{$ids}"  type="submit">
+                                                                                            process
+                                                                                        </button>
+                                                                                        <button class="btn btn-light btn-refuse"
+                                                                                                style="float: right;margin-top: 10px;margin-bottom: 20px;margin-right: 20px"
+                                                                                                data-type="2" data-uid="{$ids}"  type="submit">
+                                                                                            refuse
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="tab-pane ws contact-tab-2 tab-content-child fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                                                        <div class="profile-mail">
+                                                                            <style>
+                                                                                .ws  .profile-mail .email-general {
+                                                                                    border-bottom: 1px solid #ccc;
+                                                                                    padding-top: 25px !important;
+                                                                                    padding-bottom: 30px !important;
+                                                                                }
+                                                                                .ws .list-persons .profile-mail {
+                                                                                    padding: 0px !important;
+                                                                                }
+                                                                            </style>
+                                                                            <h4 class="mb-3">Examine Status   <div class="flex-grow-1 text-start icon-state" style="float: right;margin-top: -15px">
+                                                                                <label class="switch">
+                                                                                    <input id="bootstrap-notify-url3" type="checkbox"
+                                                                                           {if condition="$examine&&$examine['ob']=='1'"}checked{/if}
+                                                                                    ><span class="switch-state"></span>
+                                                                                </label>
+                                                                            </div></h4>
+                                                                            {if condition="$surrogate_baby"}
+                                                                            {foreach name='$surrogate_baby' item='v' key='k' }
+                                                                            <div class="email-general" style="border-bottom: 1px solid #ccc">
+                                                                                <h4 class="mb-3">baby {$k+1}</h4>
+                                                                                <ul>
+                                                                                    <li>Date of birth *
+                                                                                        <span class="font-primary first_name_2">
+                                                                                              {$v['birthday_time']|date="y-m-d",###}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Sex
+                                                                                        <span class="font-primary">
+                                                                                            {if condition="$v['sex']=='0'"}
+                                                                        Male
+                                                                        {elseif condition="$v['sex']=='1'"}
+                                                                        Female
+                                                                        {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Fetal age
+                                                                                        <span class="font-primary">
+                                                                                              {$v['fetal_age']}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Which baby
+                                                                                        <span class="font-primary personality_2">
+                                                                                            {$v['baby']}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Weight
+                                                                                        <span class="font-primary city_2">
+                                                                                            {$v['weight']}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Pregnancy type
+                                                                                        <span class="font-primary mobile_num_2">
+                                                                                             {if condition="$v['pregnancy_type']=='0'"}
+                                                                        vaginal
+                                                                        {elseif condition="$v['pregnancy_type']=='1'"}
+                                                                        c-section
+                                                                        {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Are you surrogate or pregnant
+                                                                                        <span class="font-primary email_add_2">
+                                                                                            {if condition="$v['is_surrogate']=='1'"}
+                                                                        Yes
+                                                                        {elseif condition="$v['is_surrogate']=='2'"}
+                                                                        No
+                                                                        {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Are there any complications? (If yes, please specify):
+                                                                                        <span class="font-primary url_add_2">
+                                                                                            {$v['complications']}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                            {/foreach}
+                                                                            {/if}
+
+                                                                            <div class="email-general">
+
+                                                                                <ul>
+
+                                                                                    <li>Premature delivery or not *
+                                                                                        <span class="font-primary">
+
+                                                                                            {if condition="$personal_info&&$personal_info['blood_type']=='0'"}
+                                                                                            A
+                                                                                            {elseif condition="$personal_info&&$personal_info['blood_type']=='1'"}
+                                                                                            B
+                                                                                            {elseif condition="$personal_info&&$personal_info['blood_type']=='2'"}
+                                                                                            O
+                                                                                            {elseif condition="$personal_info&&$personal_info['blood_type']=='3'"}
+                                                                                            AB
+                                                                                            {elseif condition="$personal_info&&$personal_info['blood_type']=='4'"}
+                                                                                            Other
+                                                                                            {/if}
+
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Have you ever been pregnant for less than 36 weeks *
+                                                                                        <span class="font-primary">
+                                                                                            {if condition="$personal_info"} {$personal_info['highest_education']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Is there a history of abortion or induced abortion *
+                                                                                        <span class="font-primary personality_0">
+                                                                                          {if condition="$personal_info"} {$personal_info['religion']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>If so, when? *
+                                                                                        <span class="font-primary city_0">
+                                                                                             {if condition="$personal_info&&$personal_info['race']=='0'"}
+                                                                                            White person
+                                                                                            {elseif condition="$personal_info&&$personal_info['race']=='1'"}
+                                                                                            Black race
+                                                                                            {elseif condition="$personal_info&&$personal_info['race']=='2'"}
+                                                                                            Yellow race
+                                                                                            {elseif condition="$personal_info&&$personal_info['race']=='3'"}
+                                                                                            Mixed blood
+                                                                                            {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Whether there is a history of spontaneous abortion *
+                                                                                        <span class="font-primary mobile_num_0">
+                                                                                            {if condition="$personal_info&&$personal_info['sexual_orientation']=='0'"}
+                                                                                            Heterosexuality
+                                                                                            {elseif condition="$personal_info&&$personal_info['sexual_orientation']=='1'"}
+                                                                                            Homosexuality
+                                                                                            {elseif condition="$personal_info&&$personal_info['sexual_orientation']=='2'"}
+                                                                                            Bisexuality
+                                                                                            {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>If so, when? *
+                                                                                        <span class="font-primary url_add_0">
+                                                                                            {if condition="$personal_info"} {$personal_info['surrogate_number']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <!--                                                                                    <li>Operate-->
+                                                                                    <!--                                                                                        <span class="font-primary interest_0">-->
+                                                                                    <!--                                                                                        <button class="btn btn-light btn-examine" data-type="3" data-uid="{$ids}"  type="submit" data-bs-original-title="" title="">-->
+                                                                                    <!--                                                                                            examine-->
+                                                                                    <!--                                                                                        </button>-->
+                                                                                    <!--                                                                                        </span>-->
+                                                                                    <!--                                                                                    </li>-->
+                                                                                    <div class="col-md-12 position-relative">
+                                                                                        <div class="flex-grow-1" style="padding-left: 0px">
+                                                                                            <h6>Operate *</h6>
+                                                                                        </div>
+                                                                                        <textarea class="form-control remarks"
+                                                                                                  placeholder="If the review fails, please fill in the reason"  data-rule="required" name="remarks_ob"  rows="3">{if condition="$examine"} {$examine['remarks_ob']} {/if}</textarea>
+                                                                                        <button class="btn btn-primary btn-examine"
+                                                                                                style="float: right;margin-top: 10px;margin-bottom: 20px"
+                                                                                                data-type="3" data-uid="{$ids}"  type="submit">
+                                                                                            process
+                                                                                        </button>
+                                                                                        <button class="btn btn-light btn-refuse"
+                                                                                                style="float: right;margin-top: 10px;margin-bottom: 20px;margin-right: 20px"
+                                                                                                data-type="3" data-uid="{$ids}"  type="submit">
+                                                                                            refuse
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="tab-pane contact-tab-3 tab-content-child fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                                                        <div class="profile-mail">
+                                                                            <div class="email-general">
+                                                                                <h4 class="mb-3">Examine Status
+                                                                                    <div class="flex-grow-1 text-start icon-state" style="float: right;margin-top: -15px">
+                                                                                        <label class="switch">
+                                                                                            <input id="bootstrap-notify-url4" type="checkbox"
+                                                                                                   {if condition="$examine&&$examine['medical']=='1'"}checked{/if}
+                                                                                            ><span class="switch-state"></span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </h4>
+                                                                                <ul>
+                                                                                    <li>What is your current Medical Insurance Company?
+                                                                                        <span class="font-primary">
+                                                                                            {if condition="$medical_information"} {$medical_information['insurance_company']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>COVID Vaccination *
+                                                                                        <span class="font-primary">
+                                                                                             {if condition="$medical_information&&$medical_information['covid']==0"}
+                                                                                    Vaccinated
+                                                                                             {elseif condition="$medical_information&&$medical_information['covid']==1"}
+                                                                                   Boosted
+                                                                                            {elseif condition="$medical_information&&$medical_information['covid']==2"}
+                                                                                   Incomplete
+                                                                                            {elseif condition="$medical_information&&$medical_information['covid']==3"}
+                                                                                   No,but willing to
+                                                                                            {elseif condition="$medical_information&&$medical_information['covid']==4"}
+                                                                                   No
+                                                                                    {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Date of Last OBGYN Visit
+                                                                                        <span class="font-primary">
+                                                                                            {if condition="$medical_information"} {$medical_information['obgyn_visit_time']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+
+                                                                                    <li>Date of Last Pap Smear
+                                                                                        <span class="font-primary">
+                                                                                            {if condition="$medical_information"} {$medical_information['pap_smear_time']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+
+                                                                                    <li>Have you had the Hepatitis B Vaccine(Are you Hepatitis B Immune)?When?
+                                                                                        <span class="font-primary">
+                                                                                            {if condition="$medical_information"} {$medical_information['hepatitis_b_vaccine']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+
+                                                                                    <li>Have you had the Varicella  Vaccine(Are you Hepatitis Immune)?When?
+                                                                                        <span class="font-primary">
+                                                                                            {if condition="$medical_information"} {$medical_information['varicella_vaccine']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+
+                                                                                    <li>What is your last period start date?
+                                                                                        <span class="font-primary">
+                                                                                            {if condition="$medical_information"} {$medical_information['menstruation_start_time']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>How long didi it lase?
+                                                                                        <span class="font-primary">
+                                                                                            {if condition="$medical_information"} {$medical_information['menstruation_long_content']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Do you have regular monthly menstrual cycles?
+                                                                                        <span class="font-primary">
+                                                                                               {if condition="$medical_information&&$medical_information['is_menstruation_regular']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$medical_information&&$medical_information['is_menstruation_regular']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>How long didi it lase?
+                                                                                        <span class="font-primary">
+                                                                                            {if condition="$medical_information"} {$medical_information['menstruation_two']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>How long didi it lase?
+                                                                                        <span class="font-primary">
+                                                                                            {if condition="$medical_information"} {$medical_information['birth_control_method']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Do you have regular monthly menstrual cycles?
+                                                                                        <span class="font-primary">
+                                                                                               {if condition="$medical_information&&$medical_information['is_any_infectious_disease']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$medical_information&&$medical_information['is_any_infectious_disease']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Do you suffer from any genetic disease in the past 3 years? *
+                                                                                        <span class="font-primary">
+                                                                                               {if condition="$medical_information&&$medical_information['is_any_genetic_disease']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$medical_information&&$medical_information['is_any_genetic_disease']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Do you currently or have you ever in the previous three years experienced any
+                                                                                        form of mental illness,such as anxiety,depression or bipolar disorder? *
+                                                                                        <span class="font-primary">
+                                                                                               {if condition="$medical_information&&$medical_information['is_mental_illness']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$medical_information&&$medical_information['is_mental_illness']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Do you currently suffer from any medical conditions,such as diabetes,obesity or hypertension? *
+                                                                                        <span class="font-primary">
+                                                                                               {if condition="$medical_information&&$medical_information['is_other_disease']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$medical_information&&$medical_information['is_other_disease']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Are you currently taking any medications? *
+                                                                                        <span class="font-primary">
+                                                                                               {if condition="$medical_information&&$medical_information['is_take_any_medicine']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$medical_information&&$medical_information['is_take_any_medicine']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Are you allergic to any medication? *
+                                                                                        <span class="font-primary">
+                                                                                               {if condition="$medical_information&&$medical_information['is_allergic_medication']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$medical_information&&$medical_information['is_allergic_medication']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Are you had a significant change in weight during the past five
+                                                                                        years that wasn't caused by pregnancy? *
+                                                                                        <span class="font-primary">
+                                                                                               {if condition="$medical_information&&$medical_information['is_weightc_change']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$medical_information&&$medical_information['is_weightc_change']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Have ever had nay hospitalizations,surgeries,or plastic surgeries? *
+                                                                                        <span class="font-primary">
+                                                                                               {if condition="$medical_information&&$medical_information['is_any_surgeries']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$medical_information&&$medical_information['is_any_surgeries']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Are there twins or triplets in your family? *
+                                                                                        <span class="font-primary">
+                                                                                               {if condition="$medical_information&&$medical_information['is_twins']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$medical_information&&$medical_information['is_twins']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Have you ever donated eggs or served as a surrogate?If yes,how many times? *
+                                                                                        <span class="font-primary">
+                                                                                            {if condition="$medical_information"} {$medical_information['surrogate_content']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Have many biological children do you have? *
+                                                                                        <span class="font-primary">
+                                                                                            {if condition="$medical_information"} {$medical_information['many_children']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Do you plan on having more children of your own? *
+                                                                                        <span class="font-primary">
+                                                                                               {if condition="$medical_information&&$medical_information['is_having_more_children']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$medical_information&&$medical_information['is_having_more_children']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Have you ever been prescribed any medications in the last 5 years?if yes please explain: *
+                                                                                        <span class="font-primary">
+                                                                                            {if condition="$medical_information"} {$medical_information['any_5_medication']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Have you had any surgeries?If yes,please list all reasons for surgery and month/year of surgery: *
+                                                                                        <span class="font-primary">
+                                                                                            {if condition="$medical_information"} {$medical_information['any_surgeries']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <!--                                                                                    <li>Operate-->
+                                                                                    <!--                                                                                        <span class="font-primary interest_0">-->
+                                                                                    <!--                                                                                        <button class="btn btn-light btn-examine" data-type="4" data-uid="{$ids}"  type="submit" data-bs-original-title="" title="">-->
+                                                                                    <!--                                                                                            examine-->
+                                                                                    <!--                                                                                        </button>-->
+                                                                                    <!--                                                                                    </span>-->
+                                                                                    <!--                                                                                    </li>-->
+                                                                                    <div class="col-md-12 position-relative">
+                                                                                        <div class="flex-grow-1" style="padding-left: 0px">
+                                                                                            <h6>Operate *</h6>
+                                                                                        </div>
+                                                                                        <textarea class="form-control remarks"
+                                                                                                  placeholder="If the review fails, please fill in the reason"  data-rule="required" name="remarks_medical"  rows="3">{if condition="$examine"} {$examine['remarks_medical']} {/if}</textarea>
+                                                                                        <button class="btn btn-primary btn-examine"
+                                                                                                style="float: right;margin-top: 10px;margin-bottom: 20px"
+                                                                                                data-type="4" data-uid="{$ids}"  type="submit">
+                                                                                            process
+                                                                                        </button>
+                                                                                        <button class="btn btn-light btn-refuse"
+                                                                                                style="float: right;margin-top: 10px;margin-bottom: 20px;margin-right: 20px"
+                                                                                                data-type="4" data-uid="{$ids}"  type="submit">
+                                                                                            refuse
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tab-pane contact-tab-4 tab-content-child fade" id="v-pills-contact1" role="tabpanel" aria-labelledby="v-pills-contact1-tab">
+                                                                        <div class="profile-mail">
+                                                                            <div class="email-general">
+                                                                                <h4 class="mb-3">Examine Status
+                                                                                    <div class="flex-grow-1 text-start icon-state" style="float: right;margin-top: -15px">
+                                                                                        <label class="switch">
+                                                                                            <input id="bootstrap-notify-url5" type="checkbox"
+                                                                                                   {if condition="$examine&&$examine['about']=='1'"}checked{/if}
+                                                                                            ><span class="switch-state"></span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </h4>
+                                                                                <ul>
+                                                                                    <li>Have you ever been a surrogate? *
+                                                                                        <span class="font-primary first_name_4">
+                                                                                             {if condition="$about_surrogacy&&$about_surrogacy['is_surrogate']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$about_surrogacy&&$about_surrogacy['is_surrogate']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>How soon would you like to begin your Surrogacy journey? *
+                                                                                        <span class="font-primary">
+                                                                                          {if condition="$about_surrogacy"} {$about_surrogacy['begin_surrogate']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Have you ever applied to other agencies as a surrogate or egg donor? *
+                                                                                        <span class="font-primary">
+                                                                                          {if condition="$about_surrogacy"} {$about_surrogacy['apply_surrogate_agency']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>How many embryos are you willing to transplant at most(1-2)? *
+                                                                                        <span class="font-primary">
+                                                                                          {if condition="$about_surrogacy"} {$about_surrogacy['embryo_transfer_number']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Are you willing to have twins?
+                                                                                        <span class="font-primary personality_4">
+                                                                                            {if condition="$about_surrogacy&&$about_surrogacy['is_surrogate']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$about_surrogacy&&$about_surrogacy['is_surrogate']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>If multiple tyres are confirmed, would you choose to reduce the number of tyres?
+                                                                                        <span class="font-primary personality_4">
+                                                                                            {if condition="$about_surrogacy&&$about_surrogacy['is_fetal_reduction']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$about_surrogacy&&$about_surrogacy['is_fetal_reduction']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>If the pregnant child has physical problems and the expectant parents consider abortion, do you agree with the expectant parents to make the decision according to the doctor's advice and personal views?
+                                                                                        <span class="font-primary mobile_num_4">
+                                                                                            {if condition="$about_surrogacy&&$about_surrogacy['is_induced_abortion']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$about_surrogacy&&$about_surrogacy['is_induced_abortion']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Would you agree with the doctor or prospective parents to require amniocentesis or cvs?
+                                                                                        <span class="font-primary email_add_4">
+                                                                                            {if condition="$about_surrogacy&&$about_surrogacy['is_cvs']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$about_surrogacy&&$about_surrogacy['is_cvs']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Are you comfortable with injections and taking oral medication for surrogacy?
+                                                                                        <span class="font-primary url_add_4">
+                                                                                            {if condition="$about_surrogacy&&$about_surrogacy['is_tom']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$about_surrogacy&&$about_surrogacy['is_tom']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Do you want your parents to meet?
+                                                                                        <span class="font-primary interest_4">
+                                                                                               {if condition="$about_surrogacy&&$about_surrogacy['is_meet_parents']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$about_surrogacy&&$about_surrogacy['is_meet_parents']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Would you agree to sign necessary legal documents to assure the intended parents that you will relinquish all your parental rights to their child?
+                                                                                        <span class="font-primary interest_4">
+                                                                                               {if condition="$about_surrogacy&&$about_surrogacy['is_relinquish']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$about_surrogacy&&$about_surrogacy['is_relinquish']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Why do you want to be a pregnant mother?
+                                                                                        <span class="font-primary">
+                                                                                         {if condition="$about_surrogacy"} {$about_surrogacy['become_surrogate_content']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>During pregnancy, what kind of relationship do you want to maintain with your expectant parents?
+                                                                                        <span class="font-primary">
+                                                                                         {if condition="$about_surrogacy"} {$about_surrogacy['rwp_content']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Are you willing to surrogate for same-sex or single parents?
+                                                                                        <span class="font-primary interest_4">
+                                                                                               {if condition="$about_surrogacy&&$about_surrogacy['is_ss']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$about_surrogacy&&$about_surrogacy['is_ss']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Do you have any expectant parents who are particularly unwilling to cooperate?*
+                                                                                        <span class="font-primary">
+                                                                                         {if condition="$about_surrogacy"} {$about_surrogacy['no_surrogate_content']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>If the expectant parents need it, are you willing to milk after delivery?
+                                                                                        <span class="font-primary interest_4">
+                                                                                               {if condition="$about_surrogacy&&$about_surrogacy['is_breast_feed']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$about_surrogacy&&$about_surrogacy['is_breast_feed']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Both you and your partner know that unless you have a tubal ligation or your partner has a vasectomy,
+                                                                                        you must agree that there is no sex life between receiving hormone therapy and embryo transfer?
+                                                                                        This does not mean that there is no sexual behavior during the whole surrogacy process.
+                                                                                        During the whole surrogacy process, you and your spouse's sexual life must be approved by your attending doctor.
+                                                                                        <span class="font-primary interest_4">
+                                                                                               {if condition="$about_surrogacy&&$about_surrogacy['is_sexual_life']==1"}
+                                                                                                      Yes
+                                                                                               {elseif condition="$about_surrogacy&&$about_surrogacy['is_sexual_life']==2"}
+                                                                                                       No
+                                                                                              {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Does your family support you as a surrogate mother? Please introduce it in more detail,
+                                                                                        so that the prospective parents know that you have the support of a family full of support and love.*
+                                                                                        <span class="font-primary">
+                                                                                         {if condition="$about_surrogacy"} {$about_surrogacy['family_content']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>What do you think is the most important quality when choosing a group of prospective parents?*
+                                                                                        <span class="font-primary">
+                                                                                         {if condition="$about_surrogacy"} {$about_surrogacy['parents_character_content']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>Do you have anything you want to share with your parents?*
+                                                                                        <span class="font-primary">
+                                                                                         {if condition="$about_surrogacy"} {$about_surrogacy['share_content']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>How did you hear about us?*
+                                                                                        <span class="font-primary">
+                                                                                         {if condition="$about_surrogacy"} {$about_surrogacy['about_content']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <!--                                                                                    <li>Operate-->
+                                                                                    <!--                                                                                        <span class="font-primary interest_0">-->
+                                                                                    <!--                                                                                        <button class="btn btn-light btn-examine" data-type="5" data-uid="{$ids}"  type="submit" data-bs-original-title="" title="">-->
+                                                                                    <!--                                                                                            examine-->
+                                                                                    <!--                                                                                        </button>-->
+                                                                                    <!--                                                                                    </span>-->
+                                                                                    <!--                                                                                    </li>-->
+                                                                                    <div class="col-md-12 position-relative">
+                                                                                        <div class="flex-grow-1" style="padding-left: 0px">
+                                                                                            <h6>Operate *</h6>
+                                                                                        </div>
+                                                                                        <textarea class="form-control remarks"
+                                                                                                  placeholder="If the review fails, please fill in the reason"  data-rule="required" name="remarks_medical"  rows="3">{if condition="$examine"} {$examine['remarks_about']} {/if}</textarea>
+                                                                                        <button class="btn btn-primary btn-examine"
+                                                                                                style="float: right;margin-top: 10px;margin-bottom: 20px"
+                                                                                                data-type="5" data-uid="{$ids}"  type="submit">
+                                                                                            process
+                                                                                        </button>
+                                                                                        <button class="btn btn-light btn-refuse"
+                                                                                                style="float: right;margin-top: 10px;margin-bottom: 20px;margin-right: 20px"
+                                                                                                data-type="5" data-uid="{$ids}"  type="submit">
+                                                                                            refuse
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tab-pane contact-tab-5 tab-content-child fade" id="v-pills-contact8" role="tabpanel" aria-labelledby="v-pills-contact1-tab">
+                                                                        <div class="profile-mail">
+
+                                                                            <div class="email-general">
+                                                                                <h4 class="mb-3">Examine Status
+                                                                                    <div class="flex-grow-1 text-start icon-state" style="float: right;margin-top: -15px">
+                                                                                        <label class="switch">
+                                                                                            <input id="bootstrap-notify-url6" type="checkbox"
+                                                                                                   {if condition="$examine&&$examine['other']=='1'"}checked{/if}
+                                                                                            ><span class="switch-state"></span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </h4>
+                                                                                <ul>
+                                                                                    <li>Do you smoke? *
+                                                                                        <span class="font-primary">
+                                                                                       {if condition="$other_information&&$other_information['is_smoke']==1"}
+                                                                                        Yes
+                                                                                       {elseif condition="$other_information&&$other_information['is_smoke']==2"}
+                                                                                        No
+                                                                                       {/if}
+                                                                                       </span>
+                                                                                    </li>
+                                                                                    <li>Do you have any criminal records? *
+                                                                                        <span class="font-primary">
+                                                                                       {if condition="$other_information&&$other_information['is_criminal_records']==1"}
+                                                                                        Yes
+                                                                                       {elseif condition="$other_information&&$other_information['is_criminal_records']==2"}
+                                                                                        No
+                                                                                       {/if}
+                                                                                       </span>
+                                                                                    </li>
+                                                                                    <li>Have you ever been prescribed any psychiatric medications(including anti-depressants and anti-anxiety medications)? *
+                                                                                        <span class="font-primary">
+                                                                                       {if condition="$other_information&&$other_information['is_pm']==1"}
+                                                                                        Yes
+                                                                                       {elseif condition="$other_information&&$other_information['is_pm']==2"}
+                                                                                        No
+                                                                                       {/if}
+                                                                                       </span>
+                                                                                    </li>
+                                                                                    <li>Are you currently receiving government aid?
+                                                                                        <span class="font-primary">
+                                                                                       {if condition="$other_information&&$other_information['is_crga']==1"}
+                                                                                        Yes
+                                                                                       {elseif condition="$other_information&&$other_information['is_crga']==2"}
+                                                                                        No
+                                                                                       {/if}
+                                                                                       </span>
+                                                                                    </li>
+                                                                                    <li>Do you have a tattoo?
+                                                                                        <span class="font-primary">
+                                                                                       {if condition="$other_information&&$other_information['is_tattoos']==1"}
+                                                                                        Yes
+                                                                                       {elseif condition="$other_information&&$other_information['is_tattoos']==2"}
+                                                                                        No
+                                                                                       {/if}
+                                                                                       </span>
+                                                                                    </li>
+                                                                                    <li>Have you ever field for bankruptcy?
+                                                                                        <span class="font-primary">
+                                                                                       {if condition="$other_information&&$other_information['is_bankruptcy']==1"}
+                                                                                        Yes
+                                                                                       {elseif condition="$other_information&&$other_information['is_bankruptcy']==2"}
+                                                                                        No
+                                                                                       {/if}
+                                                                                       </span>
+                                                                                    </li>
+                                                                                    <li>Have you ever had a blood transfusion?
+                                                                                        <span class="font-primary">
+                                                                                       {if condition="$other_information&&$other_information['is_blood']==1"}
+                                                                                        Yes
+                                                                                       {elseif condition="$other_information&&$other_information['is_blood']==2"}
+                                                                                        No
+                                                                                       {/if}
+                                                                                       </span>
+                                                                                    </li>
+                                                                                    <li>Have you or your partner ever been investigated by governmental child protective agency?
+                                                                                        <span class="font-primary">
+                                                                                       {if condition="$other_information&&$other_information['is_bb']==1"}
+                                                                                        Yes
+                                                                                       {elseif condition="$other_information&&$other_information['is_bb']==2"}
+                                                                                        No
+                                                                                       {/if}
+                                                                                       </span>
+                                                                                    </li>
+                                                                                    <li>What' s your interest?
+                                                                                        <span class="font-primary">
+                                                                                          {if condition="$other_information"} {$other_information['hobby']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>What is your life motto?
+                                                                                        <span class="font-primary">
+                                                                                          {if condition="$other_information"} {$other_information['life_geyan']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <li>How would you explain to your child that you became a surrogate mother?
+                                                                                        <span class="font-primary">
+                                                                                          {if condition="$other_information"} {$other_information['ecybs']} {/if}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                    <!--                                                                                    <li>Operate-->
+                                                                                    <!--                                                                                        <span class="font-primary interest_0">-->
+                                                                                    <!--                                                                                        <button class="btn btn-light btn-examine" data-type="6" data-uid="{$ids}"  type="submit" data-bs-original-title="" title="">-->
+                                                                                    <!--                                                                                            examine-->
+                                                                                    <!--                                                                                        </button>-->
+                                                                                    <!--                                                                                    </span>-->
+                                                                                    <!--                                                                                    </li>-->
+                                                                                    <div class="col-md-12 position-relative">
+                                                                                        <div class="flex-grow-1" style="padding-left: 0px">
+                                                                                            <h6>Operate *</h6>
+                                                                                        </div>
+                                                                                        <textarea class="form-control remarks"
+                                                                                                  placeholder="If the review fails, please fill in the reason"  data-rule="required" name="remarks_other"  rows="3">{if condition="$examine"} {$examine['remarks_other']} {/if}</textarea>
+                                                                                        <button class="btn btn-primary btn-examine"
+                                                                                                style="float: right;margin-top: 10px;margin-bottom: 20px"
+                                                                                                data-type="6" data-uid="{$ids}"  type="submit">
+                                                                                            process
+                                                                                        </button>
+                                                                                        <button class="btn btn-light btn-refuse"
+                                                                                                style="float: right;margin-top: 10px;margin-bottom: 20px;margin-right: 20px"
+                                                                                                data-type="6" data-uid="{$ids}"  type="submit">
+                                                                                            refuse
+                                                                                        </button>
+                                                                                    </div>
+
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tab-pane contact-tab-6 tab-content-child fade" id="v-pills-contact9" role="tabpanel" aria-labelledby="v-pills-contact8-tab">
+                                                                        <div class="profile-mail">
+
+                                                                            <div class="email-general">
+                                                                                <h4 class="mb-3">Examine Status
+                                                                                    <div class="flex-grow-1 text-start icon-state" style="float: right;margin-top: -15px">
+                                                                                        <label class="switch">
+                                                                                            <input id="bootstrap-notify-url7" type="checkbox"
+                                                                                                   {if condition="$examine&&$examine['photos']=='1'"}checked{/if}
+                                                                                            ><span class="switch-state"></span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </h4>
+                                                                                <div class="row my-gallery gallery" id="aniimated-thumbnials1" itemscope="">
+                                                                                    {if condition="$surrogate_photo"}
+                                                                                    {foreach $surrogate_photo as $k=>$v}
+                                                                                    <figure class="col-xl-3 col-md-4 col-sm-6 xl-25 box-col-25 img-hover hover-1" itemprop="associatedMedia" itemscope="">
+                                                                                        <a href="{$v}" itemprop="contentUrl" data-size="1600x950" TARGET="_blank">
+                                                                                            <div>
+                                                                                                <img src="{$v}" itemprop="thumbnail" alt="Image description" style="width: 200px;height: 200px">
+                                                                                            </div>
+                                                                                        </a>
+                                                                                        <!--                                                                <figcaption itemprop="caption description">Image caption  1</figcaption>-->
+                                                                                    </figure>
+                                                                                    {/foreach}
+                                                                                    {/if}
+                                                                                </div>
+
+                                                                            </div>
+
+
+                                                                        </div>
+                                                                        <!--                                                                        <div>-->
+                                                                        <!--                                                                            <button style="float: right;" class="btn btn-light btn-examine" data-type="7" data-uid="{$ids}"  type="submit" data-bs-original-title="" title="">-->
+                                                                        <!--                                                                                examine-->
+                                                                        <!--                                                                            </button>-->
+                                                                        <!--                                                                        </div>-->
+                                                                        <div class="col-md-12 position-relative">
+                                                                            <div class="flex-grow-1" style="padding-left: 0px">
+                                                                                <h6>Operate *</h6>
+                                                                            </div>
+                                                                            <textarea class="form-control remarks"
+                                                                                      placeholder="If the review fails, please fill in the reason"  data-rule="required" name="remarks_photos"  rows="3">{if condition="$examine"} {$examine['remarks_photos']} {/if}</textarea>
+                                                                            <button class="btn btn-primary btn-examine"
+                                                                                    style="float: right;margin-top: 10px;margin-bottom: 20px"
+                                                                                    data-type="7" data-uid="{$ids}"  type="submit">
+                                                                                process
+                                                                            </button>
+                                                                            <button class="btn btn-light btn-refuse"
+                                                                                    style="float: right;margin-top: 10px;margin-bottom: 20px;margin-right: 20px"
+                                                                                    data-type="7" data-uid="{$ids}"  type="submit">
+                                                                                refuse
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tab-pane contact-tab-11 tab-content-child fade  " id="v-pills-contact11" role="tabpanel" aria-labelledby="v-pills-contact11-tab">
+                                                                        <div class="profile-mail">
+                                                                            <div class="email-general">
+                                                                                <h4 class="mb-3">Examine Status
+                                                                                    <div class="flex-grow-1 text-start icon-state" style="float: right;margin-top: -15px">
+                                                                                        <label class="switch">
+                                                                                            <input id="bootstrap-notify-url9" type="checkbox"
+                                                                                                   {if condition="$examine&&$examine['add']=='1'"}checked{/if}
+                                                                                            ><span class="switch-state"></span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </h4>
+
+
+                                                                                <ul>
+                                                                                    <li>Emergency Contact First Name *
+                                                                                        <span class="font-primary first_name_0" > {if condition="$additional_information"} {$additional_information['emergency_contact_first_name']} {/if}</span>
+                                                                                    </li>
+                                                                                    <li>Emergency Contact Last Name *
+                                                                                        <span class="font-primary"> {if condition="$additional_information"} {$additional_information['emergency_contact_last_name']} {/if}</span></li>
+                                                                                    <li>Emergency Contact Phone Number *
+                                                                                        <span class="font-primary"> {if condition="$additional_information"} {$additional_information['emergency_contact_phone_number']} {/if}</span></li>
+                                                                                    <li>Emergency Contact Email *<span class="font-primary personality_0">{if condition="$additional_information"} {$additional_information['emergency_contact_email']} {/if}</span></li>
+
+                                                                                    <li>Do you have a current health care insurance policy? *<span class="font-primary interest_0">
+                                                                                     {if condition="$additional_information&&$additional_information['is_health_care']==1"}
+                                                                                    Yes
+                                                                                    {elseif condition="$additional_information&&$additional_information['is_health_care']==2"}
+                                                                                    No
+                                                                                    {/if}
+                                                                                    </span>
+                                                                                    </li>
+                                                                                    <li>Please upload your health insurance card(front side),if any
+                                                                                        {if condition="$additional_information&&$additional_information['front_side_image']"}
+                                                                                        <figure class="col-xl-3 col-md-4 col-sm-6 xl-25 box-col-25 img-hover hover-1" itemprop="associatedMedia" itemscope="">
+                                                                                            <a href="{$additional_information['front_side_image']}" itemprop="contentUrl" data-size="1600x950" TARGET="_blank">
+                                                                                                <div>
+                                                                                                    <img src="{$additional_information['front_side_image']}" itemprop="thumbnail" alt="Image description" style="width: 200px;height: 200px">
+                                                                                                </div>
+                                                                                            </a>
+                                                                                        </figure>
+                                                                                        {/if}
+                                                                                    </li>
+                                                                                    <li>Please upload your health insurance card(back side),if any
+                                                                                        {if condition="$additional_information&&$additional_information['back_side_image']"}
+                                                                                        <figure class="col-xl-3 col-md-4 col-sm-6 xl-25 box-col-25 img-hover hover-1" itemprop="associatedMedia" itemscope="">
+                                                                                            <a href="{$additional_information['back_side_image']}" itemprop="contentUrl" data-size="1600x950" TARGET="_blank">
+                                                                                                <div>
+                                                                                                    <img src="{$additional_information['back_side_image']}" itemprop="thumbnail" alt="Image description" style="width: 200px;height: 200px">
+                                                                                                </div>
+                                                                                            </a>
+                                                                                        </figure>
+                                                                                        {/if}
+                                                                                    </li>
+
+                                                                                    <!--                                                                                    <li>Operate-->
+                                                                                    <!--                                                                                        <span class="font-primary interest_0">-->
+                                                                                    <!--                                                                                        <button class="btn btn-light btn-examine" data-type="8" data-uid="{$ids}"  type="submit" data-bs-original-title="" title="">-->
+                                                                                    <!--                                                                                            examine-->
+                                                                                    <!--                                                                                        </button>-->
+                                                                                    <!--                                                                                    </span>-->
+                                                                                    <!--                                                                                    </li>-->
+                                                                                    <div class="col-md-12 position-relative">
+                                                                                        <div class="flex-grow-1" style="padding-left: 0px">
+                                                                                            <h6>Operate *</h6>
+                                                                                        </div>
+                                                                                        <textarea class="form-control remarks"
+                                                                                                  placeholder="If the review fails, please fill in the reason"  data-rule="required" name="remarks_add"  rows="3">{if condition="$examine"} {$examine['remarks_add']} {/if}</textarea>
+                                                                                        <button class="btn btn-primary btn-examine"
+                                                                                                style="float: right;margin-top: 10px;margin-bottom: 20px"
+                                                                                                data-type="8" data-uid="{$ids}"  type="submit">
+                                                                                            process
+                                                                                        </button>
+                                                                                        <button class="btn btn-light btn-refuse"
+                                                                                                style="float: right;margin-top: 10px;margin-bottom: 20px;margin-right: 20px"
+                                                                                                data-type="8" data-uid="{$ids}"  type="submit">
+                                                                                            refuse
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tab-pane ws contact-tab-10 tab-content-child fade  " id="v-pills-contact10" role="tabpanel" aria-labelledby="v-pills-contact10-tab">
+                                                                        <div class="profile-mail">
+                                                                            <div class="email-general ">
+                                                                                <h4 class="mb-3">Examine Status
+                                                                                    <div class="flex-grow-1 text-start icon-state" style="float: right;margin-top: -15px">
+                                                                                        <label class="switch">
+                                                                                            <input id="bootstrap-notify-url10" type="checkbox"
+                                                                                                   {if condition="$examine&&$examine['health']=='1'"}checked{/if}
+                                                                                            ><span class="switch-state"></span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </h4>
+
+
+                                                                                <ul>
+                                                                                    <li>Do you have an online portal for your doctor and hospital? *
+                                                                                        <span class="font-primary interest_0">
+                                                                                     {if condition="$health&&$health['hospital']==1"}
+                                                                                    Yes
+                                                                                    {elseif condition="$health&&$health['hospital']==2"}
+                                                                                    No
+                                                                                    {/if}
+                                                                                    </span>
+                                                                                    </li>
+
+                                                                                    {if condition="$regnancy_information"}
+                                                                                    {foreach name='$regnancy_information' item='v1' key='k1' }
+                                                                                    <div class="email-general" style="border-bottom: 1px solid #ccc">
+                                                                                        <h4 class="mb-3">Regnancy Information {$k1+1}</h4>
+                                                                                        <ul>
+                                                                                            <li>OB/GYN Period *
+                                                                                                <span class="font-primary first_name_2">
+                                                                                              {$v1['protect_time']|date="y-m-d",###}
+                                                                                             </span>
+                                                                                            </li>
+                                                                                            <li>OB/GYN facility name *
+                                                                                                <span class="font-primary first_name_2">
+                                                                                              {$v1['maternity_institution']}
+                                                                                             </span>
+                                                                                            </li>
+                                                                                            <li>Physcian first and last name *
+                                                                                                <span class="font-primary first_name_2">
+                                                                                              {$v1['doctor']}
+                                                                                             </span>
+                                                                                            </li>
+                                                                                            <li>Address information(one) *
+                                                                                                <span class="font-primary first_name_2">
+                                                                                               {$v1['address_one']}
+                                                                                             </span>
+                                                                                            </li>
+                                                                                            <li>Address information(two) *
+                                                                                                <span class="font-primary first_name_2">
+                                                                                              {$v1['address_two']}
+                                                                                             </span>
+                                                                                            </li>
+                                                                                            <li>City *
+                                                                                                <span class="font-primary first_name_2">
+                                                                                             {$v1['city']}
+                                                                                             </span>
+                                                                                            </li>
+                                                                                            <li>State *
+                                                                                                <span class="font-primary first_name_2">
+                                                                                              {$v1['state']}
+                                                                                             </span>
+                                                                                            </li>
+                                                                                            <li>Country *
+                                                                                                <span class="font-primary first_name_2">
+                                                                                             {$v1['country']}
+                                                                                             </span>
+                                                                                            </li>
+                                                                                            <li>Postal Code *
+                                                                                                <span class="font-primary first_name_2">
+                                                                                               {$v1['code']}
+                                                                                             </span>
+                                                                                            </li>
+                                                                                            <li>Hospital Phone *
+                                                                                                <span class="font-primary first_name_2">
+                                                                                               {$v1['hospital_phone']}
+                                                                                             </span>
+                                                                                            </li>
+                                                                                            <li>Hospital Fax *
+                                                                                                <span class="font-primary first_name_2">
+                                                                                              {$v1['hospital_fax']}
+                                                                                             </span>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    {/foreach}
+                                                                                    {/if}
+
+                                                                                    {if condition="$health"}
+                                                                                    <div class="col-md-12 position-relative" style="margin-top: 20px;">
+                                                                                        <label class="form-label" >I authorize and request the disclosure of all protected information for review and evaluation in connection with a surrogacy eligibility evaluation by patriot by Patriot Conceptions,LLC.  I expressly request that the designated record custodian of all covered entities under HIPAA identified above disclose full and complete medical information including the following :</label>
+                                                                                        <div class="col">
+                                                                                            <div class="m-checkbox-inline">
+                                                                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                                                                    <input class="form-check-input" id="inline-10" type="checkbox"  name="is_one"   {if condition="$health.is_one eq '1'"} checked{/if}>
+                                                                                                    <label class="form-check-label" for="inline-2">All medical records,meaning every page in my record,including but not limited to:office notes,face sheets. history and physical,consulatation notes,inpatient,outpatient and emergency room treatment,all clinical charts,reports,order sheets,progress notes,nurse's notes,social worker records,clinic records,treatment plans, admission records,discharge summaries,request for and reports of consulations,documents,correspondence,test results,sttements,questionnaires/histories,correspondence,photographs,videotapes,telephone messages,and records received by other medical providers</label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                            <div class="m-checkbox-inline">
+                                                                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                                                                    <input class="form-check-input" id="inline-11" type="checkbox"   name="is_two"   {if condition="$health.is_two eq '1'"} checked{/if}>
+                                                                                                    <label class="form-check-label" for="inline-3">All physical,occupational and rehab requests,consulations and progress notes.</label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                            <div class="m-checkbox-inline">
+                                                                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                                                                    <input class="form-check-input" id="inline-12" type="checkbox"   name="is_three"   {if condition="$health.is_three eq '1'"} checked{/if}>
+                                                                                                    <label class="form-check-label" for="inline-4">All disability,Medicaid or Medicare records including claim forms and record of denial of benefits.</label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                            <div class="m-checkbox-inline">
+                                                                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                                                                    <input class="form-check-input" id="inline-13" type="checkbox"   name="is_four"   {if condition="$health.is_four eq '1'"} checked{/if}>
+                                                                                                    <label class="form-check-label" for="inline-5">All autopsy,laboratory,histology,cytology,pathology,immunohistochemistry records and specimens;radiology records and films including CT scan,MRI,MRA,EMG,bone scan,myleogram;nerve conduction study,echocardiogram and cardiac catheterization results,videos/CDs/films/reels and reports.</label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                            <div class="m-checkbox-inline">
+                                                                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                                                                    <input class="form-check-input" id="inline-14" type="checkbox"   name="is_five"  {if condition="$health.is_five eq '1'"} checked{/if}>
+                                                                                                    <label class="form-check-label" for="inline-6">All pharmacy/prescription records including NDC numbers and drug information handouts/monographs.</label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    {else}
+                                                                                    <div class="col-md-12 position-relative" style="margin-top: 20px;">
+                                                                                        <label class="form-label" >I authorize and request the disclosure of all protected information for review and evaluation in connection with a surrogacy eligibility evaluation by patriot by Patriot Conceptions,LLC.  I expressly request that the designated record custodian of all covered entities under HIPAA identified above disclose full and complete medical information including the following :</label>
+                                                                                        <div class="col">
+                                                                                            <div class="m-checkbox-inline">
+                                                                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                                                                    <input class="form-check-input" id="inline-2" type="checkbox"  checked name="is_one" value="1">
+                                                                                                    <label class="form-check-label" for="inline-2">All medical records,meaning every page in my record,including but not limited to:office notes,face sheets. history and physical,consulatation notes,inpatient,outpatient and emergency room treatment,all clinical charts,reports,order sheets,progress notes,nurse's notes,social worker records,clinic records,treatment plans, admission records,discharge summaries,request for and reports of consulations,documents,correspondence,test results,sttements,questionnaires/histories,correspondence,photographs,videotapes,telephone messages,and records received by other medical providers</label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                            <div class="m-checkbox-inline">
+                                                                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                                                                    <input class="form-check-input" id="inline-3" type="checkbox"  checked name="is_two" value="1">
+                                                                                                    <label class="form-check-label" for="inline-3">All physical,occupational and rehab requests,consulations and progress notes.</label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                            <div class="m-checkbox-inline">
+                                                                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                                                                    <input class="form-check-input" id="inline-4" type="checkbox"  checked name="is_three" value="1">
+                                                                                                    <label class="form-check-label" for="inline-4">All disability,Medicaid or Medicare records including claim forms and record of denial of benefits.</label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                            <div class="m-checkbox-inline">
+                                                                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                                                                    <input class="form-check-input" id="inline-5" type="checkbox"  checked name="is_four" value="1">
+                                                                                                    <label class="form-check-label" for="inline-5">All autopsy,laboratory,histology,cytology,pathology,immunohistochemistry records and specimens;radiology records and films including CT scan,MRI,MRA,EMG,bone scan,myleogram;nerve conduction study,echocardiogram and cardiac catheterization results,videos/CDs/films/reels and reports.</label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                            <div class="m-checkbox-inline">
+                                                                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                                                                    <input class="form-check-input" id="inline-6" type="checkbox"  checked name="is_five" value="1">
+                                                                                                    <label class="form-check-label" for="inline-6">All pharmacy/prescription records including NDC numbers and drug information handouts/monographs.</label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    {/if}
+
+
+
+                                                                                    <div class="col-md-12 m-b-20">
+                                                                                        I understand the information to be released or disclosed may include information relating to sexually transmitted diseases,acquired immunodeficiency syndrome(AIDS),or human Page 1 of 2 immunodeficiency virus(HIV)，and alcohol and drug abuse. I authorize the release or disclosure of this type of information. This protected health information is disclosed for the following purposes(Entiendo que la informacion a serdivulgada puede incluir informacion relacionada a enfermedades de trasmision sexual,sindrome de deficiendia a enfermedades de trasmison sexual,sindrome de deficiendia inmunologica(SIDA),o VIH,y abuso de alcohol y drogas.Autorizo a que se entergue y divulgue todo Gestational carrier eligibility evaluation(Evaluacion para elegibilidad gestacional))
+                                                                                    </div>
+
+                                                                                    <label class="form-label " id="ws_msg">Signature of  Patient or Legally Authorized Representative(Click to pop up the signature again) </label>
+
+                                                                                    {if condition="$health&&$health['canvas']"}
+                                                                                    <img  class="signature_img" src="{$health['canvas']}" />
+                                                                                    {/if}
+
+                                                                                    <li>Date of signature *
+                                                                                        <span class="font-primary first_name_2">
+                                                                                              {$health&&$health['canvas_time']|date="y-m-d",###}
+                                                                                             </span>
+                                                                                    </li>
+                                                                                    <li>Name and Relationship of Legally Authorized Representative to Patient *
+                                                                                        <span class="font-primary first_name_2">
+                                                                                              {$health&&$health['name']}
+                                                                                             </span>
+                                                                                    </li>
+                                                                                    <li>Date *
+                                                                                        <span class="font-primary first_name_2">
+                                                                                              {$health&&$health['name_time']|date="y-m-d",###}
+                                                                                             </span>
+                                                                                    </li>
+
+
+
+                                                                                    <!--                                                                                    <li>Operate-->
+                                                                                    <!--                                                                                        <span class="font-primary interest_0">-->
+                                                                                    <!--                                                                                        <button class="btn btn-light btn-examine" data-type="9" data-uid="{$ids}"  type="submit" data-bs-original-title="" title="">-->
+                                                                                    <!--                                                                                            examine-->
+                                                                                    <!--                                                                                        </button>-->
+                                                                                    <!--                                                                                    </span>-->
+                                                                                    <!--                                                                                    </li>-->
+                                                                                    <style>
+                                                                                        .ws .profile-mail .email-general {
+                                                                                            padding-bottom: 66px !important;
+                                                                                        }
+                                                                                    </style>
+                                                                                    <div class="col-md-12 position-relative">
+                                                                                        <div class="flex-grow-1" style="padding-left: 0px">
+                                                                                            <h6>Operate *</h6>
+                                                                                        </div>
+                                                                                        <textarea class="form-control remarks"
+                                                                                                  placeholder="If the review fails, please fill in the reason"  data-rule="required" name="remarks_health"  rows="3">{if condition="$examine"} {$examine['remarks_health']} {/if}</textarea>
+                                                                                        <button class="btn btn-primary btn-examine"
+                                                                                                style="float: right;margin-top: 10px;margin-bottom: 20px"
+                                                                                                data-type="9" data-uid="{$ids}"  type="submit">
+                                                                                            process
+                                                                                        </button>
+                                                                                        <button class="btn btn-light btn-refuse"
+                                                                                                style="float: right;margin-top: 10px;margin-bottom: 20px;margin-right: 20px"
+                                                                                                data-type="9" data-uid="{$ids}"  type="submit">
+                                                                                            refuse
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Container-fluid Ends-->
+    </div>
+
+</div>
+</div>
+<!-- latest jquery-->
+<script src="__CDN__/assets/koho/assets/js/jquery-3.6.0.min.js"></script>
+<script src="__CDN__/assets/koho/assets/js/bootstrap/popper.min.js"></script>
+<script src="__CDN__/assets/koho/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+<!-- feather icon js-->
+<script src="__CDN__/assets/koho/assets/js/icons/feather-icon/feather.min.js"></script>
+<script src="__CDN__/assets/koho/assets/js/icons/feather-icon/feather-icon.js"></script>
+<!--<script src="__CDN__/assets/koho/assets/js/scrollbar/simplebar.js"></script>-->
+<!--<script src="__CDN__/assets/koho/assets/js/scrollbar/custom.js"></script>-->
+<!-- Sidebar jquery-->
+<script src="__CDN__/assets/koho/assets/js/config.js"></script>
+<!--<script src="__CDN__/assets/koho/assets/js/sidebar-menu.js"></script>-->
+<script src="__CDN__/assets/koho/assets/js/notify/bootstrap-notify.min.js"></script>
+<script src="__CDN__/assets/koho/assets/js/sweet-alert/sweetalert.min.js"></script>
+<script src="__CDN__/assets/koho/assets/js/select2/select2.full.min.js"></script>
+<script src="__CDN__/assets/koho/assets/js/select2/select2-custom.js"></script>
+<script src="__CDN__/assets/koho/assets/js/form-validation-custom.js"></script>
+<script src="__CDN__/assets/koho/assets/js/bookmark/jquery.validate.min.js"></script>
+<script src="__CDN__/assets/koho/assets/js/contacts/custom.js"></script>
+<script src="__CDN__/assets/koho/assets/js/tooltip-init.js"></script>
+<!-- Theme js-->
+<script src="__CDN__/assets/koho/assets/js/script.js"></script>
+<!--<script src="__CDN__/assets/koho/assets/js/theme-customizer/customizer.js"></script>-->
+<script type="text/javascript">
+    var require = {
+        config: {$config|json_encode}
+    };
+</script>
+<script src="__CDN__/assets/js/require.js" data-main="__CDN__/assets/js/require-frontend.js?v=1677120512"></script>
+</body>
+</html>
+<script>
+    $(function () {
+
+    })
+</script>

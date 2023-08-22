@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile | Dreams of Parenthood(DOP) Surrogate in Los Angeles</title>
+    <!-- Page Head Start-->
+    {include file="ws/css" /}
+    <!-- Page Head Start-->
+</head>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+<!-- Loader starts-->
+<!--<div class="loader-wrapper">-->
+<!--    <div class="loader"></div>-->
+<!--</div>-->
+<!-- Loader ends-->
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page nav Start-->
+    {include file="ws/nav" /}
+    <!-- Page nav Ends -->
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+        <!-- Page menu Start-->
+        {include file="ws/menu" /}
+        <!-- Page menu Ends-->
+
+        <style>
+            .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+                margin-top: 24px;
+            }
+            .ws_jindu {
+                display: flex;
+                justify-content: space-between;
+            }
+        </style>
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>User Profile</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">                                       <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">Users</li>
+                                <li class="breadcrumb-item active">User Profile</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="user-profile">
+                    <div class="row">
+                        <!-- user profile header start-->
+                        <div class="col-sm-12">
+                            <div class="card profile-header"><img class="img-fluid bg-img-cover" src="__CDN__/assets/koho/assets/images/user-profile/bg-profile.jpg" alt="">
+                                <div class="profile-img-wrrap"><img class="img-fluid bg-img-cover" src="__CDN__/assets/koho/assets/images/user-profile/bg-profile.jpg" alt=""></div>
+                                <div class="userpro-box">
+                                    <div class="img-wrraper">
+                                        <div class="avatar"><img class="img-fluid" alt="" src="{$row.avatar|htmlentities|cdnurl}"></div><a class="icon-wrapper" href="{:url('index/user/edit_profile')}"><i class="icofont icofont-pencil-alt-5"></i></a>
+                                    </div>
+                                    <div class="user-designation">
+                                        <div class="title"><a target="_blank" href="">
+                                            <h4>{$row.first_name|htmlentities} {$row.last_name|htmlentities}</h4></a>
+                                            <h6>Surrogacy</h6>
+                                        </div>
+                                        <div class="social-media">
+                                            <ul class="user-list-social">
+                                                <li><a href="https://{$row.facebook|htmlentities}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="https://{$row.google|htmlentities}" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                                <li><a href="https://{$row.twitter|htmlentities}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="https://{$row.instagram|htmlentities}" target="_blank"><i class="fa fa-instagram"></i></a></li>
+<!--                                                <li><a href="https://www.rss.com" target="_blank"><i class="fa fa-rss"></i></a></li>-->
+                                            </ul>
+                                        </div>
+                                        <div class="follow">
+                                            <ul class="follow-list">
+                                                <li>
+                                                    <div class="follow-num counter">{if condition="$pre_screening"}{$pre_screening.age|htmlentities}{/if}</div><span>Age</span>
+                                                </li>
+                                                <li>
+                                                    <div class="follow-num counter">{if condition="$pre_screening"}{$pre_screening.height|htmlentities}{/if}</div><span>Height</span>
+                                                </li>
+                                                <li>
+                                                    <div class="follow-num counter">{if condition="$pre_screening"}{$pre_screening.weight|htmlentities}{/if}</div><span>Weight</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- user profile header end-->
+                        <div class="col-xl-3 col-md-5 xl-35 box-col-35">
+                            <div class="default-according style-1 job-accordion">
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h3 class="p-0">
+                                                    <button class="btn btn-link ps-0" data-bs-toggle="collapse" data-bs-target="#collapseicon2" aria-expanded="true" aria-controls="collapseicon2">About Me</button>
+                                                </h3>
+                                            </div>
+                                            <div class="collapse show" id="collapseicon2" aria-labelledby="collapseicon2" data-parent="#accordion">
+                                                <div class="card-body post-about">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="icon"><i data-feather="briefcase"></i></div>
+                                                            <div>
+                                                                <h5>Email</h5>
+                                                                <p>{if condition="$pre_screening"}{$pre_screening.email|htmlentities}{/if}</p>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="icon"><i data-feather="book"></i></div>
+                                                            <div>
+                                                                <h5>Phone</h5>
+                                                                <p>{if condition="$pre_screening"}{$pre_screening.mobile|htmlentities}{/if}</p>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="icon"><i data-feather="heart"></i></div>
+                                                            <div>
+                                                                <h5>City</h5>
+                                                                <p>{if condition="$pre_screening"}{$pre_screening.city|htmlentities}{/if}</p>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="icon"><i data-feather="map-pin"></i></div>
+                                                            <div>
+                                                                <h5>Address</h5>
+                                                                <p>{if condition="$pre_screening"}{$pre_screening.address|htmlentities}{/if}</p>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="icon"><i data-feather="droplet"></i></div>
+                                                            <div>
+                                                                <h5>Marital status</h5>
+                                                                <p>
+
+                                                                    {if condition="$pre_screening&&$pre_screening.marital_status eq 0"} not married{/if}
+                                                                    {if condition="$pre_screening&&$pre_screening.marital_status eq 1"} married{/if}
+                                                                    {if condition="$pre_screening&&$pre_screening.marital_status eq 2"} divorce{/if}
+
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="social-network theme-form">
+                                                        <span class="f-w-600">
+                                                        Social Networks
+                                                        </span>
+                                                        <a class="btn social-btn btn-fb mb-2 text-center" href="https://{$row.facebook|htmlentities}"  target="_blank"><i class="fa fa-facebook m-r-5"></i>Facebook</a>
+                                                        <a class="btn social-btn btn-twitter mb-2 text-center" href="https://{$row.google|htmlentities}"  target="_blank"><i class="fa fa-twitter m-r-5"></i>Twitter</a>
+<!--                                                        <a class="btn social-btn btn-google text-center" href="https://www.dribbble.com"  target="_blank"><i class="fa fa-dribbble m-r-5"></i>Dribbble</a>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+<!--                                    <div class="col-xl-12 col-md-12 col-sm-6">-->
+<!--                                        <div class="card">-->
+<!--                                            <div class="card-header">-->
+<!--                                                <h3 class="p-0">-->
+<!--                                                    <button class="btn btn-link ps-0" data-bs-toggle="collapse" data-bs-target="#collapseicon4" aria-expanded="true" aria-controls="collapseicon4">Latest Photos</button>-->
+<!--                                                </h3>-->
+<!--                                            </div>-->
+<!--                                            <div class="collapse show" id="collapseicon4" data-parent="#accordion" aria-labelledby="collapseicon4">-->
+<!--                                                <div class="card-body photos filter-cards-view">-->
+<!--                                                    <ul>-->
+<!--                                                        {if condition="$images"}-->
+<!--                                                        {foreach name='$images' item='v' key='k' }-->
+<!--                                                        <li>-->
+<!--                                                            <div class="latest-post">-->
+<!--                                                                <a href="{$v}">-->
+<!--                                                                    <img class="img-fluid" alt="" src="{$v}" style="width: 66px;height: 66px">-->
+<!--                                                                </a>-->
+
+<!--                                                            </div>-->
+<!--                                                        </li>-->
+<!--                                                        {/foreach}-->
+<!--                                                        {/if}-->
+
+<!--                                                    </ul>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-9 col-md-7 xl-65 box-col-65">
+                            <div class="default-according style-1 job-accordion">
+                                <div class="row">
+
+
+                                    <div class="col-xl-12 col-md-12 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h3 class="p-0">
+                                                    <button class="btn btn-link ps-0" data-bs-toggle="collapse" data-bs-target="#collapseicon4" aria-expanded="true" aria-controls="collapseicon4">Latest Photos</button>
+                                                </h3>
+                                            </div>
+                                            <div class="collapse show" id="collapseicon4" data-parent="#accordion" aria-labelledby="collapseicon4">
+                                                <div class="card-body photos filter-cards-view">
+                                                    <ul>
+                                                        {if condition="$images"}
+                                                        {foreach name='$images' item='v' key='k' }
+                                                        <li>
+                                                            <div class="latest-post">
+                                                                <a href="{$v}">
+                                                                    <img class="img-fluid" alt="" src="{$v}" style="width: 66px;height: 66px">
+                                                                </a>
+
+                                                            </div>
+                                                        </li>
+                                                        {/foreach}
+                                                        {/if}
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+<!--                        <div class="col-xl-9 col-md-7 xl-65 box-col-65">-->
+<!--                            <div class="row">-->
+<!--                                &lt;!&ndash; profile post start&ndash;&gt;-->
+<!--                                <div class="col-sm-12">-->
+<!--                                    <div class="card">-->
+<!--                                        <div class="profile-post">-->
+<!--                                            <div class="post-header">-->
+<!--                                                <div class="d-flex"><img class="img-thumbnail rounded-circle me-3" src="__CDN__/assets/koho/assets/images/user/7.jpg" alt="Generic placeholder image">-->
+<!--                                                    <div class="flex-grow-1 align-self-center"><a href="social-app.html">-->
+<!--                                                        <h5 class="user-name">Emay Walter</h5></a>-->
+<!--                                                        <h6>5 Hours ago</h6>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="post-setting"><i class="fa fa-ellipsis-h"></i></div>-->
+<!--                                            </div>-->
+<!--                                            <div class="post-body">-->
+<!--                                                <div class="img-container">-->
+<!--                                                    <div class="row mt-4 pictures my-gallery" itemscope="">-->
+<!--                                                        <figure class="col-sm-6" itemprop="associatedMedia" itemscope=""><a href="__CDN__/assets/koho/assets/images/user-profile/post2.jpg" itemprop="contentUrl" data-size="1600x950"><img class="img-fluid" src="__CDN__/assets/koho/assets/images/user-profile/post2.jpg" itemprop="thumbnail" alt="gallery"></a>-->
+<!--                                                            <figcaption itemprop="caption description">Image caption  1</figcaption>-->
+<!--                                                        </figure>-->
+<!--                                                        <figure class="col-sm-6" itemprop="associatedMedia" itemscope=""><a href="__CDN__/assets/koho/assets/images/user-profile/post3.jpg" itemprop="contentUrl" data-size="1600x950"><img class="img-fluid" src="__CDN__/assets/koho/assets/images/user-profile/post3.jpg" itemprop="thumbnail" alt="gallery"></a>-->
+<!--                                                            <figcaption itemprop="caption description">Image caption  2</figcaption>-->
+<!--                                                        </figure>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="post-react">-->
+<!--                                                    <ul>-->
+<!--                                                        <li><img class="rounded-circle" src="__CDN__/assets/koho/assets/images/user/3.jpg" alt=""></li>-->
+<!--                                                        <li><img class="rounded-circle" src="__CDN__/assets/koho/assets/images/user/5.jpg" alt=""></li>-->
+<!--                                                        <li><img class="rounded-circle" src="__CDN__/assets/koho/assets/images/user/1.jpg" alt=""></li>-->
+<!--                                                    </ul>-->
+<!--                                                    <h6>+25 people react this post</h6>-->
+<!--                                                </div>-->
+<!--                                                <p>Success isn't about the end result, it's about what you learn along the way. Confidence. If you have it, you can make anything look good. Grunge is a hippied romantic version of punk. I'm an accomplice to helping women get what they want. Clothes can transform your mood and confidence. I think it's an old fashioned notion that fashion needs to be exclusive to be fashionable.</p>-->
+<!--                                                <ul class="post-comment">-->
+<!--                                                    <li>-->
+<!--                                                        <label><a href="javascript:void(0)"><i data-feather="heart"></i>&nbsp;&nbsp;Like<span class="counter">520</span></a></label>-->
+<!--                                                    </li>-->
+<!--                                                    <li>-->
+<!--                                                        <label><a href="javascript:void(0)"><i data-feather="message-square"></i>&nbsp;&nbsp;Comment<span class="counter">85</span></a></label>-->
+<!--                                                    </li>-->
+<!--                                                    <li>-->
+<!--                                                        <label><a href="javascript:void(0)"><i data-feather="share"></i>&nbsp;&nbsp;share<span class="counter">30</span></a></label>-->
+<!--                                                    </li>-->
+<!--                                                </ul>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash; profile post end&ndash;&gt;-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+                        <!-- user profile fifth-style end-->
+
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid Ends-->
+        </div>
+        <!-- Page content Ends-->
+
+    </div>
+
+
+
+</div>
+
+<!-- Page js Start-->
+{include file="ws/js" /}
+<!-- Page js Ends -->
+
+</body>
+</html>

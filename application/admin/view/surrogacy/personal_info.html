@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home - Personal Info</title>
+
+    <!-- Page Head Start-->
+    {include file="ws/css" /}
+    <!-- Page Head Start-->
+
+    <style>
+
+        .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+            margin-top: 24px;
+        }
+        .ws_jindu {
+            display: flex;
+            justify-content: space-between;
+        }
+        .ws_prodess {
+            margin-top: 5px;width: 70%
+        }
+        @media only screen and (min-width:768px) and (max-width:992px) {
+            .ws_prodess_r {
+                padding-left: 20px;
+            }
+        }
+        /* phone */
+        @media only screen and (max-width:767px) {
+            .ws_prodess {
+                margin-top: 5px;width: 55%
+            }
+            .ws_prodess_r {
+                padding-left: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Personal Info</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{:url('user/user/detail',['ids'=>$uid])}">
+                                    <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">
+                                    <!--                                    <a  style="cursor:pointer;" onClick="javascript :history.back(-1);"> Forms</a>-->
+                                    <a  style="cursor:pointer;" href="{:url('user/user/detail',['ids'=>$uid])}"> Forms</a>
+                                </li>
+                                <li class="breadcrumb-item active">Personal Info</li>
+                            </ol>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="card-body progress-showcase">
+                                <div class="ws_jindu">
+                                    <div>
+                                        {$form_number} required questions
+                                    </div>
+                                    <div class="col col-9 ws_prodess" >
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$lv}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ws_prodess_r">
+                                        {if condition="$row"} {$row.form_complate_number}/{$form_number} complate
+                                        {else}
+                                        0/{$form_number} complate
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container-fluid starts-->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <form class="row g-3" id="personal_info" method="POST" action="" role="form" onsubmit="return sumbit_sure()">
+
+                                    <input class="form-control"  name="uid" type="hidden"  value="{$uid}" >
+                                    <input class="form-control"  id="form_complate_number" name="form_complate_number" type="hidden" value="0" >
+                                    <input class="form-control"   name="status" type="hidden"  value="0">
+
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Highest education *</label><!--最高学历-->
+                                        <input class="form-control" name="highest_education" type="text" data-rule="required" {if condition="$row"} value="{$row.highest_education|htmlentities}"{/if}>
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Religion </label><!--宗教-->
+                                        <input class="form-control" name="religion" type="text"  {if condition="$row"} value="{$row.religion|htmlentities}"{/if}>
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label">Race *</label><!--种族-->
+                                        <input class="form-control" name="race" type="text"  data-rule="required" {if condition="$row"} value="{$row.race|htmlentities}"{/if}>
+
+                                    </div>
+
+                                    <div class="col-md-12 position-relative"><!--职业-->
+                                        <label class="form-label" >Occupation *</label>
+                                        <input class="form-control" name="occupation" type="text" data-rule="required" {if condition="$row"}  value="{$row.occupation|htmlentities}"{/if}>
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Partner's name *</label>
+                                        <input class="form-control" name="partner_name" type="text" data-rule="required" {if condition="$row"}  value="{$row.partner_name|htmlentities}"{/if}>
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Partner's email *</label>
+                                        <input class="form-control" name="partner_email" type="text" data-rule="required" {if condition="$row"}  value="{$row.partner_email|htmlentities}"{/if}>
+                                    </div>
+                                    <div class="col-md-12 position-relative"><!--其他家人职业-->
+                                        <label class="form-label" >Partner's occupation *</label>
+                                        <input class="form-control" name="partner_occupation" type="text" data-rule="required" {if condition="$row"}  value="{$row.partner_occupation|htmlentities}"{/if}>
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Emergency contact  name *</label>
+                                        <input class="form-control" name="emergency_contact_first_name" type="text" data-rule="required" {if condition="$row"}  value="{$row.emergency_contact_first_name|htmlentities}"{/if}>
+                                    </div>
+                                    <!--                                    <div class="col-md-6 position-relative">-->
+                                    <!--                                        <label class="form-label" >Emergency Contact Last Name *</label>-->
+                                    <!--                                        <input class="form-control" name="emergency_contact_last_name" type="text" data-rule="required" {if condition="$row"}  value="{$row.emergency_contact_last_name|htmlentities}"{/if}>-->
+
+                                    <!--                                    </div>-->
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Emergency contact relationship *</label>
+                                        <input class="form-control" name="emergency_contact_relationship" type="text" data-rule="required" {if condition="$row"}  value="{$row.emergency_contact_relationship|htmlentities}"{/if}>
+
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Emergency contact phone number *</label>
+                                        <input class="form-control" name="emergency_contact_phone_number" type="text" data-rule="required" {if condition="$row"}  value="{$row.emergency_contact_phone_number|htmlentities}"{/if}>
+
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Emergency contact email *</label>
+                                        <input class="form-control" name="emergency_contact_email" type="text" data-rule="required" {if condition="$row"}  value="{$row.emergency_contact_email|htmlentities}"{/if}>
+
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="submit">Submit form</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid Ends-->
+        </div>
+        <!-- Page content Ends-->
+
+    </div>
+
+
+
+</div>
+
+<!-- Page js Start-->
+{include file="ws/js" /}
+<!-- Page js Ends -->
+
+<script>
+    function sumbit_sure(){
+        var parmas = $("#personal_info").find("input");
+        var name_arr = ['birthday_time','highest_education','race','occupation','partner_name','partner_email','partner_occupation','emergency_contact_first_name','emergency_contact_last_name',
+            'emergency_contact_relationship','emergency_contact_phone_number','emergency_contact_email'];
+        var j = 0;
+        var arr = [];
+        for(i=0;i<parmas.length;i++){
+            var value = parmas[i].value;
+            var name = $(parmas[i]).attr('name');
+            if (name_arr.includes(name)&&value.length==0){
+                j++;
+                one = $(parmas[i]).prev().text();
+                arr.push(one);
+            }
+        }
+
+
+        $('#form_complate_number').val(j);
+        var html = "Are you sure you want to exit？\n";
+        if (j>0){
+            html += j+" mandatory field\n";
+            if(j==1){
+                html += "'"+arr[0]+"'\n," ;
+
+            }else if(j==2){
+                html += "'"+arr[0]+"',\n" ;
+                html += "'"+arr[1]+"',\n" ;
+            }else{
+                html += "'"+arr[0]+"',\n" ;
+                html += "'"+arr[1]+"',\n" ;
+                html += "'"+arr[2]+"'...\n" ;
+            }
+            html += "Not filled in.\n";
+            html += "\n";
+        }
+
+        html += "Please fill in relevant information.";
+        var gnl=confirm(html);
+        if (gnl==true){
+            if (j==0){
+                return true;
+            }else {
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

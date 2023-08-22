@@ -1,0 +1,160 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Uid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-uid" class="form-control" name="row[uid]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_hospital')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_hospital" class="form-control selectpicker" name="row[is_hospital]">
+                {foreach name="isHospitalList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Hospital_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-hospital_content" class="form-control editor" rows="5" name="row[hospital_content]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_surgeries')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_surgeries" class="form-control selectpicker" name="row[is_surgeries]">
+                {foreach name="isSurgeriesList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Surgeries_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-surgeries_content" class="form-control editor" rows="5" name="row[surgeries_content]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Any_medical_conditions')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-any_medical_conditions" class="form-control " rows="5" name="row[any_medical_conditions]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Any_herbs')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-any_herbs" class="form-control " rows="5" name="row[any_herbs]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Any_allergies')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-any_allergies" class="form-control " rows="5" name="row[any_allergies]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_drink')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_drink" class="form-control selectpicker" name="row[is_drink]">
+                {foreach name="isDrinkList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Drink_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-drink_content" class="form-control editor" rows="5" name="row[drink_content]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_smoke')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_smoke" class="form-control selectpicker" name="row[is_smoke]">
+                {foreach name="isSmokeList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Smoke_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-smoke_content" class="form-control editor" rows="5" name="row[smoke_content]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Birth_control')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-birth_control" class="form-control " rows="5" name="row[birth_control]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_menstrual_cycles')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_menstrual_cycles" class="form-control selectpicker" name="row[is_menstrual_cycles]">
+                {foreach name="isMenstrualCyclesList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_pregnant')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_pregnant" class="form-control selectpicker" name="row[is_pregnant]">
+                {foreach name="isPregnantList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Pregnant_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-pregnant_content" class="form-control editor" rows="5" name="row[pregnant_content]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Form_complate_number')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-form_complate_number" class="form-control" name="row[form_complate_number]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="statusList" item="vo"}
+            <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="0"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

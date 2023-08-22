@@ -1,0 +1,869 @@
+<div id="main" role="main">
+    <div class="tab-content tab-addtabs">
+        <div id="content">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="content">
+
+                        <style>
+                            .form-group .col-sm-3 {
+                                padding-bottom: 5px;
+                            }
+                            .nav-tabs {
+                                border-bottom: unset;
+                            }
+                        </style>
+                        <form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+                            <div class="col-md-12 col-sm-12">
+                                <div class="panel panel-default ">
+                                    <div class="panel-heading">
+                                        <div class="panel-lead">
+                                            <div class="panel-title">
+                                                <span style="font-weight: bold;font-style: normal;">Basic Information</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body" style="min-height: 248px;">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade active in" id="extra">
+                                                <input class="form-control"   name="row[type]" type="hidden"  value="2">
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">{:__('Status')}:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <select name="row[status]" class="form-control" >
+                                                            <option {if condition="$row.status eq '0'"} selected{/if} value="0">New lead</option>
+                                                            <option disabled {if condition="$row.status eq '1'"} selected{/if} value="1">Pre-screened</option>
+                                                            <option disabled {if condition="$row.status eq '2'"} selected{/if} value="2">DQed</option>
+                                                            <option {if condition="$row.status eq '3'"} selected{/if} value="4">Tried contact and waiting</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Service:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <select name="row[service]" id="service" class="form-control" data-rule="required">
+                                                            {foreach name="serviceList" item="vo"}
+                                                            <option value="{$vo}" {in name="vo" value="$row.service"}selected{/in}>{$key}</option>
+                                                            {/foreach}
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">First name:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" name="row[first_name]" data-rule="required" value="{$row.first_name}"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Middle name:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input type="text" class="form-control" name="row[middle_name]"  value="{$row.middle_name}"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Last name:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" name="row[last_name]" value="{$row.last_name}" data-rule="required" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Email:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" name="row[email]" value="{$row.email}"  data-rule="required,email"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Mobile:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  class="form-control" name="row[mobile]" type="text"  value="{$row.mobile}" data-rule="required">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Lead source:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <select name="row[lead_source]" class="form-control" data-rule="required">
+                                                            {foreach name="leadSourceList" item="vo"}
+                                                            <option value="{$vo}" {if condition="$row.lead_source eq $vo"} selected{/if}>{$vo}</option>
+                                                            {/foreach}
+                                                        </select>
+                                                        <!--                                                        <input  type="text" class="form-control" name="row[lead_source]"/>-->
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Media:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input type="text" class="form-control" value="{$row.media}" name="row[media]"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Account:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" value="{$row.account}" name="row[account]"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Campaign:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" value="{$row.campaign}" name="row[campaign]"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Adgroup:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" value="{$row.adgroup}" name="row[adgroup]"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Adname:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" value="{$row.adname}" name="row[adname]"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Referral:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" value="{$row.referral}" name="row[referral]"/>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <div class="form-group layer-footer">
+                                                    <label class="control-label col-xs-12 col-sm-3"></label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+                                                        <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 surrogate" >
+                                <div class="panel panel-default panel-success">
+                                    <div class="panel-heading">
+                                        <div class="panel-lead">
+                                            <div class="panel-title">
+                                                <span style="font-weight: bold;font-style: normal;">Surrogacy information</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body" style="min-height: 248px;">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade active in" id="extra1">
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Birthday time:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        {if condition="$row.surrogacy"}
+                                                        <input  class="form-control datetimepicker birthday_time" data-date-format="MM/DD/YYYY" data-use-current="true" name="surrogacy[birthday_time]" type="text" value="{$row.surrogacy.birthday_time|date='m/d/y',###}">
+                                                        {else}
+                                                        <input  class="form-control datetimepicker birthday_time" data-date-format="MM/DD/YYYY" data-use-current="true" name="surrogacy[birthday_time]" type="text" value="">
+                                                        {/if}
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Address:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" value="{$row.surrogacy?$row.surrogacy.address:''}" name="surrogacy[address]"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">City:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" value="{$row.surrogacy?$row.surrogacy.city:''}" name="surrogacy[city]"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Select State:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <select class="form-control selectpicker" name="surrogacy[state]" >
+                                                            <option  value=""></option>
+                                                            <option  value="AK"{if condition="$row.surrogacy&&$row.surrogacy.state eq 'AK'"} selected{/if}>AK</option>
+                                                            <option value="AL" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'AL'"} selected{/if}>AL</option>
+                                                            <option value="AR" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'AR'"} selected{/if}>AR</option>
+
+                                                            <option value="AZ" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'AZ'"} selected{/if}>AZ</option>
+                                                            <option value="CA" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'CA'"} selected{/if}>CA</option>
+                                                            <option value="CO" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'CO'"} selected{/if}>CO</option>
+                                                            <option value="CT" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'CT'"} selected{/if}>CT</option>
+                                                            <option value="DC" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'DC'"} selected{/if}>DC</option>
+                                                            <option value="DE" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'DE'"} selected{/if}>DE</option>
+                                                            <option value="FL" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'FL'"} selected{/if}>FL</option>
+                                                            <option value="GA" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'GA'"} selected{/if}>GA</option>
+                                                            <option value="GU" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'GU'"} selected{/if}>GU</option>
+                                                            <option value="HI" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'HI'"} selected{/if}>HI</option>
+                                                            <option value="IA" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'IA'"} selected{/if}>IA</option>
+                                                            <option value="ID" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'ID'"} selected{/if}>ID</option>
+                                                            <option value="IL" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'IL'"} selected{/if}>IL</option>
+                                                            <option value="IN" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'IN'"} selected{/if}>IN</option>
+                                                            <option value="KS" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'KS'"} selected{/if}>KS</option>
+                                                            <option value="KY" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'KY'"} selected{/if}>KY</option>
+                                                            <option value="LA" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'LA'"} selected{/if}>LA</option>
+                                                            <option value="MA" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'MA'"} selected{/if}>MA</option>
+                                                            <option value="MD" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'MD'"} selected{/if}>MD</option>
+                                                            <option value="ME" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'ME'"} selected{/if}>ME</option>
+                                                            <option value="MI" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'MI'"} selected{/if}>MI</option>
+                                                            <option value="MN" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'MN'"} selected{/if}>MN</option>
+                                                            <option value="MO" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'MO'"} selected{/if}>MO</option>
+                                                            <option value="MS" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'MS'"} selected{/if}>MS</option>
+                                                            <option value="MT" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'MT'"} selected{/if}>MT</option>
+                                                            <option value="NC" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'NC'"} selected{/if}>NC</option>
+                                                            <option value="ND" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'ND'"} selected{/if}>ND</option>
+                                                            <option value="NE" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'NE'"} selected{/if}>NE</option>
+                                                            <option value="NH" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'NH'"} selected{/if}>NH</option>
+                                                            <option value="NJ" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'NJ'"} selected{/if}>NJ</option>
+                                                            <option value="NM" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'NM'"} selected{/if}>NM</option>
+                                                            <option value="NV" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'NV'"} selected{/if}>NV</option>
+                                                            <option value="NY" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'NY'"} selected{/if}>NY</option>
+                                                            <option value="OH" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'OH'"} selected{/if}>OH</option>
+                                                            <option value="OK" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'OK'"} selected{/if}>OK</option>
+                                                            <option value="OR" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'OR'"} selected{/if}>OR</option>
+                                                            <option value="PA" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'PA'"} selected{/if}>PA</option>
+                                                            <option value="PR" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'PR'"} selected{/if}>PR</option>
+                                                            <option value="RI" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'RI'"} selected{/if}>RI</option>
+                                                            <option value="SC" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'SC'"} selected{/if}>SC</option>
+                                                            <option value="SD" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'SD'"} selected{/if}>SD</option>
+                                                            <option value="TN" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'TN'"} selected{/if}>TN</option>
+                                                            <option value="TX" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'TX'"} selected{/if}>TX</option>
+                                                            <option value="UT" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'UT'"} selected{/if}>UT</option>
+                                                            <option value="VA" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'VA'"} selected{/if}>VA</option>
+                                                            <option value="WA" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'WA'"} selected{/if}>WA</option>
+                                                            <option value="WI" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'WI'"} selected{/if}>WI</option>
+                                                            <option value="WV" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'WV'"} selected{/if}>WV</option>
+                                                            <option value="WY" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'WY'"} selected{/if}>WY</option>
+                                                            <option value="Others" {if condition="$row.surrogacy&&$row.surrogacy.state eq 'Others'"} selected{/if}>Others</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Zipcode:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" value="{$row.surrogacy?$row.surrogacy.postal_code:''}" name="surrogacy[postal_code]"/>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Age:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  class="form-control age" name="surrogacy[age]" value="{$row.surrogacy?$row.surrogacy.age:''}" type="number" >
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">{:__('Height')}:</label>
+                                                    <div class="col-xs-12 col-sm-8" style="padding-left: 0px">
+                                                        <style>
+                                                            .ws-ft-f {
+                                                                position: relative;
+                                                                display: table;
+                                                                border-collapse: separate;
+                                                            }
+                                                            .ws-ft {
+                                                                position: absolute;
+                                                                right: 20%;
+                                                                top: 10%;
+                                                                font-size: 16px;
+                                                                color: #000;
+                                                            }
+                                                            .ws_weight_f {
+                                                                position: relative;
+                                                                display: table;
+                                                                border-collapse: separate;
+                                                            }
+                                                            .ws_weight {
+                                                                position: absolute;
+                                                                right: 10%;
+                                                                top: 10%;
+                                                                font-size: 16px;
+                                                                color: #000;
+                                                            }
+                                                        </style>
+                                                        <div class="col-xs-5 ws-ft-f">
+                                                            <select class="form-control"  name="surrogacy[height_ft]">
+                                                                <option value="0" {if condition="$row.surrogacy&&$row.surrogacy.height_ft eq '0'"} selected{/if}>0</option>
+                                                                <option value="1" {if condition="$row.surrogacy&&$row.surrogacy.height_ft eq '1'"} selected{/if}>1</option>
+                                                                <option value="2" {if condition="$row.surrogacy&&$row.surrogacy.height_ft eq '2'"} selected{/if}>2</option>
+                                                                <option value="3" {if condition="$row.surrogacy&&$row.surrogacy.height_ft eq '3'"} selected{/if}>3</option>
+                                                                <option value="4" {if condition="$row.surrogacy&&$row.surrogacy.height_ft eq '4'"} selected{/if}>4</option>
+                                                                <option value="5" {if condition="$row.surrogacy&&$row.surrogacy.height_ft eq '5'"} selected{/if}>5</option>
+                                                                <option value="6" {if condition="$row.surrogacy&&$row.surrogacy.height_ft eq '6'"} selected{/if}>6</option>
+                                                                <option value="7" {if condition="$row.surrogacy&&$row.surrogacy.height_ft eq '7'"} selected{/if}>7</option>
+                                                            </select>
+                                                            <span class="ws-ft">ft</span>
+
+                                                        </div>
+                                                        <div class="col-xs-5 ws-ft-f">
+                                                            <select class="form-control"  name="surrogacy[height_in]">
+                                                                <option value="0" {if condition="$row.surrogacy&&$row.surrogacy.height_in eq '0'"} selected{/if}>0</option>
+                                                                <option value="1" {if condition="$row.surrogacy&&$row.surrogacy.height_in eq '1'"} selected{/if}>1</option>
+                                                                <option value="2" {if condition="$row.surrogacy&&$row.surrogacy.height_in eq '2'"} selected{/if}>2</option>
+                                                                <option value="3" {if condition="$row.surrogacy&&$row.surrogacy.height_in eq '3'"} selected{/if}>3</option>
+                                                                <option value="4" {if condition="$row.surrogacy&&$row.surrogacy.height_in eq '4'"} selected{/if}>4</option>
+                                                                <option value="5" {if condition="$row.surrogacy&&$row.surrogacy.height_in eq '5'"} selected{/if}>5</option>
+                                                                <option value="6" {if condition="$row.surrogacy&&$row.surrogacy.height_in eq '6'"} selected{/if}>6</option>
+                                                                <option value="7" {if condition="$row.surrogacy&&$row.surrogacy.height_in eq '7'"} selected{/if}>7</option>
+                                                                <option value="8" {if condition="$row.surrogacy&&$row.surrogacy.height_in eq '8'"} selected{/if}>8</option>
+                                                                <option value="9" {if condition="$row.surrogacy&&$row.surrogacy.height_in eq '9'"} selected{/if}>9</option>
+                                                                <option value="10" {if condition="$row.surrogacy&&$row.surrogacy.height_in eq '10'"} selected{/if}>10</option>
+                                                                <option value="11" {if condition="$row.surrogacy&&$row.surrogacy.height_in eq '11'"} selected{/if}>11</option>
+                                                            </select>
+                                                            <span class="ws-ft">in</span>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Weight:</label>
+                                                    <div class="col-xs-12 col-sm-8 ws_weight_f">
+                                                        <input id="c-weight" class="form-control" value="{$row.surrogacy?$row.surrogacy.weight:''}" name="surrogacy[weight]" type="number">
+                                                        <span class="ws_weight">lb</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Are you married or living with a long term relationship partner?:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+
+                                                        <div class="radio">
+                                                            <label for="row[marital_status]-1">
+                                                                <input id="row[marital_status]-1" name="surrogacy[marital_status]" type="radio" value="1" {if condition="$row.surrogacy&&$row.surrogacy.marital_status eq '1'"} checked{/if}/> Yes</label>
+                                                            <label for="row[marital_status]-2"><input id="row[marital_status]-2" name="surrogacy[marital_status]" {if condition="$row.surrogacy&&$row.surrogacy.marital_status eq '2'"} checked{/if} type="radio" value="2"/> No</label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Are you an US citizen or permanent resident of US?:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+
+                                                        <div class="radio">
+
+                                                            <label for="is_us_1"><input id="is_us_1" name="surrogacy[is_us]" {if condition="$row.surrogacy&&$row.surrogacy.is_us eq '1'"} checked{/if} type="radio" value="1" /> Yes</label>
+                                                            <label for="is_us_2"><input id="is_us_2" name="surrogacy[is_us]" {if condition="$row.surrogacy&&$row.surrogacy.is_us eq '2'"} checked{/if} type="radio" value="2" /> No</label>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Number of vaginal birth:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input id="c-product_number" class="form-control" name="surrogacy[product_number]" type="number" value="{$row.surrogacy?$row.surrogacy.product_number:''}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Number of caesarean sections:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input id="c-caesarean_number" class="form-control" name="surrogacy[caesarean_number]" type="number" value="{$row.surrogacy?$row.surrogacy.caesarean_number:''}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Number of miscarriages:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input id="c-miscarriage_number" class="form-control" name="surrogacy[miscarriage_number]" type="number" value="{$row.surrogacy?$row.surrogacy.miscarriage_number:''}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Number of abortions:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input id="c-abortion_number" class="form-control" name="surrogacy[abortion_number]" type="number" value="{$row.surrogacy?$row.surrogacy.abortion_number:''}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">If there is any miscarriage/abortion, please give a brief reason:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <div class="radio">
+                                                            <label for="radio1">
+                                                                <input id="radio1" name="surrogacy[is_abortion_reason]" type="radio" value="1" {if condition="$row.surrogacy&&$row.surrogacy.is_abortion_reason eq '1'"} checked{/if} /> Yes
+                                                            </label>
+                                                            <label for="radio2">
+                                                                <input id="radio2" name="surrogacy[is_abortion_reason]" type="radio" value="2" {if condition="$row.surrogacy&&$row.surrogacy.is_abortion_reason eq '2'"} checked{/if} /> No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group abortion_reason">
+                                                    <label class="control-label col-xs-12 col-sm-3">If so, when and why?:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <textarea id="c-abortion_reason" class="form-control " rows="5" name="surrogacy[abortion_reason]" cols="50">{$row.surrogacy?$row.surrogacy.abortion_reason:''}</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Is there any complications during pregnancy or childbirth:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <div class="radio">
+                                                            <label for="radio3">
+                                                                <input id="radio3" name="surrogacy[is_complications_of_pregnancy]" type="radio" value="1"  {if condition="$row.surrogacy&&$row.surrogacy.is_complications_of_pregnancy eq '1'"} checked{/if}/> Yes
+                                                            </label>
+                                                            <label for="radio4">
+                                                                <input id="radio4" name="surrogacy[is_complications_of_pregnancy]" type="radio" value="2" {if condition="$row.surrogacy&&$row.surrogacy.is_complications_of_pregnancy eq '2'"} checked{/if} /> No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group complications_of_pregnancy">
+                                                    <label class="control-label col-xs-12 col-sm-3">If so, when and why?:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <textarea id="c-complications_of_pregnancy" class="form-control " rows="5" name="surrogacy[complications_of_pregnancy]" cols="50">{$row.surrogacy?$row.surrogacy.complications_of_pregnancy:''}</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Current contraceptive method :</label>
+                                                    <div class="col-xs-12 col-sm-8">
+
+                                                        <textarea id="c-contraceptive_measures" class="form-control " rows="5" name="surrogacy[contraceptive_measures]" cols="50">{$row.surrogacy?$row.surrogacy.contraceptive_measures:''}</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">How did you hear about us?:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <textarea id="c-about_content" class="form-control " rows="5" name="surrogacy[about_content]" cols="50">{$row.surrogacy?$row.surrogacy.about_content:''}</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 egg_donor" >
+                                <div class="panel panel-default panel-success">
+                                    <div class="panel-heading">
+                                        <div class="panel-lead">
+                                            <div class="panel-title">
+                                                <span style="font-weight: bold;font-style: normal;">Egg Donor information</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body" style="min-height: 248px;">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade active in" id="extra2">
+
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Select State:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <select class="form-control selectpicker" name="surrogacy[state]" >
+                                                            <option  value=""></option>
+                                                            <option  value="AK"{if condition="$row.donor&&$row.donor.state eq 'AK'"} selected{/if}>AK</option>
+                                                            <option value="AL" {if condition="$row.donor&&$row.donor.state eq 'AL'"} selected{/if}>AL</option>
+                                                            <option value="AR" {if condition="$row.donor&&$row.donor.state eq 'AR'"} selected{/if}>AR</option>
+
+                                                            <option value="AZ" {if condition="$row.donor&&$row.donor.state eq 'AZ'"} selected{/if}>AZ</option>
+                                                            <option value="CA" {if condition="$row.donor&&$row.donor.state eq 'CA'"} selected{/if}>CA</option>
+                                                            <option value="CO" {if condition="$row.donor&&$row.donor.state eq 'CO'"} selected{/if}>CO</option>
+                                                            <option value="CT" {if condition="$row.donor&&$row.donor.state eq 'CT'"} selected{/if}>CT</option>
+                                                            <option value="DC" {if condition="$row.donor&&$row.donor.state eq 'DC'"} selected{/if}>DC</option>
+                                                            <option value="DE" {if condition="$row.donor&&$row.donor.state eq 'DE'"} selected{/if}>DE</option>
+                                                            <option value="FL" {if condition="$row.donor&&$row.donor.state eq 'FL'"} selected{/if}>FL</option>
+                                                            <option value="GA" {if condition="$row.donor&&$row.donor.state eq 'GA'"} selected{/if}>GA</option>
+                                                            <option value="GU" {if condition="$row.donor&&$row.donor.state eq 'GU'"} selected{/if}>GU</option>
+                                                            <option value="HI" {if condition="$row.donor&&$row.donor.state eq 'HI'"} selected{/if}>HI</option>
+                                                            <option value="IA" {if condition="$row.donor&&$row.donor.state eq 'IA'"} selected{/if}>IA</option>
+                                                            <option value="ID" {if condition="$row.donor&&$row.donor.state eq 'ID'"} selected{/if}>ID</option>
+                                                            <option value="IL" {if condition="$row.donor&&$row.donor.state eq 'IL'"} selected{/if}>IL</option>
+                                                            <option value="IN" {if condition="$row.donor&&$row.donor.state eq 'IN'"} selected{/if}>IN</option>
+                                                            <option value="KS" {if condition="$row.donor&&$row.donor.state eq 'KS'"} selected{/if}>KS</option>
+                                                            <option value="KY" {if condition="$row.donor&&$row.donor.state eq 'KY'"} selected{/if}>KY</option>
+                                                            <option value="LA" {if condition="$row.donor&&$row.donor.state eq 'LA'"} selected{/if}>LA</option>
+                                                            <option value="MA" {if condition="$row.donor&&$row.donor.state eq 'MA'"} selected{/if}>MA</option>
+                                                            <option value="MD" {if condition="$row.donor&&$row.donor.state eq 'MD'"} selected{/if}>MD</option>
+                                                            <option value="ME" {if condition="$row.donor&&$row.donor.state eq 'ME'"} selected{/if}>ME</option>
+                                                            <option value="MI" {if condition="$row.donor&&$row.donor.state eq 'MI'"} selected{/if}>MI</option>
+                                                            <option value="MN" {if condition="$row.donor&&$row.donor.state eq 'MN'"} selected{/if}>MN</option>
+                                                            <option value="MO" {if condition="$row.donor&&$row.donor.state eq 'MO'"} selected{/if}>MO</option>
+                                                            <option value="MS" {if condition="$row.donor&&$row.donor.state eq 'MS'"} selected{/if}>MS</option>
+                                                            <option value="MT" {if condition="$row.donor&&$row.donor.state eq 'MT'"} selected{/if}>MT</option>
+                                                            <option value="NC" {if condition="$row.donor&&$row.donor.state eq 'NC'"} selected{/if}>NC</option>
+                                                            <option value="ND" {if condition="$row.donor&&$row.donor.state eq 'ND'"} selected{/if}>ND</option>
+                                                            <option value="NE" {if condition="$row.donor&&$row.donor.state eq 'NE'"} selected{/if}>NE</option>
+                                                            <option value="NH" {if condition="$row.donor&&$row.donor.state eq 'NH'"} selected{/if}>NH</option>
+                                                            <option value="NJ" {if condition="$row.donor&&$row.donor.state eq 'NJ'"} selected{/if}>NJ</option>
+                                                            <option value="NM" {if condition="$row.donor&&$row.donor.state eq 'NM'"} selected{/if}>NM</option>
+                                                            <option value="NV" {if condition="$row.donor&&$row.donor.state eq 'NV'"} selected{/if}>NV</option>
+                                                            <option value="NY" {if condition="$row.donor&&$row.donor.state eq 'NY'"} selected{/if}>NY</option>
+                                                            <option value="OH" {if condition="$row.donor&&$row.donor.state eq 'OH'"} selected{/if}>OH</option>
+                                                            <option value="OK" {if condition="$row.donor&&$row.donor.state eq 'OK'"} selected{/if}>OK</option>
+                                                            <option value="OR" {if condition="$row.donor&&$row.donor.state eq 'OR'"} selected{/if}>OR</option>
+                                                            <option value="PA" {if condition="$row.donor&&$row.donor.state eq 'PA'"} selected{/if}>PA</option>
+                                                            <option value="PR" {if condition="$row.donor&&$row.donor.state eq 'PR'"} selected{/if}>PR</option>
+                                                            <option value="RI" {if condition="$row.donor&&$row.donor.state eq 'RI'"} selected{/if}>RI</option>
+                                                            <option value="SC" {if condition="$row.donor&&$row.donor.state eq 'SC'"} selected{/if}>SC</option>
+                                                            <option value="SD" {if condition="$row.donor&&$row.donor.state eq 'SD'"} selected{/if}>SD</option>
+                                                            <option value="TN" {if condition="$row.donor&&$row.donor.state eq 'TN'"} selected{/if}>TN</option>
+                                                            <option value="TX" {if condition="$row.donor&&$row.donor.state eq 'TX'"} selected{/if}>TX</option>
+                                                            <option value="UT" {if condition="$row.donor&&$row.donor.state eq 'UT'"} selected{/if}>UT</option>
+                                                            <option value="VA" {if condition="$row.donor&&$row.donor.state eq 'VA'"} selected{/if}>VA</option>
+                                                            <option value="WA" {if condition="$row.donor&&$row.donor.state eq 'WA'"} selected{/if}>WA</option>
+                                                            <option value="WI" {if condition="$row.donor&&$row.donor.state eq 'WI'"} selected{/if}>WI</option>
+                                                            <option value="WV" {if condition="$row.donor&&$row.donor.state eq 'WV'"} selected{/if}>WV</option>
+                                                            <option value="WY" {if condition="$row.donor&&$row.donor.state eq 'WY'"} selected{/if}>WY</option>
+                                                            <option value="Others" {if condition="$row.donor&&$row.donor.state eq 'Others'"} selected{/if}>Others</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Age:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  class="form-control age" name="donor[age]" type="number"  value="{$row.donor?$row.donor.age:''}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">{:__('Height')}:</label>
+                                                    <div class="col-xs-12 col-sm-8" style="padding-left: 0px">
+                                                        <style>
+                                                            .ws-ft-f {
+                                                                position: relative;
+                                                                display: table;
+                                                                border-collapse: separate;
+                                                            }
+                                                            .ws-ft {
+                                                                position: absolute;
+                                                                right: 20%;
+                                                                top: 10%;
+                                                                font-size: 16px;
+                                                                color: #000;
+                                                            }
+                                                            .ws_weight_f {
+                                                                position: relative;
+                                                                display: table;
+                                                                border-collapse: separate;
+                                                            }
+                                                            .ws_weight {
+                                                                position: absolute;
+                                                                right: 10%;
+                                                                top: 10%;
+                                                                font-size: 16px;
+                                                                color: #000;
+                                                            }
+                                                        </style>
+                                                        <div class="col-xs-5 ws-ft-f">
+                                                            <select class="form-control"  name="donor[height_ft]">
+                                                                <option value="0" {if condition="$row.donor&&$row.donor.height_ft eq '0'"} selected{/if}>0</option>
+                                                                <option value="1" {if condition="$row.donor&&$row.donor.height_ft eq '1'"} selected{/if}>1</option>
+                                                                <option value="2" {if condition="$row.donor&&$row.donor.height_ft eq '2'"} selected{/if}>2</option>
+                                                                <option value="3" {if condition="$row.donor&&$row.donor.height_ft eq '3'"} selected{/if}>3</option>
+                                                                <option value="4" {if condition="$row.donor&&$row.donor.height_ft eq '4'"} selected{/if}>4</option>
+                                                                <option value="5" {if condition="$row.donor&&$row.donor.height_ft eq '5'"} selected{/if}>5</option>
+                                                                <option value="6" {if condition="$row.donor&&$row.donor.height_ft eq '6'"} selected{/if}>6</option>
+                                                                <option value="7" {if condition="$row.donor&&$row.donor.height_ft eq '7'"} selected{/if}>7</option>
+                                                            </select>
+                                                            <span class="ws-ft">ft</span>
+
+                                                        </div>
+                                                        <div class="col-xs-5 ws-ft-f">
+                                                            <select class="form-control"  name="donor[height_in]">
+                                                                <option value="0" {if condition="$row.donor&&$row.donor.height_in eq '0'"} selected{/if}>0</option>
+                                                                <option value="1" {if condition="$row.donor&&$row.donor.height_in eq '1'"} selected{/if}>1</option>
+                                                                <option value="2" {if condition="$row.donor&&$row.donor.height_in eq '2'"} selected{/if}>2</option>
+                                                                <option value="3" {if condition="$row.donor&&$row.donor.height_in eq '3'"} selected{/if}>3</option>
+                                                                <option value="4" {if condition="$row.donor&&$row.donor.height_in eq '4'"} selected{/if}>4</option>
+                                                                <option value="5" {if condition="$row.donor&&$row.donor.height_in eq '5'"} selected{/if}>5</option>
+                                                                <option value="6" {if condition="$row.donor&&$row.donor.height_in eq '6'"} selected{/if}>6</option>
+                                                                <option value="7" {if condition="$row.donor&&$row.donor.height_in eq '7'"} selected{/if}>7</option>
+                                                                <option value="8" {if condition="$row.donor&&$row.donor.height_in eq '8'"} selected{/if}>8</option>
+                                                                <option value="9" {if condition="$row.donor&&$row.donor.height_in eq '9'"} selected{/if}>9</option>
+                                                                <option value="10" {if condition="$row.donor&&$row.donor.height_in eq '10'"} selected{/if}>10</option>
+                                                                <option value="11" {if condition="$row.donor&&$row.donor.height_in eq '11'"} selected{/if}>11</option>
+                                                            </select>
+                                                            <span class="ws-ft">in</span>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Weight:</label>
+                                                    <div class="col-xs-12 col-sm-8 ws_weight_f">
+                                                        <input id="c-weight1" class="form-control" name="donor[weight]" type="number" value="{$row.donor?$row.donor.weight:''}">
+                                                        <span class="ws_weight">lb</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Ethnicity:</label>
+                                                    <div class="col-xs-12 col-sm-8 ">
+                                                        <input id="c-Ethnicity" class="form-control" name="donor[ethnicity]" type="text" value="{$row.donor?$row.donor.ethnicity:''}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Blood Type:</label>
+                                                    <div class="col-xs-12 col-sm-8 ">
+                                                        <input id="c-Blood-Type" class="form-control" name="donor[blood_type]" type="text" value="{$row.donor?$row.donor.blood_type:''}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Place of Birth:</label>
+                                                    <div class="col-xs-12 col-sm-8 ">
+                                                        <input id="c-Place-of-Birth" class="form-control" name="donor[place_of_birth]" type="text" value="{$row.donor?$row.donor.place_of_birth:''}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Highest education:</label>
+                                                    <div class="col-xs-12 col-sm-8 ">
+                                                        <input id="c-highest_education" class="form-control" name="donor[highest_education]" type="text" value="{$row.donor?$row.donor.highest_education:''}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">What is your occupation?:</label>
+                                                    <div class="col-xs-12 col-sm-8 ">
+                                                        <input id="c-occupation" class="form-control" name="donor[occupation]" type="text" value="{$row.donor?$row.donor.occupation:''}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Have you donated before?:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <div class="radio">
+                                                            <label for="radio21">
+                                                                <input id="radio21" name="donor[is_donated]" type="radio" value="1"  {if condition="$row.donor&&$row.donor.is_donated eq '1'"} checked{/if} /> Yes
+                                                            </label>
+                                                            <label for="radio22">
+                                                                <input id="radio22" name="donor[is_donated]" type="radio" value="2"  {if condition="$row.donor&&$row.donor.is_donated eq '2'"} checked{/if} /> No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Do you smoke?:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <div class="radio">
+                                                            <label for="radio25">
+                                                                <input id="radio25" name="donor[is_smoke]" type="radio" value="1"  {if condition="$row.donor&&$row.donor.is_smoke eq '1'"} checked{/if} /> Yes
+                                                            </label>
+                                                            <label for="radio26">
+                                                                <input id="radio26" name="donor[is_smoke]" type="radio" value="2" {if condition="$row.donor&&$row.donor.is_smoke eq '2'"} checked{/if} /> No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Do you drink?:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <div class="radio">
+                                                            <label for="radio30">
+                                                                <input id="radio30" name="donor[is_drink]" type="radio" value="1"  {if condition="$row.donor&&$row.donor.is_drink eq '1'"} checked{/if} /> Yes
+                                                            </label>
+                                                            <label for="radio31">
+                                                                <input id="radio31" name="donor[is_drink]" type="radio" value="2" {if condition="$row.donor&&$row.donor.is_drink eq '2'"} checked{/if}   /> No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Have you ever used recreational or illicit drugs?:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <div class="radio">
+                                                            <label for="radio35">
+                                                                <input id="radio35" name="donor[is_illicit_drugs]" type="radio" value="1"  {if condition="$row.donor&&$row.donor.is_illicit_drugs eq '1'"} checked{/if}/> Yes
+                                                            </label>
+                                                            <label for="radio36">
+                                                                <input id="radio36" name="donor[is_illicit_drugs]" type="radio" value="2"  {if condition="$row.donor&&$row.donor.is_illicit_drugs eq '2'"} checked{/if} /> No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Are you currently taking any medications, or under any physicians care for any reason(s)?:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <div class="radio">
+                                                            <label for="radio40">
+                                                                <input id="radio40" name="donor[is_any_medications]" type="radio" value="1" {if condition="$row.donor&&$row.donor.is_any_medications eq '1'"} checked{/if} /> Yes
+                                                            </label>
+                                                            <label for="radio41">
+                                                                <input id="radio41" name="donor[is_any_medications]" type="radio" value="2"  {if condition="$row.donor&&$row.donor.is_any_medications eq '2'"} checked{/if} /> No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group abortion_reason">
+                                                    <label class="control-label col-xs-12 col-sm-3">What is the reason that you want to be an egg donor?:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <textarea id="c-abortion_reason1" class="form-control " rows="5" name="donor[abortion_reason]" cols="50">{$row.donor?$row.donor.abortion_reason:''}</textarea>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__CDN__/assets/bridely/assets/js/jquery-3.6.0.min.js"></script>
+<script>
+    $(function () {
+        var service = {$row.service};
+        // console.log(service);
+        if (service==1){
+            $('.surrogate').css('display','block');
+            $('.egg_donor').css('display','none');
+            $('.sperm_donation').css('display','none');
+            $('.find_surrogate').css('display','none');
+            $('.Other').css('display','none');
+        }else if(service==2){
+            $('.surrogate').css('display','none');
+            $('.egg_donor').css('display','block');
+            $('.sperm_donation').css('display','none');
+            $('.find_surrogate').css('display','none');
+            $('.Other').css('display','none');
+        }else if(service==3){
+            $('.surrogate').css('display','none');
+            $('.egg_donor').css('display','none');
+            $('.sperm_donation').css('display','block');
+            $('.find_surrogate').css('display','none');
+            $('.Other').css('display','none');
+        }else if(service==4){
+            $('.surrogate').css('display','none');
+            $('.egg_donor').css('display','none');
+            $('.sperm_donation').css('display','none');
+            $('.find_surrogate').css('display','block');
+            $('.Other').css('display','none');
+        }else if(service==5){
+            $('.surrogate').css('display','none');
+            $('.egg_donor').css('display','none');
+            $('.sperm_donation').css('display','none');
+            $('.find_surrogate').css('display','none');
+            $('.Other').css('display','block');
+        }
+    })
+    $('#service').change(function () {
+        var service = $('#service option:selected').val();
+        if (service==1){
+            $('.surrogate').css('display','block');
+            $('.egg_donor').css('display','none');
+            $('.sperm_donation').css('display','none');
+            $('.find_surrogate').css('display','none');
+            $('.Other').css('display','none');
+        }else if(service==2){
+            $('.surrogate').css('display','none');
+            $('.egg_donor').css('display','block');
+            $('.sperm_donation').css('display','none');
+            $('.find_surrogate').css('display','none');
+            $('.Other').css('display','none');
+        }else if(service==3){
+            $('.surrogate').css('display','none');
+            $('.egg_donor').css('display','none');
+            $('.sperm_donation').css('display','block');
+            $('.find_surrogate').css('display','none');
+            $('.Other').css('display','none');
+        }else if(service==4){
+            $('.surrogate').css('display','none');
+            $('.egg_donor').css('display','none');
+            $('.sperm_donation').css('display','none');
+            $('.find_surrogate').css('display','block');
+            $('.Other').css('display','none');
+        }else if(service==5){
+            $('.surrogate').css('display','none');
+            $('.egg_donor').css('display','none');
+            $('.sperm_donation').css('display','none');
+            $('.find_surrogate').css('display','none');
+            $('.Other').css('display','block');
+        }
+    })
+    $('#radio2').click(function () {
+        var is_abortion_reason = $("input[name='surrogacy[is_abortion_reason]']:checked").val();
+        if (is_abortion_reason==2){
+            $('.abortion_reason').css('display','none');
+        }
+    })
+    $('#radio1').click(function () {
+        var is_abortion_reason = $("input[name='surrogacy[is_abortion_reason]']:checked").val();
+        if (is_abortion_reason==1){
+            $('.abortion_reason').css('display','block');
+        }
+    })
+    $('#radio4').click(function () {
+        var is_complications_of_pregnancy = $("input[name='surrogacy[is_complications_of_pregnancy]']:checked").val();
+        if (is_complications_of_pregnancy==2){
+
+            $('.complications_of_pregnancy').css('display','none');
+
+        }
+    })
+    $('#radio3').click(function () {
+        var is_complications_of_pregnancy = $("input[name='surrogacy[is_complications_of_pregnancy]']:checked").val();
+        if (is_complications_of_pregnancy==1){
+
+            $('.complications_of_pregnancy').css('display','block');
+
+
+        }
+    })
+    $('.birthday_time').blur(function () {
+        var btime = $('.birthday_time').val()
+        if (btime){
+            var date1 = btime
+            date1 =  date1.split('/');
+
+            date1 = date1[2]+'-'+date1[0]+'-'+date1[1];
+            var age = getAge(date1);
+            console.log(age)
+            $('.age').val(age)
+        }
+    })
+    function getAge(strAge) {
+        var birArr = strAge.split("-");
+        var birYear = birArr[0];
+        var birMonth = birArr[1];
+        var birDay = birArr[2];
+
+        d = new Date();
+        var nowYear = d.getFullYear();
+        var nowMonth = d.getMonth() + 1; //记得加1
+        var nowDay = d.getDate();
+        var returnAge;
+
+        if (birArr == null) {
+            return false
+        };
+        var d = new Date(birYear, birMonth - 1, birDay);
+        if (d.getFullYear() == birYear && (d.getMonth() + 1) == birMonth && d.getDate() == birDay) {
+            if (nowYear == birYear) {
+                returnAge = 0; //
+            } else {
+                var ageDiff = nowYear - birYear; //
+                if (ageDiff > 0) {
+                    if (nowMonth == birMonth) {
+                        var dayDiff = nowDay - birDay; //
+                        if (dayDiff < 0) {
+                            returnAge = ageDiff - 1;
+                        } else {
+                            returnAge = ageDiff;
+                        }
+                    } else {
+                        var monthDiff = nowMonth - birMonth; //
+                        if (monthDiff < 0) {
+                            returnAge = ageDiff - 1;
+                        } else {
+                            returnAge = ageDiff;
+                        }
+                    }
+                } else {
+                    return  "出生日期晚于今天，数据有误"; //返回-1 表示出生日期输入错误 晚于今天
+                }
+            }
+            return returnAge;
+        } else {
+            return ("输入的日期格式错误！");
+        }
+    }
+</script>
+

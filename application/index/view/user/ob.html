@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home - Obstetric History</title>
+    <!-- Page Head Start-->
+    {include file="koho/css" /}
+    <!-- Page Head Start-->
+
+    <style>
+
+
+        .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+            margin-top: 24px;
+        }
+        .ws_jindu {
+            display: flex;
+            justify-content: space-between;
+        }
+        .ws_prodess {
+            margin-top: 5px;width: 75%
+        }
+        .page-title{
+            padding-bottom: 0px !important;
+        }
+        @media only screen and (min-width:768px) and (max-width:992px) {
+            .ws_prodess_r {
+                padding-left: 20px;
+            }
+        }
+        /* phone */
+        @media only screen and (max-width:767px) {
+            .ws_prodess {
+                margin-top: 5px;width: 55%
+            }
+            .ws_prodess_r {
+                padding-left: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page nav Start-->
+    {include file="ws/nav" /}
+    <!-- Page nav Ends -->
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+        <!-- Page menu Start-->
+        {include file="ws/menu" /}
+        <!-- Page menu Ends-->
+        <style>
+            .form-check{
+                display: inline-block !important;
+            }
+            .page-body {
+                margin-top: 24px !important;
+            }
+        </style>
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Obstetric History</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a class="home-item" href="index.html"><i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">Form</li>
+                                <li class="breadcrumb-item active">Obstetric History</li>
+                            </ol>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="card-body progress-showcase">
+                                <div class="ws_jindu">
+                                    <div>
+                                        {$form_number} required questions
+                                    </div>
+                                    <div class="col col-9 ws_prodess" >
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$lv}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ws_prodess_r">
+                                        {if condition="$row"} {$row.form_complate_number}/{$form_number} complate
+                                        {else}
+                                        0/{$form_number} complate
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- Container-fluid starts-->
+            <div class="container-fluid ecommerce-page">
+                <div class="card-body">
+                    <form class="row " id="obstetric_history" method="POST" action="" role="form" onsubmit="return sumbit_sure()">
+                        <div class="row" id="ws_row">
+                            <style>
+                                .ws_display_none{
+                                    display: none;
+                                }
+                                .ws_display {
+                                    display: inline-block;
+                                }
+                            </style>
+                            <div class="col-md-12 m-b-20  ">
+                                <button class="btn
+                            {if condition="$button_number"}ws_display_none{/if}
+                                btn-primary add_baby ws_btn"  a="0" type="button" style="margin-left: 40%">Add Baby</button>
+                            </div>
+
+
+                            {if condition="$surrogate_baby_data"}
+                            {foreach name='surrogate_baby_data' item='v' key='k' }
+                            <div class="col-xl-12  ws_card" >
+                                <div class="card recent-order">
+                                    <div class="card-header pb-0">
+                                        <h3>Baby {$k+1}</h3>
+                                        <div class="card-header-right">
+                                            <ul class="list-unstyled card-option" style="width: 230px;">
+                                                <li><i class="icofont icofont-error close-card ws_del"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-body pb-0 m-b-30 m-t-20">
+                                        <div class="col-md-4 m-t-10 position-relative">
+                                            <label class="form-label" >Date of birth </label>
+                                            <!--                                        <input name="birthday_time[]" value="{$v.birthday_time}" class="form-control datepicker-here  digits" type="text" data-language="en">-->
+                                            <input type="text"  name="birthday_time[]" value="{$v.birthday_time}" class="form-control datetimepicker"  data-field="required" data-date-format="MM/DD/YYYY"/>
+                                        </div>
+                                        <div class="col-md-4 m-t-10 position-relative">
+                                            <label class="form-label">Sex</label><!--性取向-->
+
+                                            <select class="form-select"  name="sex[]" required="">
+                                                <option  value="0"  {if condition="$v.sex eq '0'"} selected{/if}>Male</option>
+                                                <option  value="1" {if condition="$v.sex eq '1'"} selected{/if}>Female</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col-md-4 m-t-10 position-relative">
+                                            <label class="form-label" >Fetal age </label>
+                                            <input name="fetal_age[]"  value="{$v.fetal_age}" class="form-control " type="number" placeholder="week" min="0">
+                                        </div>
+                                        <div class="col-md-4 m-t-10 position-relative">
+                                            <label class="form-label" >Which baby </label>
+                                            <input name="baby[]"  value="{$v.baby}" class="form-control" readonly type="number"  min="0" >
+                                        </div>
+                                        <div class="col-md-4 m-t-10 position-relative">
+                                            <label class="form-label" >Weight </label>
+                                            <input name="weight[]"  value="{$v.weight}" class="form-control " type="text" placeholder="lbs">
+                                        </div>
+
+                                        <div class="col-md-4 m-t-10 position-relative">
+                                            <label class="form-label">Pregnancy type </label><!--性取向-->
+                                            <select class="form-select"  name="pregnancy_type[]" required="">
+                                                <option  value="0"  {if condition="$v.pregnancy_type eq '0'"} selected{/if} >vaginal</option>
+                                                <option  value="1"  {if condition="$v.pregnancy_type eq '1'"} selected{/if}>c-section</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12 m-t-10 position-relative">
+                                            <label class="form-label" >Are you surrogate or pregnant </label>
+                                            <div class="form-label">
+                                                <div class="form-check form-check-inline radio radio-primary">
+                                                    <input class="form-check-input" id="radioinline{$k+50}" type="radio"  name="is_surrogate[{$k}]"
+                                                           value="1"       {if condition="$v.is_surrogate eq '1'"} checked{/if}
+                                                    >
+                                                    <label class="form-check-label mb-0" for="radioinline{$k+50}">Yes</label>
+                                                </div>
+                                                <div class="form-check form-check-inline radio radio-primary">
+                                                    <input class="form-check-input" id="radioinline{$k+60}" type="radio" name="is_surrogate[{$k}]"
+                                                           value="2"    {if condition="$v.is_surrogate eq '2'"} checked{/if}
+                                                    >
+                                                    <label class="form-check-label mb-0" for="radioinline{$k+60}">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 m-t-10 position-relative">
+                                            <label class="form-label" >Are there any complications? (If yes, please specify): </label>
+                                            <input name="complications[]"  class="form-control " type="text"  value="{$v.complications}">
+                                        </div>
+                                        <div class="col-md-12 m-t-20">
+                                            <button class="btn btn-primary add_baby
+                                        {if condition="($button_number-1)!=$k"} ws_display_none{/if}
+                                            ws_btn"  a="{$k+1}" type="button" style="margin-left: 40%">Add Baby</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/foreach}
+                            {/if}
+
+                        </div>
+
+                        <div class="row ws_field">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <input class="form-control"  name="uid" type="hidden"  value="{$uid}" >
+                                        <input class="form-control"  id="form_complate_number" name="form_complate_number" type="hidden" value="0" >
+                                        <input class="form-control"   name="status" type="hidden"  value="0">
+                                        <div class="col-md-12 m-t-10 position-relative">
+                                            <label class="form-label">Premature delivery or not *</label>
+                                            <div class="form-label">
+
+                                                {if condition="$row"}
+                                                <div class="form-check form-check-inline radio radio-primary">
+                                                    <input class="form-check-input" id="radioinline1" type="radio" data-rule="checked" name="is_premature_birth" value="1"
+                                                           {if condition="$row.is_premature_birth eq '1'"} checked{/if}
+                                                    >
+                                                    <label class="form-check-label mb-0" for="radioinline1">Yes</label>
+                                                </div>
+                                                <div class="form-check form-check-inline radio radio-primary">
+                                                    <input class="form-check-input" id="radioinline2" type="radio" data-rule="checked" name="is_premature_birth" value="2"
+                                                           {if condition="$row.is_premature_birth eq '2'"} checked{/if}
+                                                    >
+                                                    <label class="form-check-label mb-0" for="radioinline2">No</label>
+                                                </div>
+                                                {else}
+                                                <div class="form-check form-check-inline radio radio-primary">
+                                                    <input class="form-check-input" id="radioinline3" type="radio" data-rule="checked"
+                                                           name="is_premature_birth" value="1">
+                                                    <label class="form-check-label mb-0" for="radioinline3">Yes</label>
+                                                </div>
+                                                <div class="form-check form-check-inline radio radio-primary">
+                                                    <input class="form-check-input" id="radioinline4" type="radio" data-rule="checked"
+                                                           name="is_premature_birth" value="2">
+                                                    <label class="form-check-label mb-0" for="radioinline4">No</label>
+                                                </div>
+                                                {/if}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 m-t-10 position-relative">
+                                            <label class="form-label">Have you ever been pregnant for less than 36 weeks *</label>
+
+                                            {if condition="$row"}
+                                            <div class="form-label">
+                                                <div class="form-check form-check-inline radio radio-primary">
+                                                    <input class="form-check-input" id="radioinline7" type="radio"  data-rule="checked" name="is_36_week" value="1"
+                                                           {if condition="$row.is_36_week eq '1'"} checked{/if}
+                                                    >
+                                                    <label class="form-check-label mb-0" for="radioinline7">Yes</label>
+                                                </div>
+                                                <div class="form-check form-check-inline radio radio-primary">
+                                                    <input class="form-check-input" id="radioinline8" type="radio" data-rule="checked" name="is_36_week" value="2"
+                                                           {if condition="$row.is_36_week eq '2'"} checked{/if}>
+                                                    <label class="form-check-label mb-0" for="radioinline8">No</label>
+                                                </div>
+                                            </div>
+                                            {else}
+                                            <div class="form-label">
+                                                <div class="form-check form-check-inline radio radio-primary">
+                                                    <input class="form-check-input" id="radioinline5" type="radio" data-rule="checked" name="is_36_week" value="1">
+                                                    <label class="form-check-label mb-0" for="radioinline5">Yes</label>
+                                                </div>
+                                                <div class="form-check form-check-inline radio radio-primary">
+                                                    <input class="form-check-input" id="radioinline6" type="radio" data-rule="checked" name="is_36_week" value="2">
+                                                    <label class="form-check-label mb-0" for="radioinline6">No</label>
+                                                </div>
+                                            </div>
+                                            {/if}
+
+
+
+                                        </div>
+                                        <div class="col-md-12 m-t-10 position-relative">
+                                            <label class="form-label">Is there a history of abortion or induced abortion *</label>
+                                            <div class="form-label">
+
+                                                {if condition="$row"}
+                                                <div class="form-check form-check-inline radio radio-primary">
+                                                    <input class="form-check-input" id="radioinline13" type="radio"  data-rule="checked" name="is_artificial_abortion" value="1"
+                                                           {if condition="$row.is_artificial_abortion eq '1'"} checked{/if}
+                                                    >
+                                                    <label class="form-check-label mb-0" for="radioinline13">Yes</label>
+                                                </div>
+                                                <div class="form-check form-check-inline radio radio-primary">
+                                                    <input class="form-check-input" id="radioinline14" type="radio" data-rule="checked" name="is_artificial_abortion" value="2"
+                                                           {if condition="$row.is_artificial_abortion eq '2'"} checked{/if}
+                                                    >
+                                                    <label class="form-check-label mb-0" for="radioinline14">No</label>
+                                                </div>
+                                                {else}
+                                                <div class="form-check form-check-inline radio radio-primary">
+                                                    <input class="form-check-input" id="radioinline11" type="radio" data-rule="checked" name="is_artificial_abortion" value="1">
+                                                    <label class="form-check-label mb-0" for="radioinline11">Yes</label>
+                                                </div>
+                                                <div class="form-check form-check-inline radio radio-primary">
+                                                    <input class="form-check-input" id="radioinline12" type="radio" data-rule="checked" name="is_artificial_abortion" value="2">
+                                                    <label class="form-check-label mb-0" for="radioinline12">No</label>
+                                                </div>
+                                                {/if}
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 m-t-10 position-relative
+                                        {if condition="$row&&$row.is_artificial_abortion=='2'"} ws_display_none{/if}
+                                        ws_so_1" >
+                                        <label class="form-label">If so, when? *</label>
+                                        <input class="form-control"   name="artificial_abortion_content" type="text"   required=""
+                                               {if condition="$row"} value="{$row.artificial_abortion_content|htmlentities}"{/if}
+                                        >
+                                    </div>
+                                    <div class="col-md-12 m-t-10 position-relative">
+                                        <label class="form-label">Whether there is a history of spontaneous abortion *</label>
+
+                                        {if condition="$row"}
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline15" type="radio" data-rule="checked" name="is_spontaneous_abortion" value="1"
+                                                       {if condition="$row.is_spontaneous_abortion eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline15">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline16" type="radio" data-rule="checked" name="is_spontaneous_abortion" value="2"
+                                                       {if condition="$row.is_spontaneous_abortion eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline16">No</label>
+                                            </div>
+                                        </div>
+                                        {else}
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline9" type="radio" data-rule="checked" name="is_spontaneous_abortion" value="1">
+                                                <label class="form-check-label mb-0" for="radioinline9">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline10" type="radio" data-rule="checked" data-rule="required" name="is_spontaneous_abortion" value="2">
+                                                <label class="form-check-label mb-0" for="radioinline10">No</label>
+                                            </div>
+                                        </div>
+                                        {/if}
+                                    </div>
+
+                                    <div class="col-md-12 m-t-10 position-relative
+                                         {if condition="$row&&$row.is_spontaneous_abortion=='2'"} ws_display_none{/if}
+                                    ws_so">
+                                    <label class="form-label">If so, when? *</label>
+                                    <input class="form-control"   name="spontaneous_abortion_content" type="text"  {if condition="$row"} value="{$row.spontaneous_abortion_content|htmlentities}"{/if} required="">
+                                </div>
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 m-b-20" >
+                    <button class="btn btn-primary" type="submit">Submit form</button>
+                </div>
+            </div>
+
+            </form>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+
+</div>
+
+</div>
+</div>
+
+<!-- Page js Start-->
+{include file="koho/js" /}
+<!-- Page js Ends -->
+
+<script>
+    $('body').on('focus',".datetimepicker", function(){
+        $(this).datetimepicker({
+            locale:'en'
+        });
+    });
+</script>
+<script>
+
+    //单选框按钮事件
+    $('#radioinline10').click(function () {
+        var is_spontaneous_abortion = $("input[name='is_spontaneous_abortion']:checked").val();
+        if (is_spontaneous_abortion==2){
+            $('.ws_so').css('display','none');
+        }
+    })
+    $('#radioinline9').click(function () {
+        var is_spontaneous_abortion = $("input[name='is_spontaneous_abortion']:checked").val();
+        if (is_spontaneous_abortion==1){
+            $('.ws_so').css('display','inline-block');
+        }
+    })
+    $('#radioinline16').click(function () {
+        var is_spontaneous_abortion = $("input[name='is_spontaneous_abortion']:checked").val();
+        if (is_spontaneous_abortion==2){
+            $('.ws_so').css('display','none');
+        }
+    })
+    $('#radioinline15').click(function () {
+        var is_spontaneous_abortion = $("input[name='is_spontaneous_abortion']:checked").val();
+        if (is_spontaneous_abortion==1){
+            $('.ws_so').css('display','inline-block');
+        }
+    })
+
+    $('#radioinline12').click(function () {
+        var is_spontaneous_abortion = $("input[name='is_artificial_abortion']:checked").val();
+        if (is_spontaneous_abortion==2){
+            $('.ws_so_1').css('display','none');
+        }
+    })
+    $('#radioinline11').click(function () {
+        var is_spontaneous_abortion = $("input[name='is_artificial_abortion']:checked").val();
+        if (is_spontaneous_abortion==1){
+            $('.ws_so_1').css('display','inline-block');
+        }
+    })
+    $('#radioinline14').click(function () {
+        var is_spontaneous_abortion = $("input[name='is_artificial_abortion']:checked").val();
+        if (is_spontaneous_abortion==2){
+            $('.ws_so_1').css('display','none');
+        }
+    })
+    $('#radioinline13').click(function () {
+        var is_spontaneous_abortion = $("input[name='is_artificial_abortion']:checked").val();
+        if (is_spontaneous_abortion==1){
+            $('.ws_so_1').css('display','inline-block');
+        }
+    })
+
+    //删除baby表单事件
+    $('#ws_row').on('click','.ws_del',function () {
+        $(this).parents('.ws_card').prev().find('.ws_btn').css('display','inline-block');
+        // $(this).parents('.ws_card').prev().find('.ws_btn').css('cssText','display:inline-block!important');
+        $(this).parents('.ws_card').remove();
+    });
+
+
+    //j和q是单选按钮的class值
+    var j = 60;
+    var q = 90;
+    //点击添加baby按钮事件
+    $('#ws_row').on('click','.add_baby',function () {
+        var i = $(this).attr('a');
+        i++;
+        j++;
+        q++;
+        var html = '';
+        html += '<div class="col-xl-12 col-xl-4 col-sm-6 box-col-40 ws_card">';
+        html +=   '<div class="card recent-order">';
+        html +=     '<div class="card-header pb-0">';
+        html +=        '<h3>Baby '+i+'</h3>';
+        html +=        '<div class="card-header-right">';
+        html +=           '<ul class="list-unstyled card-option" style="width: 230px;">';
+        html +=           '<li><i class="icofont icofont-error close-card ws_del" ></i></li>';
+        html +=           '</ul>';
+        html +=         '</div>';
+        html +=      '</div>';
+        html +=      '<div class="card-body pb-0 m-b-30 m-t-20">';
+        html +=         '<div class="col-md-4 m-t-10 position-relative">';
+        html +=            '<label class="form-label" >Date of birth *</label>';
+        // html +=            '<input name="birthday_time[]"  class="form-control datepicker-here  digits" type="text" data-language="en">';
+        html +=            ' <input type="text"  name="birthday_time[]" class="form-control datetimepicker" placeholder="" data-rule="required" data-date-format="MM/DD/YYYY" />';
+        html +=         '</div>';
+        html +=         '<div class="col-md-4 m-t-10 position-relative">';
+        html +=            '<label class="form-label">Sex *</label>';
+        html +=            '<select class="form-select"  name="sex[]" required="">';
+        html +=            '<option  value="0"  selected>Male</option>';
+        html +=            '<option  value="1"  selected>Female</option>';
+        html +=            '</select>';
+        html +=          '</div>';
+        html +=          '<div class="col-md-4 m-t-10 position-relative">';
+        html +=            '<label class="form-label" >Fetal age *</label>';
+        html +=            '<input name="fetal_age[]"  class="form-control " type="number" placeholder="week"  min="0">';
+        html +=          '</div>';
+        html +=          '<div class="col-md-4 m-t-10 position-relative">';
+        html +=            '<label class="form-label" >Which baby *</label>';
+        html +=            '<input name="baby[]"  class="form-control" value="'+i+'" readonly    type="number"  min="0" >';
+        html +=          '</div>';
+        html +=          '<div class="col-md-4 m-t-10 position-relative">';
+        html +=            '<label class="form-label" >Weight *</label>';
+        html +=            '<input name="weight[]"  class="form-control " type="text" placeholder="lbs">';
+        html +=          '</div>';
+
+        html +=          '<div class="col-md-4 m-t-10 position-relative">';
+        html +=            '<label class="form-label">Pregnancy type *</label>';
+        html +=            '<select class="form-select"  name="pregnancy_type[]" required="">';
+        html +=               '<option  value="0"  selected>vaginal</option>';
+        html +=               '<option  value="1" >c-section</option>';
+        html +=             '</select>';
+        html +=          '</div>';
+        html +=          '<div class="col-md-12 m-t-10 position-relative">';
+        html +=            '<label class="form-label" >Are you surrogate or pregnant *</label>';
+        html +=            '<div class="form-label">';
+        html +=              '<div class="form-check form-check-inline radio radio-primary">';
+        html +=                 '<input class="form-check-input" id="radioinline'+j+'" type="radio" checked name="is_surrogate['+(i-1)+']" value="1">';
+        html +=                 '<label class="form-check-label mb-0" for="radioinline'+j+'">Yes</label>';
+        html +=              '</div>';
+        html +=              '<div class="form-check form-check-inline radio radio-primary">';
+        html +=                 '<input class="form-check-input" id="radioinline'+q+'" type="radio" name="is_surrogate['+(i-1)+']" value="2">';
+        html +=                 '<label class="form-check-label mb-0" for="radioinline'+q+'">No</label>';
+        html +=              '</div>';
+        html +=             '</div>';
+        html +=           '</div>';
+        html +=           '<div class="col-md-12 m-t-10 position-relative">';
+        html +=             '<label class="form-label" >Are there any complications? (If yes, please specify): *</label>';
+        html +=             '<input name="complications[]"  class="form-control " type="text"  >';
+        html +=           '</div>';
+        html +=           '<div class="col-md-12 m-t-20 ">';
+        html +=             '<button class="btn btn-primary add_baby ws_btn"  a="'+i+'" type="button" style="margin-left: 40%">Add Baby</button>';
+        html +=           '</div>';
+        html +=         '</div>';
+        html +=        '</div>';
+        html +=       '</div>';
+
+        var form = $('#ws_row');
+
+        //删除上一个baby的添加按钮
+        // $('.ws_btn').html('')
+        $(this).css('display','none')
+        form.append(html);
+
+    });
+</script>
+<script>
+    //表单弹框事件
+    function sumbit_sure(){
+        var name_arr = ['is_premature_birth','is_36_week','is_artificial_abortion','is_spontaneous_abortion'];
+        var j = 0;// 表单未完成数量
+        var arr = [];// 表单未完成数组
+        for(i=0;i<name_arr.length;i++){
+            if (!$("input:radio[name='"+name_arr[i]+"']:checked").length){
+                j++;
+                one = $("input:radio[name='"+name_arr[i]+"']").parents('.form-label').prev().text();
+                arr.push(one);
+            }
+            // console.log(arr)
+
+        }
+
+        $('#form_complate_number').val(j);
+        var html = "Are you sure you want to exit？\n";
+        if (j>0){
+            html += j+" mandatory field\n";
+            if(j==1){
+                html += "'"+arr[0]+"'\n," ;
+
+            }else if(j==2){
+                html += "'"+arr[0]+"',\n" ;
+                html += "'"+arr[1]+"',\n" ;
+            }else{
+                html += "'"+arr[0]+"',\n" ;
+                html += "'"+arr[1]+"',\n" ;
+                html += "'"+arr[2]+"'...\n" ;
+            }
+            html += "Not filled in.\n";
+            html += "\n";
+        }
+
+        html += "Please fill in relevant information.";
+        var gnl=confirm(html);
+        if (gnl==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

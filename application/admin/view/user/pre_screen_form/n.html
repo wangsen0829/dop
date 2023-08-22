@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta name="referrer" content="never">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+    <!-- Loading Bootstrap -->
+    <link href="/assets/css/backend.min.css?v=1.0.26" rel="stylesheet">
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <script src="/assets/js/html5shiv.js"></script>
+    <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        var require = {
+            config:  {"site":{"name":"CRM\u5ba2\u6237\u7ba1\u7406\u7cfb\u7edf","cdnurl":"","version":"1.0.26","timezone":"Asia\/Shanghai","languages":{"backend":"zh-cn","frontend":"zh-cn"}},"upload":{"cdnurl":"","uploadurl":"\/admin11.php\/ajax\/upload","bucket":"local","maxsize":"10mb","mimetype":"jpg,png,bmp,jpeg,gif,zip,rar,xls,xlsx,wav,mp4,mp3,pdf,doc","chunking":false,"chunksize":2097152,"savekey":"\/uploads\/{year}{mon}{day}\/{filemd5}{.suffix}","multipart":[],"multiple":false,"storage":"local"},"modulename":"admin","controllername":"facrm.clues.record","actionname":"add","jsname":"backend\/facrm\/clues\/record","moduleurl":"\/admin11.php","language":"zh-cn","referer":null,"__PUBLIC__":"\/","__ROOT__":"\/","__CDN__":"","demosite":{"watermark":{"status":"normal","modules":"index,admin,preview","watermark_txt":"\u6d4b\u8bd5\u6c34\u5370","watermark_width":300,"watermark_height":100,"watermark_alpha":0.04,"watermark_font":"\u601d\u6e90\u9ed1\u4f53","watermark_fontsize":"16px"}},"third":{"status":["qq","wechat","weibo"]}}    };
+    </script>
+
+</head>
+
+<body class="inside-header inside-aside ">
+<div id="main" role="main">
+    <div class="tab-content tab-addtabs">
+        <div id="content">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <section class="content-header hide">
+                        <h1>
+                            控制台                                    <small>Control panel</small>
+                        </h1>
+                    </section>
+                    <div class="content">
+
+                        <style>
+                            .form-group .col-sm-4{
+                                padding-bottom: 5px;
+                            }
+                            .nav-tabs{
+                                border-bottom: unset;
+                            }
+                        </style>
+                        <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="panel panel-default ">
+                                    <div class="panel-heading">
+                                        <div class="panel-lead">
+                                            <div class="panel-title">
+                                                <span style="font-weight: bold;font-style: normal;">线索信息</span>
+                                                <span class="label label-primary pull-right">
+                            <a href="javascript:parent.Fast.api.open('facrm/clues/index/edit/ids/173',__('修改线索信息-')+'西风1');">
+                                修改</a></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body" style="min-height: 248px;">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade active in" id="extra">
+                                                <div class="form-group">
+                                                    <label for="c-name" class="control-label col-xs-12 col-sm-2">名称:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input id="c-name" readonly type="text" class="form-control" name="crow[name]" value="西风1"  />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="c-telephone" class="control-label col-xs-12 col-sm-2">电话:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+
+                                                        <div class="input-group">
+                                                            <input id="c-telephone" class="form-control" type="tel"  name="row[telephone]"  value="13416191111"  readonly>
+                                                            <div class="input-group-addon no-border no-padding">
+                                        <span>
+                                            <button type="button"  class="btn btn-success cloudcall" data-type="clues" data-field="telephone" data-typeid="173" data-name="西风1"
+                                            ><i class="fa fa-phone"></i> 云呼</button></span>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="c-mobile" class="control-label col-xs-12 col-sm-2">手机:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <div class="input-group">
+                                                            <input id="c-mobile" class="form-control" size="50" name="row[mobile]" type="text" value="13416191111"  readonly>
+                                                            <div class="input-group-addon no-border no-padding">
+                                        <span>
+                                            <button type="button"  class="btn btn-success cloudcall" data-type="clues" data-field="mobile" data-typeid="173" data-name="西风1"
+                                            ><i class="fa fa-phone"></i> 云呼</button></span>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="c-remark" class="control-label col-xs-12 col-sm-2">备注:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <textarea id="c-remark" class="form-control" name="crow[remark]" disabled></textarea>
+                                                    </div>
+                                                </div>
+                                                <div  id="hiddeninfo" style="display: none;">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-xs-12 col-sm-2">等级:</label>
+                                                        <div class="col-xs-12 col-sm-8">
+                                                            <select class="form-control selectpicker" data-rule="required" name="crow[level]"><option value="1">重点客户</option><option value="2">优质客户</option><option value="3" selected="selected">普通客户</option></select>                                </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-xs-12 col-sm-2">行业:</label>
+                                                        <div class="col-xs-12 col-sm-8">
+                                                            <select class="form-control selectpicker" data-rule="required" name="crow[industry]"><option value="1">金融业</option><option value="2">房地产</option><option value="3">商业服务</option><option value="4">贸易</option><option value="5">运输物流</option><option value="6">服务业</option><option value="7">文化传媒</option><option value="8">IT/互联网</option><option value="9" selected="selected">其它</option></select>                                </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-xs-12 col-sm-2">来源:</label>
+                                                        <div class="col-xs-12 col-sm-8">
+                                                            <select class="form-control selectpicker" data-rule="required" name="crow[source]"><option value="1" selected="selected">个人资源</option><option value="2">广告</option><option value="3">转介绍</option><option value="4">搜索引擎</option><option value="5">公司资源</option><option value="6">电话咨询</option><option value="7">官网咨询</option><option value="8">公众号</option><option value="9">抖音</option><option value="10">企业微信</option></select>                                </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="c-tags" class="control-label col-xs-12 col-sm-2">标签:</label>
+                                                        <div class="col-xs-12 col-sm-8">
+                                                            <input id="c-tags" data-rule="" class="form-control"  name="row[tags]" type="text" readonly value="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="c-address" class="control-label col-xs-12 col-sm-2">地址:</label>
+                                                        <div class="col-xs-12 col-sm-8">
+                                                            <div class="form-inline" data-toggle="cxselect" data-selects="province,city,area">
+                                                                <select class="province form-control" name="province" data-url="ajax/area" readonly>
+                                                                    <option value="0" selected=""></option>
+                                                                </select>
+                                                                <select class="city form-control" name="city" data-url="ajax/area" readonly>
+                                                                    <option value="" selected=""></option>
+                                                                </select>
+                                                                <select class="area form-control" name="area" data-url="ajax/area" readonly>
+                                                                    <option value="" selected=""></option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="c-detail_address" class="control-label col-xs-12 col-sm-2">详细地址:</label>
+                                                        <div class="col-xs-12 col-sm-8">
+                                                            <input id="c-detail_address" type="text" data-rule="required" class="form-control" name="crow[detail_address]" value="" disabled />
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div id="extend"></div>
+
+                                                </div>
+                                                <div class="text-center"><a href="javascript:;" id="buttonshow">--更多信息--</a></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12">
+                                <div class="panel panel-default panel-success">
+                                    <div class="panel-heading">
+                                        <div class="panel-lead">
+                                            <span style="font-weight: bold;font-style: normal;">跟进操作</span>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade active in" id="extra1">
+                                                <div class="form-group">
+                                                    <label for="record-content" class="control-label col-xs-12 col-sm-2">跟进内容:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <textarea id="record-content"  data-rule="required" class="form-control " name="row[content]" rows="2"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="c-image" class="control-label col-xs-12 col-sm-2">附件:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <div class="input-group">
+                                                            <input id="c-image" class="form-control" size="50" name="row[image]" type="text" value="" placeholder="可以为空">
+                                                            <div class="input-group-addon no-border no-padding">
+                                                                <span><button type="button" id="plupload-image" class="btn btn-danger plupload" data-input-id="c-image" data-mimetype="*" data-multiple="true" data-preview-id="p-image"><i class="fa fa-upload"></i> 上传</button></span>
+
+                                                            </div>
+                                                            <span class="msg-box n-right" for="c-image"></span>
+                                                        </div>
+                                                        <ul class="row list-inline plupload-preview" id="p-image"></ul>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="c-next_time" class="control-label col-xs-12 col-sm-2">下次跟进时间:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input id="c-next_time"  value=""  class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[next_time]" type="text" >
+                                                        <span class="text-gray">如不需要再跟进设置为空</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-2">跟进方式:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <div class="input-group">
+                                                            <select class="form-control selectpicker" data-rule="required" name="row[record_type]"><option value="1">电话</option><option value="2">上门拜访</option><option value="3">微信</option><option value="4">短息</option></select>                                    <div class="input-group-addon no-border no-padding normal-footer">
+                                                            <button type="submit" class="btn btn-success btn-embossed  disabled">立即保存</button>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12">
+                                <div class="panel panel-default panel-info">
+                                    <div class="panel-heading" style="padding-bottom: 0px;">
+                                        <ul class="nav nav-tabs">
+
+                                            <li class="active"><a href="#bulletin" role="tab" data-toggle="tab">跟进记录</a></li>
+                                            <li><a href="#files12" role="tab"  data-toggle="tab">附件</a></li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div id="myTabContent" class="tab-content">
+                                            <div id="toolbar1" class="toolbar ">
+                                                <a href="javascript:;" class="btn btn-primary btn-refresh"><i class="fa fa-refresh"></i></a>
+                                            </div>
+                                            <!-- 跟进记录开始-->
+                                            <div class="tab-pane fade active in" id="bulletin">
+                                                <table id="tableflow" class="table table-striped table-bordered table-hover" width="100%"></table>
+                                                <!-- 修改 amplam2018年8月11日 15:40:05--->
+                                            </div>
+                                            <!-- 跟进记录结束-->
+                                            <!-- 附件-->
+                                            <div class="tab-pane fade" id="files12">
+                                                <table id="t-files" class="table table-striped table-bordered table-hover" width="100%"></table>
+                                            </div>
+                                            <!-- 附件-->
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group fixed-footer">
+                                <label class="control-label col-xs-12 col-sm-2"></label>
+                                <div class="col-xs-12 col-sm-8">
+
+                                    <button type="button" class="btn  btn-send-email  bg-purple  "
+                                            data-url="facrm/apps/email/send"
+                                            data-types="clues"
+                                            data-typesid="173"
+                                            data-title="发邮件：西风1">发邮件</button>
+
+                                    <button type="button" class="btn  btn-send-sms  btn-info  "
+                                            data-url="facrm/apps/sms/send"
+                                            data-types="clues"
+                                            data-typesid="173"
+                                            data-title="发信息：西风1">发信息</button>
+                                    <a href="javascript:;" class="btn  btn-success btn-dialog  "
+                                       data-title="线索转成客户：西风1"
+                                       data-url="facrm/clues/index/transform/ids/173">转成客户</a>
+
+
+                                </div>
+                            </div>
+                        </form>
+                        <script>
+                            var clues_id=173;
+                            var record_type_list={"1":"\u7535\u8bdd","2":"\u4e0a\u95e8\u62dc\u8bbf","3":"\u5fae\u4fe1","4":"\u77ed\u606f"};
+                        </script>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/assets/js/require.min.js" data-main="/assets/js/require-backend.min.js?v=1.0.26"></script>
+</body>
+</html>

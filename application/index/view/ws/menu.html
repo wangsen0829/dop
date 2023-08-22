@@ -1,0 +1,74 @@
+<div class="sidebar-wrapper" style="height: 100%">
+    <div>
+        <div class="logo-wrapper">
+            <a href="index.html">
+            <img class="img-fluid for-light" src="__CDN__/uploads/logo.png" alt="" style="width: 130px;">
+<!--            <img class="img-fluid for-light" src="__CDN__/assets/koho/assets/images/logo/logo.png" alt="">-->
+<!--            <img class="img-fluid for-dark" src="__CDN__/assets/koho/assets/images/logo/logo-dark.png" alt="">-->
+              </a>
+            <div class="back-btn"><i class="fa fa-angle-left"></i></div>
+            <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="align-left"> </i></div>
+        </div>
+        <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid for-light" src="__CDN__/assets/koho/assets/images/logo/logo-icon.png" alt=""><img class="img-fluid for-dark" src="__CDN__/assets/koho/assets/images/logo/logo-icon-dark.png" alt=""></a></div>
+
+        <nav class="sidebar-main">
+            <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
+            <div id="sidebar-menu">
+                <ul class="sidebar-links" id="simple-bar">
+                    <li class="back-btn"><a href="index.html"><img class="img-fluid for-light" src="__CDN__/assets/koho/assets/images/logo/logo-icon.png" alt=""><img class="img-fluid for-dark" src="__CDN__/assets/koho/assets/images/logo/logo-icon-dark.png" alt=""></a>
+                        <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
+                    </li>
+
+                    <li class="sidebar-list">
+                        <a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                            <i data-feather="airplay"></i>
+                            <span>Control Panel</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li><a class="lan-4" href="{:url('index/user/index')}">Default</a></li>
+                        </ul>
+                    </li>
+<!--                    <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="users"></i><span>Users</span></a>-->
+<!--                        <ul class="sidebar-submenu">-->
+<!--                            <li><a href="{:url('index/user/profile')}">Users Profile</a></li>-->
+<!--                            <li><a href="{:url('index/user/edit_profile')}">Users Edit</a></li>-->
+<!--                            <li><a href="{:url('index/user/changepwd')}">Change password</a></li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+                    <li class="sidebar-list">
+                        <a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                            <i data-feather="file-text"></i>
+                            <span >Forms</span>
+                        </a>
+                        {if condition="$user.service == 1"}
+                        <ul class="sidebar-submenu">
+                            <li><a href="{:url('index/user/pre_screen')}">Pre-screening</a></li>
+                            <li><a href="{:url('index/user/personal_info')}">Personal Information</a></li>
+                            <li><a href="{:url('index/user/obstetric_history')}">Obstetric History</a></li>
+                            <li><a href="{:url('index/user/medical_information')}">Medical Information</a></li>
+                            <li><a href="{:url('index/user/about_surrogacy')}">About Surrogacy</a></li>
+                            <li><a href="{:url('index/user/other_information')}">Other Information</a></li>
+                            <li><a href="{:url('index/user/surrogate_photo')}">Photos</a></li>
+                            <!--                            <li><a href="{:url('index/user/additional_information')}">Additional Information</a></li>-->
+                            <li><a href="{:url('index/user/health_record_release')}">Health Record Release</a></li>
+                            <!--                            <li><a href="">Background Authorization</a></li>-->
+
+                        </ul>
+                        {elseif condition="$user.service == 2"}
+                        <ul class="sidebar-submenu">
+                            <li><a href="{:url('index/donor/pre_screen')}">Pre-screening</a></li>
+                            <li><a href="{:url('index/donor/personal')}">Personal information</a></li>
+                            <li><a href="{:url('index/donor/photos')}">Photos</a></li>
+                            <li><a href="{:url('index/donor/education')}">Education</a></li>
+                            <li><a href="{:url('index/donor/character')}">Character</a></li>
+                            <li><a href="{:url('index/donor/medical')}">Medical History</a></li>
+                        </ul>
+                        {/if}
+                    </li>
+
+                </ul>
+            </div>
+            <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
+        </nav>
+    </div>
+</div>

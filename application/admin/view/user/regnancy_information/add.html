@@ -1,0 +1,82 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Uid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-uid" class="form-control" name="row[uid]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Protect_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-protect_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[protect_time]" type="text" value="{:date('Y-m-d H:i:s')}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Maternity_institution')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-maternity_institution" data-rule="required" class="form-control" name="row[maternity_institution]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Doctor')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-doctor" class="form-control" name="row[doctor]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Adress_one')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-adress_one" class="form-control" name="row[adress_one]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Adress_two')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-adress_two" class="form-control" name="row[adress_two]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('City')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class='control-relative'><input id="c-city" class="form-control" data-toggle="city-picker" name="row[city]" type="text"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Country')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-country" class="form-control" name="row[country]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('State')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-state" class="form-control" name="row[state]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Code')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-code" class="form-control" name="row[code]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Hospital_phone')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-hospital_phone" class="form-control" name="row[hospital_phone]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Hospital_fax')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-hospital_fax" class="form-control" name="row[hospital_fax]" type="text">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

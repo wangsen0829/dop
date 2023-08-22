@@ -1,0 +1,178 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Uid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-uid" class="form-control" name="row[uid]" type="number" value="{$row.uid|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('First_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-first_name" data-rule="required" class="form-control" name="row[first_name]" type="text" value="{$row.first_name|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Last_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-last_name" data-rule="required" class="form-control" name="row[last_name]" type="text" value="{$row.last_name|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Address')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-address" class="form-control" name="row[address]" type="text" value="{$row.address|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('City')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class='control-relative'><input id="c-city" class="form-control" data-toggle="city-picker" name="row[city]" type="text" value="{$row.city|htmlentities}"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('State')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-state" class="form-control" name="row[state]" type="text" value="{$row.state|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Postal_code')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-postal_code" class="form-control" name="row[postal_code]" type="text" value="{$row.postal_code|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Email')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-email" data-rule="required" class="form-control" name="row[email]" type="text" value="{$row.email|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Phone')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" class="form-control" name="row[phone]" type="text" value="{$row.phone|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Age')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-age" class="form-control" name="row[age]" type="number" value="{$row.age|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Height')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-height" class="form-control" name="row[height]" type="number" value="{$row.height|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Weight')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-weight" class="form-control" name="row[weight]" type="number" value="{$row.weight|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Marital_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="maritalStatusList" item="vo"}
+            <label for="row[marital_status]-{$key}"><input id="row[marital_status]-{$key}" name="row[marital_status]" type="radio" value="{$key}" {in name="key" value="$row.marital_status"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Product_number')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-product_number" class="form-control" name="row[product_number]" type="number" value="{$row.product_number|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Caesarean_number')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-caesarean_number" class="form-control" name="row[caesarean_number]" type="number" value="{$row.caesarean_number|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Miscarriage_number')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-miscarriage_number" class="form-control" name="row[miscarriage_number]" type="number" value="{$row.miscarriage_number|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Abortion_reason')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-abortion_reason" class="form-control" name="row[abortion_reason]" type="text" value="{$row.abortion_reason|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_pregnant')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_pregnant" class="form-control selectpicker" name="row[is_pregnant]">
+                {foreach name="isPregnantList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.is_pregnant"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Contraceptive_measures')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-contraceptive_measures" class="form-control" name="row[contraceptive_measures]" type="text" value="{$row.contraceptive_measures|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Taken_drugs')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-taken_drugs" class="form-control" name="row[taken_drugs]" type="text" value="{$row.taken_drugs|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Current_drug_list')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-current_drug_list" class="form-control" name="row[current_drug_list]" type="text" value="{$row.current_drug_list|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Uterine_examination')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-uterine_examination" class="form-control" name="row[uterine_examination]" type="text" value="{$row.uterine_examination|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Form_number')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-form_number" class="form-control" name="row[form_number]" type="number" value="{$row.form_number|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Form_complate_number')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-form_complate_number" class="form-control" name="row[form_complate_number]" type="number" value="{$row.form_complate_number|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="statusList" item="vo"}
+            <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="$row.status"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

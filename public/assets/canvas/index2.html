@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link id="layuicss-layer" rel="stylesheet" href="js/dist/css/layui.css" media="all">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        #canvas {
+            border: 0.01rem solid #f30;
+        }
+
+        #canvas-btn {
+            display: block;
+            margin: 0;
+            padding: 0.13rem;
+        }
+
+        #clear_btn {
+            width: 80%;
+            background: #ca4341;
+            margin: auto;
+            text-align: center;
+            line-height: 1rem;
+            margin-top: 0.27rem;
+            color: #fff;
+            border-radius: 1.31rem;
+            clear: both;
+        }
+
+        #save_btn {
+            width: 80%;
+            background: #4cd964;
+            margin: auto;
+            text-align: center;
+            line-height: 1rem;
+            margin-top: 0.27rem;
+            color: #fff;
+            border-radius: 1.31rem;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class=" layui-row" style="width: 341px;background-color: rgba(57, 61, 73, 0.62);">
+        <div class="layui-col-md12">
+
+            <div id="collapse-root">
+
+
+
+
+
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+    <script type="text/javascript" src="js/dist/layui.js"></script>
+    <script>
+        layui.use(['element'], function () {
+            var element = layui.element;
+            var $ = layui.$;
+            var data = { "code": 0, "msg": "", "count": 0, "data": [{ "step": "1", "data": [{ "log": { "name": "S3: OUT1\"\u6216\/\u4e0e\u201d\u8bbe\u7f6e", "note": "OFF\/\u5de6:\u6216;ON\/\u53f3:\u4e0e", "confirm": [{ "checkbox": ["\u5de6", "\u53f3"], "info": "\u5de5\u4f5c\u8d1f\u8d23\u4eba" }, { "checkbox": ["\u5de6", "\u53f3"], "info": "\u76d1\u62a4\u4eba" }] } }, { "log": { "name": "S5:OUT0\"\u6216\/\u4e0e\u201d\u8bbe\u7f6e", "note": "OFF\/\u5de6:\u6216;ON\/\u53f3:\u4e0e", "confirm": [{ "checkbox": ["\u5de6", "\u53f3"], "info": "\u5de5\u4f5c\u8d1f\u8d23\u4eba" }, { "checkbox": ["\u5de6", "\u53f3"], "info": "\u76d1\u62a4\u4eba" }] } }, { "log": { "name": "S8:OUT0 DC\/AC \u8bbe\u7f6e", "note": "OFF\/\u5de6:DC;ON\/\u53f3:AC", "confirm": [{ "checkbox": ["\u5de6", "\u53f3"], "info": "\u5de5\u4f5c\u8d1f\u8d23\u4eba" }, { "checkbox": ["\u5de6", "\u53f3"], "info": "\u76d1\u62a4\u4eba" }] } }, { "log": { "name": "S2:OUT0 DC\/AC \u8bbe\u7f6e", "note": "OFF\/\u5de6:DC;ON\/\u53f3:AC", "confirm": [{ "checkbox": ["\u5de6", "\u53f3"], "info": "\u5de5\u4f5c\u8d1f\u8d23\u4eba" }, { "checkbox": ["\u5de6", "\u53f3"], "info": "\u76d1\u62a4\u4eba" }] } }] }, { "step": "2", "data": [{ "log": { "name": "S10:OUT0 AC\/DC \u8bbe\u7f6e", "note": "OFF\/\u5de6:AC;ON\/\u53f3:DC", "confirm": [{ "checkbox": ["\u5de6", "\u53f3"], "info": "\u5de5\u4f5c\u8d1f\u8d23\u4eba" }, { "checkbox": ["\u5de6", "\u53f3"], "info": "\u76d1\u62a4\u4eba" }] } }, { "log": { "name": "S9:OUT1 AC\/DC \u8bbe\u7f6e", "note": "OFF\/\u5de6:AC;ON\/\u53f3:DC", "confirm": [{ "checkbox": ["\u5de6", "\u53f3"], "info": "\u5de5\u4f5c\u8d1f\u8d23\u4eba" }, { "checkbox": ["\u5de6", "\u53f3"], "info": "\u76d1\u62a4\u4eba" }] } }] }, { "step": "3", "data": [{ "log": { "name": "S7:\u8f93\u5165\u4fe1\u53f7\u6ee4\u6ce2\u8bbe\u7f6e", "note": "ON\/\u4e0a :10ms; OFT\/\u4e0b:lms", "confirm": [{ "checkbox": ["\u4e0a", "\u4e0b"], "info": "\u5de5\u4f5c\u8d1f\u8d23\u4eba" }, { "checkbox": ["\u4e0a", "\u4e0b"], "info": "\u76d1\u62a4\u4eba" }] } }, { "log": { "name": "s6:\u8f93\u5165\u4fe1\u53f7\u6ee4\u6ce2\u8bbe\u7f6e", "note": "ON\/\u4e0a:l0ms;OFF\/\u4e0b:lms", "confirm": [{ "checkbox": ["\u4e0a", "\u4e0b"], "info": "\u5de5\u4f5c\u8d1f\u8d23\u4eba" }, { "checkbox": ["\u4e0a", "\u4e0b"], "info": "\u76d1\u62a4\u4eba" }] } }] }, { "step": "4", "data": [{ "log": { "name": "\u5b50\u5361\u578b\u53f7\u786e\u8ba4", "note": "TYPEO1\/02\/03\/04", "confirm": [{ "sign": "\u5de5\u4f5c\u8d1f\u8d23\u4eba" }, { "sign": "\u76d1\u62a4\u4eba" }] } }] }, { "step": "5", "data": [{ "log": { "name": "\u5361\u4ef6\u6b63\u9762\u578b\u53f7\u786e\u8ba4", "note": "IPL-TYPEO1\/02\/03\/04", "confirm": [{ "sign": "\u5de5\u4f5c\u8d1f\u8d23\u4eba" }, { "sign": "\u76d1\u62a4\u4eba" }] } }] }, { "step": "6", "data": [{ "log": { "name": "\u5361\u4ef6\u662f\u5426\u5df2\u5347\u7ea7:", "note": "AB\u6807\u7b7e\u8868\u793a\u5df2\u5347\u7ea7", "confirm": [{ "sign": "\u5de5\u4f5c\u8d1f\u8d23\u4eba" }, { "sign": "\u76d1\u62a4\u4eba" }] } }] }, { "step": "7", "data": [{ "log": { "name": "\u5361\u4ef6\u5b89\u88c5\u4f4d\u7f6e\u5e8f\u5217\u53f7\\\u5de5\u5355\u4fe1\u606f:", "note": "\u3010\u673a\u7ec4&\u5217\u3011", "confirm": { "checkbox": ["1", "2", "3", "4"], "info": "\u3010\u673a\u7ec4&\u5217\u3011" }, "0": { "br": "1" }, "1": { "checkbox": ["A1", "A2", "A3", "B1", "B2", "B2"], "info": "" }, "2": { "text": "\u5361\u69fd\u7f16\u53f7" }, "3": { "text": "\u5361\u4ef6\u5e8f\u53f7" }, "4": { "text": "\u5de5\u5355\u7f16\u53f7" }, "5": { "hr": "xx" }, "6": { "sign": "\u51c6\u5907\u5de5" }, "7": { "sign": "\u5de5\u4f5c\u8d1f\u8d23\u4eba" }, "8": { "sign": "\u76d1\u62a4\u4eba" } } }] }] };
+            // console.log('data', data);
+            data = data.data;
+            console.log('data', data);
+
+
+            // -------
+            var root = $('#collapse-root');
+            var collapse = $('<div class="layui-collapse" lay-accordion=""></div>')
+            var show = '';
+            for (j = 0; j < data.length; j++) {
+                var step = data[j];
+
+
+                var show1 = '';
+                var html_j1 = '<div class="layui-collapse" lay-accordion="">'
+                for (j1 = 0; j1 < step.data.length; j1++) {
+                    var log = step.data[j1].log;
+                    show1 = j1 == 0 ? 'layui-show' : '';
+
+                    var content=''
+                    console.log(log);
+                    if (log.note) {
+                        content += log.note + '<br>'
+                    }
+                 
+                    if (log.confirm) {
+                        for (j2 = 0; j2 < log.confirm.length; j2++) {
+                            var html_j2 = log.confirm[j2];
+                            if (html_j2.checkbox) {
+
+                                // 
+                                var t1=''
+                                for (j3 = 0; j3 < html_j2.checkbox.length; j3++) {
+                                    t1 += '<div class="layui-col-xs' + (12 / html_j2.checkbox.length) + '"><input type="checkbox" name="lock" lay-skin="primary" title="" >' + html_j2.checkbox[j3] + '</div>'
+                                }
+
+                                t = '<div class="layui-row collapse-checkbox"><div class="layui-col-xs12">' + html_j2.info + '</div>' + t1 + '</div>';
+
+                                content += t ;
+                            }
+                            console.log('html_j2', html_j2);
+                            // content += log.note + '<br>'
+                        }
+                    }
+
+
+                    console.log(content);
+
+                    html_j1 += '<div class="layui-colla-item"><h2 class="layui-colla-title">' + log.name + '</h2><div class="layui-colla-content ' + show1 + '">' + content + '</div></div>';
+
+                }
+                html_j1 += '</div>';
+
+                //  ----
+                show = j == 0 ? 'layui-show' : '';
+
+
+
+                var html_j = $('<div class="layui-colla-item"><h2 class="layui-colla-title">步骤 ' + step.step + '</h2><div class="layui-colla-content ' + show + '">' + html_j1 + '</div></div>')
+                collapse.append(html_j);
+            }
+            root.append(collapse);
+            element.render('collapse');//重新渲染面包屑
+
+
+
+        });
+    </script>
+</body>
+
+</html>

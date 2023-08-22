@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home - Surrogacy Photo</title>
+
+    <!-- Page Head Start-->
+    {include file="ws/css" /}
+    <!-- Page Head Start-->
+
+    <style>
+        body {
+            padding-top: 0px !important;
+        }
+        .input-group input {
+            height: 47px;
+        }
+        .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+            margin-top: 24px;
+        }
+        .ws_jindu {
+            display: flex;
+            justify-content: space-between;
+        }
+        .list-inline li {
+            width: 125px;
+        }
+        .btn-trash {
+            border-radius: 0px;
+        }
+        .ws_choose {
+            margin-left: 10px !important;
+            margin-top: 5px !important;
+        }
+        .ws_prodess {
+            margin-top: 5px;width: 70%
+        }
+        @media only screen and (min-width:768px) and (max-width:992px) {
+            .ws_prodess_r {
+                padding-left: 20px;
+            }
+        }
+        /* phone */
+        @media only screen and (max-width:767px) {
+            .ws_prodess {
+                margin-top: 5px;width: 55%
+            }
+            .ws_prodess_r {
+                padding-left: 18px;
+            }
+            .input-group {
+                width: 80%;
+            }
+            .btn-danger {
+                padding: 0px !important;
+            }
+        }
+    </style>
+
+</head>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Photo</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{:url('user/user/detail',['ids'=>$uid])}">
+                                    <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">
+                                    <!--                                    <a  style="cursor:pointer;" onClick="javascript :history.back(-1);"> Forms</a>-->
+                                    <a  style="cursor:pointer;" href="{:url('user/user/detail',['ids'=>$uid])}"> Forms</a>
+                                </li>
+                                <li class="breadcrumb-item active">Photo</li>
+                            </ol>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="card-body progress-showcase">
+                                <div class="ws_jindu">
+                                    <div>
+                                        {$form_number} required questions
+                                    </div>
+                                    <div class="col col-9 ws_prodess" >
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$lv}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ws_prodess_r">
+                                        {if condition="$row"} {$row.form_complate_number}/{$form_number} complate
+                                        {else}
+                                        0/{$form_number} complate
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container-fluid starts-->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header pb-0">
+                            </div>
+                            <div class="card-body">
+                                <form class="row g-3 " id="surrogate_photo" method="POST" action="" role="form" onsubmit="return sumbit_sure()">
+                                    <input class="form-control"  name="uid" type="hidden"  value="{$uid}" >
+                                    <input class="form-control"  id="form_complate_number" name="form_complate_number" type="hidden" value="0" >
+                                    <input class="form-control"   name="status" type="hidden"  value="0">
+                                    <div class="card">
+                                        <div class="card-header pb-0">
+                                            <h3>Please upload your photos</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <input id="c-images" class="form-control" size="50" name="images" type="text"
+                                                           {if condition="$row"} value="{$row.images|htmlentities}"{/if}
+                                                    data-rule="required">
+                                                    <div class="input-group-addon ws_choose no-border no-padding">
+                                                        <span><button type="button" id="faupload-images" class="btn btn-warning faupload" data-input-id="c-images" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="true" data-preview-id="p-images"><i class="fa fa-upload"></i> Add & Upload</button></span>
+                                                        <!--                                                        <span><button type="button" id="fachoose-images" class="btn btn-primary fachoose" data-input-id="c-images" data-mimetype="image/*" data-multiple="true"><i class="fa fa-list"></i> Choose</button></span>-->
+                                                    </div>
+                                                    <div class="invalid-feedback">Please fill this.</div>
+                                                    <span class="msg-box n-right" for="c-images"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <ul class="list-inline faupload-preview" id="p-images" ></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="submit">Submit form</button>
+                                    </div>
+                                </form>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container-fluid Ends-->
+        </div>
+        <!-- Page content Ends-->
+
+    </div>
+
+
+
+</div>
+
+<!-- Page js Start-->
+{include file="ws/js" /}
+<!-- Page js Ends -->
+
+<script>
+    function sumbit_sure(){
+
+        var phone = $('#c-images').val();
+        var j = 0;
+        var arr = '';
+        if (phone){
+            j = 0;
+            arr = '';
+        }else{
+            j = 1;
+            arr = 'Please upload your photos';
+        }
+        $('#form_complate_number').val(j);
+
+
+
+        var html = "Are you sure you want to exit？\n";
+        if (j>0){
+            html += j+" mandatory field\n";
+            html += "'"+arr+"'\n," ;
+            html += "Not filled in.\n";
+            html += "\n";
+        }
+
+        html += "Please fill in relevant information.";
+
+        var gnl=confirm(html);
+        if (gnl==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

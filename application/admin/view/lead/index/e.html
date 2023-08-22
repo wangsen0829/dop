@@ -1,0 +1,154 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('First_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-first_name" class="form-control" name="row[first_name]" type="text" value="{$row.first_name|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Middle_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-middle_name" class="form-control" name="row[middle_name]" type="text" value="{$row.middle_name|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Last_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-last_name" class="form-control" name="row[last_name]" type="text" value="{$row.last_name|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Email')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-email" class="form-control" name="row[email]" type="text" value="{$row.email|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Mobile')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-mobile" class="form-control" name="row[mobile]" type="text" value="{$row.mobile|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Service')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <select  id="c-service" class="form-control selectpicker" name="row[service]">
+                {foreach name="serviceList" item="vo"}
+                <option value="{$key}" {in name="key" value="$row.service"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <div class="radio">
+                {foreach name="statusList" item="vo"}
+                <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="$row.status"}checked{/in} /> {$vo}</label>
+                {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <select  id="c-type" class="form-control selectpicker" name="row[type]">
+                {foreach name="typeList" item="vo"}
+                <option value="{$key}" {in name="key" value="$row.type"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Lead_source')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-lead_source" class="form-control" name="row[lead_source]" type="text" value="{$row.lead_source|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Media')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-media" class="form-control" name="row[media]" type="text" value="{$row.media|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Account')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-account" class="form-control" name="row[account]" type="text" value="{$row.account|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Campaign')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-campaign" class="form-control " rows="5" name="row[campaign]" cols="50">{$row.campaign|htmlentities}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Adgroup')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-adgroup" class="form-control" name="row[adgroup]" type="text" value="{$row.adgroup|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Adname')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-adname" class="form-control" name="row[adname]" type="text" value="{$row.adname|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Referral')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-referral" class="form-control" name="row[referral]" type="text" value="{$row.referral|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Referral_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-referral_id" data-rule="required" data-source="referral/index" class="form-control selectpage" name="row[referral_id]" type="text" value="{$row.referral_id|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Follow_ups')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-follow_ups" data-rule="required" class="form-control" name="row[follow_ups]" type="number" value="{$row.follow_ups|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Message')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-message" class="form-control" name="row[message]" type="text" value="{$row.message|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_repeat')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <select  id="c-is_repeat" data-rule="required" class="form-control selectpicker" name="row[is_repeat]">
+                {foreach name="isRepeatList" item="vo"}
+                <option value="{$key}" {in name="key" value="$row.is_repeat"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Old_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-old_status" class="form-control" name="row[old_status]" type="text" value="{$row.old_status|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

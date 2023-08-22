@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home - About Surrogacy</title>
+
+    <!-- Page Head Start-->
+    {include file="ws/css" /}
+    <!-- Page Head Start-->
+
+    <style>
+        .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+            margin-top: 24px;
+        }
+        .ws_jindu {
+            display: flex;
+            justify-content: space-between;
+        }
+        .ws_prodess {
+            margin-top: 5px;width: 70%
+        }
+        @media only screen and (min-width:768px) and (max-width:992px) {
+            .ws_prodess_r {
+                padding-left: 20px;
+            }
+        }
+        /* phone */
+        @media only screen and (max-width:767px) {
+            .ws_prodess {
+                margin-top: 5px;width: 55%
+            }
+            .ws_prodess_r {
+                padding-left: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>About Surrogacy</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{:url('user/user/detail',['ids'=>$uid])}">
+                                    <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">
+                                    <!--                                    <a  style="cursor:pointer;" onClick="javascript :history.back(-1);"> Forms</a>-->
+                                    <a  style="cursor:pointer;" href="{:url('user/user/detail',['ids'=>$uid])}"> Forms</a>
+                                </li>
+                                <li class="breadcrumb-item active">About Surrogacy</li>
+                            </ol>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="card-body progress-showcase">
+                                <div class="ws_jindu">
+                                    <div>
+                                        {$form_number} required questions
+                                    </div>
+                                    <div class="col col-9 ws_prodess" >
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$lv}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ws_prodess_r">
+                                        {if condition="$row"} {$row.form_complate_number}/{$form_number} complate
+                                        {else}
+                                        0/{$form_number} complate
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container-fluid starts-->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="card">
+                            <div class="card-header pb-0">
+                            </div>
+                            <div class="card-body">
+                                <form class="row g-3 " id="about_surrogacy" method="POST" action="" role="form" onsubmit="return sumbit_sure()">
+
+                                    <input class="form-control"  name="uid" type="hidden"  value="{$uid}" >
+                                    <input class="form-control"  id="form_complate_number" name="form_complate_number" type="hidden" value="0" >
+                                    <input class="form-control"   name="status" type="hidden"  value="0">
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label">Have you ever been a surrogate? *</label>
+
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline3" type="radio" data-rule="checked" name="is_surrogate" value="1"
+                                                       {if condition="$row&&$row.is_surrogate eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline3">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline4" type="radio" data-rule="checked" name="is_surrogate" value="2"
+                                                       {if condition="$row&&$row.is_surrogate eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline4">No</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >How soon would you like to begin your Surrogacy journey? *</label>
+                                        <input class="form-control" name="begin_surrogate" type="text" data-rule="required"
+                                               {if condition="$row"}  value="{$row.begin_surrogate|htmlentities}"{/if}
+                                        >
+                                        <div class="invalid-feedback">Please fill in your Surrogacy journey.</div>
+                                    </div>
+
+
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >How many embryos are you willing to transfer at one time(1-2)? *</label>
+                                        <input class="form-control" name="embryo_transfer_number" type="number" min="0" data-rule="required"
+                                               {if condition="$row"}  value="{$row.embryo_transfer_number|htmlentities}"{/if}
+                                        >
+                                        <div class="invalid-feedback">Please fill in your information.</div>
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label">Are you willing to carry twins? *</label>
+
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline7" type="radio" data-rule="checked" name="is_conceive_twins" value="1"
+                                                       {if condition="$row&&$row.is_conceive_twins eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline7">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline8" type="radio"  data-rule="checked" name="is_conceive_twins" value="2"
+                                                       {if condition="$row&&$row.is_conceive_twins eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline8">No</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label">If you become pregnant with three or four embryos and the parents choose to reduce to two or singleton,would you be
+                                            willing to do selective reduction? *</label>
+
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline12" type="radio" data-rule="checked" name="is_fetal_reduction" value="1"
+                                                       {if condition="$row&&$row.is_fetal_reduction eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline12">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline13" type="radio" data-rule="checked" name="is_fetal_reduction" value="2"
+                                                       {if condition="$row&&$row.is_fetal_reduction eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline13">No</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label">If the child was diagnosed with medical conditions and abortion was suggested by the physician,
+                                            upon the consents from intended parents, would you able to follow the doctor's order? *</label>
+
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline17" type="radio" data-rule="checked" name="is_induced_abortion" value="1"
+                                                       {if condition="$row&&$row.is_induced_abortion eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline17">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline18" type="radio" data-rule="checked" name="is_induced_abortion" value="2"
+                                                       {if condition="$row&&$row.is_induced_abortion eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline18">No</label>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label">If the parents want to have an amniocentesis done, would you be willing to? *</label>
+
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline22" type="radio" data-rule="checked" name="is_cvs" value="1"
+                                                       {if condition="$row&&$row.is_cvs eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline22">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline23" type="radio" data-rule="checked" name="is_cvs" value="2"
+                                                       {if condition="$row&&$row.is_cvs eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline23">No</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label">What type of parents are you willing to carry? *</label>
+                                        <div class="col">
+                                            <div class="m-checkbox-inline">
+                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                    <input class="form-check-input" id="inline-2" type="checkbox" name="parents_type[]" value="1"
+                                                           {if condition="$row&&in_array('1',$row.parents_type)"} checked{/if}
+                                                    >
+                                                    <label class="form-check-label" for="inline-2">Single</label>
+                                                </div>
+                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                    <input class="form-check-input" id="inline-4" type="checkbox" name="parents_type[]" value="2"
+                                                           {if condition="$row&&in_array('2',$row.parents_type)"} checked{/if}
+                                                    >
+                                                    <label class="form-check-label" for="inline-4">Married</label>
+                                                </div>
+                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                    <input class="form-check-input" id="inline-5" type="checkbox" name="parents_type[]" value="3"
+                                                           {if condition="$row&&in_array('3',$row.parents_type)"} checked{/if}
+                                                    >
+                                                    <label class="form-check-label" for="inline-5">Same Sex Couples</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!--                                        <select class="form-select"  name="parents_type" >-->
+                                        <!--                                            <option  value="0" {if condition="$row&&$row.parents_type eq '0'"} selected{/if}>Single</option>-->
+                                        <!--                                            <option  value="1" {if condition="$row&&$row.parents_type eq '1'"} selected{/if}>Married</option>-->
+                                        <!--                                            <option  value="2" {if condition="$row&&$row.parents_type eq '2'"} selected{/if}>Same Sex Couples</option>-->
+                                        <!--                                        </select>-->
+
+                                    </div>
+
+
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >During pregnancy, what kind of relationship do you want to maintain with your intended parents?</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea9" data-rule="required" name="rwp_content"  rows="3">{if condition="$row"} {$row.rwp_content|htmlentities}{/if}</textarea>
+                                        <div class="invalid-feedback">Please fill in your information.</div>
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >After delivery, what kind of relationship do you want to maintain with your intended parents?</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea10" data-rule="required" name="rwp_content_two"  rows="3">{if condition="$row"} {$row.rwp_content|htmlentities}{/if}</textarea>
+                                        <div class="invalid-feedback">Please fill in your information.</div>
+                                    </div>
+
+
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label">Both you and your partner know that unless you have a tubal ligation or your partner has a vasectomy,
+                                            you must agree that there is no sex life between receiving hormone therapy and embryo transfer?
+                                            This does not mean that there is no sexual behavior during the whole surrogacy process.
+                                            During the whole surrogacy process, you and your spouse's sexual life must be approved by your attending doctor.
+                                        </label>
+
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline52" type="radio" data-rule="checked" name="is_sexual_life" value="1"
+                                                       {if condition="$row&&$row.is_sexual_life eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline52">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline53" type="radio" data-rule="checked" name="is_sexual_life" value="2"
+                                                       {if condition="$row&&$row.is_sexual_life eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline53">No</label>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >Does your family support you as a surrogate mother? Please introduce it in more detail,
+                                            so that the intended parents know that you have the support of a family full of support and love.*</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea7" name="family_content" data-rule="required"  rows="3">{if condition="$row"} {$row.family_content|htmlentities}{/if}</textarea>
+                                        <div class="invalid-feedback">Please fill in your information.</div>
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >What do you think is the most important quality when choosing a group of intended parents?*</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea6" name="parents_character_content"  data-rule="required" rows="3">{if condition="$row"} {$row.parents_character_content|htmlentities}{/if}</textarea>
+                                        <div class="invalid-feedback">Please fill in your information.</div>
+                                    </div>
+
+
+
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="submit">Submit form</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container-fluid Ends-->
+        </div>
+        <!-- Page content Ends-->
+
+    </div>
+
+
+
+</div>
+
+<!-- Page js Start-->
+{include file="ws/js" /}
+<!-- Page js Ends -->
+
+<script>
+    //表单弹框事件
+    function sumbit_sure(){
+
+        var parmas = $("#about_surrogacy").find("input[type=text]");
+        var name_arr = ['begin_surrogate','embryo_transfer_number'];
+        var j = 0;// 表单未完成数量
+        var arr = [];// 表单未完成数组
+        for(i=0;i<parmas.length;i++){
+            var value = parmas[i].value;
+            var name = $(parmas[i]).attr('name');
+            if (name_arr.includes(name)&&value.length==0){
+                j++;
+                one = $(parmas[i]).prev().text();
+                arr.push(one);
+            }
+        }
+        $('#form_complate_number').val(j);
+
+        var textarea = $("#about_surrogacy").find("textarea");
+        for(i=0;i<textarea.length;i++){
+            var text = textarea[i].value;
+            if (!text){
+                j++;
+                one = $(textarea[i]).prev().text();
+                arr.push(one);
+            }
+        }
+
+
+        var name_arr = ['is_surrogate','is_conceive_twins','is_fetal_reduction','is_induced_abortion','is_cvs','is_sexual_life'];
+        for(i=0;i<name_arr.length;i++){
+            if (!$("input:radio[name='"+name_arr[i]+"']:checked").length){
+                j++;
+                one = $("input:radio[name='"+name_arr[i]+"']").parents('.form-label').prev().text();
+                arr.push(one);
+            }
+        }
+
+        $('#form_complate_number').val(j);
+        var html = "Are you sure you want to exit？\n";
+        if (j>0){
+            html += j+" mandatory field\n";
+            if(j==1){
+                html += "'"+arr[0]+"'\n," ;
+
+            }else if(j==2){
+                html += "'"+arr[0]+"',\n" ;
+                html += "'"+arr[1]+"',\n" ;
+            }else{
+                html += "'"+arr[0]+"',\n" ;
+                html += "'"+arr[1]+"',\n" ;
+                html += "'"+arr[2]+"'...\n" ;
+            }
+            html += "Not filled in.\n";
+            html += "\n";
+        }
+
+        html += "Please fill in relevant information.";
+        var gnl=confirm(html);
+        if (gnl==true){
+            if (j==0){
+                return true;
+            }else {
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

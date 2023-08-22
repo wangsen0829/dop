@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home - Pre_screen</title>
+
+    <!-- Page Head Start-->
+    {include file="ws/css" /}
+    <!-- Page Head Start-->
+
+    <style>
+        .ws_dis_no {
+            display: none ;
+        }
+        .ws_prodess {
+            margin-top: 5px;width: 70%
+        }
+        .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+            margin-top: 24px;
+        }
+        .ws_jindu {
+            display: flex;
+            justify-content: space-between;
+        }
+        @media only screen and (min-width:768px) and (max-width:992px) {
+            .ws_prodess_r {
+                padding-left: 20px;
+            }
+        }
+        /* phone */
+        @media only screen and (max-width:767px) {
+            .ws_prodess {
+                margin-top: 5px;width: 55%
+            }
+            .ws_prodess_r {
+                padding-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Education</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{:url('user/donor/detail',['ids'=>$uid])}">
+                                    <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{:url('user/donor/detail',['ids'=>$uid])}">Form</a></li>
+                                <li class="breadcrumb-item active">Education</li>
+                            </ol>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="card-body progress-showcase">
+                                <div class="ws_jindu">
+                                    <div>
+                                        {$form_number} required questions
+                                    </div>
+                                    <div class="col col-9 ws_prodess">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$lv}%"
+                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ws_prodess_r">
+                                        {if condition="$row"} {$row.form_complate_number}/{$form_number} complate
+                                        {else}
+                                        0/{$form_number} complate
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form class="row g-3 nice-validator n-default" id="education" method="POST" action=""
+                                      role="form" onsubmit="return sumbit_sure()">
+                                    <input class="form-control" name="uid" type="hidden" value="{$uid}">
+                                    <input class="form-control" id="form_complate_number" name="form_complate_number"
+                                           type="hidden">
+                                    <input class="form-control" name="status" type="hidden" value="0">
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label">Highest education *</label>
+                                        <input class="form-control" name="highest_education" type="text" data-rule="required"
+                                               {if condition="$row" } value="{$row.highest_education|htmlentities}" {/if}>
+                                    </div>
+
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label">Are you currently in College/University? *</label>
+
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline1" type="radio" data-rule="checked" name="is_university" value="1"
+                                                       {if condition="$row&&$row.is_university eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline1">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline2" type="radio" data-rule="checked" name="is_university" value="2"
+                                                       {if condition="$row&&$row.is_university eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline2">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 m-b-20 position-relative ws_is_university {if condition="$row&&$row.university eq '2'"} ws_dis_no {/if}">
+                                    <label class="form-label">If so, which College/University are you attending?</label>
+                                    <input class="form-control"   name="university" type="text" {if condition="$row"} value="{$row.university|htmlentities}"{/if}>
+                            </div>
+
+                            <div class="col-md-12 position-relative">
+                                <label class="form-label" >What are you studying? *</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea4" name="what_study" data-rule="required" rows="3">{if condition="$row"}{$row.what_study|htmlentities}{/if}</textarea>
+                            </div>
+
+                            <div class="col-md-12 position-relative">
+                                <label class="form-label" >What are your favorite subjects at school? *</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea5" name="love_subjects" data-rule="required" rows="3">{if condition="$row"}{$row.love_subjects|htmlentities}{/if}</textarea>
+                            </div>
+
+                            <div class="col-md-12 position-relative">
+                                <label class="form-label" >What other programs or certificates have you completed? *</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea6" name="certificates" data-rule="required" rows="3">{if condition="$row"}{$row.certificates|htmlentities}{/if}</textarea>
+                            </div>
+
+                            <div class="col-md-12 position-relative">
+                                <label class="form-label" >What is your occupation? *</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea7" name="occupation" data-rule="required" rows="3">{if condition="$row"}{$row.occupation|htmlentities}{/if}</textarea>
+                            </div>
+
+                            <div class="col-md-12 position-relative">
+                                <label class="form-label">Do you plan to further your education? *</label>
+
+                                <div class="form-label">
+                                    <div class="form-check form-check-inline radio radio-primary">
+                                        <input class="form-check-input" id="radioinline5" type="radio" data-rule="checked" name="is_plan_education" value="1"
+                                               {if condition="$row&&$row.is_plan_education eq '1'"} checked{/if}
+                                        >
+                                        <label class="form-check-label mb-0" for="radioinline5">Yes</label>
+                                    </div>
+                                    <div class="form-check form-check-inline radio radio-primary">
+                                        <input class="form-check-input" id="radioinline6" type="radio" data-rule="checked" name="is_plan_education" value="2"
+                                               {if condition="$row&&$row.is_plan_education eq '2'"} checked{/if}
+                                        >
+                                        <label class="form-check-label mb-0" for="radioinline6">No</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 m-b-20 position-relative ws_is_plan_education {if condition="$row&&$row.education_content eq '2'"} ws_dis_no {/if}">
+                            <label class="form-label">If Yes, please explain:</label>
+                            <input class="form-control"   name="education_content" type="text" {if condition="$row"} value="{$row.education_content|htmlentities}"{/if}>
+                        </div>
+
+
+
+                        <div class="col-12">
+                            <button class="btn btn-primary" type="submit">Submit form</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Page js Start-->
+{include file="ws/js" /}
+<!-- Page js Ends -->
+</body>
+<script>
+    $('#radioinline2').click(function () {
+        var is_university = $("input[name='is_university']:checked").val();
+        if (is_university==2){
+            $('.ws_is_university').css('display','none');
+        }
+    })
+    $('#radioinline1').click(function () {
+        var is_university = $("input[name='is_university']:checked").val();
+        if (is_university==1){
+            $('.ws_is_university').css('display','inline-block');
+        }
+    })
+    $('#radioinline6').click(function () {
+        var is_plan_education = $("input[name='is_plan_education']:checked").val();
+        if (is_plan_education==2){
+            $('.ws_is_plan_education').css('display','none');
+        }
+    })
+    $('#radioinline5').click(function () {
+        var is_plan_education = $("input[name='is_plan_education']:checked").val();
+        if (is_plan_education==1){
+            $('.ws_is_plan_education').css('display','inline-block');
+        }
+    })
+</script>
+<script>
+    function sumbit_sure() {
+        var parmas = $("#education").find("input");
+        var name_arr = ['highest_education'];
+        var j = 0;// 表单未完成数量
+        var arr = [];// 表单未完成数组
+        for (i = 0; i < parmas.length; i++) {
+            var value = parmas[i].value;
+            var name = $(parmas[i]).attr('name');
+            if (name_arr.includes(name) && value.length == 0) {
+                j++;
+                one = $(parmas[i]).prev().text();
+                arr.push(one);
+            }
+        }
+
+        var textarea = $("#education").find("textarea");
+        for (i = 0; i < textarea.length; i++) {
+            var text = textarea[i].value;
+            if (!text) {
+                j++;
+                one = $(textarea[i]).prev().text();
+                arr.push(one);
+            }
+        }
+
+
+        var name_arr = ['is_university','is_plan_education'];
+        for (i = 0; i < name_arr.length; i++) {
+            if (!$("input:radio[name='" + name_arr[i] + "']:checked").length) {
+                j++;
+                one = $("input:radio[name='" + name_arr[i] + "']").parents('.form-label').prev().text();
+                arr.push(one);
+            }
+        }
+
+        $('#form_complate_number').val(j);
+
+        var html = "Are you sure you want to exit？\n";
+        if (j > 0) {
+            html += j + " mandatory field\n";
+            if (j == 1) {
+                html += "'" + arr[0] + "'\n,";
+
+            } else if (j == 2) {
+                html += "'" + arr[0] + "',\n";
+                html += "'" + arr[1] + "',\n";
+            } else {
+                html += "'" + arr[0] + "',\n";
+                html += "'" + arr[1] + "',\n";
+                html += "'" + arr[2] + "'...\n";
+            }
+            html += "Not filled in.\n";
+            html += "\n";
+        }
+
+        html += "Please fill in relevant information.";
+
+        var gnl = confirm(html);
+        if (gnl == true) {
+            if (j == 0) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } else {
+            return false;
+        }
+    }
+</script>
+</html>

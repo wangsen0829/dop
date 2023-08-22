@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta name="referrer" content="never">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+    <!-- Loading Bootstrap -->
+    <link href="/assets/css/backend.min.css?v=1.0.3" rel="stylesheet">
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <script src="/assets/js/html5shiv.js"></script>
+    <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        var require = {
+            config:  {"site":{"name":"CMS\u5185\u5bb9\u7ba1\u7406\u7cfb\u7edf\u6f14\u793a","cdnurl":"","version":"1.0.3","timezone":"Asia\/Shanghai","languages":{"backend":"zh-cn","frontend":"zh-cn"}},"upload":{"cdnurl":"","uploadurl":"\/admin.php\/ajax\/upload","bucket":"local","maxsize":"10mb","mimetype":"jpg,png,bmp,jpeg,gif,webp,zip,rar,xls,xlsx,wav,mp4,mp3,webm,pdf","chunking":false,"chunksize":2097152,"savekey":"\/uploads\/{year}{mon}{day}\/{filemd5}{.suffix}","multipart":[],"multiple":false,"fullmode":false,"thumbstyle":"","storage":"local"},"modulename":"admin","controllername":"cms.statistics","actionname":"index","jsname":"backend\/cms\/statistics","moduleurl":"\/admin.php","language":"zh-cn","referer":null,"__PUBLIC__":"\/","__ROOT__":"\/","__CDN__":"","third":{"status":["qq","wechat","weibo"]},"adminArchivesListCategory":["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"],"adminArchivesListData":[{"name":"Admin","type":"line","smooth":true,"areaStyle":[],"data":[0,0,0,0,1,0,0,0,1,0,1,0,0,2,1,1,2,0,0,2,3,3,6,0]},{"name":"test1","type":"line","smooth":true,"areaStyle":[],"data":[0,2,0,0,0,0,0,0,0,0,0,1,1,0,0,2,1,0,6,1,1,4,6,0]},{"name":"test2","type":"line","smooth":true,"areaStyle":[],"data":[0,0,0,1,0,0,0,1,0,0,0,1,1,0,1,0,1,2,3,1,2,3,5,0]},{"name":"test3","type":"line","smooth":true,"areaStyle":[],"data":[0,0,0,2,0,0,0,0,0,2,0,1,0,1,0,1,0,4,2,1,1,3,3,0]}],"orderSaleCategory":["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"],"orderSaleAmount":[12,5,12,3,15,12,11,6,8,39,30,41,42,30,53,51,33,52,38,17,30,16,11,0],"orderSaleNums":[6,6,9,7,7,8,5,6,6,11,9,9,9,8,12,12,10,10,10,6,9,7,6,0],"orderPercentCategory":["\u65b0\u95fb","\u4ea7\u54c1","\u4e0b\u8f7d"],"orderPercentAmount":[{"value":129,"name":"\u65b0\u95fb"},{"value":107,"name":"\u4ea7\u54c1"},{"value":331,"name":"\u4e0b\u8f7d"}],"orderPercentNums":[{"value":40,"name":"\u65b0\u95fb"},{"value":40,"name":"\u4ea7\u54c1"},{"value":108,"name":"\u4e0b\u8f7d"}]}    };
+    </script>
+    <style type="text/css">
+        .sm-st {
+            background: #fff;
+            padding: 20px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+            -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+        }
+
+        .sm-st-icon {
+            width: 60px;
+            height: 60px;
+            display: inline-block;
+            line-height: 60px;
+            text-align: center;
+            font-size: 30px;
+            background: #eee;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            float: left;
+            margin-right: 10px;
+            color: #fff;
+        }
+
+        .sm-st-info {
+            font-size: 12px;
+            padding-top: 2px;
+        }
+
+        .sm-st-info span {
+            display: block;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .orange {
+            background: #fa8564 !important;
+        }
+
+        .tar {
+            background: #45cf95 !important;
+        }
+
+        .sm-st .green {
+            background: #86ba41 !important;
+        }
+
+        .pink {
+            background: #AC75F0 !important;
+        }
+
+        .yellow-b {
+            background: #fdd752 !important;
+        }
+
+        .stat-elem {
+
+            background-color: #fff;
+            padding: 18px;
+            border-radius: 40px;
+
+        }
+
+        .stat-info {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 5px;
+            margin-top: -5px;
+            padding: 8px;
+            -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+            font-style: italic;
+        }
+
+        .stat-icon {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .st-red {
+            background-color: #F05050;
+        }
+
+        .st-green {
+            background-color: #27C24C;
+        }
+
+        .st-violet {
+            background-color: #7266ba;
+        }
+
+        .st-blue {
+            background-color: #23b7e5;
+        }
+        .st-navy-blue {
+            background-color: #3F5FE3;
+        }
+
+        .stats .stat-icon {
+            color: #28bb9c;
+            display: inline-block;
+            font-size: 26px;
+            text-align: center;
+            vertical-align: middle;
+            width: 50px;
+            float: left;
+        }
+
+        .stat {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: inline-block;
+        }
+
+        .stat .value {
+            font-size: 20px;
+            line-height: 24px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 500;
+        }
+
+        .stat .name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .stat.lg .value {
+            font-size: 26px;
+            line-height: 28px;
+        }
+
+        .stat.lg .name {
+            font-size: 16px;
+        }
+
+        .stat-col .progress {
+            height: 2px;
+        }
+
+        .stat-col .progress-bar {
+            line-height: 2px;
+            height: 2px;
+        }
+
+        .item {
+            padding: 30px 0;
+        }
+
+
+        #statistics .panel {
+            min-height: 150px;
+        }
+
+        #statistics .panel h5 {
+            font-size: 13px;
+        }
+        .div-box {
+            background: #FFF;margin: 15px;border-radius: 10px;box-shadow: 2px 2px 2px #CCC;
+        }
+        body{
+            background:#f5f6f9 !important;
+        }
+        .qd_height{
+            margin-bottom:15px;
+            display: flex;
+            justify-content: space-between;
+            margin-top:20px;
+        }
+        .qd_color{
+            background:#f5f6f9 !important;
+            width:48%;
+            padding:14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+        }
+        .qd_left{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .qd_span_1{
+            margin-left:10px;
+            flex-shrink: 0;
+        }
+        .qd_span_2{
+            margin-left:45px;
+        }
+        .panel-heading {
+            padding-bottom: 15px;
+            display: flex;
+            justify-content:space-between
+        }
+        .pull-left {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body class="inside-header inside-aside ">
+<div id="main" role="main">
+    <div class="tab-content tab-addtabs">
+        <div id="content">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <section class="content-header hide">
+                        <h1>
+                            控制台                                    <small>Control panel</small>
+                        </h1>
+                    </section>
+                    <div class="content">
+                        <style>
+                            .panel-statistics h4 {
+                                color: #444;
+                                font-weight: bold;
+                                font-size: 14px;
+                            }
+
+                            .panel-statistics h3 {
+                                font-weight: 500;
+                                font-size: 14px;
+                                color: #333;
+                            }
+
+                            .panel-statistics .statistics-value {
+                                font-size:14px;
+                                color: #666;
+                            }
+
+                            .panel-statistics em {
+                                font-style: normal;
+                            }
+
+                            .panel-statistics .pull-right {
+                                padding-right: 10px;
+                            }
+
+                            .panel-statistics .table thead tr th {
+                                font-weight: normal;
+                            }
+
+                            .panel-statistics .table tbody tr td {
+                                font-weight: normal;
+                                vertical-align: middle;
+                            }
+
+                            .panel-statistics .table tbody tr td p {
+                                margin: 0;
+                            }
+
+                            #echarts1 textarea {
+                                display: block;
+                            }
+
+                            select.model_id {
+                                min-width: 60px;
+                            }
+                        </style>
+                        <div class="btn-refresh hidden" id="resetecharts"></div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-3">
+                                <div class="panel panel-default panel-intro panel-statistics">
+                                    <div class="panel-body">
+                                        <div class="pull-left">
+                                            <h4>总线索数量</h4>
+                                            <h3>9999</h3>
+                                        </div>
+
+                                        <div class="pull-right" style="color:#c8cfff;">
+                                            <i class="fa  fa-tag fa-4x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-3">
+                                <div class="panel panel-default panel-intro panel-statistics">
+                                    <div class="panel-body">
+                                        <div class="pull-left">
+                                            <h4>今日新增线索</h4>
+                                            <h3>333</h3>
+                                        </div>
+
+                                        <div class="pull-right" style="color:#ffc8c8;">
+                                            <i class="fa fa-tags fa-4x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-3">
+                                <div class="panel panel-default panel-intro panel-statistics">
+                                    <div class="panel-body">
+                                        <div class="pull-left">
+                                            <h4>总代母数</h4>
+                                            <h3>99999</h3>
+                                        </div>
+
+                                        <div class="pull-right" style="color:#c8e3ff;">
+                                            <i class="fa fa-users fa-4x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-3">
+                                <div class="panel panel-default panel-intro panel-statistics">
+                                    <div class="panel-body">
+                                        <div class="pull-left">
+                                            <h4>今日新增代母数</h4>
+                                            <h3>200</h3>
+                                        </div>
+
+                                        <div class="pull-right" style="color:#ffe9c8;">
+                                            <i class="fa fa-user fa-4x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top:15px;">
+                            <div class="col-xs-12">
+                                <div class="panel panel-default panel-intro panel-statistics">
+                                    <div class="panel-body">
+                                        <h4>线索</h4>
+                                        <div class="datefilter">
+                                            <form id="form2" action="" role="form" novalidate class="form-inline">
+                                                <a href="javascript:;" class="btn btn-primary btn-refresh"><i class="fa fa-refresh"></i></a>
+                                                <a href="javascript:;" class="btn btn-success btn-filter">今天</a>
+                                                <a href="javascript:;" class="btn btn-success btn-filter">昨天</a>
+                                                <a href="javascript:;" class="btn btn-success btn-filter">最近7天</a>
+                                                <a href="javascript:;" class="btn btn-success btn-filter">最近30天</a>
+                                                <a href="javascript:;" class="btn btn-success btn-filter">上月</a>
+                                                <a href="javascript:;" class="btn btn-success btn-filter">本月</a>
+                                                <select name="model_id" class="form-control model_id">
+                                                    <option value="0">请选择员工</option>
+                                                    <option value="1">新闻</option>
+                                                    <option value="2">产品</option>
+                                                    <option value="3">下载</option>
+                                                </select>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                    <input type="text" class="form-control input-inline datetimerange" data-type="archives" placeholder="指定日期" style="width:270px;"/>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div id="echarts4" style="height:400px;width:100%;margin-top:15px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/assets/js/require.min.js" data-main="/assets/js/require-backend.min.js?v=1.0.3"></script>
+<script src="https://api.fastadmin.net/demo/site"></script>
+</body>
+</html>

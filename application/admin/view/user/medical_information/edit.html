@@ -1,0 +1,280 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Uid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-uid" class="form-control" name="row[uid]" type="number" value="{$row.uid|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Insurance_company')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-insurance_company" class="form-control" name="row[insurance_company]" type="text" value="{$row.insurance_company|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Covid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-covid" class="form-control selectpicker" name="row[covid]">
+                {foreach name="covidList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.covid"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Obgyn_visit_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-obgyn_visit_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[obgyn_visit_time]" type="text" value="{:$row.obgyn_visit_time?datetime($row.obgyn_visit_time):''}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Pap_smear_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pap_smear_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[pap_smear_time]" type="text" value="{:$row.pap_smear_time?datetime($row.pap_smear_time):''}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Hepatitis_b_vaccine')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-hepatitis_b_vaccine" class="form-control" name="row[hepatitis_b_vaccine]" type="text" value="{$row.hepatitis_b_vaccine|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Varicella_vaccine')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-varicella_vaccine" class="form-control" name="row[varicella_vaccine]" type="text" value="{$row.varicella_vaccine|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Menstruation_start_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-menstruation_start_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[menstruation_start_time]" type="text" value="{:$row.menstruation_start_time?datetime($row.menstruation_start_time):''}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Menstruation_long_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-menstruation_long_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[menstruation_long_time]" type="text" value="{:$row.menstruation_long_time?datetime($row.menstruation_long_time):''}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_menstruation_regular')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_menstruation_regular" class="form-control selectpicker" name="row[is_menstruation_regular]">
+                {foreach name="isMenstruationRegularList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.is_menstruation_regular"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Menstruation_two')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-menstruation_two" class="form-control" name="row[menstruation_two]" type="text" value="{$row.menstruation_two|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Birth_control_method')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-birth_control_method" class="form-control" name="row[birth_control_method]" type="text" value="{$row.birth_control_method|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_any_infectious_disease')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_any_infectious_disease" class="form-control selectpicker" name="row[is_any_infectious_disease]">
+                {foreach name="isAnyInfectiousDiseaseList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.is_any_infectious_disease"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_any_genetic_disease')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_any_genetic_disease" class="form-control selectpicker" name="row[is_any_genetic_disease]">
+                {foreach name="isAnyGeneticDiseaseList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.is_any_genetic_disease"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_mental_illness')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_mental_illness" class="form-control selectpicker" name="row[is_mental_illness]">
+                {foreach name="isMentalIllnessList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.is_mental_illness"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_other_disease')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_other_disease" class="form-control selectpicker" name="row[is_other_disease]">
+                {foreach name="isOtherDiseaseList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.is_other_disease"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_take_any_medicine')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_take_any_medicine" class="form-control selectpicker" name="row[is_take_any_medicine]">
+                {foreach name="isTakeAnyMedicineList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.is_take_any_medicine"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_allergic_medication')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_allergic_medication" class="form-control selectpicker" name="row[is_allergic_medication]">
+                {foreach name="isAllergicMedicationList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.is_allergic_medication"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_weightc_change')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_weightc_change" class="form-control selectpicker" name="row[is_weightc_change]">
+                {foreach name="isWeightcChangeList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.is_weightc_change"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_any_surgeries')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_any_surgeries" class="form-control selectpicker" name="row[is_any_surgeries]">
+                {foreach name="isAnySurgeriesList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.is_any_surgeries"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_twins')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_twins" class="form-control selectpicker" name="row[is_twins]">
+                {foreach name="isTwinsList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.is_twins"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Surrogate_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-surrogate_content" class="form-control" name="row[surrogate_content]" type="text" value="{$row.surrogate_content|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Many_children')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-many_children" class="form-control" name="row[many_children]" type="text" value="{$row.many_children|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_children_live')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_children_live" class="form-control selectpicker" name="row[is_children_live]">
+                {foreach name="isChildrenLiveList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.is_children_live"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_having_more_children')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_having_more_children" class="form-control selectpicker" name="row[is_having_more_children]">
+                {foreach name="isHavingMoreChildrenList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.is_having_more_children"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Any_5_medication')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-any_5_medication" class="form-control" name="row[any_5_medication]" type="text" value="{$row.any_5_medication|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Any_surgeries')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-any_surgeries" class="form-control" name="row[any_surgeries]" type="text" value="{$row.any_surgeries|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Any_diseases')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-any_diseases" class="form-control selectpicker" name="row[any_diseases]">
+                {foreach name="anyDiseasesList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.any_diseases"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Form_complate_number')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-form_complate_number" class="form-control" name="row[form_complate_number]" type="number" value="{$row.form_complate_number|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="statusList" item="vo"}
+            <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="$row.status"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'Uid'                        => '用户id',
+    'First_name'                 => '姓',
+    'Last_name'                  => '名',
+    'Address'                    => '详细地址',
+    'City'                       => '城市',
+    'State'                      => '州',
+    'Postal_code'                => '邮编',
+    'Email'                      => '邮箱',
+    'Mobile'                     => '电话',
+    'Age'                        => '年龄',
+    'Height'                     => '身高',
+    'Weight'                     => '体重',
+    'Marital_status'             => 'MaritalStatus',
+    'Marital_status 0'           => 'single',
+    'Marital_status 1'           => 'married',
+    'Marital_status 2'           => 'divorced',
+    'Marital_status 3'           => 'long-term relationship',
+    'Product_number'             => '生产次数',
+    'Caesarean_number'           => '剖腹产次数',
+    'Miscarriage_number'         => '流产次数',
+    'Abortion_reason'            => '流产原因',
+    'Complications_of_pregnancy' => '是否有妊娠或分娩并发症',
+    'Contraceptive_measures'     => '避孕措施',
+    'Abortion_number'            => '堕胎次数',
+    'Status'                     => 'Statu',
+    'Status 0'                   => '待审核',
+    'Status 1'                   => '审核通过',
+    'Status 2'                   => '不通过'
+];

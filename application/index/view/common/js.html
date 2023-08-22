@@ -1,0 +1,59 @@
+
+<script src="__CDN__/assets/bridely/assets/js/jquery-3.6.0.min.js"></script>
+<script src="__CDN__/assets/bridely/assets/js/animations.js"></script>
+<script src="__CDN__/assets/bridely/assets/js/bootstrap.min.js"></script>
+<script src="__CDN__/assets/bridely/assets/js/jquery-3.6.0.min.js"></script>
+<script src="__CDN__/assets/bridely/assets/js/popper.min.js"></script>
+<script src="__CDN__/assets/bridely/assets/js/owl.carousel.js"></script>
+<!--<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>-->
+<script src="__CDN__/assets/bridely/assets/cdn/aos.js"></script>
+<script src="__CDN__/assets/bridely/assets/js/text-animations.js"></script>
+<script src="__CDN__/assets/bridely/assets/js/carousel.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>-->
+<script src="__CDN__/assets/bridely/assets/cdn/jquery.magnific-popup.js"></script>
+<!--<script src="https://unpkg.com/ityped@0.0.10"></script>-->
+<script src="__CDN__/assets/bridely/assets/cdn/ityped.min.js"></script>
+
+
+
+
+<script src="__CDN__/assets/bridely/assets/js/type.js"></script>
+<script src="__CDN__/assets/bridely/assets/js/custom-script.js"></script>
+<script src="__CDN__/assets/bridely/assets/js/video-popup.js"></script>
+
+<script src="__CDN__/assets/koho/assets/js/datepicker/date-picker/datepicker.js"></script>
+<script src="__CDN__/assets/koho/assets/js/datepicker/date-picker/datepicker.en.js"></script>
+<script src="__CDN__/assets/koho/assets/js/datepicker/date-picker/datepicker.custom.js"></script>
+
+<script src="/assets/js/jquery.maskedinput.js" type="text/javascript"></script>
+<script src="/assets/js/require.js" data-main="/assets/js/require-frontend.js?v=1682323438"></script>
+<script>
+    $(function() {
+        $.mask.definitions['~'] = "[+-]";
+        $("#phone").mask("(999) 999-9999");
+    });
+    $('.radioinline2').click(function () {
+        var is_abortion_reason = $("input[name='is_abortion_reason']:checked").val();
+        if (is_abortion_reason==2){
+            $('.ws_so2').css('display','none');
+        }
+    })
+    $('.radioinline1').click(function () {
+        var is_abortion_reason = $("input[name='is_abortion_reason']:checked").val();
+        if (is_abortion_reason==1){
+            $('.ws_so2').css('display','inline-block');
+        }
+    })
+    $('.radioinline3').click(function () {
+        var is_complications_of_pregnancy = $("input[name='is_complications_of_pregnancy']:checked").val();
+        if (is_complications_of_pregnancy==1){
+            $('.ws_so1').css('display','inline-block');
+        }
+    })
+    $('.radioinline4').click(function () {
+        var is_complications_of_pregnancy = $("input[name='is_complications_of_pregnancy']:checked").val();
+        if (is_complications_of_pregnancy==2){
+            $('.ws_so1').css('display','none');
+        }
+    })
+</script>

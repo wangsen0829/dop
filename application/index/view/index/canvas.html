@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>邀请函</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body  >
+
+<canvas id="myCanvas"></canvas>
+<img crossOrigin="anonymous" id="img"  />
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    canvas()
+    function canvas(){
+        var url = 'https://vip.dopusa.com/ws.jpg'
+
+        var image = new Image();
+        image.src = url;
+
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        image.setAttribute('crossOrigin', 'anonymous')
+        image.onload = function() {
+            $('#myCanvas').attr('width',image.width)
+            $('#myCanvas').attr('height',image.height)
+            ctx.drawImage(image, 0, 0);
+            // 设置字体颜色
+            ctx.fillStyle = "#67371b";
+            // 渲染
+            ctx.font = '35px 宋体';
+            ctx.fillText("王森", 320, 785);
+            ctx.fillText("06-12-2022", 320, 1140);
+            ctx.fillText("下午5点", 320, 1195);
+            ctx.fillText("北京有色地质大山", 320, 1250);
+
+
+            var a = document.createElement("a");
+            a.href = c.toDataURL('image/png');
+            a.download = 'ws.png';
+            a.click();
+
+        }
+    }
+
+
+
+</script>
+
+</html>

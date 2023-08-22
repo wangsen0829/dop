@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邀请函</title>
+
+    <link rel="stylesheet" href="__CDN__/assets/bridely/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__CDN__/assets/bridely/assets/css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/date-picker.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .contact-form-img {
+            margin-left: 18px;
+        }
+        .form-group input,.form-group select,.form-group textarea {
+            border: 1px solid #e7e7e7 !important;
+            border-radius: 6px !important;
+            color: #000 !important;
+            font-weight: 400 !important;
+        }
+        .appointment-btn {
+            border-radius: 6px !important;
+        }
+        .form-group input:focus {
+            border: 1px solid #d51243 !important;
+            outline: 0 !important;
+        }
+        .form-group  .form_style{
+            background-color: #fff !important;
+        }
+        /*调色*/
+        .header-top {
+            background-color: #CC3B68;
+        }
+        .header {
+            background-color: #fff;
+        }
+        .banner-container-box {
+            background-color: #fff ;
+        }
+        .get-in-touch {
+            background-color: #F1F5F7 ;
+        }
+        .contact-details-section-outer {
+            background-color: #fff ;
+        }
+        .contact-details-section .first figure {
+            background-color: #CC3B68;
+        }
+        .contact-details-section .second figure{
+            background-color: #CC3B68;
+        }
+        .contact-details-section .third figure{
+            background-color: #CC3B68;
+        }
+        .send_message_form_box_content {
+            background-color: #F1F5F7 !important;
+        }
+        .get-in-touch .send_message_form_box_content input {
+            background-color: #fff;
+        }
+        .appointment-btn {
+            background-color: #CC3B68 !important;
+        }
+        .datepicker--nav-action {
+            background-color: #CC3B68 !important;
+        }
+        .navbar-nav {
+            /*background-color: #CC3B68 ;*/
+        }
+        .home-header-section  .main-header .navbar-collapse .navbar-nav a:hover {
+            color: #CC3B68;
+        }
+    </style>
+    <style>
+        .form-label {
+            font-weight: 600;
+            font-size: 16px;
+            color: #2b2b2b !important;
+        }
+        body{
+            padding: 0px !important;
+        }
+        .main-header .navbar {
+            margin: 0px !important;
+        }
+        .n-default .n-left, .n-default .n-right {
+            margin-top: -8px !important;
+        }
+    </style>
+    <style>
+        @media screen and (max-width: 1440px){
+            .home-banner-section .banner-container-box .home-banner-text {
+                margin-top: 0px !important;
+            }
+        }
+        .get-in-touch {
+            padding-top: 40px;
+        }
+        .ws_select {
+            color: #999;
+            padding-left: 18px;
+            font-size: 16px;
+            height: 54px;
+            border-radius: 50px !important;
+        }
+        .sub-banner-section p {
+            padding: 0 10% !important;
+        }
+        .sub-baner {
+            padding: 0px !important;
+        }
+        .get-in-touch {
+            padding-top: 50px;
+        }
+        /* phone */
+        @media only screen and (min-width:960px) {
+            .send_message_form_box_content {
+                margin-left: 14% !important;
+            }
+        }
+        .get-in-touch {
+            padding: 0px !important;
+        }
+    </style>
+</head>
+
+<body>
+<!-- HEADER-SECTION -->
+<div class="home-header-section sub-header-section">
+
+    <!--Get-in-touch  -->
+    <div class="get-in-touch">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 ">
+                    <div class="send_message_form_box_content">
+                        <figure class="contact-form-img">
+                            <h4 style="font-size: 30px !important;">邀请函生成</h4>
+                        </figure>
+                        <form id="contactpage" method="POST"  class="contactpage-form nice-validator n-default">
+
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4">
+                                    <label class="form-label" >姓名 *</label>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form_style" id="username" data-rule="required"  name="username" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <label class="form-label" >日期 *</label>
+                                    <div class="form-group mb-0">
+                                        <input type="text" id="date" class="form_style datepicker-here  digits birthday_time"   name="date" data-language="en" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <label class="form-label" >时间 *</label>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form_style"   id="time" name="time" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <label class="form-label" >地点 *</label>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form_style" id="address" name="address" autocomplete="off">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <canvas id="myCanvas" style="display: none"></canvas>
+                            <img src="" alt="" id="img">
+                            <div class="form_button_wrapper text-center " >
+                                <button type="button" id="submit" class="appointment-btn">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="__CDN__/assets/bridely/assets/js/bootstrap.min.js"></script>
+<script src="__CDN__/assets/bridely/assets/js/jquery-3.6.0.min.js"></script>
+<script src="__CDN__/assets/koho/assets/js/datepicker/date-picker/datepicker.js"></script>
+<script src="__CDN__/assets/koho/assets/js/datepicker/date-picker/datepicker.en.js"></script>
+<script src="__CDN__/assets/koho/assets/js/datepicker/date-picker/datepicker.custom.js"></script>
+
+
+</body>
+<script>
+    $('#submit').click(function () {
+        var username = $('#username').val();
+        if (!username){
+            alert('姓名不能为空');
+            return false;
+        }
+        var date = $('#date').val();
+        if (!date){
+            alert('日期不能为空');
+            return false;
+        }
+        var time = $('#time').val();
+        if (!time){
+            alert('时间不能为空');
+            return false;
+        }
+        var address = $('#address').val();
+        if (!address){
+            alert('地点不能为空');
+            return false;
+        }
+
+
+        var url = 'https://vip.dopusa.com/xb.jpg'
+
+        var image = new Image();
+        image.src = url;
+
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        image.setAttribute('crossOrigin', 'anonymous')
+        image.onload = function() {
+            $('#myCanvas').attr('width',image.width)
+            $('#myCanvas').attr('height',image.height)
+            ctx.drawImage(image, 0, 0);
+            // 设置字体颜色
+            ctx.fillStyle = "#67371b";
+            // 渲染
+            ctx.font = '18px 宋体';
+            ctx.fillText(username, 160, 392);
+            ctx.fillText(date, 160, 570);
+            ctx.fillText(time, 160, 597);
+            ctx.fillText(address, 160, 625);
+
+            // var a = c.toDataURL('image/png');
+             // $('#img').attr('href',a)
+            var a = document.createElement("a");
+            a.href = c.toDataURL('image/png');
+            a.download = username+'.png';
+            a.click();
+            window.onload = c.toDataURL('image/png');
+
+        }
+    })
+</script>
+</html>

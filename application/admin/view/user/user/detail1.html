@@ -1,0 +1,453 @@
+
+
+<div id="main" role="main">
+    <div class="tab-content tab-addtabs">
+        <div id="content">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="content">
+                        <style type="text/css">
+                            @media (max-width: 375px) {
+                                .edit-form tr td input {
+                                    width: 100%;
+                                }
+
+                                .edit-form tr th:first-child, .edit-form tr td:first-child {
+                                    width: 20%;
+                                }
+
+                                .edit-form tr th:nth-last-of-type(-n+2), .edit-form tr td:nth-last-of-type(-n+2) {
+                                    display: none;
+                                }
+                            }
+
+                            .edit-form table > tbody > tr td a.btn-delcfg {
+                                visibility: hidden;
+                            }
+
+                            .edit-form table > tbody > tr:hover td a.btn-delcfg {
+                                visibility: visible;
+                            }
+
+                            @media (max-width: 767px) {
+                                .edit-form table tr th:nth-last-child(-n + 2), .edit-form table tr td:nth-last-child(-n + 2) {
+                                    display: none;
+                                }
+
+                                .edit-form table tr td .msg-box {
+                                    display: none;
+                                }
+                            }
+                        </style>
+                        <div class="panel panel-default panel-intro">
+                            <div class="panel-heading">
+                                <div class="panel-lead">
+                                    <img src="{$row['avatar']}" alt="" width="40px" style="border-radius: 50%;">
+                                    <span>
+                                        {$row['first_name']}   {$row['last_name']}
+                                   </span>
+                                    <span>
+                                         {$row['mobile']}
+                                    </span>
+                                </div>
+                                <!--                                <ul class="nav nav-tabs" style="display: inline-block;width: 1000px">-->
+                                <ul class="nav nav-tabs" >
+                                    <li class="active"><a href="#tab-pre-screening" data-toggle="tab">Pre-screening</a></li>
+                                    <li class=""><a href="#tab-personal-info" data-toggle="tab">Personal Info</a></li>
+                                    <li class=""><a href="#tab-obstertric-history" data-toggle="tab">Obstertric History</a></li>
+                                    <li class=""><a href="#tab-form" data-toggle="tab">form</a></li>
+                                    <li class=""><a href="#tab-about-surrogacy" data-toggle="tab">About Surrogacy</a></li>
+                                    <li class=""><a href="#tab-other-information" data-toggle="tab">Other Information</a></li>
+                                    <li class=""><a href="#tab-photos" data-toggle="tab">Photos</a></li>
+                                    <li class=""><a href="#tab-additional-information" data-toggle="tab">Additional Information</a></li>
+                                    <!--                                    <li class=""><a href="#tab-health" data-toggle="tab">Health Record Release</a></li>-->
+                                </ul>
+                            </div>
+
+                            <div class="panel-body">
+                                <div id="myTabContent" class="tab-content">
+                                    <div class="tab-pane fade active in" id="tab-pre-screening">
+                                        <div class="widget-body no-padding">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th style="width: 30%">Title</th>
+                                                    <th>Content</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>First name *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['first_name']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Last name *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['last_name']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Address *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['address']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>City *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['city']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>State *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['state']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Postal code</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['postal_code']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Email *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['email']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Phone *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['phone']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Age *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['age']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Height *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['height']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Weight *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['weight']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Marital status *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen['marital_status']=='0'"}
+                                                        not married
+                                                        {elseif condition="$pre_screen['marital_status']=='1'"}
+                                                        married
+                                                        {elseif condition="$pre_screen['marital_status']=='2'"}
+                                                        divorce
+                                                        {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Product Number</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['product_number']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of caesarean sections</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['caesarean_number']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of miscarriages</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['miscarriage_number']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>If there is any miscarriage, please give a brief reason</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['abortion_reason']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Current contraceptive measures</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['complications_of_pregnancy']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Have you ever taken drugs for depression or anxiety</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['contraceptive_measures']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Please provide your current drug list</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['taken_drugs']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Do you have abnormal cervical diaphragm examination in the past 3 years</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$pre_screen"}   {$pre_screen['current_drug_list']} {/if}
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="hide layer-footer">
+                                                <label class="control-label col-xs-12 col-sm-2"></label>
+                                                <div class="col-xs-12 col-sm-8">
+                                                    <button type="reset" class="btn btn-primary btn-embossed btn-close" onclick="Layer.closeAll();">{:__('Close')}</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade " id="tab-personal-info">
+                                        <div class="widget-body no-padding">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th style="width: 30%">Title</th>
+                                                    <th>Content</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Date of birth *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info"}   {$personal_info['birthday_time']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Blood type *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info['blood_type']=='0'"}
+                                                        A
+                                                        {elseif condition="$personal_info['blood_type']=='1'"}
+                                                        B
+                                                        {elseif condition="$personal_info['blood_type']=='2'"}
+                                                        O
+                                                        {elseif condition="$personal_info['blood_type']=='3'"}
+                                                        AB
+                                                        {elseif condition="$personal_info['blood_type']=='4'"}
+                                                        other
+                                                        {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Highest education *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info"}   {$personal_info['highest_education']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Religion</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info"}   {$personal_info['religion']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Race  *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info['race']=='0'"}
+                                                        White person
+                                                        {elseif condition="$personal_info['race']=='1'"}
+                                                        Black race
+                                                        {elseif condition="$personal_info['race']=='2'"}
+                                                        Yellow race
+                                                        {elseif condition="$personal_info['race']=='3'"}
+                                                        Mixed blood
+                                                        {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sexual orientation</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info['sexual_orientation']=='0'"}
+                                                        Heterosexuality
+                                                        {elseif condition="$personal_info['sexual_orientation']=='1'"}
+                                                        Homosexuality
+                                                        {elseif condition="$personal_info['sexual_orientation']=='2'"}
+                                                        Bisexuality
+                                                        {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of surrogacy *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info"}   {$personal_info['surrogate_number']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Source of income *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info"}   {$personal_info['source_of_income']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Whether the family supports *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info"}   {$personal_info['family_attitude']} {/if}
+                                                    </td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                            <div class="hide layer-footer">
+                                                <label class="control-label col-xs-12 col-sm-2"></label>
+                                                <div class="col-xs-12 col-sm-8">
+                                                    <button type="reset" class="btn btn-primary btn-embossed btn-close" onclick="Layer.closeAll();">{:__('Close')}</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade " id="tab-obstertric-history">
+
+
+                                        <div class="widget-body no-padding">
+
+                                            <table class="table table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th style="width: 30%">Title</th>
+                                                    <th>Content</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Date of birth *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info"}   {$personal_info['birthday_time']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Blood type *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info['blood_type']=='0'"}
+                                                        A
+                                                        {elseif condition="$personal_info['blood_type']=='1'"}
+                                                        B
+                                                        {elseif condition="$personal_info['blood_type']=='2'"}
+                                                        O
+                                                        {elseif condition="$personal_info['blood_type']=='3'"}
+                                                        AB
+                                                        {elseif condition="$personal_info['blood_type']=='4'"}
+                                                        other
+                                                        {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Highest education *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info"}   {$personal_info['highest_education']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Religion</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info"}   {$personal_info['religion']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Race  *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info['race']=='0'"}
+                                                        White person
+                                                        {elseif condition="$personal_info['race']=='1'"}
+                                                        Black race
+                                                        {elseif condition="$personal_info['race']=='2'"}
+                                                        Yellow race
+                                                        {elseif condition="$personal_info['race']=='3'"}
+                                                        Mixed blood
+                                                        {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sexual orientation</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info['sexual_orientation']=='0'"}
+                                                        Heterosexuality
+                                                        {elseif condition="$personal_info['sexual_orientation']=='1'"}
+                                                        Homosexuality
+                                                        {elseif condition="$personal_info['sexual_orientation']=='2'"}
+                                                        Bisexuality
+                                                        {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of surrogacy *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info"}   {$personal_info['surrogate_number']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Source of income *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info"}   {$personal_info['source_of_income']} {/if}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Whether the family supports *</td>
+                                                    <td style="word-break: break-all;">
+                                                        {if condition="$personal_info"}   {$personal_info['family_attitude']} {/if}
+                                                    </td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                            <div class="hide layer-footer">
+                                                <label class="control-label col-xs-12 col-sm-2"></label>
+                                                <div class="col-xs-12 col-sm-8">
+                                                    <button type="reset" class="btn btn-primary btn-embossed btn-close" onclick="Layer.closeAll();">{:__('Close')}</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade " id="tab-form">
+
+                                        <div class="col-xl-3 col-md-5 xl-35 box-col-35">
+                                            <div class="default-according style-1 job-accordion">
+                                                <div class="row">
+                                                    <div class="col-xl-12">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <h3 class="p-0">
+                                                                    <button class="btn btn-link ps-0" data-bs-toggle="collapse" data-bs-target="#collapseicon2" aria-expanded="true" aria-controls="collapseicon2">About Me</button>
+                                                                </h3>
+                                                            </div>
+                                                            <div class="collapse show" id="collapseicon2" aria-labelledby="collapseicon2" data-parent="#accordion">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

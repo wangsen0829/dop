@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Koho admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Koho admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="pixelstrap">
+    <link rel="icon" href="__CDN__/assets/koho/assets/images/favicon/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="__CDN__/assets/koho/assets/images/favicon/favicon.png" type="image/x-icon">
+    <title>Koho - Premium Admin Template</title>
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/font-awesome.css">
+    <!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/icofont.css">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/themify.css">
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/flag-icon.css">
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/feather-icon.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/owlcarousel.css">
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/bootstrap.css">
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/style.css">
+    <link id="color" rel="stylesheet" href="__CDN__/assets/koho/assets/css/color-1.css" media="screen">
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/responsive.css">
+</head>
+<style>
+
+    .page-body-wrapper .page-body{
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+    }
+    .page-title {
+        padding-top: 0px !important;
+    }
+    .ws_username {
+        padding-left: 5px !important;
+        font-size: 14px !important;
+        color: #555 !important;
+        display: inline !important;
+    }
+    #p-images .thumbnail {
+        /*border-color: #444c69 !important;*/
+        display: block;
+        width: 115px;
+        height: 90px;
+        padding: 4px;
+        margin-bottom: 10px;
+        line-height: 1.42857143;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+    }
+    #p-images a img {
+        width: 80px;
+        margin: 0px 12.5px;
+        height: 80px;
+    }
+    #p-images .btn-danger {
+        width: 115px;
+        border-radius: 0px;
+    }
+    #p-images li {
+        float: left;
+        margin-right:30px;
+    }
+
+</style>
+<body>
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+        <!-- Page Sidebar Start-->
+
+        <!-- Page Sidebar Ends-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts                    -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header pb-0">
+                                <img src="{$row['avatar']}" alt="" width="40px" style="border-radius: 50%;">
+                                <span class="ws_username">{$row['first_name']}   {$row['last_name']}</span>
+                                <span class="ws_username">{$row['mobile']}</span>
+                            </div>
+                            <div class="card-body">
+                                <ul class="nav nav-tabs" id="icon-tab" role="tablist">
+                                    <li class="nav-item"><a class="nav-link active" id="icon-home-tab" data-bs-toggle="tab" href="#icon-home" role="tab" aria-controls="icon-home" aria-selected="true"><i class="icofont icofont-contacts"></i>Forms</a></li>
+                                    <li class="nav-item"><a class="nav-link" id="profile-icon-tab" data-bs-toggle="tab" href="#profile-icon" role="tab" aria-controls="profile-icon" aria-selected="false"><i class="icofont icofont-man-in-glasses"></i>Overview</a></li>
+                                    <li class="nav-item"><a class="nav-link" id="contact-icon-tab" data-bs-toggle="tab" href="#contact-icon" role="tab" aria-controls="contact-icon" aria-selected="false"><i class="icofont icofont-contacts"></i>photos</a></li>
+                                    <li class="nav-item"><a class="nav-link" id="background-icon-tab" data-bs-toggle="tab" href="#background-icon" role="tab" aria-controls="contact-icon" aria-selected="false"><i class="icofont icofont-contacts"></i>Background</a></li>
+                                    <li class="nav-item"><a class="nav-link" id="medical-icon-tab" data-bs-toggle="tab" href="#medical-icon" role="tab" aria-controls="medical-icon" aria-selected="false"><i class="icofont icofont-contacts"></i>Medical Records</a></li>
+                                </ul>
+                                <div class="tab-content" id="icon-tabContent">
+                                    <div class="tab-pane fade show active" id="icon-home" role="tabpanel" aria-labelledby="icon-home-tab">
+                                        <p class="mb-0 m-t-30">
+                                            <style>
+                                                /*.page-title {*/
+                                                /*    margin-top: 60px;*/
+                                                /*}*/
+                                                .ws-card-between {
+                                                    height: 60px;
+                                                    border: 1px solid rgba(83, 70, 134, 0.1019607843);
+                                                    border-radius: 10px;
+                                                    display: flex;
+                                                    justify-content: space-between;
+                                                }
+                                                .ws-card {
+                                                    height: 60px;
+                                                    border: 1px solid rgba(83, 70, 134, 0.1019607843);
+                                                    border-radius: 10px;
+                                                    display: flex;
+                                                    flex-direction: row
+                                                }
+                                                .ws_pro_title {
+                                                    font-size: 16px;
+                                                    border-bottom: 1px solid #9993B4;
+                                                }
+                                                .ws_jindu {
+                                                    display: flex;
+                                                    justify-content: space-between;
+                                                    font-size: 12px;
+                                                }
+                                                .ws_pro_left {
+                                                    margin: auto;width: 5%;
+                                                    padding-left: 10px;
+                                                }
+                                                .ws_pro_right {
+                                                    width: 94%;
+                                                    padding-top: 7px;
+                                                    padding-right: 20px;
+                                                }
+                                                .sm-progress-bar {
+                                                    margin-top: 8px;
+                                                    padding: 0px;
+                                                }
+                                                .ws_one_l {
+                                                    margin-top: 18px;
+                                                    margin-left: 18px;
+                                                }
+                                                .ws_one_r{
+                                                    margin-top: 15px;
+                                                    margin-right: 20px;
+                                                }
+                                                /* phone */
+                                                @media only screen and (max-width:767px) {
+                                                    .ws_pro_right {
+                                                        margin-left: 7px;
+                                                        width: 85%;
+                                                    }
+                                                    .ws_pro_left {
+                                                        padding-left: 0px;
+                                                    }
+                                                }
+                                            </style>
+                                        <div class="col-xl-12 box-col-30 pe-0">
+                                            <div class="widget-joins card widget-arrow">
+                                                <div class="card-header pb-0">
+                                                    <h3>Application Status</h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row gy-4">
+                                                        <div class="col-sm-12">
+                                                            <a href="{:url('surrogacy/pre_screen',['uid'=>$ids])}">
+                                                                <div class="ws-card">
+                                                                    <div class="ws_pro_left">
+                                                <span >
+                                                     {if condition="$form_pre_screen_lv==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                                    </div>
+                                                                    <div class="ws_pro_right">
+                                                                        <div class="ws_pro_title">Pre-screening</div>
+                                                                        <div class="ws_jindu ">
+                                                                            <div>{$form_number_list[1]['number']} questions</div>
+
+                                                                            <div class="progress sm-progress-bar col-sm-8">
+                                                                                <div class="progress-bar bg-info" role="progressbar" style="width: {$form_pre_screen_lv}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                            </div>
+
+                                                                            <div>
+                                                                                {$form_pre_screen_complate}/{$form_number_list[1]['number']} complated
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <a href="{:url('surrogacy/personal_info',['uid'=>$ids])}">
+                                                                <div class="ws-card">
+                                                                    <div class="ws_pro_left">
+                                                <span>
+                                                     {if condition="$form_presonal_info_lv==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+
+                                                </span>
+                                                                    </div>
+                                                                    <div class="ws_pro_right">
+                                                                        <div class="ws_pro_title">Presonal Info</div>
+                                                                        <div class="ws_jindu ">
+                                                                            <div>{$form_number_list[2]['number']} questions</div>
+
+                                                                            <div class="progress sm-progress-bar col-sm-8">
+                                                                                <div class="progress-bar bg-info" role="progressbar" style="width: {$form_presonal_info_lv}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                            </div>
+
+                                                                            <div>
+                                                                                {$form_presonal_info_complate}/{$form_number_list[2]['number']} complated
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <a href="{:url('surrogacy/obstetric_history',['uid'=>$ids])}">
+                                                                <div class="ws-card">
+                                                                    <div class="ws_pro_left">
+                                                                      <span>
+                                                                      {if condition="$form_obstertric_history_lv==100"}
+                                                                      <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                                      {else}
+                                                                      <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                                      {/if}
+                                                                       </span>
+                                                                    </div>
+                                                                    <div class="ws_pro_right">
+                                                                        <div class="ws_pro_title">Obstertric History</div>
+                                                                        <div class="ws_jindu ">
+                                                                            <div>{$form_number_list[3]['number']} questions</div>
+
+                                                                            <div class="progress sm-progress-bar col-sm-8">
+                                                                                <div class="progress-bar bg-info" role="progressbar" style="width: {$form_obstertric_history_lv}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                            </div>
+
+                                                                            <div>
+                                                                                {$form_obstertric_history_complate}/{$form_number_list[3]['number']} complated
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <a href="{:url('surrogacy/medical_information',['uid'=>$ids])}">
+                                                                <div class="ws-card">
+                                                                    <div class="ws_pro_left">
+                                                <span>
+                                                  {if condition="$form_medical_information_lv==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                                    </div>
+                                                                    <div class="ws_pro_right">
+                                                                        <div class="ws_pro_title">Medical Information</div>
+                                                                        <div class="ws_jindu ">
+                                                                            <div>{$form_number_list[4]['number']} questions</div>
+
+                                                                            <div class="progress sm-progress-bar col-sm-8">
+                                                                                <div class="progress-bar bg-info" role="progressbar" style="width: {$form_medical_information_lv}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                            </div>
+
+                                                                            <div>
+                                                                                {$form_medical_information_complate}/{$form_number_list[4]['number']} complated
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-sm-12">
+                                                            <a href="{:url('surrogacy/about_surrogacy',['uid'=>$ids])}">
+                                                                <div class="ws-card">
+                                                                    <div class="ws_pro_left">
+                                                <span>
+                                                    {if condition="$form_about_surrogacy_lv==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                                    </div>
+                                                                    <div class="ws_pro_right">
+                                                                        <div class="ws_pro_title">About Surrogacy</div>
+                                                                        <div class="ws_jindu ">
+                                                                            <div>{$form_number_list[5]['number']} questions</div>
+
+                                                                            <div class="progress sm-progress-bar col-sm-8">
+                                                                                <div class="progress-bar bg-info" role="progressbar" style="width: {$form_about_surrogacy_lv}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                            </div>
+
+                                                                            <div>
+                                                                                {$form_about_surrogacy_complate}/{$form_number_list[5]['number']} complated
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-sm-12">
+                                                            <a href="{:url('surrogacy/other_information',['uid'=>$ids])}">
+                                                                <div class="ws-card">
+                                                                    <div class="ws_pro_left">
+                                                <span>
+                                                {if condition="$form_other_information_lv==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                                    </div>
+                                                                    <div class="ws_pro_right">
+                                                                        <div class="ws_pro_title">Other Information</div>
+                                                                        <div class="ws_jindu ">
+                                                                            <div>{$form_number_list[6]['number']} questions</div>
+
+                                                                            <div class="progress sm-progress-bar col-sm-8">
+                                                                                <div class="progress-bar bg-info" role="progressbar" style="width: {$form_other_information_lv}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                            </div>
+
+                                                                            <div>
+                                                                                {$form_other_information_complate}/{$form_number_list[6]['number']} complated
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-sm-12">
+                                                            <a href="{:url('surrogacy/surrogate_photo',['uid'=>$ids])}">
+                                                                <div class="ws-card">
+                                                                    <div class="ws_pro_left">
+                                                <span>
+                                               {if condition="$form_photos_lv==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                                    </div>
+                                                                    <div class="ws_pro_right">
+                                                                        <div class="ws_pro_title">Photos</div>
+                                                                        <div class="ws_jindu ">
+                                                                            <div>{$form_number_list[7]['number']} questions</div>
+
+                                                                            <div class="progress sm-progress-bar col-sm-8">
+                                                                                <div class="progress-bar bg-info" role="progressbar" style="width: {$form_photos_lv}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                            </div>
+
+                                                                            <div>
+                                                                                {$form_photos_complate}/{$form_number_list[7]['number']} complated
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-sm-12">
+                                                            <a href="{:url('surrogacy/additional_information',['uid'=>$ids])}">
+                                                                <div class="ws-card">
+                                                                    <div class="ws_pro_left">
+                                                <span>
+                                                {if condition="$form_additional_information_lv==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                                    </div>
+                                                                    <div class="ws_pro_right">
+                                                                        <div class="ws_pro_title">Additional Information</div>
+                                                                        <div class="ws_jindu ">
+                                                                            <div>{$form_number_list[8]['number']} questions</div>
+
+                                                                            <div class="progress sm-progress-bar col-sm-8">
+                                                                                <div class="progress-bar bg-info" role="progressbar" style="width: {$form_additional_information_lv}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                            </div>
+
+                                                                            <div>
+                                                                                {$form_additional_information_complate}/{$form_number_list[8]['number']} complated
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-sm-12">
+                                                            <a href="{:url('surrogacy/health_record_release',['uid'=>$ids])}">
+                                                                <div class="ws-card">
+                                                                    <div class="ws_pro_left">
+                                                <span>
+                                                   {if condition="$form_health_record_release_lv==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                                    </div>
+                                                                    <div class="ws_pro_right">
+                                                                        <div class="ws_pro_title">Health Record Release</div>
+                                                                        <div class="ws_jindu ">
+                                                                            <div>{$form_number_list[9]['number']} questions</div>
+
+                                                                            <div class="progress sm-progress-bar col-sm-8">
+                                                                                <div class="progress-bar bg-info" role="progressbar" style="width: {$form_health_record_release_lv}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                            </div>
+
+                                                                            <div>
+                                                                                {$form_health_record_release_complate}/{$form_number_list[9]['number']} complated
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </a>
+                                                        </div>
+
+                                                        <!--                                    <div class="col-sm-12">-->
+                                                        <!--                                        <a href="">-->
+                                                        <!--                                            <div class="ws-card">-->
+                                                        <!--                                                <div class="ws_pro_left">-->
+                                                        <!--                                                <span>-->
+                                                        <!--                                                <i data-feather="check-circle"></i>-->
+                                                        <!--                                                </span>-->
+                                                        <!--                                                </div>-->
+                                                        <!--                                                <div class="ws_pro_right">-->
+                                                        <!--                                                    <div class="ws_pro_title">Background Authorization</div>-->
+                                                        <!--                                                    <div class="ws_jindu ">-->
+                                                        <!--                                                        <div>22 questions</div>-->
+
+                                                        <!--                                                        <div class="progress sm-progress-bar col-sm-8">-->
+                                                        <!--                                                            <div class="progress-bar bg-info" role="progressbar" style="width: 35%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>-->
+                                                        <!--                                                        </div>-->
+
+                                                        <!--                                                        <div>-->
+                                                        <!--                                                            15/22 complated-->
+                                                        <!--                                                        </div>-->
+                                                        <!--                                                    </div>-->
+                                                        <!--                                                </div>-->
+
+                                                        <!--                                            </div>-->
+                                                        <!--                                        </a>-->
+                                                        <!--                                    </div>-->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
+                                        </p>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="profile-icon" role="tabpanel" aria-labelledby="profile-icon-tab">
+                                        <p class="mb-0 m-t-30">
+                                            {if condition="$pre_screen"}
+
+                                        <div class="col-md-12">
+                                            <div class="default-according style-1 job-accordion">
+                                                <div class="row">
+                                                    <div class="col-xl-12">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <h3 class="p-0">
+                                                                    <button class="btn btn-link ps-0" data-bs-toggle="collapse" data-bs-target="#collapseicon2" aria-expanded="true" aria-controls="collapseicon2">Detail Information</button>
+                                                                </h3>
+                                                            </div>
+                                                            <div class="collapse show" id="collapseicon2" aria-labelledby="collapseicon2" data-parent="#accordion">
+                                                                <div class="card-body">
+                                                                    <div class="table-responsive mb-0">
+                                                                        <table class="table table-bordernone">
+                                                                            <thead>
+                                                                            <tr>
+                                                                                <th  class="col-md-4 " style="padding-left: 20px">title</th>
+                                                                                <th  class="col-md-8">content</th>
+                                                                            </tr>
+                                                                            </thead>
+                                                                            <style>
+                                                                                .ws_bc {
+                                                                                    background-color: #eff3f9;
+                                                                                }
+                                                                            </style>
+
+                                                                            <tbody>
+                                                                            <tr class="ws_bc">
+                                                                                <td><h5 class="p-l-20">First name</h5></td>
+                                                                                <td class="digits">
+                                                                                    {if condition="$pre_screen"} {$pre_screen['first_name']} {/if}
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><h5 class="p-l-20">Last name</h5></td>
+                                                                                <td class="digits">{if condition="$pre_screen"} {$pre_screen['last_name']} {/if}</td>
+                                                                            </tr>
+                                                                            <tr class="ws_bc">
+                                                                                <td><h5 class="p-l-20">Email</h5></td>
+                                                                                <td class="digits">{if condition="$pre_screen"} {$pre_screen['email']} {/if}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><h5 class="p-l-20">Phone</h5></td>
+                                                                                <td class="digits">{if condition="$pre_screen"} {$pre_screen['phone']} {/if}</td>
+
+                                                                            </tr>
+                                                                            <tr class="ws_bc">
+                                                                                <td><h5 class="p-l-20">Age</h5> </td>
+                                                                                <td class="digits">{if condition="$pre_screen"} {$pre_screen['age']} {/if}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><h5 class="p-l-20">City</h5></td>
+                                                                                <td class="digits">{if condition="$pre_screen"} {$pre_screen['city']} {/if}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><h5 class="p-l-20">Address</h5></td>
+                                                                                <td class="digits">{if condition="$pre_screen"} {$pre_screen['address']} {/if}</td>
+                                                                            </tr>
+                                                                            <tr class="ws_bc">
+                                                                                <td><h5 class="p-l-20">Height</h5></td>
+                                                                                <td class="digits">{if condition="$pre_screen"} {$pre_screen['height']} {/if}</td>
+
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><h5 class="p-l-20">Weight</h5></td>
+                                                                                <td class="digits">{if condition="$pre_screen"} {$pre_screen['weight']} {/if}</td>
+                                                                            </tr>
+                                                                            <tr class="ws_bc">
+                                                                                <td ><h5 class="p-l-20">Race</h5> </td>
+                                                                                <td class="digits">
+                                                                                    {if condition="$personal_info&&$personal_info['race']==0"}
+                                                                                    White person
+                                                                                    {elseif condition="$personal_info&&$personal_info['race']==1"}
+                                                                                    Black race
+                                                                                    {elseif condition="$personal_info&&$personal_info['race']==2"}
+                                                                                    Yellow race
+                                                                                    {elseif condition="$personal_info&&$personal_info['race']==3"}
+                                                                                    Mixed blood
+                                                                                    {/if}
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><h5 class="p-l-20">Have you ever been a surrogate?</h5></td>
+                                                                                <td class="digits">
+
+                                                                                    {if condition="$about_surrogacy&&$about_surrogacy['is_surrogate']==1"}
+                                                                                    Yes
+                                                                                    {else}
+                                                                                    No
+                                                                                    {/if}
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="ws_bc">
+                                                                                <td><h5 class="p-l-20">Number of surrogacy</h5></td>
+                                                                                <td class="digits">
+                                                                                    {if condition="$personal_info"} {$personal_info['surrogate_number']} {/if}
+                                                                                </td>
+
+                                                                            </tr>
+
+                                                                            </tbody>
+
+                                                                        </table>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {else}
+                                        No information available
+                                        {/if}
+                                        </p>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="contact-icon" role="tabpanel" aria-labelledby="contact-icon-tab">
+                                        <p class="mb-0 m-t-30">
+                                            {if condition="$surrogate_photo"}
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="card">
+                                                    <div class="card-header pb-0">
+                                                        <h3>Personal Photos</h3>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row my-gallery gallery" id="aniimated-thumbnials1" itemscope="">
+                                                            {if condition="$surrogate_photo"}
+                                                            {foreach $surrogate_photo as $k=>$v}
+                                                            <figure class="col-xl-3 col-md-4 col-sm-6 xl-25 box-col-25 img-hover hover-1" itemprop="associatedMedia" itemscope="">
+                                                                <a href="{$v}" itemprop="contentUrl" data-size="1600x950" TARGET="_blank">
+                                                                    <div>
+                                                                        <img src="{$v}" itemprop="thumbnail" alt="Image description" style="width: 200px;height: 200px">
+                                                                    </div>
+                                                                </a>
+                                                                <!--                                                                <figcaption itemprop="caption description">Image caption  1</figcaption>-->
+                                                            </figure>
+                                                            {/foreach}
+                                                            {/if}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {else}
+                                        No information available
+                                        {/if}
+                                        </p>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="background-icon" role="tabpanel" aria-labelledby="background-icon-tab">
+                                        <p class="mb-0 m-t-30">
+                                        <div class="card-body">
+                                            <form class="row g-3 " id="background" method="POST" action="{:url('user/user/background',['ids'=>$ids])}" role="form">
+                                                <h3 class="form-label" >Please upload the background survey *</h3>
+                                                <div class="col-md-4">
+                                                    <input id="c-images" class="form-control" size="50" name="images" type="text"
+                                                           {if condition="$background"} value="{$background|htmlentities}"{/if}
+                                                    data-rule="required">
+                                                </div>
+                                                <div class="col-md-4 ">
+                                                    <button type="button" id="faupload-images" class="btn btn-warning faupload" data-input-id="c-images" data-mimetype="*" data-multiple="true" data-preview-id="p-images">
+                                                        <i class="fa fa-upload"></i>
+                                                        Upload
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <ul class=" faupload-preview" id="p-images" ></ul>
+                                                </div>
+                                                <div class="col-12">
+                                                    <button class="btn btn-primary" type="submit">Submit form</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane fade" id="medical-icon" role="tabpanel" aria-labelledby="medical-icon-tab">
+                                        <div class="col-md-12">
+                                            <style>
+                                                .ws_item {
+                                                    margin:auto;
+                                                    width:600px;
+                                                    height: 400px
+                                                }
+                                            </style>
+                                            <div class="card col-md-8 m-t-20" style="margin: auto;">
+                                                <div class="card-header pb-0">
+                                                    <h3 style="text-align: center;">OB/GYN Records</h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="owl-carousel owl-theme" id="owl-carousel-14">
+                                                        {if condition="$surrogate_baby"}
+                                                        {foreach name='$surrogate_baby' item='v' key='k' }
+                                                        <div class="ws_item">
+                                                            <table class="table table-bordernone">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td width="50%"><h5 class="p-l-20">Date of birth</h5></td>
+                                                                    <td>
+                                                                        {$v['birthday_time']|date="y-m-d",###}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="50%"><h5 class="p-l-20">Sex</h5></td>
+                                                                    <td >
+                                                                        {if condition="$v['sex']=='0'"}
+                                                                        Male
+                                                                        {elseif condition="$v['sex']=='1'"}
+                                                                        Female
+                                                                        {/if}
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td width="50%"><h5 class="p-l-20">Fetal age</h5></td>
+                                                                    <td >
+                                                                        {$v['fetal_age']}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="50%"><h5 class="p-l-20">Which baby</h5></td>
+                                                                    <td >
+                                                                        {$v['baby']}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><h5 class="p-l-20">Weight</h5></td>
+                                                                    <td>
+                                                                        {$v['weight']}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><h5 class="p-l-20">Pregnancy type</h5></td>
+                                                                    <td >
+                                                                        {if condition="$v['pregnancy_type']=='0'"}
+                                                                        vaginal
+                                                                        {elseif condition="$v['pregnancy_type']=='1'"}
+                                                                        c-section
+                                                                        {/if}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><h5 class="p-l-20">Are you surrogate or pregnant</h5></td>
+                                                                    <td >
+                                                                        {if condition="$v['is_surrogate']=='1'"}
+                                                                        Yes
+                                                                        {elseif condition="$v['is_surrogate']=='2'"}
+                                                                        No
+                                                                        {/if}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><h5 class="p-l-20"> Are there any complications? (If yes, please specify):</h5></td>
+                                                                    <td >
+                                                                        {$v['complications']}
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+
+                                                            </table>
+                                                        </div>
+
+                                                        {/foreach}
+                                                        {/if}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Container-fluid Ends-->
+        </div>
+        <!-- footer start-->
+
+    </div>
+</div>
+
+<!-- latest jquery-->
+<script src="__CDN__/assets/koho/assets/js/jquery-3.6.0.min.js"></script>
+<script src="__CDN__/assets/koho/assets/js/bootstrap/popper.min.js"></script>
+<script src="__CDN__/assets/koho/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+<!-- feather icon js-->
+<script src="__CDN__/assets/koho/assets/js/icons/feather-icon/feather.min.js"></script>
+<script src="__CDN__/assets/koho/assets/js/icons/feather-icon/feather-icon.js"></script>
+<script src="__CDN__/assets/koho/assets/js/scrollbar/simplebar.js"></script>
+<script src="__CDN__/assets/koho/assets/js/scrollbar/custom.js"></script>
+<!-- Sidebar jquery-->
+<script src="__CDN__/assets/koho/assets/js/config.js"></script>
+<script src="__CDN__/assets/koho/assets/js/sidebar-menu.js"></script>
+<script src="__CDN__/assets/koho/assets/js/owlcarousel/owl.carousel.js"></script>
+<script src="__CDN__/assets/koho/assets/js/owlcarousel/owl-custom.js"></script>
+<script src="__CDN__/assets/koho/assets/js/tooltip-init.js"></script>
+<!-- Theme js-->
+<script src="__CDN__/assets/koho/assets/js/script.js"></script>
+<script type="text/javascript">
+    class Swiper {
+        constructor() {
+            this.w = $('.swiper-item').width();
+            this.num = 0;
+            this.len = $('.swiper .swiper-item').length - 1;
+            this.timer = null;
+        }
+        init() {
+            //设置定时器
+            this.setTime();
+            //滑上停止定时器
+            this.hover();
+            //点击指示
+            this.pointClick();
+            //点击左右箭头
+            this.lrClick();
+        }
+        setTime() {
+            this.timer = setInterval(() => {
+                this.num++;
+                if (this.num > this.len) {
+                    this.num = 0;
+                }
+                let cssTrx = -this.num * this.w;
+                $('.swiper-point-item .point').eq(this.num).addClass('active').siblings().removeClass('active');
+                $('.swiper').css({transform: `translateX(${cssTrx}px)`})
+            }, 3000)
+        }
+        hover() {
+            $('.swiper-contione').hover(() => {
+                clearInterval(this.timer)
+            }, () => {
+                this.setTime();
+            });
+        }
+        pointClick() {
+            let that = this;
+            $('.swiper-point-item .point').click(function() {
+                that.num = $(this).index();
+                let cssTrx = -that.num * that.w;
+                $(this).addClass('active').siblings().removeClass('active');
+                $('.swiper').css({
+                    transform: `translateX(${cssTrx}px)`
+                })
+            })
+        }
+        lrClick() {
+            $('.swiper-left img').click(() => {
+                this.num--;
+                if (this.num < 0) {
+                    this.num = this.len;
+                };
+                console.log(this.num)
+                let cssTrx = -this.num * this.w;
+                $('.swiper-point-item .point').eq(this.num).addClass('active').siblings().removeClass('active');
+                $('.swiper').css({
+                    transform: `translateX(${cssTrx}px)`
+                })
+            });
+
+            $('.swiper-right img').click(() => {
+                this.num++;
+                if (this.num > this.len) {
+                    this.num = 0;
+                }
+                let cssTrx = -this.num * this.w;
+                $('.swiper-point-item .point').eq(this.num).addClass('active').siblings().removeClass('active');
+                $('.swiper').css({
+                    transform: `translateX(${cssTrx}px)`
+                })
+            })
+        }
+    }
+    let sw = new Swiper();
+    sw.init();
+</script>
+<script type="text/javascript">
+    var require = {
+        config: {$config|json_encode}
+    };
+</script>
+<script src="__CDN__/assets/js/require.js" data-main="__CDN__/assets/js/require-frontend.js?v=1677120512"></script>
+</body>
+</html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Koho admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Koho admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="pixelstrap">
+    <link rel="icon" href="__CDN__/assets/koho/assets/images/favicon/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="__CDN__/assets/koho/assets/images/favicon/favicon.png" type="image/x-icon">
+    <title>Koho - Faxed medical release</title>
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/font-awesome.css">
+    <!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/icofont.css">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/themify.css">
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/flag-icon.css">
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/feather-icon.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/owlcarousel.css">
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/bootstrap.css">
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/style.css">
+    <link id="color" rel="stylesheet" href="__CDN__/assets/koho/assets/css/color-1.css" media="screen">
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/responsive.css">
+</head>
+<style>
+    /*.card-body {*/
+    /*    padding-top: 0px !important;*/
+    /*}*/
+    .page-body-wrapper .page-body{
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+    }
+    .page-title {
+        padding-top: 20px !important;
+        padding-bottom: 0px !important;
+    }
+    .ws_username {
+        padding-left: 5px !important;
+        font-size: 14px !important;
+        color: #555 !important;
+        display: inline !important;
+    }
+    #p-images .thumbnail {
+        /*border-color: #444c69 !important;*/
+        display: block;
+        width: 115px;
+        height: 90px;
+        padding: 4px;
+        margin-bottom: 10px;
+        line-height: 1.42857143;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+    }
+    #p-images a img {
+        width: 80px;
+        margin: 0px 12.5px;
+        height: 80px;
+    }
+    #p-images .btn-danger {
+        width: 115px;
+        border-radius: 0px;
+    }
+    #p-images li {
+        float: left;
+        margin-right:30px;
+    }
+
+    .faupload-preview .thumbnail{
+        /*border-color: #444c69 !important;*/
+        display: block;
+        width: 115px;
+        height: 90px;
+        padding: 4px;
+        margin-bottom: 10px;
+        line-height: 1.42857143;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+    }
+    .faupload-preview a img{
+        width: 80px;
+        margin: 0px 12.5px;
+        height: 80px;
+    }
+    .faupload-preview-lun a img{
+        margin: 0px;
+    }
+    .faupload-preview .btn-danger{
+        width: 115px;
+        border-radius: 0px;
+    }
+    .faupload-preview li{
+        float: left;
+        margin-right:30px;
+    }
+    .ws_item {
+        margin: auto;
+        width: 600px;
+    }
+    .table-bordernone {
+        margin-top: 20px;
+    }
+    .table-bordernone tr,.table-bordernone td {
+        padding: 0.5rem 0.5rem;
+    }
+    .ws-btn {
+        padding: 5px 20px;
+    }
+    .ws_none {
+        display: none;
+    }
+    .progress {
+        height: 12px !important;
+    }
+</style>
+<style>
+    .ws_dis_no {
+        display: none ;
+    }
+    .ws_prodess {
+        margin-top: 5px;width: 70%
+    }
+    .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+        margin-top: 24px;
+    }
+    .ws_jindu {
+        display: flex;
+        justify-content: space-between;
+    }
+    @media only screen and (min-width:768px) and (max-width:992px) {
+        .ws_prodess_r {
+            padding-left: 20px;
+        }
+    }
+    /* phone */
+    @media only screen and (max-width:767px) {
+        .ws_prodess {
+            margin-top: 5px;width: 55%
+        }
+        .ws_prodess_r {
+            padding-left: 10px;
+        }
+    }
+    .owl-height {
+        height: 100% !important;
+    }
+</style>
+<body>
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+        <!-- Page Sidebar Start-->
+
+        <!-- Page Sidebar Ends-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Faxed medical release</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{:url('user/user/detail',['ids'=>$ids])}">
+                                    <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">
+                                    <!--                                    <a  style="cursor:pointer;" onClick="javascript :history.back(-1);"> Forms</a>-->
+                                    <a  style="cursor:pointer;" href="{:url('user/user/detail',['ids'=>$ids])}">Forms</a>
+                                </li>
+                                <li class="breadcrumb-item active">Faxed medical release</li>
+                            </ol>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="card-body progress-showcase">
+                                <div class="ws_jindu">
+                                    <div>
+                                        {$form_number} required questions
+                                    </div>
+                                    <div class="col col-9 ws_prodess" >
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$lv}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ws_prodess_r">
+                                        {if condition="$row"} {$form_complate_number}/{$form_number} complate
+                                        {else}
+                                        0/{$form_number} complate
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts                    -->
+            <div class="container-fluid">
+                <div class="row">
+
+
+                    <div class="tab-pane" id="hospital-icon" role="tabpanel" aria-labelledby="hospital-icon-tab">
+                        {if condition="$row"}
+                        <div class="col-md-12">
+
+                            <div class="card col-md-8 m-t-20" style="margin: auto;">
+                                <div class="card-body">
+                                    <div class="owl-carousel owl-theme owl-carousel-14" >
+                                        {if condition="$row"}
+                                        {foreach name='$row' item='v' key='k'}
+
+                                        <div class="ws_item">
+                                            <table class="table table-bordernone">
+                                                <div style="display: flex;justify-content:space-between;">
+                                                    <h3 style="margin-left: 26px;">OB/GYN Records #{$k+1}</h3>
+                                                    <div >
+                                                        <a href="{:url('surrogacy/health_record_release',['uid'=>$ids])}">
+                                                            <button class="btn btn-primary ws-btn">
+                                                                Edit
+                                                            </button>
+                                                        </a>
+                                                        <button class="btn btn-primary ws-btn ws-fax" data-id="{$v.id}" data-uid="{$v.uid}" data-type="1">
+                                                            Word
+                                                        </button>
+
+                                                    </div>
+                                                </div>
+
+                                                <tbody>
+
+                                                <tr>
+                                                    <td width="50%"><h5 class="p-l-20">OB/GYN name</h5></td>
+                                                    <td>
+                                                        {$v.maternity_institution}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="50%"><h5 class="p-l-20">OB/GYN office contact(if applicable)</h5></td>
+                                                    <td >
+                                                        {$v.doctor}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="50%"><h5 class="p-l-20">Street address</h5></td>
+                                                    <td >
+                                                        {$v.address_one}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="50%"><h5 class="p-l-20">City</h5></td>
+                                                    <td >
+                                                        {$v.city}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><h5 class="p-l-20">State</h5></td>
+                                                    <td>
+                                                        {$v.state}
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td><h5 class="p-l-20">Zip code</h5></td>
+                                                    <td >
+                                                        {$v.code}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><h5 class="p-l-20">Phone Number</h5></td>
+                                                    <td >
+                                                        {$v.hospital_phone}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><h5 class="p-l-20">Fax Number</h5></td>
+                                                    <td >
+                                                        {$v.hospital_fax}
+                                                    </td>
+                                                </tr>
+
+
+
+                                                </tbody>
+
+                                            </table>
+                                            <form class="row g-3 " role="form" method="POST" action="{:url('user/user/ob_record_file',['ids'=>$v.id])}">
+                                                <div style="padding-left: 28px">
+                                                    <div class="col-md-12 position-relative ">
+                                                        <h3 class="form-label" style="font-size: 16px;margin-top: 10px" >Upload OB/GYN Records Fax  *<h3/>
+                                                    </div>
+                                                    <div class="col-md-12" style="display: flex !important;">
+                                                        <input id="c-images3{$k}"  {if condition="$v['ob_file']"} value="{$v['ob_file']|htmlentities}"{/if} class="form-control" size="50" name="ob_file" type="text" style="width: 70%;padding: 6px 15px;">
+                                                        <button type="button" id="faupload-images3{$k}" style="margin-left: 40px;" class="btn btn-warning faupload ws-btn" data-input-id="c-images3{$k}" data-mimetype="*" data-multiple="true" data-preview-id="p-images3{$k}">
+                                                            Upload
+                                                        </button>
+                                                        <button class="btn btn-primary ws-btn" type="submit" style="margin-left: 5px;">Save</button>
+                                                    </div>
+                                                    <div class="col-md-8 " style="margin-top: 5px">
+                                                        <ul class="list-inline faupload-preview faupload-preview-lun" id="p-images3{$k}" ></ul>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+
+
+
+                                        {/foreach}
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="card col-md-8 m-t-20" style="margin: auto;">
+                                <div class="card-body">
+                                    <div class="owl-carousel owl-theme owl-carousel-14" >
+                                        {if condition="$row"}
+                                        {foreach name='$row' item='v1' key='k1' }
+                                        <div class="ws_item">
+                                            <table class="table table-bordernone">
+                                                <div style="display: flex;justify-content:space-between;">
+                                                    <h3 style="margin-left: 26px;">Delivery Records #{$k1+1}</h3>
+                                                    <div>
+                                                        <a href="{:url('surrogacy/obstetric_history',['uid'=>$ids])}">
+                                                            <button class="btn btn-primary ws-btn">
+                                                                Edit
+                                                            </button>
+                                                        </a>
+                                                        <button class="btn btn-primary ws-btn ws-fax" data-id="{$v.id}" data-uid="{$v.uid}" data-type="2">
+                                                            Word
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <tbody>
+                                                <tr>
+                                                    <td width="50%"><h5 class="p-l-20">Delivery hospital name</h5></td>
+                                                    <td>
+                                                        {$v1.delivery_hospital_name}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="50%"><h5 class="p-l-20">Street Address</h5></td>
+                                                    <td >
+                                                        {$v1.address_line}
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td width="50%"><h5 class="p-l-20">City</h5></td>
+                                                    <td >
+                                                        {$v1.city_two}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="50%"><h5 class="p-l-20">State</h5></td>
+                                                    <td >
+                                                        {$v1.state_two}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="50%"><h5 class="p-l-20">Zip code</h5></td>
+                                                    <td >
+                                                        {$v1.code_two}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="50%"><h5 class="p-l-20">Hospital Phone</h5></td>
+                                                    <td >
+                                                        {$v1.hospital_phone_two}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><h5 class="p-l-20">Hospital Fax</h5></td>
+                                                    <td>
+                                                        {$v1.hospital_fax_two}
+                                                    </td>
+
+                                                </tr>
+
+                                                </tbody>
+
+                                            </table>
+                                            <form class="row g-3 " role="form" method="POST" action="{:url('user/user/delivery_record_file',['ids'=>$v1.id])}">
+                                                <div style="padding-left: 28px">
+                                                    <div class="col-md-12 position-relative ">
+                                                        <h3 class="form-label" style="font-size: 16px;margin-top: 10px" >Upload Delivery Records Fax  *<h3/>
+                                                    </div>
+                                                    <div class="col-md-12" style="display: flex !important;">
+                                                        <input id="c-images4{$k1}"  {if condition="$v1['delivery_file']"} value="{$v1['delivery_file']|htmlentities}"{/if} class="form-control" size="50" name="delivery_file" type="text" style="width: 70%;padding: 6px 15px;">
+                                                        <button type="button" id="faupload-images4{$k1}" style="margin-left: 40px;" class="btn btn-warning faupload ws-btn" data-input-id="c-images4{$k1}" data-mimetype="*" data-multiple="true" data-preview-id="p-images4{$k1}">
+                                                            Upload
+                                                        </button>
+                                                        <button class="btn btn-primary ws-btn" type="submit" style="margin-left: 5px;">Save</button>
+                                                    </div>
+                                                    <div class="col-md-8 " style="margin-top: 5px">
+                                                        <ul class="list-inline faupload-preview faupload-preview-lun" id="p-images4{$k1}" ></ul>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                        {/foreach}
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        {else}
+                        <p class="mb-0 m-t-30">
+                            Please fill out the medical form
+                        </p>
+                        {/if}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<!-- Container-fluid Ends-->
+</div>
+<!-- footer start-->
+
+</div>
+</div>
+
+<!-- latest jquery-->
+<script src="__CDN__/assets/koho/assets/js/jquery-3.6.0.min.js"></script>
+<script src="__CDN__/assets/koho/assets/js/bootstrap/popper.min.js"></script>
+<script src="__CDN__/assets/koho/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+<!-- feather icon js-->
+<script src="__CDN__/assets/koho/assets/js/icons/feather-icon/feather.min.js"></script>
+<script src="__CDN__/assets/koho/assets/js/icons/feather-icon/feather-icon.js"></script>
+<!--<script src="__CDN__/assets/koho/assets/js/scrollbar/simplebar.js"></script>-->
+<!--<script src="__CDN__/assets/koho/assets/js/scrollbar/custom.js"></script>-->
+<!-- Sidebar jquery-->
+<script src="__CDN__/assets/koho/assets/js/config.js"></script>
+<!--<script src="__CDN__/assets/koho/assets/js/sidebar-menu.js"></script>-->
+<script src="__CDN__/assets/koho/assets/js/owlcarousel/owl.carousel.js"></script>
+<script src="__CDN__/assets/koho/assets/js/owlcarousel/owl-custom.js?123"></script>
+<script src="__CDN__/assets/koho/assets/js/tooltip-init.js"></script>
+<!-- Theme js-->
+<script src="__CDN__/assets/koho/assets/js/script.js"></script>
+<script type="text/javascript">
+    class Swiper {
+        constructor() {
+            this.w = $('.swiper-item').width();
+            this.num = 0;
+            this.len = $('.swiper .swiper-item').length - 1;
+            this.timer = null;
+        }
+        init() {
+            //设置定时器
+            this.setTime();
+            //滑上停止定时器
+            this.hover();
+            //点击指示
+            this.pointClick();
+            //点击左右箭头
+            this.lrClick();
+        }
+        setTime() {
+            this.timer = setInterval(() => {
+                this.num++;
+                if (this.num > this.len) {
+                    this.num = 0;
+                }
+                let cssTrx = -this.num * this.w;
+                $('.swiper-point-item .point').eq(this.num).addClass('active').siblings().removeClass('active');
+                $('.swiper').css({transform: `translateX(${cssTrx}px)`})
+            }, 3000)
+        }
+        hover() {
+            $('.swiper-contione').hover(() => {
+                clearInterval(this.timer)
+            }, () => {
+                this.setTime();
+            });
+        }
+        pointClick() {
+            let that = this;
+            $('.swiper-point-item .point').click(function() {
+                that.num = $(this).index();
+                let cssTrx = -that.num * that.w;
+                $(this).addClass('active').siblings().removeClass('active');
+                $('.swiper').css({
+                    transform: `translateX(${cssTrx}px)`
+                })
+            })
+        }
+        lrClick() {
+            $('.swiper-left img').click(() => {
+                this.num--;
+                if (this.num < 0) {
+                    this.num = this.len;
+                };
+                console.log(this.num)
+                let cssTrx = -this.num * this.w;
+                $('.swiper-point-item .point').eq(this.num).addClass('active').siblings().removeClass('active');
+                $('.swiper').css({
+                    transform: `translateX(${cssTrx}px)`
+                })
+            });
+
+            $('.swiper-right img').click(() => {
+                this.num++;
+                if (this.num > this.len) {
+                    this.num = 0;
+                }
+                let cssTrx = -this.num * this.w;
+                $('.swiper-point-item .point').eq(this.num).addClass('active').siblings().removeClass('active');
+                $('.swiper').css({
+                    transform: `translateX(${cssTrx}px)`
+                })
+            })
+        }
+    }
+    let sw = new Swiper();
+    sw.init();
+</script>
+<script type="text/javascript">
+    var require = {
+        config: {$config|json_encode}
+    };
+</script>
+<script src="__CDN__/assets/js/require.js" data-main="__CDN__/assets/js/require-frontend.js?v=1677120512"></script>
+</body>
+</html>

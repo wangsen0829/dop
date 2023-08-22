@@ -1,0 +1,269 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>{:__('Title')}</th>
+        <th>{:__('Content')}</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>First name</td>
+            <td style="word-break: break-all;">{$row.first_name}</td>
+        </tr>
+        <tr>
+            <td>Last name</td>
+            <td style="word-break: break-all;">{$row.last_name}</td>
+        </tr>
+        <tr>
+            <td>Middle name</td>
+            <td style="word-break: break-all;">{$row.middle_name}</td>
+        </tr>
+        <tr>
+            <td>Date of birth</td>
+            <td style="word-break: break-all;">
+                {if condition="$row['birthday_time']"}
+                {$row.birthday_time|date="m/d/y",###}
+                {else}
+                -
+                {/if}
+            </td>
+        </tr>
+        <tr>
+            <td>Street Address</td>
+            <td style="word-break: break-all;">{$row.address}</td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td style="word-break: break-all;">{$row.city}</td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td style="word-break: break-all;">{$row.state}</td>
+        </tr>
+        <tr>
+            <td>Zip Code</td>
+            <td style="word-break: break-all;">{$row.postal_code}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td style="word-break: break-all;">{$row.email}</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td style="word-break: break-all;">{$row.mobile}</td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td style="word-break: break-all;">{$row.age}</td>
+        </tr>
+        <tr>
+            <td>Height</td>
+            <td style="word-break: break-all;">{$row.height_ft} &nbsp;&nbsp;ft,&nbsp;&nbsp;&nbsp;{$row.height_in} &nbsp;&nbsp;   in</td>
+        </tr>
+       <tr>
+            <td>Weight(lb)</td>
+            <td style="word-break: break-all;">{$row.weight}</td>
+        </tr>
+        <tr>
+            <td>BMI</td>
+            <td style="word-break: break-all;">{$row.bmi}</td>
+        </tr>
+
+
+        <tr>
+            <td>Are you married or living with a long term relationship partner?</td>
+            <td style="word-break: break-all;">
+                {if condition="$row&&$row['marital_status']==1"}
+                Yes
+                {elseif condition="$row&&$row['marital_status']==2"}
+                No
+
+                {/if}
+            </td>
+        </tr>
+
+        <tr>
+            <td>Are you an US citizen or permanent resident of US?</td>
+            <td style="word-break: break-all;">
+                {if condition="$row&&$row['is_us']==1"}
+                Yes
+                {elseif condition="$row&&$row['is_us']==2"}
+                No
+                {/if}
+            </td>
+        </tr>
+
+        <tr>
+            <td>Number of natural birth </td>
+            <td style="word-break: break-all;">{$row.product_number}</td>
+        </tr>
+        <tr>
+            <td>Number of caesarean sections </td>
+            <td style="word-break: break-all;">{$row.product_number}</td>
+        </tr>
+        <tr>
+            <td>Number of miscarriages</td>
+            <td style="word-break: break-all;">{$row.miscarriage_number}</td>
+        </tr>
+        <tr>
+            <td>Number of abortions</td>
+            <td style="word-break: break-all;">{$row.abortion_number}</td>
+        </tr>
+        {if condition="$row&&$row['is_abortion_reason']==1"}
+        <tr>
+            <td>If there is any miscarriage/abortion, please give a brief reason</td>
+            <td style="word-break: break-all;">Yes</td>
+        </tr>
+        <tr>
+            <td>If so, when and why?</td>
+            <td >{$row.abortion_reason}</td>
+        </tr>
+        {elseif condition="$row&&$row['is_abortion_reason']==2"}
+        <tr>
+            <td>If there is any miscarriage/abortion, please give a brief reason</td>
+            <td style="word-break: break-all;">No</td>
+        </tr>
+        {/if}
+<!--        <tr>-->
+<!--            <td>If there is any miscarriage/abortion, please give a brief reason</td>-->
+<!--            <td style="word-break: break-all;">{$row.abortion_reason}</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>Is there any complications during pregnancy or childbirth</td>-->
+<!--            <td style="word-break: break-all;">{$row.complications_of_pregnancy}</td>-->
+<!--        </tr>-->
+        {if condition="$row&&$row['is_complications_of_pregnancy']==1"}
+        <tr>
+            <td>Is there any complications during pregnancy or childbirth</td>
+            <td style="word-break: break-all;">Yes</td>
+        </tr>
+        <tr>
+            <td>If so, when?</td>
+            <td >{$row.complications_of_pregnancy}</td>
+        </tr>
+        {elseif condition="$row&&$row['is_complications_of_pregnancy']==1"}
+        <tr>
+            <td>Is there any complications during pregnancy or childbirth</td>
+            <td style="word-break: break-all;">No</td>
+        </tr>
+        {/if}
+        <tr>
+            <td>Current contraceptive method</td>
+            <td style="word-break: break-all;">{$row.contraceptive_measures}</td>
+        </tr>
+        <tr>
+            <td>How did you hear about us?</td>
+            <td style="word-break: break-all;">{$row.about_content}</td>
+        </tr>
+
+
+
+        {if condition="$row&&$row['status']==0"}
+        <tr>
+            <td>Status</td>
+            <td style="word-break: break-all;">Pending Review</td>
+        </tr>
+        {elseif condition="$row&&$row['status']==1"}
+        <tr>
+            <td>Status</td>
+            <td style="word-break: break-all;">Pre-screen Passed</td>
+        </tr>
+        {elseif condition="$row&&$row['status']==2"}
+        <tr>
+            <td>Status</td>
+            <td style="word-break: break-all;">Pre-screen DQed</td>
+        </tr>
+        {elseif condition="$row&&$row['status']==3"}
+        <tr>
+            <td>Status</td>
+            <td style="word-break: break-all;">Repeated submission</td>
+        </tr>
+        {/if}
+
+        {if condition="$row&&$row['service']==1"}
+        <tr>
+            <td>Service</td>
+            <td style="word-break: break-all;">Be a surrogate</td>
+        </tr>
+        {elseif condition="$row&&$row['service']==2"}
+        <tr>
+            <td>Service</td>
+            <td style="word-break: break-all;">Be an egg donor</td>
+        </tr>
+        {elseif condition="$row&&$row['service']==3"}
+        <tr>
+            <td>Service</td>
+            <td style="word-break: break-all;">Sperm donation</td>
+        </tr>
+        {elseif condition="$row&&$row['service']==4"}
+        <tr>
+            <td>Service</td>
+            <td style="word-break: break-all;"> Find a surrogate</td>
+        </tr>
+
+        {elseif condition="$row&&$row['service']==5"}
+        <tr>
+            <td>Service</td>
+            <td style="word-break: break-all;">Other</td>
+        </tr>
+
+        {/if}
+
+        {if condition="$row&&$row['status']==5"}
+        <tr>
+            <td>Reject Reason</td>
+            <td >{$row.dq_content}</td>
+        </tr>
+
+        {/if}
+        <tr>
+            <td>Old status</td>
+            <td style="word-break: break-all;">{$row.old_status}</td>
+        </tr>
+        <tr>
+            <td>Lead source</td>
+            <td style="word-break: break-all;">{$row.lead_source}</td>
+        </tr>
+        <tr>
+            <td>Media</td>
+            <td>{$row.media}</td>
+        </tr>
+        <tr>
+            <td>Account</td>
+            <td style="word-break: break-all;">{$row.account}</td>
+        </tr>
+        <tr>
+            <td>Campaign</td>
+            <td >{$row.campaign}</td>
+        </tr>
+        <tr>
+            <td>Adgroup</td>
+            <td style="word-break: break-all;">{$row.adgroup}</td>
+        </tr>
+        <tr>
+            <td>Adname</td>
+            <td>{$row.adname}</td>
+        </tr>
+        <tr>
+            <td>Referral</td>
+            <td  style="word-break: break-all;">{$row.referral}</td>
+        </tr>
+        <tr>
+            <td>Messgae</td>
+            <td  style="word-break: break-all;">{$row.message}</td>
+        </tr>
+
+        <!--    {volist name="row" id="vo"  }-->
+<!--    <tr>-->
+<!--        <td>{$key}</td>-->
+<!--        <td style="word-break: break-all;">{$vo|htmlentities}</td>-->
+<!--    </tr>-->
+<!--    {/volist}-->
+    </tbody>
+</table>
+<div class="hide layer-footer">
+    <label class="control-label col-xs-12 col-sm-2"></label>
+    <div class="col-xs-12 col-sm-8">
+        <button type="reset" class="btn btn-primary btn-embossed btn-close" onclick="Layer.closeAll();">{:__('Close')}</button>
+    </div>
+</div>

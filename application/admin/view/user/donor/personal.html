@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home - Pre_screen</title>
+
+    <!-- Page Head Start-->
+    {include file="ws/css" /}
+    <!-- Page Head Start-->
+
+    <style>
+        .ws_dis_no {
+            display: none ;
+        }
+        .ws_prodess {
+            margin-top: 5px;width: 70%
+        }
+        .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+            margin-top: 24px;
+        }
+        .ws_jindu {
+            display: flex;
+            justify-content: space-between;
+        }
+        @media only screen and (min-width:768px) and (max-width:992px) {
+            .ws_prodess_r {
+                padding-left: 20px;
+            }
+        }
+        /* phone */
+        @media only screen and (max-width:767px) {
+            .ws_prodess {
+                margin-top: 5px;width: 55%
+            }
+            .ws_prodess_r {
+                padding-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Personal information</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{:url('user/donor/detail',['ids'=>$uid])}">
+                                    <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{:url('user/donor/detail',['ids'=>$uid])}">Form</a></li>
+                                <li class="breadcrumb-item active">Personal information</li>
+                            </ol>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="card-body progress-showcase">
+                                <div class="ws_jindu">
+                                    <div>
+                                        {$form_number} required questions
+                                    </div>
+                                    <div class="col col-9 ws_prodess">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$lv}%"
+                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ws_prodess_r">
+                                        {if condition="$row"} {$row.form_complate_number}/{$form_number} complate
+                                        {else}
+                                        0/{$form_number} complate
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form class="row g-3 nice-validator n-default" id="personal" method="POST" action=""
+                                      role="form" onsubmit="return sumbit_sure()">
+                                    <input class="form-control" name="uid" type="hidden" value="{$uid}">
+                                    <input class="form-control" id="form_complate_number" name="form_complate_number"
+                                           type="hidden">
+                                    <input class="form-control" name="status" type="hidden" value="0">
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label">Eye color *</label>
+                                        <input class="form-control" name="eye_color" type="text" data-rule="required"
+                                               {if condition="$row" } value="{$row.eye_color|htmlentities}" {/if}>
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label">Natural hair type *</label>
+                                        <input class="form-control" name="natural_hair_type" type="text" data-rule="required"
+                                               {if condition="$row" } value="{$row.natural_hair_type|htmlentities}" {/if}>
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label">Natural hair color *</label>
+                                        <input class="form-control" name="naturl_hair_color" type="text" data-rule="required"
+                                               {if condition="$row" } value="{$row.naturl_hair_color|htmlentities}" {/if}>
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label">Skin tone *</label>
+                                        <input class="form-control" name="skin_tone" type="text" data-rule="required"
+                                               {if condition="$row" } value="{$row.skin_tone|htmlentities}" {/if}>
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label">Blood type *</label>
+                                        <input class="form-control" name="blood_type" type="text" data-rule="required"
+                                               {if condition="$row" } value="{$row.blood_type|htmlentities}" {/if}>
+                                    </div>
+
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label">Predominant hand *</label>
+                                        <input class="form-control" name="predominant_hand" type="text" data-rule="required"
+                                               {if condition="$row" } value="{$row.predominant_hand|htmlentities}" {/if}>
+                                    </div>
+
+
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label">Explain your ethnicity/race/heritage *</label>
+                                        <p>
+                                            (Example: caucasian: german1/2 and irish 1/2)
+                                        </p>
+                                        <textarea class="form-control" id="exampleFormControlTextarea4" name="ethnicity" data-rule="required" rows="3">{if condition="$row"}{$row.ethnicity|htmlentities}{/if}</textarea>
+                                    </div>
+
+                                    <div class="col-md-12  position-relative">
+                                        <label class="form-label">Do you have dimples? *</label>
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline15" type="radio" data-rule="checked" name="is_dimples" value="1"
+                                                       {if condition="$row&&$row.is_dimples eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline15">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline16" type="radio" data-rule="checked" name="is_dimples" value="2"
+                                                       {if condition="$row&&$row.is_dimples eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline16">No</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                    <div class="col-md-12  position-relative">
+                                        <label class="form-label">Do you use eye glasses or contacts? *</label>
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline20" type="radio" data-rule="checked" name="is_eye_glasses" value="1"
+                                                       {if condition="$row&&$row.is_eye_glasses eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline20">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline21" type="radio" data-rule="checked" name="is_eye_glasses" value="2"
+                                                       {if condition="$row&&$row.is_eye_glasses eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline21">No</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12  position-relative">
+                                        <label class="form-label">Do you or have you had braces? *</label>
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline25" type="radio" data-rule="checked" name="is_had_braces" value="1"
+                                                       {if condition="$row&&$row.is_had_braces eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline25">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline26" type="radio" data-rule="checked" name="is_had_braces" value="2"
+                                                       {if condition="$row&&$row.is_had_braces eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline26">No</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-12  position-relative">
+                                        <label class="form-label">Do you have any tattoos? *</label>
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline30" type="radio" data-rule="checked" name="is_tattoos" value="1"
+                                                       {if condition="$row&&$row.is_tattoos eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline30">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline31" type="radio" data-rule="checked" name="is_tattoos" value="2"
+                                                       {if condition="$row&&$row.is_tattoos eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline31">No</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-12  position-relative">
+                                        <label class="form-label">Do you have any piercings? *</label>
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline35" type="radio" data-rule="checked" name="is_piercings" value="1"
+                                                       {if condition="$row&&$row.is_piercings eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline35">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline36" type="radio" data-rule="checked" name="is_piercings" value="2"
+                                                       {if condition="$row&&$row.is_piercings eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline36">No</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="submit">Submit form</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid Ends-->
+        </div>
+    </div>
+
+    <!-- Container-fluid Ends-->
+</div>
+<!-- Page content Ends-->
+
+</div>
+
+
+
+</div>
+
+<!-- Page js Start-->
+{include file="ws/js" /}
+<!-- Page js Ends -->
+
+</body>
+<script>
+    function sumbit_sure() {
+        var parmas = $("#personal").find("input");
+        var name_arr = ['eye_color', 'natural_hair_type', 'naturl_hair_color', 'blood_type','skin_tone', 'predominant_hand'];
+        var j = 0;// 表单未完成数量
+        var arr = [];// 表单未完成数组
+        for (i = 0; i < parmas.length; i++) {
+            var value = parmas[i].value;
+            var name = $(parmas[i]).attr('name');
+            if (name_arr.includes(name) && value.length == 0) {
+                j++;
+                one = $(parmas[i]).prev().text();
+                arr.push(one);
+            }
+        }
+
+
+        var name_arr = ['is_dimples','is_eye_glasses','is_had_braces','is_tattoos','is_piercings'];
+        for (i = 0; i < name_arr.length; i++) {
+            if (!$("input:radio[name='" + name_arr[i] + "']:checked").length) {
+                j++;
+                one = $("input:radio[name='" + name_arr[i] + "']").parents('.form-label').prev().text();
+                arr.push(one);
+            }
+        }
+        $('#form_complate_number').val(j);
+        var html = "Are you sure you want to exit？\n";
+        if (j > 0) {
+            html += j + " mandatory field\n";
+            if (j == 1) {
+                html += "'" + arr[0] + "'\n,";
+
+            } else if (j == 2) {
+                html += "'" + arr[0] + "',\n";
+                html += "'" + arr[1] + "',\n";
+            } else {
+                html += "'" + arr[0] + "',\n";
+                html += "'" + arr[1] + "',\n";
+                html += "'" + arr[2] + "'...\n";
+            }
+            html += "Not filled in.\n";
+            html += "\n";
+        }
+
+        html += "Please fill in relevant information.";
+
+        var gnl = confirm(html);
+        if (gnl == true) {
+            if (j == 0) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } else {
+            return false;
+        }
+    }
+</script>
+</html>

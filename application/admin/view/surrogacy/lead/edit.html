@@ -1,0 +1,160 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Form_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-form_id" data-rule="required" data-source="form/index" class="form-control selectpage" name="row[form_id]" type="text" value="{$row.form_id|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Birthday_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-birthday_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[birthday_time]" type="text" value="{:$row.birthday_time?datetime($row.birthday_time):''}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Address')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-address" class="form-control" name="row[address]" type="text" value="{$row.address|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('City')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class='control-relative'><input id="c-city" class="form-control" data-toggle="city-picker" name="row[city]" type="text" value="{$row.city|htmlentities}"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('State')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-state" class="form-control" name="row[state]" type="text" value="{$row.state|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Postal_code')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-postal_code" class="form-control" name="row[postal_code]" type="text" value="{$row.postal_code|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Age')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-age" class="form-control" name="row[age]" type="text" value="{$row.age|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Height')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-height" class="form-control" name="row[height]" type="text" value="{$row.height|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Height_ft')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-height_ft" class="form-control" name="row[height_ft]" type="text" value="{$row.height_ft|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Height_in')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-height_in" class="form-control" name="row[height_in]" type="text" value="{$row.height_in|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Bmi')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-bmi" class="form-control" name="row[bmi]" type="text" value="{$row.bmi|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Weight')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-weight" class="form-control" name="row[weight]" type="text" value="{$row.weight|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Marital_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="maritalStatusList" item="vo"}
+            <label for="row[marital_status]-{$key}"><input id="row[marital_status]-{$key}" name="row[marital_status]" type="radio" value="{$key}" {in name="key" value="$row.marital_status"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_us')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-is_us" class="form-control" name="row[is_us]" type="number" value="{$row.is_us|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Product_number')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-product_number" class="form-control" name="row[product_number]" type="text" value="{$row.product_number|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Caesarean_number')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-caesarean_number" class="form-control" name="row[caesarean_number]" type="text" value="{$row.caesarean_number|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Miscarriage_number')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-miscarriage_number" class="form-control" name="row[miscarriage_number]" type="text" value="{$row.miscarriage_number|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Abortion_number')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-abortion_number" class="form-control" name="row[abortion_number]" type="text" value="{$row.abortion_number|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_abortion_reason')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-is_abortion_reason" class="form-control" name="row[is_abortion_reason]" type="number" value="{$row.is_abortion_reason|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Abortion_reason')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-abortion_reason" class="form-control" name="row[abortion_reason]" type="text" value="{$row.abortion_reason|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_complications_of_pregnancy')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-is_complications_of_pregnancy" class="form-control" name="row[is_complications_of_pregnancy]" type="number" value="{$row.is_complications_of_pregnancy|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Complications_of_pregnancy')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-complications_of_pregnancy" class="form-control" name="row[complications_of_pregnancy]" type="text" value="{$row.complications_of_pregnancy|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Contraceptive_measures')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-contraceptive_measures" class="form-control" name="row[contraceptive_measures]" type="text" value="{$row.contraceptive_measures|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('About_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-about_content" class="form-control editor" rows="5" name="row[about_content]" cols="50">{$row.about_content|htmlentities}</textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

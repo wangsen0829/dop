@@ -1,0 +1,40 @@
+<meta charset="utf-8">
+<title>{$title|default=''}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="renderer" content="webkit">
+<meta name="referrer" content="never">
+<meta name="robots" content="noindex, nofollow">
+
+<!--<link rel="shortcut icon" href="__CDN__/assets/img/favicon.ico" />-->
+<link rel="shortcut icon" href="__CDN__/favicon.ico" />
+<!-- Loading Bootstrap -->
+<link href="__CDN__/assets/css/backend{$Think.config.app_debug?'':'.min'}.css?v={$Think.config.site.version}" rel="stylesheet">
+
+{if $Think.config.fastadmin.adminskin}
+<link href="__CDN__/assets/css/skins/{$Think.config.fastadmin.adminskin}.css?v={$Think.config.site.version}" rel="stylesheet">
+{/if}
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+<!--[if lt IE 9]>
+  <script src="__CDN__/assets/js/html5shiv.js"></script>
+  <script src="__CDN__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript">
+    var require = {
+        config:  {$config|json_encode}
+    };
+</script>
+
+
+
+<!-- latest jquery-->
+<!--<script src="__CDN__/assets/koho/assets/js/jquery-3.6.0.min.js"></script>-->
+<!--<script src="__CDN__/assets/koho/assets/js/bootstrap/popper.min.js"></script>-->
+<!--<script src="__CDN__/assets/koho/assets/js/bootstrap/bootstrap.bundle.min.js"></script>-->
+<!--&lt;!&ndash; feather icon js&ndash;&gt;-->
+<!--<script src="__CDN__/assets/koho/assets/js/icons/feather-icon/feather.min.js"></script>-->
+<!--<script src="__CDN__/assets/koho/assets/js/icons/feather-icon/feather-icon.js"></script>-->
+<!--&lt;!&ndash; Sidebar jquery&ndash;&gt;-->
+<!--<script src="__CDN__/assets/koho/assets/js/config.js"></script>-->
+<!--&lt;!&ndash; Theme js&ndash;&gt;-->
+<!--<script src="__CDN__/assets/koho/assets/js/script.js"></script>-->

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home - Other Information</title>
+
+    <!-- Page Head Start-->
+    {include file="ws/css" /}
+    <!-- Page Head Start-->
+
+    <style>
+        .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+            margin-top: 24px;
+        }
+        .ws_jindu {
+            display: flex;
+            justify-content: space-between;
+        }
+        .ws_prodess {
+            margin-top: 5px;width: 70%
+        }
+        @media only screen and (min-width:768px) and (max-width:992px) {
+            .ws_prodess_r {
+                padding-left: 20px;
+            }
+        }
+        /* phone */
+        @media only screen and (max-width:767px) {
+            .ws_prodess {
+                margin-top: 5px;width: 55%
+            }
+            .ws_prodess_r {
+                padding-left: 18px;
+            }
+        }
+        .ws_dis_no {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Other Information</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{:url('user/user/detail',['ids'=>$uid])}">
+                                    <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">
+                                    <!--                                    <a  style="cursor:pointer;" onClick="javascript :history.back(-1);"> Forms</a>-->
+                                    <a  style="cursor:pointer;" href="{:url('user/user/detail',['ids'=>$uid])}"> Forms</a>
+                                </li>
+                                <li class="breadcrumb-item active">Other Information</li>
+                            </ol>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="card-body progress-showcase">
+                                <div class="ws_jindu">
+                                    <div>
+                                        {$form_number} required questions
+                                    </div>
+                                    <div class="col col-9 ws_prodess" >
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$lv}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ws_prodess_r">
+                                        {if condition="$row"} {$row.form_complate_number}/{$form_number} complate
+                                        {else}
+                                        0/{$form_number} complate
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container-fluid starts-->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="card">
+                            <div class="card-header pb-0">
+                            </div>
+                            <div class="card-body">
+                                <form class="row g-3 " id="other_information" method="POST"  role="form" onsubmit="return sumbit_sure()">
+
+                                    <input class="form-control"  name="uid" type="hidden"  value="{$uid}" >
+                                    <input class="form-control"  id="form_complate_number" name="form_complate_number" type="hidden" value="0" >
+                                    <input class="form-control"   name="status" type="hidden"  value="0">
+
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label">Have you ever been arrested? *</label>
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline13" type="radio" data-rule="checked" name="is_arrested" value="1" data-rule="checked"
+                                                       {if condition="$row&&$row.is_arrested eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline13">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline14" type="radio" data-rule="checked" name="is_arrested" value="2" data-rule="checked"
+                                                       {if condition="$row&&$row.is_arrested eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline14">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 m-b-20 position-relative ws_arrested {if condition="$row&&$row.is_arrested eq '2'"}ws_dis_no {/if}">
+                                    <label class="form-label"> If so, for what? *</label>
+                                    <input class="form-control"    name="arrested_content" type="text" {if condition="$row"} value="{$row.arrested_content|htmlentities}"{/if}>
+                            </div>
+                            <div class="col-md-12 position-relative">
+                                <label class="form-label">Have you or your partner ever been investigated by governmental child protective agency? *</label>
+
+                                <div class="form-label">
+                                    <div class="form-check form-check-inline radio radio-primary">
+                                        <input class="form-check-input" id="radioinline37" type="radio"  name="is_bb" value="1" data-rule="checked"
+                                               {if condition="$row&&$row.is_bb eq '1'"} checked{/if}
+                                        >
+                                        <label class="form-check-label mb-0" for="radioinline37">Yes</label>
+                                    </div>
+                                    <div class="form-check form-check-inline radio radio-primary">
+                                        <input class="form-check-input" id="radioinline38" type="radio"  name="is_bb" value="2" data-rule="checked"
+                                               {if condition="$row&&$row.is_bb eq '2'"} checked{/if}
+                                        >
+                                        <label class="form-check-label mb-0" for="radioinline38">No</label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-12 position-relative">
+                                <label class="form-label" >What' s your hobby? *</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" data-rule="required" name="hobby"  rows="3">{if condition="$row"} {$row.hobby|htmlentities}{/if}</textarea>
+                            </div>
+                            <div class="col-md-12 position-relative">
+                                <label class="form-label" >What is your life goal? *</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea2" data-rule="required"  name="life_geyan"  rows="3">{if condition="$row"} {$row.life_geyan|htmlentities}{/if}</textarea>
+                            </div>
+                            <div class="col-md-12 position-relative">
+                                <label class="form-label" >How would you explain to your child that you became a surrogate mother? *</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea3" data-rule="required"  name="ecybs"  rows="3">{if condition="$row"} {$row.ecybs|htmlentities}{/if}</textarea>
+                            </div>
+                            <div class="col-md-12 position-relative">
+                                <label class="form-label" >Who else is/are living in your house with you? *</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea4" data-rule="required"  name="living"  rows="3">{if condition="$row"} {$row.living|htmlentities}{/if}</textarea>
+                            </div>
+                            <div class="col-md-12 position-relative">
+                                <label class="form-label" >Do you have anything you would like to share to your future intended parents?</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea5"   name="share_parents"  rows="3">{if condition="$row"} {$row.share_parents|htmlentities}{/if}</textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Submit form</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Container-fluid Ends-->
+    </div>
+    <!-- Page content Ends-->
+
+</div>
+
+
+
+</div>
+
+<!-- Page js Start-->
+{include file="ws/js" /}
+<!-- Page js Ends -->
+
+<script>
+    $('#radioinline13').click(function () {
+        var is_arrested = $("input[name='is_arrested']:checked").val();
+        if (is_arrested==1){
+            $('.ws_arrested').css('display','inline-block');
+        }
+    })
+    $('#radioinline14').click(function () {
+        var is_arrested = $("input[name='is_arrested']:checked").val();
+        if (is_arrested==2){
+            $('.ws_arrested').css('display','none');
+        }
+    })
+</script>
+<script>
+    function isNullOrUndefined(obj) {
+        return obj === null || obj === undefined;
+    }
+    function sumbit_sure(){
+        var name_arr = ['is_arrested','is_bb'];
+        var j = 0;// 表单未完成数量
+        var arr = [];// 表单未完成数组
+        for(i=0;i<name_arr.length;i++){
+            if (!$("input:radio[name='"+name_arr[i]+"']:checked").length){
+                j++;
+                one = $("input:radio[name='"+name_arr[i]+"']").parents('.form-label').prev().text();
+                arr.push(one);
+            }
+        }
+
+
+        var textarea = $("#other_information").find("textarea");
+        for(i=0;i<textarea.length;i++){
+            var text = textarea[i].value;
+            // if (!this.isNullOrUndefined(text)){
+            if (!text){
+                j++;
+                one = $(textarea[i]).prev().text();
+                arr.push(one);
+            }
+        }
+
+        $('#form_complate_number').val(j);
+        var html = "您确定要退出吗？\n";
+        if (j>0){
+            html += j+"个必填项\n";
+            if(j==1){
+                html += "'"+arr[0]+"'\n," ;
+
+            }else if(j==2){
+                html += "'"+arr[0]+"',\n" ;
+                html += "'"+arr[1]+"',\n" ;
+            }else{
+                html += "'"+arr[0]+"',\n" ;
+                html += "'"+arr[1]+"',\n" ;
+                html += "'"+arr[2]+"'...\n" ;
+            }
+            html += "尚未填写.\n";
+            html += "\n";
+        }
+
+        html += "您的表单将在退出时自动保存.";
+        var gnl=confirm(html);
+        if (gnl==true){
+            if (j==0){
+                return true;
+            }else {
+                return false;
+            }
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

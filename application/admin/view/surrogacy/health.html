@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home - Personal Info</title>
+
+
+    <!-- Page Head Start-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="__CDN__/assets/koho/assets/images/favicon/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="__CDN__/assets/koho/assets/images/favicon/favicon.png" type="image/x-icon">
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/font-awesome.css">
+    <!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/icofont.css">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/themify.css">
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/flag-icon.css">
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/feather-icon.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/animate.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/prism.css">
+    <!-- Bootstrap css-->
+
+    <link rel="shortcut icon" href="__CDN__/assets/img/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/bootstrap.css">
+
+
+    <link href="__CDN__/assets/css/frontend{$Think.config.app_debug?'':'.min'}.css?v={$Think.config.site.version|htmlentities}"
+          rel="stylesheet">
+
+
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/style.css">
+
+    <link id="color" rel="stylesheet" href="__CDN__/assets/koho/assets/css/color-1.css" media="screen">
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/responsive.css">
+
+    <script type="text/javascript">
+        var require = {
+            config: {$config|json_encode}
+        };
+    </script>
+
+    <style>
+        body {
+            margin: 0px !important;
+            padding: 0px !important;
+        }
+        .container-fluid {
+            padding: 0px !important;
+
+        }
+        .page-body-wrapper .page-body {
+            margin: 0px !important;
+        }
+        .form-control {
+            height: 47px;
+        }
+
+        .dropdown-menu {
+            background: #EFF3F9;
+            border-radius: 8px;
+            box-sizing: content-box;
+            font-size: 14px;
+            color: #4a4a4a;
+            width: 250px;
+            padding: 10px;
+            transition: opacity 0.3s ease, transform 0.3s ease, left 0s 0.3s;
+            z-index: 99999 !important;
+            box-shadow: 0 0 37px rgba(8, 21, 66, 0.05);
+        }
+
+        .progress {
+            height: 10px;
+        }
+
+        .form-check {
+            display: inline-block !important;
+        }
+
+        .row {
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
+
+        .container-fluid {
+            padding: 0px !important;
+        }
+
+        .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+            margin-top: 24px;
+        }
+
+        .ws_jindu {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .ws_prodess {
+            margin-top: 5px;
+            width: 75%
+        }
+
+        .ws_canvas {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .ws_img {
+            margin-left: 20px;
+        }
+
+        .img_button {
+            margin-top: 15px;
+        }
+
+        #save_btn {
+            margin-left: 4px;
+        }
+
+        .ws_btn {
+            margin-left: 40%;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 992px) {
+            .ws_prodess_r {
+                padding-left: 20px;
+            }
+        }
+
+        /* phone */
+        @media only screen and (max-width: 767px) {
+            .ws_prodess {
+                margin-top: 5px;
+                width: 55%
+            }
+
+            .ws_prodess_r {
+                padding-left: 18px;
+            }
+
+            .form-check-label {
+                width: 280px;
+            }
+
+            .ws_canvas {
+                display: flex;
+                flex-direction: column !important;
+            }
+
+            .ws_img {
+                margin-left: 0px;
+            }
+
+            .ws_btn {
+                margin-left: 20%;
+            }
+            .popup{
+                margin: 17px;
+            }
+        }
+    </style>
+    <style>
+        .treary_box {
+        }
+
+        .treary_name {
+            font-size: 25px;
+            text-align: center
+        }
+
+        .treary_content {
+            margin-top: 20px
+        }
+
+        .treary_content img {
+            max-width: 100% !important;
+        }
+
+        .form_tip {
+            font-size: 20px;
+            text-align: center;
+            color: red
+        }
+
+        .my_form {
+            margin-top: 15px
+        }
+
+        .signature_tip {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px
+        }
+
+        .signature {
+            background-color: #eeeeee;
+            margin: 20px auto
+        }
+
+        .signature_but_box {
+            margin: 20px;
+            height: 25px;
+        }
+
+        .signature_but {
+            height: 25px;
+            width: 50%;
+            float: left;
+        }
+
+        .img_box {
+            max-width: 95%;
+            display: block;
+            margin: 0 auto
+        }
+
+        .n-default .msg-wrap {
+            position: relative;
+        }
+
+        /*.login-section{min-height: 550px}*/
+        .popupBox {
+            background: rgba(0, 0, 0, 0.3);
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .btnBox {
+            height: 50px;
+            display: flex;
+            font-size: 22px;
+            align-items: center;
+        }
+
+        .btnBox div {
+            flex: 1;
+            text-align: center;
+        }
+
+        .signature_img {
+            height: 200px;
+            width: 200px;
+            border-style: dashed;
+            border-width: 1px;
+            border-color: red;
+        }
+    </style>
+    <script src="__CDN__/assets/koho/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="/assets/libs/fastadmin-layer/dist/layer.js"></script>
+    <!--    <script src="/assets/libs/nice-validator/dist/jquery.validator.js"></script>-->
+    <!--    <script src="/assets/addons/treaty/js/jSignature.min.js"></script>-->
+    <!-- Page Head Start-->
+</head>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+
+
+<!-- Loader starts-->
+<!--<div class="loader-wrapper">-->
+<!--    <div class="loader"></div>-->
+<!--</div>-->
+<!-- Loader ends-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Health Record Release</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{:url('user/user/detail',['ids'=>$uid])}">
+                                    <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">
+                                    <!--                                    <a  style="cursor:pointer;" onClick="javascript :history.back(-1);"> Forms</a>-->
+                                    <a  style="cursor:pointer;" href="{:url('user/user/detail',['ids'=>$uid])}"> Forms</a>
+                                </li>
+                                <li class="breadcrumb-item active">Health Record Release</li>
+                            </ol>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="card-body progress-showcase">
+                                <div class="ws_jindu">
+                                    <div>
+                                        {$form_number} required questions
+                                    </div>
+                                    <div class="col col-9 ws_prodess" >
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$lv}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ws_prodess_r">
+                                        {if condition="$row"} {$row.form_complate_number}/{$form_number} complate
+                                        {else}
+                                        0/{$form_number} complate
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container-fluid starts-->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="card">
+                            <div class="card-header pb-0">
+                                <span style="font-weight: 600;font-size: 14px;color: #534686;">
+All surrogates MUST complete this form in order for Dreams of Parenthood and partner fertility clinic to obtain OB/GYN,prenatal,labor and delivery medical record for all previous pregnancies including miscarriages and abortions.
+                                </span>
+                            </div>
+                            <div class="card-body">
+                                <form class="row g-3 " id="health_record_release" method="POST" action="" role="form"
+                                      onsubmit="return sumbit_sure()">
+
+                                    <input class="form-control" name="uid" type="hidden" value="{$uid}">
+                                    <input class="form-control" id="form_complate_number" name="form_complate_number"
+                                           type="hidden" value="0">
+                                    <input class="form-control" name="status" type="hidden" value="0">
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label">Do you have an online portal for your doctor and
+                                            hospital?</label>
+                                        {if condition="$row"}
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline34" type="radio"
+                                                       data-rule="checked" name="hospital" value="1"
+                                                       {if condition="$row.hospital eq '1'" } checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline34">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline33" type="radio"
+                                                       data-rule="checked" name="hospital" value="2"
+                                                       {if condition="$row.hospital eq '2'" } checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline33">No</label>
+                                            </div>
+                                        </div>
+                                        {else}
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline20" type="radio"
+                                                       data-rule="checked" name="hospital" value="1">
+                                                <label class="form-check-label mb-0" for="radioinline20">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline21" type="radio"
+                                                       data-rule="checked" name="hospital" value="2">
+                                                <label class="form-check-label mb-0" for="radioinline21">No</label>
+                                            </div>
+                                        </div>
+                                        {/if}
+
+
+                                    </div>
+
+                                    <div class="row" id="ws_row">
+                                        <style>
+                                            .ws_display_none {
+                                                display: none;
+                                            }
+
+                                            .ws_display {
+                                                display: inline-block;
+                                            }
+                                        </style>
+                                        <div class="col-md-12 m-b-20  ">
+                                            <button class="btn
+                                             {if condition=" $button_number
+                                            "}ws_display_none{/if}
+                                            btn-primary add_baby ws_btn" a="0" type="button" >Add Healthcare Provider
+                                            Information</button>
+                                        </div>
+
+                                        {if condition="$regnancy_informatiom_data"}
+                                        {foreach name='$regnancy_informatiom_data' item='v' key='k' }
+                                        <div class="col-xl-12 ws_card">
+                                            <div class="card recent-order">
+                                                <div class="card-header pb-0">
+                                                    <h3>Healthcare Provider Information {$k+1}</h3>
+                                                    <div class="card-header-right">
+                                                        <ul class="list-unstyled card-option" style="width: 230px;">
+                                                            <li {if condition="$k+1 eq 1"}   style="display: none" {/if}>
+                                                            <i class="icofont icofont-error close-card ws_del"></i>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <input name="number[]"  value="{$v.number}" class="form-control" readonly type="hidden"  >
+                                                <div class="card-body pb-0 m-b-30 m-t-20">
+                                                    <div class="col-md-12 m-t-10 position-relative">
+                                                        <label class="form-label">First OB/GYN visit for Pregnancy (MM/YY) * </label>
+                                                        <input name="protect_time[]"
+                                                               value="{$v.protect_time}" class="form-control " data-rule="required"
+                                                               type="text">
+                                                        <!--                                                        <input name="protect_time[]" value="{$v.protect_time}" class="form-control datepicker-here  digits" type="text" data-language="en">-->
+                                                        <!--                                                        <input type="text" name="protect_time[]"-->
+                                                        <!--                                                               value="{$v.protect_time}"-->
+                                                        <!--                                                               class="form-control datetimepicker" data-rule="required"-->
+                                                        <!--                                                               data-date-format="MM/DD/YYYY"/>-->
+                                                    </div>
+
+                                                    <div class="col-md-12 m-t-10 position-relative">
+                                                        <label class="form-label">OB/GYN  name *</label>
+                                                        <input name="maternity_institution[]"
+                                                               value="{$v.maternity_institution}" class="form-control " data-rule="required"
+                                                               type="text">
+                                                    </div>
+                                                    <div class="col-md-12 m-t-10 position-relative">
+                                                        <label class="form-label">OB/GYN office contact(if applicable) *</label>
+                                                        <input name="doctor[]" value="{$v.doctor}" class="form-control " data-rule="required"
+                                                               type="text">
+                                                    </div>
+                                                    <div class="col-md-12 m-t-10 position-relative">
+                                                        <label class="form-label">Street address *</label>
+                                                        <input name="address_one[]" value="{$v.address_one}" data-rule="required"
+                                                               class="form-control " type="text">
+                                                    </div>
+
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">City *</label>
+                                                        <input name="city[]" value="{$v.city}" class="form-control " data-rule="required"
+                                                               type="text">
+                                                    </div>
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">State *</label>
+                                                        <input name="state[]" value="{$v.state}" class="form-control " data-rule="required"
+                                                               type="text">
+                                                    </div>
+                                                    <!--                                                    <div class="col-md-6 m-t-10 position-relative">-->
+                                                    <!--                                                        <label class="form-label">Country *</label>-->
+                                                    <!--                                                        <input name="country[]" value="{$v.country}" data-rule="required"-->
+                                                    <!--                                                               class="form-control " type="text">-->
+                                                    <!--                                                    </div>-->
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">Zipcode *</label>
+                                                        <input name="code[]" value="{$v.code}" class="form-control " data-rule="required"
+                                                               type="text">
+                                                    </div>
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">Phone Number *</label>
+                                                        <input name="hospital_phone[]" value="{$v.hospital_phone}" data-rule="required"
+                                                               class="form-control " type="text">
+                                                    </div>
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">Fax Number*</label>
+                                                        <input name="hospital_fax[]" value="{$v.hospital_fax}" data-rule="required"
+                                                               class="form-control " type="text">
+                                                    </div>
+
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">Date of delivery *</label>
+                                                        <input type="text" name="delivery_date[]"
+                                                               class="form-control datetimepicker" value="{$v.delivery_date}" data-rule="required"
+                                                               data-date-format="MM/DD/YYYY"/>
+                                                    </div>
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">Delivery hospital name *</label>
+                                                        <input name="delivery_hospital_name[]" class="form-control" data-rule="required" value="{$v.delivery_hospital_name}" type="text">
+                                                    </div>
+                                                    <div class="col-md-12 m-t-10 position-relative">
+                                                        <label class="form-label">Street Address  *</label>
+                                                        <input name="address_line[]" class="form-control " data-rule="required" value="{$v.address_line}" type="text">
+                                                    </div>
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">City *</label>
+                                                        <input name="city_two[]" class="form-control " data-rule="required" value="{$v.city_two}" type="text">
+                                                    </div>
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">State *</label>
+                                                        <input name="state_two[]" class="form-control " data-rule="required" value="{$v.state_two}" type="text">
+                                                    </div>
+                                                    <!--                                                    <div class="col-md-6 m-t-10 position-relative">-->
+                                                    <!--                                                        <label class="form-label">Country *</label>-->
+                                                    <!--                                                        <input name="country_two[]" class="form-control " data-rule="required" value="{$v.country_two}" type="text">-->
+                                                    <!--                                                    </div>-->
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">Zipcode *</label>
+                                                        <input name="code_two[]" class="form-control " data-rule="required" value="{$v.code_two}" type="text">
+                                                    </div>
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">Hospital Phone *</label>
+                                                        <input name="hospital_phone_two[]" class="form-control " data-rule="required"
+                                                               type="text" value="{$v.hospital_phone_two}">
+                                                    </div>
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">Hospital Fax *</label>
+                                                        <input name="hospital_fax_two[]" class="form-control " data-rule="required" value="{$v.hospital_fax_two}"
+                                                               type="text">
+                                                    </div>
+
+
+                                                    <div class="col-md-12 m-t-20">
+                                                        <button class="btn btn-primary add_baby
+                                                           {if condition=" ($button_number-1)!=$k"} ws_display_none{/if}
+                                                        ws_btn" a="{$k+1}" type="button" >Add Healthcare Provider
+                                                        Information</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/foreach}
+                                        {else}
+                                        <div class="col-xl-12 ws_card">
+                                            <div class="card recent-order">
+                                                <div class="card-header pb-0">
+                                                    <h3>Healthcare Provider Information #1</h3>
+                                                    <div class="card-header-right">
+                                                        <ul class="list-unstyled card-option" style="width: 230px;">
+                                                            <!--                                                            <li><i class="icofont icofont-error close-card ws_del"></i>-->
+                                                            <!--                                                            </li>-->
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <input name="number[]"  value="1" class="form-control" readonly type="hidden"  >
+
+                                                <div class="card-body pb-0 m-b-30 m-t-20">
+                                                    <div class="col-md-12 m-t-10 position-relative">
+                                                        <label class="form-label">First OB/GYN visit for Pregnancy (MM/YY) * </label>
+                                                        <input name="protect_time[]" class="form-control " data-rule="required" type="text">
+                                                    </div>
+
+                                                    <div class="col-md-12 m-t-10 position-relative">
+                                                        <label class="form-label">OB/GYN name *</label>
+                                                        <input name="maternity_institution[]" class="form-control " data-rule="required" type="text">
+                                                    </div>
+                                                    <div class="col-md-12 m-t-10 position-relative">
+                                                        <label class="form-label">OB/GYN office contact(if applicable) *</label>
+                                                        <input name="doctor[]" class="form-control " data-rule="required" type="text">
+                                                    </div>
+                                                    <div class="col-md-12 m-t-10 position-relative">
+                                                        <label class="form-label">Street address  *</label>
+                                                        <input name="address_one[]"  data-rule="required"
+                                                               class="form-control " type="text">
+                                                    </div>
+
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">City *</label>
+                                                        <input name="city[]"  class="form-control " data-rule="required"
+                                                               type="text">
+                                                    </div>
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">State *</label>
+                                                        <select class="form-select" name="state[]" required="">
+                                                            <option  value="AK">AK</option>
+                                                            <option value="AL" >AL</option>
+                                                            <option value="AR" >AR</option>
+
+                                                            <option value="AZ" >AZ</option>
+                                                            <option value="CA" >CA</option>
+                                                            <option value="CO" >CO</option>
+                                                            <option value="CT" >CT</option>
+                                                            <option value="DC" >DC</option>
+                                                            <option value="DE" >DE</option>
+                                                            <option value="FL" >FL</option>
+                                                            <option value="GA" >GA</option>
+                                                            <option value="GU" >GU</option>
+                                                            <option value="HI" >HI</option>
+                                                            <option value="IA" >IA</option>
+                                                            <option value="ID" >ID</option>
+                                                            <option value="IL" >IL</option>
+                                                            <option value="IN" >IN</option>
+                                                            <option value="KS" >KS</option>
+                                                            <option value="KY" >KY</option>
+                                                            <option value="LA" >LA</option>
+                                                            <option value="MA" >MA</option>
+                                                            <option value="MD" >MD</option>
+                                                            <option value="ME" >ME</option>
+                                                            <option value="MI" >MI</option>
+                                                            <option value="MN" >MN</option>
+                                                            <option value="MO" >MO</option>
+                                                            <option value="MS" >MS</option>
+                                                            <option value="MT" >MT</option>
+                                                            <option value="NC" >NC</option>
+                                                            <option value="ND" >ND</option>
+                                                            <option value="NE" >NE</option>
+                                                            <option value="NH" >NH</option>
+                                                            <option value="NJ" >NJ</option>
+                                                            <option value="NM" >NM</option>
+                                                            <option value="NV" >NV</option>
+                                                            <option value="NY" >NY</option>
+                                                            <option value="OH" >OH</option>
+                                                            <option value="OK" >OK</option>
+                                                            <option value="OR" >OR</option>
+                                                            <option value="PA" >PA</option>
+                                                            <option value="PR" >PR</option>
+                                                            <option value="RI" >RI</option>
+                                                            <option value="SC" >SC</option>
+                                                            <option value="SD" >SD</option>
+                                                            <option value="TN" >TN</option>
+                                                            <option value="TX" >TX</option>
+                                                            <option value="UT" >UT</option>
+                                                            <option value="VA" >VA</option>
+                                                            <option value="WA" >WA</option>
+                                                            <option value="WI" >WI</option>
+                                                            <option value="WV" >WV</option>
+                                                            <option value="WY" >WY</option>
+                                                            <option value="Others" >Others</option>
+                                                        </select>
+                                                        <!--                                                        <input name="state[]"  class="form-control " data-rule="required"-->
+                                                        <!--                                                               type="text">-->
+                                                    </div>
+                                                    <div class="col-md-12 m-t-10 position-relative">
+                                                        <label class="form-label">Zip code *</label>
+                                                        <input name="code[]"  class="form-control " data-rule="required"
+                                                               type="text">
+                                                    </div>
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">Phone Number *</label>
+                                                        <input name="hospital_phone[]"  data-rule="required"
+                                                               class="form-control " type="text">
+                                                    </div>
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">Fax Number*</label>
+                                                        <input name="hospital_fax[]"  data-rule="required"
+                                                               class="form-control " type="text">
+                                                    </div>
+
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">Date of delivery *</label>
+                                                        <input type="text" name="delivery_date[]" class="form-control datetimepicker"  data-rule="required" data-date-format="MM/DD/YYYY"/>
+                                                    </div>
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">Delivery hospital name *</label>
+                                                        <input name="delivery_hospital_name[]" class="form-control" data-rule="required"  type="text">
+                                                    </div>
+                                                    <div class="col-md-12 m-t-10 position-relative">
+                                                        <label class="form-label">Street Address  *</label>
+                                                        <input name="address_line[]" class="form-control " data-rule="required"  type="text">
+                                                    </div>
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">City *</label>
+                                                        <input name="city_two[]" class="form-control " data-rule="required"  type="text">
+                                                    </div>
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">State *</label>
+                                                        <input name="state_two[]" class="form-control " data-rule="required"  type="text">
+                                                    </div>
+                                                    <div class="col-md-12 m-t-10 position-relative">
+                                                        <label class="form-label">Zip code *</label>
+                                                        <input name="code_two[]" class="form-control " data-rule="required"  type="text">
+                                                    </div>
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">Hospital Phone *</label>
+                                                        <input name="hospital_phone_two[]" class="form-control " data-rule="required" type="text">
+                                                    </div>
+                                                    <div class="col-md-6 m-t-10 position-relative">
+                                                        <label class="form-label">Hospital Fax *</label>
+                                                        <input name="hospital_fax_two[]" class="form-control " data-rule="required" type="text">
+                                                    </div>
+                                                    <div class="col-md-12 m-t-20">
+                                                        <button class="btn btn-primary add_baby ws_btn" a="1" type="button" >
+                                                            Add Healthcare Provider Information
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/if}
+
+
+                                    </div>
+
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label">I authorize and request the disclosure of all
+                                            protected information for review and evaluation in connection with a
+                                            surrogacy eligibility evaluation  by Dreams of Parenthood,LLC. I
+                                            expressly request that the designated record custodian of all covered
+                                            entities under HIPAA identified above disclose full and complete medical
+                                            information including the following :</label>
+
+                                        <div class="col">
+                                            <div class="m-checkbox-inline">
+                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                    <input class="form-check-input" id="inline-2" type="checkbox"
+                                                           name="is_one" value="1" {if condition="$row&&$row.is_one eq '1'"} checked{/if}>
+                                                    <label class="form-check-label" for="inline-2">All medical
+                                                        records, meaning every page in my record, including but not
+                                                        limited to: office notes, face sheets. history and
+                                                        physical, consulatation notes, inpatient, outpatient and emergency
+                                                        room treatment , all clinical charts, reports, order sheets, progress
+                                                        notes, nurse's notes, social worker records, clinic
+                                                        records, treatment plans, admission records,discharge
+                                                        summaries, request for and reports of
+                                                        consulations , documents, correspondence, test
+                                                        results, sttements, questionnaires/histories, correspondence,photographs, videotapes, telephone
+                                                        messages, and records received by other medical providers</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="m-checkbox-inline">
+                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                    <input class="form-check-input" id="inline-3" type="checkbox"
+                                                           {if condition="$row&&$row.is_two eq '1'"} checked{/if} name="is_two" value="1">
+                                                    <label class="form-check-label" for="inline-3">All
+                                                        physical, occupational and rehab requests, consulations and
+                                                        progress notes.</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="m-checkbox-inline">
+                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                    <input class="form-check-input" id="inline-4" type="checkbox"
+                                                           {if condition="$row&&$row.is_three eq '1'"} checked{/if} name="is_three" value="1">
+                                                    <label class="form-check-label" for="inline-4">All
+                                                        disability, Medicaid or Medicare records including claim forms
+                                                        and record of denial of benefits.</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="m-checkbox-inline">
+                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                    <input class="form-check-input" id="inline-5" type="checkbox"
+                                                           name="is_four" value="1" {if condition="$row&&$row.is_four eq '1'"} checked{/if}>
+                                                    <label class="form-check-label" for="inline-5">All
+                                                        autopsy, laboratory, histology, cytology, pathology, immunohistochemistry
+                                                        records and specimens; radiology records and films including CT
+                                                        scan, MRI, MRA, EMG, bone scan ,myleogram; nerve conduction
+                                                        study, echocardiogram and cardiac catheterization
+                                                        results, videos/CDs/films/reels and reports.</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="m-checkbox-inline">
+                                                <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                                                    <input class="form-check-input" id="inline-6" type="checkbox"
+                                                           name="is_five" value="1" {if condition="$row&&$row.is_five eq '1'"} checked{/if}>
+                                                    <label class="form-check-label" for="inline-6">All
+                                                        pharmacy/prescription records including NDC numbers and drug
+                                                        information handouts/monographs.</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-12">
+                                        I understand the information to be released or disclosed may include information
+                                        relating to sexually transmitted diseases, acquired immunodeficiency
+                                        syndrome(AIDS), or human Page 1 of 2 immunodeficiency virus(HIV), and alcohol and
+                                        drug abuse. I authorize the release or disclosure of this type of information. This protected health information is disclosed for the following purposes:
+                                        Gestational carrier eligibility evaluation.
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        This authorization is given in compliance with the federal consent requirements for release of alcohol or substance abuse
+                                        records of 42 CFR 2.31, the restrictions of which have been specifically considered and expressly waived.
+                                    </div>
+                                    <div class="col-md-12">
+                                        I understand the following: See CFR 164.508(c)(2)(i-iii).
+                                        <br/>
+                                        a.I have a right to revoke this authorication in writing at any time, except to the extent information has been
+                                        released in reliance upon this authorication.
+                                        <br/>
+                                        b.The information released in response to this authorization may be re-disclosed to other parties.
+                                        <br/>
+                                        c.My treatment or payment for my treatment cannot be conditoned on the signing of this authorization. Any facsimile,
+                                        copy or photocopy of the authorication shall authorize you to release the records requested herein. This
+                                        authoricaton shall be in force and effect until two your from date of execution at which time this authorization
+                                        expires.
+                                    </div>
+
+                                    <label class="form-label " id="ws_msg">Signature of Patient or Legally Authorized
+                                        Representative(Click to pop up the signature again) </label>
+                                    <div class="col-md-12 m-b-20 ws_canvas">
+                                     <span style='color:red;' class='signClass xes sign_qianming'
+                                           data-tag_name='qianming'>Click to sign*</span>
+                                        <div class="popupBox">
+                                            <div class="popup">
+                                                <div id="signature" class="signature"></div>
+                                                <div class="btnBox">
+                                                    <div id="createImage">Yes</div>
+                                                    <div id="clearCanvas">No</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {if condition="$row&&$row['canvas']"}
+                                    <img class="signature_img" src="{$row['canvas']}"/>
+                                    {/if}
+                                    <input type="hidden" name="canvas" id="canvas" {if condition="$row&&$row['canvas']"
+                                           } value="{$row['canvas']}" {/if}>
+
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label">Date of signature *</label>
+                                        <input type="text" name="canvas_time" {if condition="$row" }
+                                               value="{$row.canvas_time_a|htmlentities}" {/if} class="form-control
+                                        datetimepicker" data-field="required" data-date-format="MM/DD/YYYY"/>
+                                        <!--                                        <input name="canvas_time"  class="form-control datepicker-here  digits" type="text" data-rule="required" data-language="en" data-position="top left"-->
+                                        <!--                                               {if condition="$row"} value="{$row.canvas_time_a|htmlentities}"{/if}-->
+                                        <!--                                        >-->
+                                        <div class="invalid-feedback">Please fill in your date of signature.</div>
+                                    </div>
+
+
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label">Name and Relationship of Legally Authorized
+                                            Representative to Patient *</label>
+                                        <input class="form-control " type="text" name="name" data-rule="required" {if
+                                               condition="$row" } value="{$row.name|htmlentities}" {/if}>
+                                        <div class="invalid-feedback">Please fill in your information.</div>
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label">Date *</label>
+                                        <input type="text" name="name_time" {if condition="$row" }
+                                               value="{$row.name_time_a|htmlentities}" {/if} class="form-control
+                                        datetimepicker" data-field="required" data-date-format="MM/DD/YYYY"/>
+                                        <!--                                        <input name="name_time"  class="form-control  datepicker-here  digits" type="text" data-rule="required" data-language="en" data-position="top left"-->
+                                        <!--                                               {if condition="$row"} value="{$row.name_time_a|htmlentities}"{/if}-->
+                                        <!--                                        >-->
+                                        <div class="invalid-feedback">Please fill in your date .</div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="submit">Submit form</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container-fluid Ends-->
+        </div>
+        <!-- Page content Ends-->
+
+    </div>
+
+
+
+</div>
+
+
+<script src="/assets/addons/treaty/js/index.js"></script>
+<!-- Page js Start-->
+<!-- latest jquery-->
+
+<script src="__CDN__/assets/koho/assets/js/bootstrap/popper.min.js"></script>
+<script src="__CDN__/assets/koho/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+<!-- feather icon js-->
+<script src="__CDN__/assets/koho/assets/js/icons/feather-icon/feather.min.js"></script>
+<script src="__CDN__/assets/koho/assets/js/icons/feather-icon/feather-icon.js"></script>
+<script src="__CDN__/assets/koho/assets/js/scrollbar/simplebar.js"></script>
+<script src="__CDN__/assets/koho/assets/js/scrollbar/custom.js"></script>
+<!-- Sidebar jquery-->
+<script src="__CDN__/assets/koho/assets/js/config.js"></script>
+<script src="__CDN__/assets/koho/assets/js/sidebar-menu.js"></script>
+<script src="__CDN__/assets/koho/assets/js/form-validation-custom.js"></script>
+<script src="__CDN__/assets/koho/assets/js/tooltip-init.js"></script>
+<script src="__CDN__/assets/koho/assets/js/chart/peity-chart/peity.jquery.js"></script>
+<script src="__CDN__/assets/koho/assets/js/chart/peity-chart/peity-custom.js"></script>
+
+
+<!--<script src="__CDN__/assets/koho/assets/js/datepicker/date-picker/datepicker.js"></script>-->
+<!--<script src="__CDN__/assets/koho/assets/js/datepicker/date-picker/datepicker.en.js"></script>-->
+<!--<script src="__CDN__/assets/koho/assets/js/datepicker/date-picker/datepicker.custom.js"></script>-->
+
+<script type="text/javascript">
+    var require = {
+        config: {$config|json_encode}
+    };
+</script>
+
+<script src="__CDN__/assets/koho/assets/js/script.js"></script>
+<script src="__CDN__/assets/js/require{$Think.config.app_debug?'':'.min'}.js"
+        data-main="__CDN__/assets/js/require-frontend{$Think.config.app_debug?'':'.min'}.js?v={$site.version|htmlentities}"></script>
+
+
+<script>
+    $('body').on('focus', ".datetimepicker", function () {
+        $(this).datetimepicker({
+            locale: 'en',
+        });
+    });
+    $('#health_record_release').validator({
+    });
+</script>
+
+<script>
+    //删除baby表单事件
+    $('#ws_row').on('click', '.ws_del', function () {
+        $(this).parents('.ws_card').prev().find('.ws_btn').css('display', 'inline-block');
+        // $(this).parents('.ws_card').prev().find('.ws_btn').css('cssText','display:inline-block!important');
+        $(this).parents('.ws_card').remove();
+    });
+
+
+    //j和q是单选按钮的class值
+    var j = 60;
+    var q = 90;
+    //点击添加baby按钮事件
+    $('#ws_row').on('click', '.add_baby', function () {
+        var i = $(this).attr('a');
+        i++;
+        j++;
+        q++;
+        var html = '';
+        html += '<div class="col-xl-12  ws_card">';
+        html += '<div class="card recent-order">';
+        html += '<div class="card-header pb-0">';
+        html += '<h3>Healthcare Provider Information #' + i + '</h3>';
+        html += '<div class="card-header-right">';
+        html += '<ul class="list-unstyled card-option" style="width: 230px;">';
+        html += '<li><i class="icofont icofont-error close-card ws_del" ></i></li>';
+        html += '</ul>';
+        html += '</div>';
+        html += '</div>';
+        html += '<div class="card-body pb-0 m-b-30 m-t-20">';
+        html += '<div class="col-md-12 m-t-10 position-relative">';
+        html += '<label class="form-label" >First OB/GYN visit for Pregnancy (MM/YY) *</label>';
+        // html +=            '<input name="protect_time[]"  class="form-control datepicker-here  digits" type="text" data-language="en">';
+        // html += ' <input type="text"  name="protect_time[]" data-rule="required" class="form-control datetimepicker"  data-date-format="MM/DD/YYYY"/>';
+        html += '<input name="protect_time[]"  class="form-control " type="text" data-rule="required">';
+        html += '</div>';
+
+        html += '<input name="number[]"  class="form-control" value="'+i+'" readonly    type="hidden"   >';
+
+        html += '<div class="col-md-12 m-t-10 position-relative">';
+        html += '<label class="form-label" >OB/GYN  name *</label>';
+        html += '<input name="maternity_institution[]"  class="form-control " type="text" data-rule="required">';
+        html += '</div>';
+        html += '<div class="col-md-12 m-t-10 position-relative">';
+        html += '<label class="form-label" >OB/GYN office contact (if applicable) *</label>';
+        html += '<input name="doctor[]"  class="form-control"   type="text" data-rule="required">';
+        html += '</div>';
+        html += '<div class="col-md-12 m-t-10 position-relative">';
+        html += '<label class="form-label" >Street address *</label>';
+        html += '<input name="address_one[]"  class="form-control " type="text" data-rule="required">';
+        html += '</div>';
+        html += '<div class="col-md-6 m-t-10 position-relative">';
+        html += '<label class="form-label" >City *</label>';
+        html += '<input name="city[]"  class="form-control " type="text" data-rule="required">';
+        html += '</div>';
+        html += '<div class="col-md-6 m-t-10 position-relative">';
+        html += '<label class="form-label" >State *</label>';
+        html += '<input name="state[]"  class="form-control " type="text" data-rule="required">';
+        html += '</div>';
+        // html += '<div class="col-md-6 m-t-10 position-relative">';
+        // html += '<label class="form-label" >Country *</label>';
+        // html += '<input name="country[]"  class="form-control " type="text" data-rule="required">';
+        // html += '</div>';
+        html += '<div class="col-md-6 m-t-10 position-relative">';
+        html += '<label class="form-label" >Zipcode *</label>';
+        html += '<input name="code[]"  class="form-control " type="text" data-rule="required">';
+        html += '</div>';
+        html += '<div class="col-md-6 m-t-10 position-relative">';
+        html += '<label class="form-label" >Phone Number *</label>';
+        html += '<input name="hospital_phone[]"  class="form-control " type="text" data-rule="required">';
+        html += '</div>';
+        html += '<div class="col-md-6 m-t-10 position-relative">';
+        html += '<label class="form-label" >Fax Number *</label>';
+        html += '<input name="hospital_fax[]"  class="form-control " type="text" data-rule="required">';
+        html += '</div>';
+        html += '<div class="col-md-6 m-t-10 position-relative">';
+        html += '<label class="form-label" >Date of delivery *</label>';
+        // html += '<input name="delivery_date[]"  class="form-control " type="text">';
+        html += ' <input type="text"  name="delivery_date[]"  class="form-control datetimepicker" data-rule="required" data-date-format="MM/DD/YYYY"/>';
+        html += '</div>';
+        html += '<div class="col-md-6 m-t-10 position-relative">';
+        html += '<label class="form-label" >Delivery hospital name *</label>';
+        html += '<input name="delivery_hospital_name[]"  class="form-control " type="text" data-rule="required">';
+        html += '</div>';
+        html += '<div class="col-md-12 m-t-10 position-relative">';
+        html += '<label class="form-label" >Street address *</label>';
+        html += '<input name="address_line[]"  class="form-control " type="text" data-rule="required">';
+        html += '</div>';
+        html += '<div class="col-md-6 m-t-10 position-relative">';
+        html += '<label class="form-label" >City *</label>';
+        html += '<input name="city_two[]"  class="form-control " type="text" data-rule="required">';
+        html += '</div>';
+        html += '<div class="col-md-6 m-t-10 position-relative">';
+        html += '<label class="form-label" >State *</label>';
+        html += '<input name="state_two[]"  class="form-control " type="text" data-rule="required">';
+        html += '</div>';
+        // html += '<div class="col-md-6 m-t-10 position-relative">';
+        // html += '<label class="form-label" >Country *</label>';
+        // html += '<input name="country_two[]"  class="form-control " type="text" data-rule="required">';
+        // html += '</div>';
+        html += '<div class="col-md-6 m-t-10 position-relative">';
+        html += '<label class="form-label" >Zipcode *</label>';
+        html += '<input name="code_two[]"  class="form-control " type="text" data-rule="required">';
+        html += '</div>';
+        html += '<div class="col-md-6 m-t-10 position-relative">';
+        html += '<label class="form-label" >Hospital Phone *</label>';
+        html += '<input name="hospital_phone_two[]"  class="form-control " type="text" data-rule="required">';
+        html += '</div>';
+        html += '<div class="col-md-6 m-t-10 position-relative">';
+        html += '<label class="form-label" >Hospital Fax *</label>';
+        html += '<input name="hospital_fax_two[]"  class="form-control " type="text" data-rule="required">';
+        html += '</div>';
+
+
+        html += '<div class="col-md-12 m-t-20 ">';
+        html += '<button class="btn btn-primary add_baby ws_btn"  a="' + i + '" type="button" >Add Healthcare Provider Information</button>';
+        html += '</div>';
+        html += '</div>';
+        html += '</div>';
+        html += '</div>';
+
+        var form = $('#ws_row');
+
+        //删除上一个baby的添加按钮
+        // $('.ws_btn').html('')
+        $(this).css('display', 'none')
+        form.append(html);
+
+    });
+</script>
+<script>
+
+    function sumbit_sure() {
+        var name_arr = ['hospital'];
+        var j = 0;// 表单未完成数量
+        var arr = [];// 表单未完成数组
+        for (i = 0; i < name_arr.length; i++) {
+            if (!$("input:radio[name='" + name_arr[i] + "']:checked").length) {
+                j++;
+                one = $("input:radio[name='" + name_arr[i] + "']").parents('.form-label').prev().text();
+                arr.push(one);
+            }
+            // console.log(arr)
+        }
+
+        var parmas = $("#health_record_release").find("input");
+        var name_arr = ['canvas_time', 'name', 'name_time'];
+        for (i = 0; i < parmas.length; i++) {
+            var value = parmas[i].value;
+            var name = $(parmas[i]).attr('name');
+            if (name_arr.includes(name) && value.length == 0) {
+                j++;
+                one = $(parmas[i]).prev().text();
+                arr.push(one);
+            }
+        }
+
+        var canvas = $('#canvas').val();
+        if (canvas.length == 0) {
+            j++;
+            arr.push('Please sign');
+            var ws_msg = $('#ws_msg')
+            var h = '<span class="msg-box n-right" for="canvas_time"><span role="alert" class="msg-wrap n-error"><span class="n-icon"></span><span class="n-msg">This cannot be empty</span></span></span>'
+            ws_msg.append(h)
+            // alert('Please sign')
+        }
+
+        $('#form_complate_number').val(j);
+
+        var html = "您确定要退出吗？\n";
+        if (j > 0) {
+            html += j + "个必填项\n";
+            if (j == 1) {
+                html += "'" + arr[0] + "'\n,";
+
+            } else if (j == 2) {
+                html += "'" + arr[0] + "',\n";
+                html += "'" + arr[1] + "',\n";
+            } else {
+                html += "'" + arr[0] + "',\n";
+                html += "'" + arr[1] + "',\n";
+                html += "'" + arr[2] + "'...\n";
+            }
+            html += "尚未填写.\n";
+            html += "\n";
+        }
+
+        html += "您的表单将在退出时自动保存.";
+        var gnl = confirm(html);
+        if (gnl == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

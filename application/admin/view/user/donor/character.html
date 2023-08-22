@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home - Pre_screen</title>
+
+    <!-- Page Head Start-->
+    {include file="ws/css" /}
+    <!-- Page Head Start-->
+
+    <style>
+        .ws_dis_no {
+            display: none ;
+        }
+        .ws_prodess {
+            margin-top: 5px;width: 70%
+        }
+        .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+            margin-top: 24px;
+        }
+        .ws_jindu {
+            display: flex;
+            justify-content: space-between;
+        }
+        @media only screen and (min-width:768px) and (max-width:992px) {
+            .ws_prodess_r {
+                padding-left: 20px;
+            }
+        }
+        /* phone */
+        @media only screen and (max-width:767px) {
+            .ws_prodess {
+                margin-top: 5px;width: 55%
+            }
+            .ws_prodess_r {
+                padding-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Character</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{:url('user/donor/detail',['ids'=>$uid])}">
+                                    <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{:url('user/donor/detail',['ids'=>$uid])}">Form</a></li>
+                                <li class="breadcrumb-item active">Character</li>
+                            </ol>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="card-body progress-showcase">
+                                <div class="ws_jindu">
+                                    <div>
+                                        {$form_number} required questions
+                                    </div>
+                                    <div class="col col-9 ws_prodess">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$lv}%"
+                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ws_prodess_r">
+                                        {if condition="$row"} {$row.form_complate_number}/{$form_number} complate
+                                        {else}
+                                        0/{$form_number} complate
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form class="row g-3 nice-validator n-default" id="character" method="POST" action=""
+                                      role="form" onsubmit="return sumbit_sure()">
+                                    <input class="form-control" name="uid" type="hidden" value="{$uid}">
+                                    <input class="form-control" id="form_complate_number" name="form_complate_number" value="0"
+                                           type="hidden">
+                                    <input class="form-control" name="status" type="hidden" value="0">
+<!--                                    <div class="col-md-12 position-relative">-->
+<!--                                        <label class="form-label" >Why do you want to become an egg donor? *</label>-->
+<!--                                        <textarea class="form-control" id="exampleFormControlTextarea4" name="egg_reason" data-rule="required" rows="3">{if condition="$row"}{$row.egg_reason|htmlentities}{/if}</textarea>-->
+<!--                                    </div>-->
+
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >How would you describe your personality and character? *</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea5" name="character" data-rule="required" rows="3">{if condition="$row"}{$row.character|htmlentities}{/if}</textarea>
+                                    </div>
+
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >What are you passionate about? *</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea6" name="passionate_about" data-rule="required" rows="3">{if condition="$row"}{$row.passionate_about|htmlentities}{/if}</textarea>
+                                    </div>
+<!--                                    <div class="col-md-12  position-relative">-->
+<!--                                        <label class="form-label">Are you outgoing *</label>-->
+<!--                                        <div class="form-label">-->
+<!--                                            <div class="form-check form-check-inline radio radio-primary">-->
+<!--                                                <input class="form-check-input" id="radioinline45" type="radio" data-rule="checked" name="is_outgoing" value="1"-->
+<!--                                                       {if condition="$row&&$row.is_outgoing eq '1'"} checked{/if}-->
+<!--                                                >-->
+<!--                                                <label class="form-check-label mb-0" for="radioinline45">Yes</label>-->
+<!--                                            </div>-->
+<!--                                            <div class="form-check form-check-inline radio radio-primary">-->
+<!--                                                <input class="form-check-input" id="radioinline46" type="radio" data-rule="checked" name="is_outgoing" value="2"-->
+<!--                                                       {if condition="$row&&$row.is_outgoing eq '2'"} checked{/if}-->
+<!--                                                >-->
+<!--                                                <label class="form-check-label mb-0" for="radioinline46">No</label>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                    </div>-->
+                                    <div class="col-md-12  position-relative">
+                                        <label class="form-label">Are you athletic *</label>
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline50" type="radio" data-rule="checked" name="is_athletic" value="1"
+                                                       {if condition="$row&&$row.is_athletic eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline50">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline51" type="radio" data-rule="checked" name="is_athletic" value="2"
+                                                       {if condition="$row&&$row.is_athletic eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline51">No</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >How often do you exercise? *</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea10" name="exercise_when" data-rule="required" rows="3">{if condition="$row"}{$row.exercise_when|htmlentities}{/if}</textarea>
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >What do you do for exercise? *</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea11" name="exercise_what" data-rule="required" rows="3">{if condition="$row"}{$row.exercise_what|htmlentities}{/if}</textarea>
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >What are your favorite hobbies? *</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea12" name="hobby" data-rule="required" rows="3">{if condition="$row"}{$row.hobby|htmlentities}{/if}</textarea>
+                                    </div>
+
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label">Are you artistic? *</label>
+
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline1" type="radio" data-rule="checked" name="is_artistic" value="1"
+                                                       {if condition="$row&&$row.is_artistic eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline1">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline2" type="radio" data-rule="checked" name="is_artistic" value="2"
+                                                       {if condition="$row&&$row.is_artistic eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline2">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 m-b-20 position-relative ws_is_artistic {if condition="$row&&$row.is_artistic eq '2'"} ws_dis_no {/if}">
+                                    <label class="form-label">What types of art do you enjoy: </label>
+                                    <input class="form-control"   name="artistic_type" type="text" {if condition="$row"} value="{$row.artistic_type|htmlentities}"{/if}>
+                            </div>
+
+                            <div class="col-md-12 position-relative">
+                                <label class="form-label">Do you play an instrument? *</label>
+
+                                <div class="form-label">
+                                    <div class="form-check form-check-inline radio radio-primary">
+                                        <input class="form-check-input" id="radioinline3" type="radio" data-rule="checked" name="play_instrument" value="1"
+                                               {if condition="$row&&$row.play_instrument eq '1'"} checked{/if}
+                                        >
+                                        <label class="form-check-label mb-0" for="radioinline3">Yes</label>
+                                    </div>
+                                    <div class="form-check form-check-inline radio radio-primary">
+                                        <input class="form-check-input" id="radioinline4" type="radio" data-rule="checked" name="play_instrument" value="2"
+                                               {if condition="$row&&$row.play_instrument eq '2'"} checked{/if}
+                                        >
+                                        <label class="form-check-label mb-0" for="radioinline4">No</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 position-relative">
+                                <label class="form-label" >What type of music do you enjoy *</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea15" name="music_type" data-rule="required" rows="3">{if condition="$row"}{$row.music_type|htmlentities}{/if}</textarea>
+                            </div>
+
+                            <div class="col-md-12 position-relative">
+                                <label class="form-label" >What is your favorite book(s) *</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea13" name="books" data-rule="required" rows="3">{if condition="$row"}{$row.books|htmlentities}{/if}</textarea>
+                            </div>
+
+                            <div class="col-md-12 position-relative">
+                                <label class="form-label" >What is your favorite movie(s) *</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea14" name="movies" data-rule="required" rows="3">{if condition="$row"}{$row.movies|htmlentities}{/if}</textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Submit form</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Container-fluid Ends-->
+
+    </div>
+
+</div>
+
+<!-- Page js Start-->
+{include file="ws/js" /}
+<!-- Page js Ends -->
+
+</body>
+<script>
+    $('#radioinline2').click(function () {
+        var is_artistic = $("input[name='is_artistic']:checked").val();
+        if (is_artistic==2){
+            $('.ws_is_artistic').css('display','none');
+        }
+    })
+    $('#radioinline1').click(function () {
+        var is_artistic = $("input[name='is_artistic']:checked").val();
+        if (is_artistic==1){
+            $('.ws_is_artistic').css('display','inline-block');
+        }
+    })
+</script>
+<script>
+    function sumbit_sure() {
+        var textarea = $("#character").find("textarea");
+        for (i = 0; i < textarea.length; i++) {
+            var text = textarea[i].value;
+            if (!text) {
+                j++;
+                one = $(textarea[i]).prev().text();
+                arr.push(one);
+            }
+        }
+
+        var name_arr = ['is_outgoing','is_athletic','is_artistic','play_instrument'];
+        for (i = 0; i < name_arr.length; i++) {
+            if (!$("input:radio[name='" + name_arr[i] + "']:checked").length) {
+                j++;
+                one = $("input:radio[name='" + name_arr[i] + "']").parents('.form-label').prev().text();
+                arr.push(one);
+            }
+        }
+        $('#form_complate_number').val(j);
+        var html = "Are you sure you want to exit？\n";
+        if (j > 0) {
+            html += j + " mandatory field\n";
+            if (j == 1) {
+                html += "'" + arr[0] + "'\n,";
+
+            } else if (j == 2) {
+                html += "'" + arr[0] + "',\n";
+                html += "'" + arr[1] + "',\n";
+            } else {
+                html += "'" + arr[0] + "',\n";
+                html += "'" + arr[1] + "',\n";
+                html += "'" + arr[2] + "'...\n";
+            }
+            html += "Not filled in.\n";
+            html += "\n";
+        }
+
+        html += "Please fill in relevant information.";
+
+        var gnl = confirm(html);
+        if (gnl == true) {
+            if (j == 0) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } else {
+            return false;
+        }
+    }
+</script>
+</html>

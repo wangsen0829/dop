@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pre_screening | Dreams of Parenthood(DOP) Surrogate in Los Angeles</title>
+
+    <!-- Page Head Start-->
+    {include file="ws/css" /}
+    <!-- Page Head Start-->
+
+    <style>
+        .ws_dis_no {
+            display: none;
+        }
+
+        .ws_prodess {
+            margin-top: 5px;
+            width: 75%
+        }
+
+        .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+            margin-top: 24px;
+        }
+
+        .ws_jindu {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 992px) {
+            .ws_prodess_r {
+                padding-left: 20px;
+            }
+        }
+
+        /* phone */
+        @media only screen and (max-width: 767px) {
+            .ws_prodess {
+                margin-top: 5px;
+                width: 55%
+            }
+
+            .ws_prodess_r {
+                padding-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page nav Start-->
+    {include file="ws/nav" /}
+    <!-- Page nav Ends -->
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+        <!-- Page menu Start-->
+        {include file="ws/menu" /}
+        <!-- Page menu Ends-->
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Ethnicity</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{:url('index/user/index')}">
+                                    <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">Form</li>
+                                <li class="breadcrumb-item active">Ethnicity</li>
+                            </ol>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="card-body progress-showcase">
+                                <div class="ws_jindu">
+                                    <div>
+                                        {$form_number} required questions
+                                    </div>
+                                    <div class="col col-9 ws_prodess">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$lv}%"
+                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ws_prodess_r">
+                                        {if condition="$row"} {$row.form_complate_number}/{$form_number} complate
+                                        {else}
+                                        0/{$form_number} complate
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header pb-0">
+                                <h3>Explain your Ethnicity/Race/Heritage </h3>
+                                <span>
+(Example: Caucasian: German1/2 and Irish 1/2)
+                                </span>
+                            </div>
+                            <div class="card-body">
+                                <form class="row g-3 nice-validator n-default" id="ethnicity" method="POST" action=""
+                                      role="form" onsubmit="return sumbit_sure()">
+                                    <input class="form-control" name="uid" type="hidden" value="{$uid}">
+                                    <input class="form-control" id="form_complate_number" name="form_complate_number"
+                                           type="hidden">
+                                    <input class="form-control" name="status" type="hidden" value="0">
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">African American </label>
+                                        <input class="form-control" name="us_race" type="text"
+                                               {if condition="$row" } value="{$row.us_race|htmlentities}" {/if}>
+                                    </div>
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">Asian </label>
+                                        <input class="form-control" name="yz_race" type="text"
+                                               {if condition="$row" } value="{$row.yz_race|htmlentities}" {/if}>
+                                    </div>
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">Caucasian </label>
+                                        <input class="form-control" name="gj_race" type="text"
+                                               {if condition="$row" } value="{$row.gj_race|htmlentities}" {/if}>
+                                    </div>
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">Hispanic </label>
+                                        <input class="form-control" name="xby_race" type="text"
+                                               {if condition="$row" } value="{$row.xby_race|htmlentities}" {/if}>
+                                    </div>
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">Other </label>
+                                        <input class="form-control" name="other_race" type="text"
+                                               {if condition="$row" } value="{$row.other_race|htmlentities}" {/if}>
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >What is the reason that you want to be an egg donor? *</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea4" name="reason" data-rule="required" rows="3">{if condition="$row"}{$row.reason|htmlentities}{/if}</textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="submit">Submit form</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid Ends-->
+        </div>
+        <!-- Page content Ends-->
+        <!-- Page js Start-->
+        {include file="ws/js" /}
+        <!-- Page js Ends -->
+    </div>
+</div>
+</body>
+<script>
+    function sumbit_sure(){
+
+        var text = $('#exampleFormControlTextarea4').val();
+        var j = 0;
+        var arr = '';
+        if (text){
+            j = 0;
+            arr = '';
+        }else{
+            j = 1;
+            arr = 'What is the reason that you want to be an egg donor';
+        }
+
+        var html = "Are you sure you want to exit？\n";
+        if (j>0){
+            html += j+" mandatory field\n";
+            html += "'"+arr+"'\n," ;
+            html += "Not filled in.\n";
+            html += "\n";
+        }
+
+        html += "Please fill in relevant information.";
+        $('#form_complate_number').val(j);
+        var gnl=confirm(html);
+        if (gnl==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
+</html>

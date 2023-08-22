@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home - Pre_screen</title>
+
+    <!-- Page Head Start-->
+    {include file="ws/css" /}
+    <!-- Page Head Start-->
+
+    <style>
+        .ws_dis_no {
+            display: none ;
+        }
+        .ws_prodess {
+            margin-top: 5px;width: 70%
+        }
+        .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+            margin-top: 24px;
+        }
+        .ws_jindu {
+            display: flex;
+            justify-content: space-between;
+        }
+        @media only screen and (min-width:768px) and (max-width:992px) {
+            .ws_prodess_r {
+                padding-left: 20px;
+            }
+        }
+        /* phone */
+        @media only screen and (max-width:767px) {
+            .ws_prodess {
+                margin-top: 5px;width: 55%
+            }
+            .ws_prodess_r {
+                padding-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Pre-screening</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{:url('user/donor/detail',['ids'=>$uid])}">
+                                    <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{:url('user/donor/detail',['ids'=>$uid])}">Form</a></li>
+                                <li class="breadcrumb-item active">Pre-screening</li>
+                            </ol>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="card-body progress-showcase">
+                                <div class="ws_jindu">
+                                    <div>
+                                        {$form_number} required questions
+                                    </div>
+                                    <div class="col col-9 ws_prodess">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$lv}%"
+                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ws_prodess_r">
+                                        {if condition="$row"} {$row.form_complate_number}/{$form_number} complate
+                                        {else}
+                                        0/{$form_number} complate
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header pb-0">
+                                <h3>Application form for surrogate mother</h3>
+                                <span>
+                                    Thank you for your interest in becoming a surrogate mother. This brief admission form will help us quickly determine whether you meet the basic requirements of becoming a surrogate mother.
+                                    <br/>
+                                    After completion, you will have an expert contact you and discuss the surrogacy process in detail.
+                                </span>
+                            </div>
+                            <div class="card-body">
+                                <form class="row g-3 nice-validator n-default" id="pre_screen" method="POST" action=""
+                                      role="form" onsubmit="return sumbit_sure()">
+                                    <input class="form-control" name="uid" type="hidden" value="{$uid}">
+                                    <input class="form-control" id="form_complate_number" name="form_complate_number"
+                                           type="hidden">
+                                    <input class="form-control" name="status" type="hidden" value="0">
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">First name *</label>
+                                        <input class="form-control" name="first_name" type="text" data-rule="required"
+                                               {if condition="$row" } value="{$row.first_name|htmlentities}" {/if}>
+                                    </div>
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">Last name *</label>
+                                        <input class="form-control" name="last_name" type="text" data-rule="required"
+                                               {if condition="$row" } value="{$row.last_name|htmlentities}" {/if}>
+                                    </div>
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">Phone number *</label>
+                                        <input class="form-control" type="text" data-rule="required" name="mobile" {if
+                                               condition="$row" } value="{$row.mobile|htmlentities}" {/if}>
+                                    </div>
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">Email *</label>
+                                        <input class="form-control" type="text" data-rule="required,email" name="email"
+                                               {if condition="$row" } value="{$row.email|htmlentities}" {/if}>
+                                    </div>
+
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label">State *</label>
+                                        <select class="form-select" name="state" required="">
+                                            <option  value="AK"{if condition="$row&&$row.state eq 'AK'"} selected{/if}>AK</option>
+                                            <option value="AL" {if condition="$row&&$row.state eq 'AL'"} selected{/if}>AL</option>
+                                            <option value="AR" {if condition="$row&&$row.state eq 'AR'"} selected{/if}>AR</option>
+
+                                            <option value="AZ" {if condition="$row&&$row.state eq 'AZ'"} selected{/if}>AZ</option>
+                                            <option value="CA" {if condition="$row&&$row.state eq 'CA'"} selected{/if}>CA</option>
+                                            <option value="CO" {if condition="$row&&$row.state eq 'CO'"} selected{/if}>CO</option>
+                                            <option value="CT" {if condition="$row&&$row.state eq 'CT'"} selected{/if}>CT</option>
+                                            <option value="DC" {if condition="$row&&$row.state eq 'DC'"} selected{/if}>DC</option>
+                                            <option value="DE" {if condition="$row&&$row.state eq 'DE'"} selected{/if}>DE</option>
+                                            <option value="FL" {if condition="$row&&$row.state eq 'FL'"} selected{/if}>FL</option>
+                                            <option value="GA" {if condition="$row&&$row.state eq 'GA'"} selected{/if}>GA</option>
+                                            <option value="GU" {if condition="$row&&$row.state eq 'GU'"} selected{/if}>GU</option>
+                                            <option value="HI" {if condition="$row&&$row.state eq 'HI'"} selected{/if}>HI</option>
+                                            <option value="IA" {if condition="$row&&$row.state eq 'IA'"} selected{/if}>IA</option>
+                                            <option value="ID" {if condition="$row&&$row.state eq 'ID'"} selected{/if}>ID</option>
+                                            <option value="IL" {if condition="$row&&$row.state eq 'IL'"} selected{/if}>IL</option>
+                                            <option value="IN" {if condition="$row&&$row.state eq 'IN'"} selected{/if}>IN</option>
+                                            <option value="KS" {if condition="$row&&$row.state eq 'KS'"} selected{/if}>KS</option>
+                                            <option value="KY" {if condition="$row&&$row.state eq 'KY'"} selected{/if}>KY</option>
+                                            <option value="LA" {if condition="$row&&$row.state eq 'LA'"} selected{/if}>LA</option>
+                                            <option value="MA" {if condition="$row&&$row.state eq 'MA'"} selected{/if}>MA</option>
+                                            <option value="MD" {if condition="$row&&$row.state eq 'MD'"} selected{/if}>MD</option>
+                                            <option value="ME" {if condition="$row&&$row.state eq 'ME'"} selected{/if}>ME</option>
+                                            <option value="MI" {if condition="$row&&$row.state eq 'MI'"} selected{/if}>MI</option>
+                                            <option value="MN" {if condition="$row&&$row.state eq 'MN'"} selected{/if}>MN</option>
+                                            <option value="MO" {if condition="$row&&$row.state eq 'MO'"} selected{/if}>MO</option>
+                                            <option value="MS" {if condition="$row&&$row.state eq 'MS'"} selected{/if}>MS</option>
+                                            <option value="MT" {if condition="$row&&$row.state eq 'MT'"} selected{/if}>MT</option>
+                                            <option value="NC" {if condition="$row&&$row.state eq 'NC'"} selected{/if}>NC</option>
+                                            <option value="ND" {if condition="$row&&$row.state eq 'ND'"} selected{/if}>ND</option>
+                                            <option value="NE" {if condition="$row&&$row.state eq 'NE'"} selected{/if}>NE</option>
+                                            <option value="NH" {if condition="$row&&$row.state eq 'NH'"} selected{/if}>NH</option>
+                                            <option value="NJ" {if condition="$row&&$row.state eq 'NJ'"} selected{/if}>NJ</option>
+                                            <option value="NM" {if condition="$row&&$row.state eq 'NM'"} selected{/if}>NM</option>
+                                            <option value="NV" {if condition="$row&&$row.state eq 'NV'"} selected{/if}>NV</option>
+                                            <option value="NY" {if condition="$row&&$row.state eq 'NY'"} selected{/if}>NY</option>
+                                            <option value="OH" {if condition="$row&&$row.state eq 'OH'"} selected{/if}>OH</option>
+                                            <option value="OK" {if condition="$row&&$row.state eq 'OK'"} selected{/if}>OK</option>
+                                            <option value="OR" {if condition="$row&&$row.state eq 'OR'"} selected{/if}>OR</option>
+                                            <option value="PA" {if condition="$row&&$row.state eq 'PA'"} selected{/if}>PA</option>
+                                            <option value="PR" {if condition="$row&&$row.state eq 'PR'"} selected{/if}>PR</option>
+                                            <option value="RI" {if condition="$row&&$row.state eq 'RI'"} selected{/if}>RI</option>
+                                            <option value="SC" {if condition="$row&&$row.state eq 'SC'"} selected{/if}>SC</option>
+                                            <option value="SD" {if condition="$row&&$row.state eq 'SD'"} selected{/if}>SD</option>
+                                            <option value="TN" {if condition="$row&&$row.state eq 'TN'"} selected{/if}>TN</option>
+                                            <option value="TX" {if condition="$row&&$row.state eq 'TX'"} selected{/if}>TX</option>
+                                            <option value="UT" {if condition="$row&&$row.state eq 'UT'"} selected{/if}>UT</option>
+                                            <option value="VA" {if condition="$row&&$row.state eq 'VA'"} selected{/if}>VA</option>
+                                            <option value="WA" {if condition="$row&&$row.state eq 'WA'"} selected{/if}>WA</option>
+                                            <option value="WI" {if condition="$row&&$row.state eq 'WI'"} selected{/if}>WI</option>
+                                            <option value="WV" {if condition="$row&&$row.state eq 'WV'"} selected{/if}>WV</option>
+                                            <option value="WY" {if condition="$row&&$row.state eq 'WY'"} selected{/if}>WY</option>
+                                            <option value="Others" {if condition="$row&&$row.state eq 'Others'"} selected{/if}>Others</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">Age *</label>
+                                        <input class="form-control age" type="text" data-rule="required" name="age" {if
+                                               condition="$row" } value="{$row.age|htmlentities}" {/if}>
+                                    </div>
+                                    <style>
+                                        .ws_input {
+                                            position: relative;
+                                            display: table;
+                                            border-collapse: separate;
+                                            width: 100%;
+                                        }
+
+                                        .ws_span {
+                                            position: absolute;
+                                            top: 55%;
+                                            right: 15%;
+                                        }
+
+                                        .ws-ft-f {
+                                            position: relative;
+                                            display: table;
+                                            border-collapse: separate;
+                                            width: 100%;
+                                        }
+
+                                        .ws-ft {
+                                            position: absolute;
+                                            right: 67%;
+                                            top: 55%;
+                                        }
+
+                                        .ws-in-f {
+                                            position: relative;
+                                            display: table;
+                                            border-collapse: separate;
+                                            width: 100%;
+                                        }
+
+                                        .ws-in {
+                                            position: absolute;
+                                            right: 22%;
+                                            top: 55%;
+                                        }
+                                    </style>
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">Height *</label>
+                                        <div>
+                                            <select class="form-select m-r-20 ws-ft-f" name="height_ft" required=""
+                                                    style="width: 40%">
+                                                <option value="0" {if condition="$row&&$row.height_ft eq '0'" }
+                                                        selected{
+                                                /if}>0</option>
+                                                <option value="1" {if condition="$row&&$row.height_ft eq '1'" }
+                                                        selected{
+                                                /if}>1</option>
+                                                <option value="2" {if condition="$row&&$row.height_ft eq '2'" }
+                                                        selected{
+                                                /if}>2</option>
+                                                <option value="3" {if condition="$row&&$row.height_ft eq '3'" }
+                                                        selected{
+                                                /if}>3</option>
+                                                <option value="4" {if condition="$row&&$row.height_ft eq '4'" }
+                                                        selected{
+                                                /if}>4</option>
+                                                <option value="5" {if condition="$row&&$row.height_ft eq '5'" }
+                                                        selected{
+                                                /if}>5</option>
+                                                <option value="6" {if condition="$row&&$row.height_ft eq '6'" }
+                                                        selected{
+                                                /if}>6</option>
+                                                <option value="7" {if condition="$row&&$row.height_ft eq '7'" }
+                                                        selected{
+                                                /if}>7</option>
+
+                                            </select>
+                                            <span class="ws-ft">ft</span>
+                                            <select class="form-select ws-in-f" name="height_in" required=""
+                                                    style="width: 40%">
+                                                <option value="0" {if condition="$row&&$row.height_in eq '0'" }
+                                                        selected{
+                                                /if}>0</option>
+                                                <option value="1" {if condition="$row&&$row.height_in eq '1'" }
+                                                        selected{
+                                                /if}>1</option>
+                                                <option value="2" {if condition="$row&&$row.height_in eq '2'" }
+                                                        selected{
+                                                /if}>2</option>
+                                                <option value="3" {if condition="$row&&$row.height_in eq '3'" }
+                                                        selected{
+                                                /if}>3</option>
+                                                <option value="4" {if condition="$row&&$row.height_in eq '4'" }
+                                                        selected{
+                                                /if}>4</option>
+                                                <option value="5" {if condition="$row&&$row.height_in eq '5'" }
+                                                        selected{
+                                                /if}>5</option>
+                                                <option value="6" {if condition="$row&&$row.height_in eq '6'" }
+                                                        selected{
+                                                /if}>6</option>
+                                                <option value="7" {if condition="$row&&$row.height_in eq '7'" }
+                                                        selected{
+                                                /if}>7</option>
+                                                <option value="8" {if condition="$row&&$row.height_in eq '8'" }
+                                                        selected{
+                                                /if}>8</option>
+                                                <option value="9" {if condition="$row&&$row.height_in eq '9'" }
+                                                        selected{
+                                                /if}>9</option>
+                                                <option value="10" {if condition="$row&&$row.height_in eq '10'" }
+                                                        selected{
+                                                /if}>10</option>
+                                                <option value="11" {if condition="$row&&$row.height_in eq '11'" }
+                                                        selected{
+                                                /if}>11</option>
+
+                                            </select>
+                                            <span class="ws-in">in</span>
+                                        </div>
+                                        <!--                                            <input class="form-control height"  type="text" data-rule="required" name="height" {if condition="$row"} value="{$row.height|htmlentities}"{/if}>-->
+                                    </div>
+
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">Weight *</label>
+                                        <input class="form-control weight ws_input" type="text" data-rule="required"
+                                               data-rule="required" name="weight" {if condition="$row" }
+                                               value="{$row.weight|htmlentities}" {/if}>
+                                        <span class="ws_span">lb</span>
+                                    </div>
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">Ethnicity *</label>
+                                        <input class="form-control age" type="text" data-rule="required" name="ethnicity" {if
+                                               condition="$row" } value="{$row.ethnicity|htmlentities}" {/if}>
+                                    </div>
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">Blood type *</label>
+                                        <input class="form-control age" type="text" data-rule="required" name="blood_type" {if
+                                               condition="$row" } value="{$row.blood_type|htmlentities}" {/if}>
+                                    </div>
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">Place of birth *</label>
+                                        <input class="form-control age" type="text" data-rule="required" name="place_of_birth" {if
+                                               condition="$row" } value="{$row.place_of_birth|htmlentities}" {/if}>
+                                    </div>
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">Highest education *</label>
+                                        <input class="form-control age" type="text" data-rule="required" name="highest_education" {if
+                                               condition="$row" } value="{$row.highest_education|htmlentities}" {/if}>
+                                    </div>
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">What is your occupation?</label>
+                                        <input class="form-control age" type="text" data-rule="required" name="occupation" {if
+                                               condition="$row" } value="{$row.occupation|htmlentities}" {/if}>
+                                    </div>
+
+                                    <div class="col-md-12  position-relative">
+                                        <label class="form-label">Have you donated before? *</label>
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline15" type="radio" data-rule="checked" name="is_donated" value="1"
+                                                       {if condition="$row&&$row.is_donated eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline15">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline16" type="radio" data-rule="checked" name="is_donated" value="2"
+                                                       {if condition="$row&&$row.is_donated eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline16">No</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12  position-relative">
+                                        <label class="form-label">Do you smoke? *</label>
+
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline30" type="radio" data-rule="checked" name="is_smoke" value="1"
+                                                       {if condition="$row&&$row.is_smoke eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline30">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline31" type="radio" data-rule="checked" name="is_smoke" value="2"
+                                                       {if condition="$row&&$row.is_smoke eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline31">No</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12  position-relative">
+                                        <label class="form-label">Do you drink? *</label>
+
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline35" type="radio" data-rule="checked" name="is_drink" value="1"
+                                                       {if condition="$row&&$row.is_drink eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline35">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline36" type="radio" data-rule="checked" name="is_drink" value="2"
+                                                       {if condition="$row&&$row.is_drink eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline36">No</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-12  position-relative">
+                                        <label class="form-label">Have you ever used recreational or illicit drugs? *</label>
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline45" type="radio" data-rule="checked" name="is_illicit_drugs" value="1"
+                                                       {if condition="$row&&$row.is_illicit_drugs eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline45">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline46" type="radio" data-rule="checked" name="is_illicit_drugs" value="2"
+                                                       {if condition="$row&&$row.is_illicit_drugs eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline46">No</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12  position-relative">
+                                        <label class="form-label">Are you currently taking any medications, or under any physicians care for any reason(s)? *</label>
+
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline11" type="radio" data-rule="checked" name="is_any_medications" value="1"
+                                                       {if condition="$row&&$row.is_any_medications eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline11">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline12" type="radio" data-rule="checked" name="is_any_medications" value="2"
+                                                       {if condition="$row&&$row.is_any_medications eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline12">No</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >What is the reason that you want to be an egg donor? *</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea4" name="abortion_reason" data-rule="required" rows="3">{if condition="$row"}{$row.abortion_reason|htmlentities}{/if}</textarea>
+
+                                    </div>
+
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="submit">Submit form</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid Ends-->
+        </div>
+    </div>
+
+    <!-- Container-fluid Ends-->
+</div>
+<!-- Page content Ends-->
+
+</div>
+
+
+
+</div>
+
+<!-- Page js Start-->
+{include file="ws/js" /}
+<!-- Page js Ends -->
+<script>
+    function sumbit_sure() {
+        var parmas = $("#pre_screen").find("input");
+        var name_arr = ['first_name', 'last_name', 'mobile', 'email', 'state', 'age','weight', 'ethnicity',
+            'blood_type', 'place_of_birth', 'highest_education', 'occupation'];
+        var j = 0;// 表单未完成数量
+        var arr = [];// 表单未完成数组
+        for (i = 0; i < parmas.length; i++) {
+            var value = parmas[i].value;
+            var name = $(parmas[i]).attr('name');
+            if (name_arr.includes(name) && value.length == 0) {
+                j++;
+                one = $(parmas[i]).prev().text();
+                arr.push(one);
+            }
+        }
+
+
+        var textarea = $("#pre_screen").find("textarea");
+        for (i = 0; i < textarea.length; i++) {
+            var text = textarea[i].value;
+            if (!text) {
+                j++;
+                one = $(textarea[i]).prev().text();
+                arr.push(one);
+            }
+        }
+
+        var name_arr = ['is_donated','is_smoke','is_drink','is_illicit_drugs','is_any_medications'];
+        for (i = 0; i < name_arr.length; i++) {
+            if (!$("input:radio[name='" + name_arr[i] + "']:checked").length) {
+                j++;
+                one = $("input:radio[name='" + name_arr[i] + "']").parents('.form-label').prev().text();
+                arr.push(one);
+            }
+        }
+        $('#form_complate_number').val(j);
+        var html = "Are you sure you want to exit？\n";
+        if (j > 0) {
+            html += j + " mandatory field\n";
+            if (j == 1) {
+                html += "'" + arr[0] + "'\n,";
+
+            } else if (j == 2) {
+                html += "'" + arr[0] + "',\n";
+                html += "'" + arr[1] + "',\n";
+            } else {
+                html += "'" + arr[0] + "',\n";
+                html += "'" + arr[1] + "',\n";
+                html += "'" + arr[2] + "'...\n";
+            }
+            html += "Not filled in.\n";
+            html += "\n";
+        }
+
+        html += "Please fill in relevant information.";
+
+        var gnl = confirm(html);
+        if (gnl == true) {
+            if (j == 0) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } else {
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

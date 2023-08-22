@@ -1,0 +1,214 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Form_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-form_id" data-rule="required" data-source="form/index" class="form-control selectpage" name="row[form_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('City_state')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-city_state" class="form-control" name="row[city_state]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Age')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-age" class="form-control" name="row[age]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Height')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-height" class="form-control" name="row[height]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Height_ft')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-height_ft" class="form-control" name="row[height_ft]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Height_in')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-height_in" class="form-control" name="row[height_in]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Weight')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-weight" class="form-control" name="row[weight]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Ethnicity')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class='control-relative'><input id="c-ethnicity" class="form-control" data-toggle="city-picker" name="row[ethnicity]" type="text"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Blood_type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-blood_type" class="form-control" name="row[blood_type]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Place_of_birth')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-place_of_birth" class="form-control" name="row[place_of_birth]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Highest_education')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-highest_education" class="form-control" name="row[highest_education]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Occupation')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-occupation" class="form-control" name="row[occupation]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_injections')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_injections" class="form-control selectpicker" name="row[is_injections]">
+                {foreach name="isInjectionsList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_attend_appointment')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_attend_appointment" class="form-control selectpicker" name="row[is_attend_appointment]">
+                {foreach name="isAttendAppointmentList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_any_medications')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_any_medications" class="form-control selectpicker" name="row[is_any_medications]">
+                {foreach name="isAnyMedicationsList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_donated')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_donated" class="form-control selectpicker" name="row[is_donated]">
+                {foreach name="isDonatedList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_egg_donor')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_egg_donor" class="form-control selectpicker" name="row[is_egg_donor]">
+                {foreach name="isEggDonorList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_plan')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_plan" class="form-control selectpicker" name="row[is_plan]">
+                {foreach name="isPlanList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_smoke')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_smoke" class="form-control selectpicker" name="row[is_smoke]">
+                {foreach name="isSmokeList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_drink')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_drink" class="form-control selectpicker" name="row[is_drink]">
+                {foreach name="isDrinkList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_menstrual_regular')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_menstrual_regular" class="form-control selectpicker" name="row[is_menstrual_regular]">
+                {foreach name="isMenstrualRegularList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_illicit_drugs')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_illicit_drugs" class="form-control selectpicker" name="row[is_illicit_drugs]">
+                {foreach name="isIllicitDrugsList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Abortion_reason')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-abortion_reason" class="form-control " rows="5" name="row[abortion_reason]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Crearetime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-crearetime" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[crearetime]" type="text" value="{:date('Y-m-d H:i:s')}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

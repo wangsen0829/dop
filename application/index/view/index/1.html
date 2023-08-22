@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home - Pre_screen</title>
+
+    <!-- Page Head Start-->
+    {include file="ws/css" /}
+    <!-- Page Head Start-->
+
+    </style>
+</head>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page nav Start-->
+    <!-- Page nav Ends -->
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+        <!-- Page menu Start-->
+
+        <!-- Page menu Ends-->
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Pre-screening</h3>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container-fluid starts-->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="card">
+                            <div class="card-header pb-0">
+                                <h3>Application form for surrogate mother</h3>
+                                <span>
+                                    Thank you for your interest in becoming a surrogate mother. This brief admission form will help us quickly determine whether you meet the basic requirements of becoming a surrogate mother.
+                                    <br/>
+                                    After completion, you will have an expert contact you and discuss the surrogacy process in detail.
+
+                                </span>
+                            </div>
+                            <div class="card-body">
+                                <form class="row g-3 nice-validator n-default" id="pre_screen" method="POST" action="" role="form">
+                                    {:token()}
+                                    <input class="form-control"  id="form_complate_number" name="form_complate_number" type="hidden"  >
+                                    <input class="form-control"   name="status" type="hidden"  value="0">
+                                    <input class="form-control"   name="type" type="hidden"  value="2">
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label" >First name *</label>
+                                        <input class="form-control"   name="first_name" type="text" data-rule="required" >
+                                    </div>
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label" >Middle name </label>
+                                        <input class="form-control"   name="middle_name" type="text" >
+                                    </div>
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label">Last name *</label>
+                                        <input class="form-control"  name="last_name" type="text"  data-rule="required"  >
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Date of birth *</label>
+                                        <input name="birthday_time"  class="form-control datepicker-here  digits" type="text" data-rule="required" data-language="en">
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Street Address *</label>
+                                        <input class="form-control" name="address" type="text" data-rule="required" >
+                                    </div>
+
+                                    <div class="row" style="margin-top: 10px;">
+                                        <div class="col-md-4 position-relative">
+                                            <label class="form-label">City *</label>
+                                            <input class="form-control" name="city" type="text" data-rule="required" >
+                                        </div>
+                                        <div class="col-md-4 position-relative">
+                                            <label class="form-label">State *</label>
+
+                                            <select class="form-select" name="state" required="">
+                                                <option  value="AK">AK</option>
+                                                <option value="AL" >AL</option>
+                                                <option value="AR" >AR</option>
+
+                                                <option value="AZ" >AZ</option>
+                                                <option value="CA" >CA</option>
+                                                <option value="CO" >CO</option>
+                                                <option value="CT" >CT</option>
+                                                <option value="DC" >DC</option>
+                                                <option value="DE" >DE</option>
+                                                <option value="FL" >FL</option>
+                                                <option value="GA" >GA</option>
+                                                <option value="GU" >GU</option>
+                                                <option value="HI" >HI</option>
+                                                <option value="IA" >IA</option>
+                                                <option value="ID" >ID</option>
+                                                <option value="IL">IL</option>
+                                                <option value="IN" >IN</option>
+                                                <option value="KS" >KS</option>
+                                                <option value="KY" >KY</option>
+                                                <option value="LA" >LA</option>
+                                                <option value="MA" >MA</option>
+                                                <option value="MD" >MD</option>
+                                                <option value="ME" >ME</option>
+                                            </select>
+
+                                            <div class="invalid-feedback">Please select your state.</div>
+                                        </div>
+                                        <div class="col-md-4 position-relative">
+                                            <label class="form-label" >Postal Code *</label>
+                                            <input class="form-control"  type="text" data-rule="required" name="postal_code" >
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label" >Email *</label>
+                                        <input class="form-control" type="text" data-rule="required,email" name="email" >
+                                    </div>
+                                    <div class="col-md-4 position-relative">
+                                        <label class="form-label" >Phone *</label>
+                                        <input class="form-control"  type="text" data-rule="required" name="mobile" {>
+                                    </div>
+                                    <div class="row" style="margin-top: 10px;">
+                                        <div class="col-md-4 position-relative">
+                                            <label class="form-label" >Age *</label>
+                                            <input class="form-control" type="text" data-rule="required" name="age" >
+                                            <div class="invalid-feedback">Please fill in your age.</div>
+                                        </div>
+                                        <div class="col-md-4 position-relative">
+                                            <label class="form-label" >Height *</label>
+                                            <input class="form-control"  type="text" data-rule="required" name="height" >
+                                            <div class="invalid-feedback">Please fill in your Height.</div>
+                                        </div>
+                                        <div class="col-md-4 position-relative">
+                                            <label class="form-label" >Weight *</label>
+                                            <input class="form-control"  type="text" data-rule="required" data-rule="required" name="weight" >
+                                            <div class="invalid-feedback">Please fill in your Weight.</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Marital status *</label>
+
+
+                                        <select class="form-select"  name="marital_status" required="">
+                                            <option  value="0" >single</option>
+                                            <option  value="1" >married</option>
+                                            <option  value="2" >divorced</option>
+                                            <option  value="2" >long-term relationship</option>
+                                        </select>
+                                        <div class="invalid-feedback">Please select your marital status.</div>
+                                    </div>
+                                    <div class="row" style="margin-top: 10px">
+                                        <div class="col-md-6 position-relative">
+                                            <label class="form-label" >Number of natural birth *</label>
+                                            <input class="form-control"  type="number" min="0"  data-rule="required" name="product_number" >
+                                            <div class="invalid-feedback">Please fill in your production times.</div>
+                                        </div>
+                                        <div class="col-md-6 position-relative">
+                                            <label class="form-label" >Number of caesarean sections *</label>
+                                            <input class="form-control"  type="number" min="0" data-rule="required" name="caesarean_number">
+                                            <div class="invalid-feedback">Please fill in your number of caesarean sections.</div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >Number of miscarriages *</label>
+                                        <input class="form-control"  type="number" min="0"  data-rule="required" name="miscarriage_number">
+                                        <div class="invalid-feedback">Please fill in your number of miscarriages.</div>
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >Number of abortions *</label>
+                                        <input class="form-control"  type="number" min="0" data-rule="required"  name="abortion_number">
+                                        <div class="invalid-feedback">Please fill in your number of miscarriages.</div>
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >If there is any miscarriage/abortion, please give a brief reason *</label>
+                                        <input class="form-control"  type="text" data-rule="required" name="abortion_reason">
+                                        <div class="invalid-feedback">Please fill reason.</div>
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >Is there any complications during pregnancy or childbirth *</label>
+                                        <input class="form-control"  type="text" data-rule="required" name="complications_of_pregnancy">
+                                        <div class="invalid-feedback">Please fill any.</div>
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >Current contraceptive method *</label>
+                                        <input class="form-control"  type="text" data-rule="required" name="contraceptive_measures">
+                                        <div class="invalid-feedback">Please fill your contraceptive measures.</div>
+                                    </div>
+
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >How did you hear about us? *</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea4" name="about_content" data-rule="required" rows="3"></textarea>
+                                        <div class="invalid-feedback">Please fill in your information.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="submit">Submit form</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container-fluid Ends-->
+        </div>
+        <!-- Page content Ends-->
+
+    </div>
+
+
+
+</div>
+
+<!-- Page js Start-->
+{include file="ws/js" /}
+<!--{include file="common/script" /}-->
+
+</body>
+</html>

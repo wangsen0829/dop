@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile edit | Dreams of Parenthood(DOP) Surrogate in Los Angeles</title>
+    <!-- Page Head Start-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    <link rel="icon" href="__CDN__/assets/koho/assets/images/favicon/favicon.png" type="image/x-icon">-->
+<!--    <link rel="shortcut icon" href="__CDN__/assets/koho/assets/images/favicon/favicon.png" type="image/x-icon">-->
+
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/font-awesome.css">
+    <!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/icofont.css">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/themify.css">
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/flag-icon.css">
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/feather-icon.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/animate.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/prism.css">
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/bootstrap.css">
+    <!-- App css-->
+
+    <link href="__CDN__/assets/css/frontend{$Think.config.app_debug?'':'.min'}.css?v={$Think.config.site.version|htmlentities}" rel="stylesheet">
+    <script type="text/javascript">
+        var require = {
+            config: {$config|json_encode}
+        };
+    </script>
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/style.css">
+    <link id="color" rel="stylesheet" href="__CDN__/assets/koho/assets/css/color-1.css" media="screen">
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/responsive.css">
+    <!-- Page Head Start-->
+
+    <style>
+        .form-control {
+            height: 47px;
+        }
+        .btn-warning {
+            margin-left: 10px !important;
+        }
+        /* phone */
+        @media only screen and (max-width: 767px) {
+            .ws_choose  .btn-warning {
+                margin-left: 10px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page nav Start-->
+    {include file="ws/nav" /}
+    <!-- Page nav Ends -->
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+        <!-- Page menu Start-->
+        {include file="ws/menu" /}
+        <!-- Page menu Ends-->
+
+        <style>
+            .list-inline li {
+                width: 125px;
+            }
+            .btn-trash {
+                border-radius: 0px;
+            }
+            .ws_choose {
+                margin-left: 10px !important;
+                margin-top: 5px !important;
+            }
+            #faupload-images {
+                margin-left: 10px !important;
+                margin-top: 5px !important;
+            }
+            .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+                margin-top: 24px;
+            }
+            .ws_jindu {
+                display: flex;
+                justify-content: space-between;
+            }
+            .ws_image {
+                padding: 0px !important;
+            }
+
+            @media only screen and (max-width:767px) {
+                .input-group {
+                    width: 80%;
+                }
+                .faupload {
+                    margin-left: 0px !important;
+                    margin-top: 0px !important;
+                }
+                .btn-trash {
+                    padding: 0px !important;
+                }
+                .ws_image_button {
+                    margin-left: 20px;
+                    margin-top: 10px;
+                }
+            }
+
+        </style>
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Edit Profile</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">                                       <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">Users</li>
+                                <li class="breadcrumb-item active"> Edit Profile</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="card">
+
+                            <div class="card-body">
+                                <form class="row g-3 " id="edit_profile" method="POST" action="" role="form" >
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >Please upload your head image</label>
+                                        <div class="row">
+                                            <div class="col-md-6 ws_image" >
+                                                <div class="col-md-12" style="margin-left: -12px">
+                                                    <div class="col-md-8 ">
+                                                        <input id="c-images1" class="form-control " size="50"  data-rule="required" name="avatar" type="text" value="{$row.avatar}">
+                                                    </div>
+                                                    <div class="clo-md-4 ws_image_button">
+                                                        <button style="margin-left: 20px;margin-top: 7px;display: block;" type="button" id="faupload-images1" class="btn btn-warning faupload" data-input-id="c-images1" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="true" data-preview-id="p-images1">
+                                                            <i class="fa fa-upload"></i>
+                                                            Upload
+                                                        </button>
+                                                    </div>
+
+                                                    <!--                                                    <div class="input-group-addon ws_choose no-border no-padding">-->
+                                                    <!--                                                        <span>-->
+                                                    <!--                                                            <button style="margin-left: 20px;margin-top: 7px" type="button" id="faupload-images1" class="btn btn-warning faupload" data-input-id="c-images1" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="true" data-preview-id="p-images1"><i class="fa fa-upload"></i> Upload</button></span>-->
+                                                    <!--                                                    </div>-->
+
+                                                    <!--                                                    </span>-->
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <ul class="list-inline faupload-preview" id="p-images1" ></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >First name *</label>
+                                        <input class="form-control"  name="first_name" type="text" value="{$row.first_name}" data-rule="required" value="{$row.first_name|htmlentities}">
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Last name *</label>
+                                        <input class="form-control"  name="last_name" type="text"  value="{$row.last_name}" data-rule="required" value="{$row.last_name|htmlentities}">
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Email *</label>
+                                        <input class="form-control"  name="email" type="text"  value="{$row.email}" data-rule="required" value="{$row.email|htmlentities}">
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Phone *</label>
+                                        <input class="form-control"  name="mobile" type="text"  value="{$row.mobile}" data-rule="required" value="{$row.mobile|htmlentities}">
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Facebook </label>
+                                        <input class="form-control"  name="facebook" type="text" {if condition="$row"} value="{$row.facebook|htmlentities}"{/if}>
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Google </label>
+                                        <input class="form-control"  name="google" type="text"  {if condition="$row"} value="{$row.google|htmlentities}"{/if}>
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Twitter </label>
+                                        <input class="form-control"  name="twitter" type="text"  {if condition="$row"} value="{$row.twitter|htmlentities}"{/if}>
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Instagram </label>
+                                        <input class="form-control"  name="instagram" type="text"  {if condition="$row"} value="{$row.instagram|htmlentities}"{/if}>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="submit">Submit form</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid Ends-->
+        </div>
+        <!-- Page content Ends-->
+
+    </div>
+
+
+
+</div>
+
+<!-- Page js Start-->
+{include file="ws/js" /}
+<!-- Page js Ends -->
+
+</body>
+</html>

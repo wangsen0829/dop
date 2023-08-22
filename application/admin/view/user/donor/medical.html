@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home - Pre_screen</title>
+
+    <!-- Page Head Start-->
+    {include file="ws/css" /}
+    <!-- Page Head Start-->
+
+    <style>
+        .ws_dis_no {
+            display: none ;
+        }
+        .ws_prodess {
+            margin-top: 5px;width: 70%
+        }
+        .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+            margin-top: 24px;
+        }
+        .ws_jindu {
+            display: flex;
+            justify-content: space-between;
+        }
+        @media only screen and (min-width:768px) and (max-width:992px) {
+            .ws_prodess_r {
+                padding-left: 20px;
+            }
+        }
+        /* phone */
+        @media only screen and (max-width:767px) {
+            .ws_prodess {
+                margin-top: 5px;width: 55%
+            }
+            .ws_prodess_r {
+                padding-left: 10px;
+            }
+        }
+        .ws_input {
+            border-color: rgba(83, 70, 134, 0.1019607843);
+            width: 100%;
+        }
+        .ws_add_btn {
+            margin-top: 10px !important;
+            margin-bottom: 10px !important;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Pre-screening</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{:url('user/donor/detail',['ids'=>$uid])}">
+                                    <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{:url('user/donor/detail',['ids'=>$uid])}">Form</a></li>
+                                <li class="breadcrumb-item active">Pre-screening</li>
+                            </ol>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="card-body progress-showcase">
+                                <div class="ws_jindu">
+                                    <div>
+                                        {$form_number} required questions
+                                    </div>
+                                    <div class="col col-9 ws_prodess">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$lv}%"
+                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ws_prodess_r">
+                                        {if condition="$row"} {$row.form_complate_number}/{$form_number} complate
+                                        {else}
+                                        0/{$form_number} complate
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header pb-0">
+                                <h3>Application form for surrogate mother</h3>
+                                <span>
+                                    Thank you for your interest in becoming a surrogate mother. This brief admission form will help us quickly determine whether you meet the basic requirements of becoming a surrogate mother.
+                                    <br/>
+                                    After completion, you will have an expert contact you and discuss the surrogacy process in detail.
+                                </span>
+                            </div>
+                            <div class="card-body">
+                                <form class="row g-3 nice-validator n-default" id="medical"  method="POST" action="" role="form" onsubmit="return sumbit_sure()">
+                                    <input class="form-control" name="uid" type="hidden" value="{$uid}">
+                                    <input class="form-control" id="form_complate_number" name="form_complate_number"
+                                           type="hidden" value="0">
+                                    <input class="form-control" name="status" type="hidden" value="0">
+                                    <div class="col-md-12  position-relative">
+                                        <label class="form-label">Have you ever been hospitalized? *</label>
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline1" type="radio" data-rule="checked" name="medical[is_hospital]" value="1"
+                                                       {if condition="$row&&$row.is_hospital eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline1">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline2" type="radio" data-rule="checked" name="medical[is_hospital]" value="2"
+                                                       {if condition="$row&&$row.is_hospital eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline2">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 m-b-20 position-relative ws_is_hospital {if condition="$row&&$row.is_hospital eq '2'"} ws_dis_no {/if}">
+                                    <label class="form-label">If so, when and why:</label>
+                                    <input class="form-control"   name="medical[hospital_content]" type="text" {if condition="$row"} value="{$row.hospital_content|htmlentities}"{/if}>
+                            </div>
+
+                            <div class="col-md-12  position-relative">
+                                <label class="form-label">Have you had any surgeries? *</label>
+                                <div class="form-label">
+                                    <div class="form-check form-check-inline radio radio-primary">
+                                        <input class="form-check-input" id="radioinline5" type="radio" data-rule="checked" name="medical[is_surgeries]" value="1"
+                                               {if condition="$row&&$row.is_surgeries eq '1'"} checked{/if}
+                                        >
+                                        <label class="form-check-label mb-0" for="radioinline5">Yes</label>
+                                    </div>
+                                    <div class="form-check form-check-inline radio radio-primary">
+                                        <input class="form-check-input" id="radioinline6" type="radio" data-rule="checked" name="medical[is_surgeries]" value="2"
+                                               {if condition="$row&&$row.is_surgeries eq '2'"} checked{/if}
+                                        >
+                                        <label class="form-check-label mb-0" for="radioinline6">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 m-b-20 position-relative ws_is_surgeries {if condition="$row&&$row.is_surgeries eq '2'"} ws_dis_no {/if}">
+                            <label class="form-label">If so, when and why:</label>
+                            <input class="form-control"   name="medical[surgeries_content]" type="text" {if condition="$row"} value="{$row.surgeries_content|htmlentities}"{/if}>
+                        </div>
+
+                        <div class="col-md-12 position-relative">
+                            <label class="form-label" >Are you currently being treated for any medical conditions? If so, please explain. *</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea4" name="medical[any_medical_conditions]" data-rule="required" rows="3">{if condition="$row"}{$row.any_medical_conditions|htmlentities}{/if}</textarea>
+                        </div>
+
+                        <div class="col-md-12 position-relative">
+                            <label class="form-label" >Are you taking any medications, herbs, supplements? If so, please list out all the meds/herbs/supplements. *</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea5" name="medical[any_herbs]" data-rule="required" rows="3">{if condition="$row"}{$row.any_herbs|htmlentities}{/if}</textarea>
+                        </div>
+
+                        <div class="col-md-12 position-relative">
+                            <label class="form-label" >Do you have any allergies? *</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea6" name="medical[any_allergies]" data-rule="required" rows="3">{if condition="$row"}{$row.any_herbs|htmlentities}{/if}</textarea>
+                        </div>
+
+                        <div class="col-md-12  position-relative">
+                            <label class="form-label">Do you drink? *</label>
+                            <div class="form-label">
+                                <div class="form-check form-check-inline radio radio-primary">
+                                    <input class="form-check-input" id="radioinline15" type="radio" data-rule="checked" name="medical[is_drink]" value="1"
+                                           {if condition="$row&&$row.is_drink eq '1'"} checked{/if}
+                                    >
+                                    <label class="form-check-label mb-0" for="radioinline15">Yes</label>
+                                </div>
+                                <div class="form-check form-check-inline radio radio-primary">
+                                    <input class="form-check-input" id="radioinline16" type="radio" data-rule="checked" name="medical[is_drink]" value="2"
+                                           {if condition="$row&&$row.is_drink eq '2'"} checked{/if}
+                                    >
+                                    <label class="form-check-label mb-0" for="radioinline16">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 m-b-20 position-relative ws_is_drink {if condition="$row&&$row.is_drink eq '2'"} ws_dis_no {/if}">
+                        <label class="form-label">If so, when and why:</label>
+                        <input class="form-control"   name="medical[drink_content]" type="text" {if condition="$row"} value="{$row.drink_content|htmlentities}"{/if}>
+                    </div>
+
+                    <div class="col-md-12  position-relative">
+                        <label class="form-label">Do you smoke? *</label>
+                        <div class="form-label">
+                            <div class="form-check form-check-inline radio radio-primary">
+                                <input class="form-check-input" id="radioinline20" type="radio" data-rule="checked" name="medical[is_smoke]" value="1"
+                                       {if condition="$row&&$row.is_smoke eq '1'"} checked{/if}
+                                >
+                                <label class="form-check-label mb-0" for="radioinline20">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline radio radio-primary">
+                                <input class="form-check-input" id="radioinline21" type="radio" data-rule="checked" name="medical[is_smoke]" value="2"
+                                       {if condition="$row&&$row.is_smoke eq '2'"} checked{/if}
+                                >
+                                <label class="form-check-label mb-0" for="radioinline21">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 m-b-20 position-relative ws_is_smoke {if condition="$row&&$row.is_smoke eq '2'"} ws_dis_no {/if}">
+                    <label class="form-label">If so, when and why:</label>
+                    <input class="form-control"   name="medical[smoke_content]" type="text" {if condition="$row"} value="{$row.smoke_content|htmlentities}"{/if}>
+                </div>
+
+                <div class="col-md-12 position-relative">
+                    <label class="form-label" >Which type of birth control are you using? *</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea7" name="medical[birth_control]" data-rule="required" rows="3">{if condition="$row"}{$row.birth_control|htmlentities}{/if}</textarea>
+                </div>
+
+                <div class="col-md-12  position-relative">
+                    <label class="form-label">Are your menstrual cycles regular: *</label>
+                    <div class="form-label">
+                        <div class="form-check form-check-inline radio radio-primary">
+                            <input class="form-check-input" id="radioinline25" type="radio" data-rule="checked" name="medical[is_menstrual_cycles]" value="1"
+                                   {if condition="$row&&$row.is_menstrual_cycles eq '1'"} checked{/if}
+                            >
+                            <label class="form-check-label mb-0" for="radioinline25">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline radio radio-primary">
+                            <input class="form-check-input" id="radioinline26" type="radio" data-rule="checked" name="medical[is_menstrual_cycles]" value="2"
+                                   {if condition="$row&&$row.is_menstrual_cycles eq '2'"} checked{/if}
+                            >
+                            <label class="form-check-label mb-0" for="radioinline26">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12  position-relative">
+                    <label class="form-label">Have you ever been pregnant? *</label>
+                    <div class="form-label">
+                        <div class="form-check form-check-inline radio radio-primary">
+                            <input class="form-check-input" id="radioinline30" type="radio" data-rule="checked" name="medical[is_pregnant]" value="1"
+                                   {if condition="$row&&$row.is_pregnant eq '1'"} checked{/if}
+                            >
+                            <label class="form-check-label mb-0" for="radioinline30">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline radio radio-primary">
+                            <input class="form-check-input" id="radioinline31" type="radio" data-rule="checked" name="medical[is_pregnant]" value="2"
+                                   {if condition="$row&&$row.is_pregnant eq '2'"} checked{/if}
+                            >
+                            <label class="form-check-label mb-0" for="radioinline31">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 m-b-20 position-relative ws_is_pregnant {if condition="$row&&$row.is_pregnant eq '2'"} ws_dis_no {/if}">
+                <label class="form-label">If so, when and why:</label>
+                <input class="form-control"   name="medical[pregnant_content]" type="text" {if condition="$row"} value="{$row.pregnant_content|htmlentities}"{/if}>
+            </div>
+
+            <div class="col-md-12 position-relative">
+                <label class="form-label" >Do you have or ever had (check ALL that apply): </label>
+                <div class="col">
+                    <div class="m-checkbox-inline">
+                        <div style="display: block;color: #534686;font-size: 14px;font-weight: 600;margin-bottom: -10px;">
+                            Infectious Diseases:
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-1" type="checkbox" name="any_diseases[]" value="1"
+                                   {if condition="$row&&in_array('1',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-1">Chicken Pox (varicella)</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-2" type="checkbox" name="any_diseases[]" value="2"
+                                   {if condition="$row&&in_array('2',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-2">Hepatitis A, B, or C</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-3" type="checkbox" name="any_diseases[]" value="3"
+                                   {if condition="$row&&in_array('3',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-3">Rheumatic Fever</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-4" type="checkbox" name="any_diseases[]" value="4"
+                                   {if condition="$row&&in_array('4',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-4">Chronic Bronchitis</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-5" type="checkbox" name="any_diseases[]" value="5"
+                                   {if condition="$row&&in_array('5',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-5">Chlamydia</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-6" type="checkbox" name="any_diseases[]" value="6"
+                                   {if condition="$row&&in_array('6',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-6">Gonorrhea</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-7" type="checkbox" name="any_diseases[]" value="7"
+                                   {if condition="$row&&in_array('7',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-7">Syphilis</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-8" type="checkbox" name="any_diseases[]" value="8"
+                                   {if condition="$row&&in_array('8',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-8">Pelvic Infection (PID)</label>
+                        </div>
+
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-9" type="checkbox" name="any_diseases[]" value="9"
+                                   {if condition="$row&&in_array('9',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-9">Mycoplasma / Urea plasma</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-10" type="checkbox" name="any_diseases[]" value="10"
+                                   {if condition="$row&&in_array('10',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-10">Condyloma - Venereal Warts</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-11" type="checkbox" name="any_diseases[]" value="11"
+                                   {if condition="$row&&in_array('11',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-11">Herpes - Genital</label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="m-checkbox-inline">
+                        <div style="display: block;color: #534686;font-size: 14px;font-weight: 600;margin-bottom: -10px;">
+                            Medical Problem :
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-21" type="checkbox" name="any_diseases[]" value="21"
+                                   {if condition="$row&&in_array('21',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-21">Bleeding disorders</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-22" type="checkbox" name="any_diseases[]" value="22"
+                                   {if condition="$row&&in_array('22',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-22">Blood clots</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-23" type="checkbox" name="any_diseases[]" value="23"
+                                   {if condition="$row&&in_array('23',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-23">Blood transfusion</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-24" type="checkbox" name="any_diseases[]" value="24"
+                                   {if condition="$row&&in_array('24',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-24">Appendicitis</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-25" type="checkbox" name="any_diseases[]" value="25"
+                                   {if condition="$row&&in_array('25',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-25">Mitral valve</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-26" type="checkbox" name="any_diseases[]" value="26"
+                                   {if condition="$row&&in_array('26',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-26">Uterine anomalies</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-27" type="checkbox" name="any_diseases[]" value="27"
+                                   {if condition="$row&&in_array('27',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-27">Kidney infection</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-28" type="checkbox" name="any_diseases[]" value="28"
+                                   {if condition="$row&&in_array('28',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-28">Kidney disease</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-29" type="checkbox" name="any_diseases[]" value="29"
+                                   {if condition="$row&&in_array('29',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-29">Liver problems</label>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="m-checkbox-inline">
+                        <div style="display: block;color: #534686;font-size: 14px;font-weight: 600;margin-bottom: -10px;">
+                            Gynecologic Problems :
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-31" type="checkbox" name="any_diseases[]" value="31"
+                                   {if condition="$row&&in_array('31',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-31">Abnormal mammogram</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-32" type="checkbox" name="any_diseases[]" value="32"
+                                   {if condition="$row&&in_array('32',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-32">Abnormal pap smear</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-33" type="checkbox" name="any_diseases[]" value="33"
+                                   {if condition="$row&&in_array('33',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-33">Blocked fallopian tubes</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-34" type="checkbox" name="any_diseases[]" value="34"
+                                   {if condition="$row&&in_array('34',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-34">Pelvic Adhesions</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-35" type="checkbox" name="any_diseases[]" value="35"
+                                   {if condition="$row&&in_array('35',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-35">Endometriosis</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-36" type="checkbox" name="any_diseases[]" value="36"
+                                   {if condition="$row&&in_array('36',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-36">Cervical stenosis</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-37" type="checkbox" name="any_diseases[]" value="37"
+                                   {if condition="$row&&in_array('37',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-37">Recurrent urinary infections</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-38" type="checkbox" name="any_diseases[]" value="38"
+                                   {if condition="$row&&in_array('38',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-38">Breast discharge</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-39" type="checkbox" name="any_diseases[]" value="39"
+                                   {if condition="$row&&in_array('39',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-39">Hot flashes/Night sweats</label>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="m-checkbox-inline">
+                        <div style="display: block;color: #534686;font-size: 14px;font-weight: 600;margin-bottom: -10px;">
+                            Immunizations :
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-41" type="checkbox" name="any_diseases[]" value="41"
+                                   {if condition="$row&&in_array('41',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-41">Chicken Pox Vaccine</label>
+                        </div>
+                        <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                            <input class="form-check-input" id="inline-42" type="checkbox" name="any_diseases[]" value="42"
+                                   {if condition="$row&&in_array('42',$row.any_diseases)"} checked{/if}
+                            >
+                            <label class="form-check-label" for="inline-42">Rubella</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-12 ws_card health_first_1">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 style="text-align: center">Family Health History</h3>
+                    </div>
+                    <div class="table-responsive " id="ws_table">
+                        <table class="table" id="table">
+                            <thead>
+                            <tr class="border-bottom-primary">
+                                <th scope="col"></th>
+                                <th scope="col">Age</th>
+                                <th scope="col">Height</th>
+                                <th scope="col">Weight</th>
+                                <th scope="col">Hair color</th>
+                                <th scope="col">Eye color</th>
+                                <th scope="col">Race</th>
+                                <th scope="col">Health condition</th>
+                                <th scope="col">Highest education</th>
+                                <th scope="col">Career</th>
+                                <th scope="col">Deceased or not</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {if condition="$row_qinshu"}
+                            {foreach name='$row_qinshu' item='v' key='k' }
+                            <tr class="border-bottom-success">
+                                <input type="hidden" name="qinshu[type][]" value="{$v.type}">
+                                <input type="hidden" name="qinshu[number][]" value="{$v.number}">
+                                {if condition="$v.type==1"}
+                                <th scope="row">Father</th>
+                                {elseif condition="$v.type==2"}
+                                <th scope="row">Mother</th>
+                                {elseif condition="$v.type==3"}
+                                <th scope="row">Paternal Grandfather</th>
+                                {elseif condition="$v.type==4"}
+                                <th scope="row">Paternal Grandmother</th>
+                                {elseif condition="$v.type==5"}
+                                <th scope="row">Maternal Grandfather</th>
+                                {elseif condition="$v.type==6"}
+                                <th scope="row">Maternal Grandmother</th>
+                                {elseif condition="$v.type==7"}
+                                <th scope="row">Sibling #{$v.number}</th>
+                                {elseif condition="$v.type==7"}
+                                <th scope="row">Sibling #{$v.number}</th>
+                                {/if}
+                                <td><input type="text" class="ws_input" name="qinshu[age][]" value="{$v.age}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[height][]" value="{$v.height}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[weight][]" value="{$v.weight}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[hair][]" value="{$v.hair}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[eyes][]" value="{$v.eyes}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[race][]" value="{$v.race}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[health][]" value="{$v.health}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[die][]" value="{$v.die}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[highest_education][]" value="{$v.highest_education}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[career][]" value="{$v.career}"></td>
+                            </tr>
+                            {/foreach}
+                            {else}
+                            <tr class="border-bottom-success">
+                                <input type="hidden" name="qinshu[type][]" value="1">
+                                <input type="hidden" name="qinshu[number][]" value="1">
+                                <th scope="row">Father</th>
+                                <td><input type="text" class="ws_input" name="qinshu[age][]" ></td>
+                                <td><input type="text" class="ws_input" name="qinshu[height][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[weight][]" ></td>
+                                <td><input type="text" class="ws_input" name="qinshu[hair][]" ></td>
+                                <td><input type="text" class="ws_input" name="qinshu[eyes][]" ></td>
+                                <td><input type="text" class="ws_input" name="qinshu[race][]" ></td>
+                                <td><input type="text" class="ws_input" name="qinshu[health][]" ></td>
+                                <td><input type="text" class="ws_input" name="qinshu[die][]" ></td>
+                                <td><input type="text" class="ws_input" name="qinshu[highest_education][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[career][]"></td>
+                            </tr>
+                            <tr class="border-bottom-secondary">
+                                <input type="hidden" name="qinshu[type][]" value="2">
+                                <input type="hidden" name="qinshu[number][]" value="1">
+                                <th scope="row">Mother</th>
+                                <td><input type="text" class="ws_input" name="qinshu[age][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[height][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[weight][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[hair][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[eyes][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[race][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[health][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[die][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[highest_education][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[career][]"></td>
+                            </tr>
+                            <tr class="border-bottom-info">
+                                <input type="hidden" name="qinshu[type][]" value="3">
+                                <input type="hidden" name="qinshu[number][]" value="1">
+                                <th scope="row">Paternal Grandfather</th>
+                                <td><input type="text" class="ws_input" name="qinshu[age][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[height][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[weight][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[hair][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[eyes][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[race][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[health][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[die][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[highest_education][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[career][]"></td>
+                            </tr>
+                            <tr class="border-bottom-warning">
+                                <input type="hidden" name="qinshu[type][]" value="4">
+                                <input type="hidden" name="qinshu[number][]" value="1">
+                                <th scope="row">Paternal Grandmother</th>
+                                <td><input type="text" class="ws_input" name="qinshu[age][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[height][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[weight][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[hair][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[eyes][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[race][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[health][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[die][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[highest_education][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[career][]"></td>
+                            </tr>
+                            <tr class="border-bottom-danger">
+                                <input type="hidden" name="qinshu[type][]" value="5">
+                                <input type="hidden" name="qinshu[number][]" value="1">
+                                <th scope="row">Maternal Grandfather</th>
+                                <td><input type="text" class="ws_input" name="qinshu[age][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[height][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[weight][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[hair][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[eyes][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[race][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[health][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[die][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[highest_education][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[career][]"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <input type="hidden" name="qinshu[type][]" value="6">
+                                <input type="hidden" name="qinshu[number][]" value="1">
+                                <th scope="row">Maternal Grandmother</th>
+                                <td><input type="text" class="ws_input" name="qinshu[age][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[height][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[weight][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[hair][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[eyes][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[race][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[health][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[die][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[highest_education][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[career][]"></td>
+                            </tr>
+                            <tr class="border-bottom-secondary">
+                                <input type="hidden" name="qinshu[type][]" value="7">
+                                <input type="hidden" name="qinshu[number][]" value="1">
+                                <th scope="row">Sibling #1</th>
+                                <td><input type="text" class="ws_input" name="qinshu[age][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[height][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[weight][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[hair][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[eyes][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[race][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[health][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[die][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[highest_education][]"></td>
+                                <td><input type="text" class="ws_input" name="qinshu[career][]"></td>
+                            </tr>
+                            {/if}
+                            </tbody>
+                        </table>
+                        {if condition="$row_qinshu"}
+                        <button class="ws_add_btn btn btn-outline-info" a="{$number}" type="button">
+                            Add Sibling
+                        </button>
+                        {else}
+                        <button class="ws_add_btn btn btn-outline-info" a="1" type="button">
+                            Add Sibling
+                        </button>
+                        {/if}
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-12 ws_card health_first_1">
+                <div class="card">
+                    <div class="card-header">
+                        <p style="">Have you or any of your immediate blood family (parents, grandparents, siblings or children, not adopted) ever had any of the following health issues?  (If Yes, who had it and at what age.)</p>
+                    </div>
+                    <div class="table-responsive ">
+                        <table class="table" id="table_1">
+                            <thead>
+                            <tr class="border-bottom-primary">
+                                <th scope="col">Health Issue</th>
+                                <th scope="col">No</th>
+                                <th scope="col">Yes</th>
+                                <th scope="col">Parent, Grandparent, Full Sibling or Child</th>
+                                <th scope="col">Age of occurrence/Notes</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="border-bottom-success">
+                                <td>Anemia</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[anemia][]" value="{$row_qinshu_disease?$row_qinshu_disease['anemia'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[anemia][]" value="{$row_qinshu_disease?$row_qinshu_disease['anemia'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[anemia][]" value="{$row_qinshu_disease?$row_qinshu_disease['anemia'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[anemia][]" value="{$row_qinshu_disease?$row_qinshu_disease['anemia'][3]:''}"></td>
+
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Acne</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[acne][]"  value="{$row_qinshu_disease?$row_qinshu_disease['acne'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[acne][]" value="{$row_qinshu_disease?$row_qinshu_disease['acne'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[acne][]" value="{$row_qinshu_disease?$row_qinshu_disease['acne'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[acne][]" value="{$row_qinshu_disease?$row_qinshu_disease['acne'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Allergies/ Asthma</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[allergies][]" value="{$row_qinshu_disease?$row_qinshu_disease['allergies'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[allergies][]" value="{$row_qinshu_disease?$row_qinshu_disease['allergies'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[allergies][]" value="{$row_qinshu_disease?$row_qinshu_disease['allergies'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[allergies][]" value="{$row_qinshu_disease?$row_qinshu_disease['allergies'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Arthritis</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[arthritis][]"  value="{$row_qinshu_disease?$row_qinshu_disease['arthritis'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[arthritis][]" value="{$row_qinshu_disease?$row_qinshu_disease['arthritis'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[arthritis][]"  value="{$row_qinshu_disease?$row_qinshu_disease['arthritis'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[arthritis][]"  value="{$row_qinshu_disease?$row_qinshu_disease['arthritis'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Alzheimer's disease</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[alzheimer][]" value="{$row_qinshu_disease?$row_qinshu_disease['alzheimer'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[alzheimer][]" value="{$row_qinshu_disease?$row_qinshu_disease['alzheimer'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[alzheimer][]" value="{$row_qinshu_disease?$row_qinshu_disease['alzheimer'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[alzheimer][]" value="{$row_qinshu_disease?$row_qinshu_disease['alzheimer'][3]:''}"></td>
+
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Alcoholism</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[alcoholism][]" value="{$row_qinshu_disease?$row_qinshu_disease['alcoholism'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[alcoholism][]" value="{$row_qinshu_disease?$row_qinshu_disease['alcoholism'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[alcoholism][]" value="{$row_qinshu_disease?$row_qinshu_disease['alcoholism'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[alcoholism][]" value="{$row_qinshu_disease?$row_qinshu_disease['alcoholism'][3]:''}"></td>
+
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Blindness or Crossed Eyes </td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[blibdness][]" value="{$row_qinshu_disease?$row_qinshu_disease['blibdness'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[blibdness][]" value="{$row_qinshu_disease?$row_qinshu_disease['blibdness'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[blibdness][]" value="{$row_qinshu_disease?$row_qinshu_disease['blibdness'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[blibdness][]" value="{$row_qinshu_disease?$row_qinshu_disease['blibdness'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Birth Deformities</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[birth][]" value="{$row_qinshu_disease?$row_qinshu_disease['birth'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[birth][]" value="{$row_qinshu_disease?$row_qinshu_disease['birth'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[birth][]" value="{$row_qinshu_disease?$row_qinshu_disease['birth'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[birth][]" value="{$row_qinshu_disease?$row_qinshu_disease['birth'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Cancer</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cancer][]" value="{$row_qinshu_disease?$row_qinshu_disease['cancer'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cancer][]" value="{$row_qinshu_disease?$row_qinshu_disease['cancer'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cancer][]" value="{$row_qinshu_disease?$row_qinshu_disease['cancer'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cancer][]" value="{$row_qinshu_disease?$row_qinshu_disease['cancer'][3]:''}"></td>
+
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Cerebral palsy</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cerrbral][]" value="{$row_qinshu_disease?$row_qinshu_disease['cerrbral'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cerrbral][]" value="{$row_qinshu_disease?$row_qinshu_disease['cerrbral'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cerrbral][]" value="{$row_qinshu_disease?$row_qinshu_disease['cerrbral'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cerrbral][]" value="{$row_qinshu_disease?$row_qinshu_disease['cerrbral'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Chronic bronchitis</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[chronic][]" value="{$row_qinshu_disease?$row_qinshu_disease['chronic'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[chronic][]" value="{$row_qinshu_disease?$row_qinshu_disease['chronic'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[chronic][]" value="{$row_qinshu_disease?$row_qinshu_disease['chronic'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[chronic][]" value="{$row_qinshu_disease?$row_qinshu_disease['chronic'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Cystic Fibrosis</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cystic][]" value="{$row_qinshu_disease?$row_qinshu_disease['cystic'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cystic][]" value="{$row_qinshu_disease?$row_qinshu_disease['cystic'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cystic][]" value="{$row_qinshu_disease?$row_qinshu_disease['cystic'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cystic][]" value="{$row_qinshu_disease?$row_qinshu_disease['cystic'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Color blindness</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[color][]" value="{$row_qinshu_disease?$row_qinshu_disease['color'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[color][]" value="{$row_qinshu_disease?$row_qinshu_disease['color'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[color][]" value="{$row_qinshu_disease?$row_qinshu_disease['color'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[color][]" value="{$row_qinshu_disease?$row_qinshu_disease['color'][3]:''}"></td>
+
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Cataracts/Glaucoma</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cataracts][]" value="{$row_qinshu_disease?$row_qinshu_disease['cataracts'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cataracts][]" value="{$row_qinshu_disease?$row_qinshu_disease['cataracts'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cataracts][]" value="{$row_qinshu_disease?$row_qinshu_disease['cataracts'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cataracts][]" value="{$row_qinshu_disease?$row_qinshu_disease['cataracts'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Cleft lip or palate</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cleft][]" value="{$row_qinshu_disease?$row_qinshu_disease['cleft'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cleft][]" value="{$row_qinshu_disease?$row_qinshu_disease['cleft'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cleft][]" value="{$row_qinshu_disease?$row_qinshu_disease['cleft'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[cleft][]" value="{$row_qinshu_disease?$row_qinshu_disease['cleft'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Deafness (birth or childhood)</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[deafness][]" value="{$row_qinshu_disease?$row_qinshu_disease['deafness'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[deafness][]" value="{$row_qinshu_disease?$row_qinshu_disease['deafness'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[deafness][]" value="{$row_qinshu_disease?$row_qinshu_disease['deafness'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[deafness][]" value="{$row_qinshu_disease?$row_qinshu_disease['deafness'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Down's syndrome</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[down][]" value="{$row_qinshu_disease?$row_qinshu_disease['down'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[down][]" value="{$row_qinshu_disease?$row_qinshu_disease['down'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[down][]" value="{$row_qinshu_disease?$row_qinshu_disease['down'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[down][]" value="{$row_qinshu_disease?$row_qinshu_disease['down'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Dwarfism</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[dwarfism][]" value="{$row_qinshu_disease?$row_qinshu_disease['dwarfism'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[dwarfism][]" value="{$row_qinshu_disease?$row_qinshu_disease['dwarfism'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[dwarfism][]" value="{$row_qinshu_disease?$row_qinshu_disease['dwarfism'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[dwarfism][]" value="{$row_qinshu_disease?$row_qinshu_disease['dwarfism'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Endometriosis</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[endometriosis][]" value="{$row_qinshu_disease?$row_qinshu_disease['endometriosis'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[endometriosis][]" value="{$row_qinshu_disease?$row_qinshu_disease['endometriosis'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[endometriosis][]" value="{$row_qinshu_disease?$row_qinshu_disease['endometriosis'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[endometriosis][]" value="{$row_qinshu_disease?$row_qinshu_disease['endometriosis'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Eczema</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[eczema][]" value="{$row_qinshu_disease?$row_qinshu_disease['eczema'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[eczema][]" value="{$row_qinshu_disease?$row_qinshu_disease['eczema'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[eczema][]" value="{$row_qinshu_disease?$row_qinshu_disease['eczema'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[eczema][]" value="{$row_qinshu_disease?$row_qinshu_disease['eczema'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Emphysema</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[emphysema][]" value="{$row_qinshu_disease?$row_qinshu_disease['emphysema'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[emphysema][]" value="{$row_qinshu_disease?$row_qinshu_disease['emphysema'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[emphysema][]" value="{$row_qinshu_disease?$row_qinshu_disease['emphysema'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[emphysema][]" value="{$row_qinshu_disease?$row_qinshu_disease['emphysema'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Epilepsy/Seizures</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[epliepsy][]" value="{$row_qinshu_disease?$row_qinshu_disease['epliepsy'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[epliepsy][]" value="{$row_qinshu_disease?$row_qinshu_disease['epliepsy'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[epliepsy][]" value="{$row_qinshu_disease?$row_qinshu_disease['epliepsy'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[epliepsy][]" value="{$row_qinshu_disease?$row_qinshu_disease['epliepsy'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Heart Disease/Heart Attack</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[heart][]" value="{$row_qinshu_disease?$row_qinshu_disease['heart'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[heart][]" value="{$row_qinshu_disease?$row_qinshu_disease['heart'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[heart][]" value="{$row_qinshu_disease?$row_qinshu_disease['heart'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[heart][]" value="{$row_qinshu_disease?$row_qinshu_disease['heart'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Hypo or Hyper- Thyroid</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hypo][]" value="{$row_qinshu_disease?$row_qinshu_disease['hypo'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hypo][]" value="{$row_qinshu_disease?$row_qinshu_disease['hypo'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hypo][]" value="{$row_qinshu_disease?$row_qinshu_disease['hypo'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hypo][]" value="{$row_qinshu_disease?$row_qinshu_disease['hypo'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Hepatitis</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hepatitis][]" value="{$row_qinshu_disease?$row_qinshu_disease['hepatitis'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hepatitis][]" value="{$row_qinshu_disease?$row_qinshu_disease['hepatitis'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hepatitis][]" value="{$row_qinshu_disease?$row_qinshu_disease['hepatitis'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hepatitis][]" value="{$row_qinshu_disease?$row_qinshu_disease['hepatitis'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Hyperactivity</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hyperactivity][]" value="{$row_qinshu_disease?$row_qinshu_disease['hyperactivity'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hyperactivity][]" value="{$row_qinshu_disease?$row_qinshu_disease['hyperactivity'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hyperactivity][]" value="{$row_qinshu_disease?$row_qinshu_disease['hyperactivity'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hyperactivity][]" value="{$row_qinshu_disease?$row_qinshu_disease['hyperactivity'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Hemophilia (Bleeding Disorder)</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hemophilia][]" value="{$row_qinshu_disease?$row_qinshu_disease['hemophilia'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hemophilia][]" value="{$row_qinshu_disease?$row_qinshu_disease['hemophilia'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hemophilia][]" value="{$row_qinshu_disease?$row_qinshu_disease['hemophilia'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hemophilia][]" value="{$row_qinshu_disease?$row_qinshu_disease['hemophilia'][3]:''}"></td>
+                            </tr>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>High Blood Pressure</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[high][]" value="{$row_qinshu_disease?$row_qinshu_disease['high'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[high][]" value="{$row_qinshu_disease?$row_qinshu_disease['high'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[high][]" value="{$row_qinshu_disease?$row_qinshu_disease['high'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[high][]" value="{$row_qinshu_disease?$row_qinshu_disease['high'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>HIV/ Aids</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hiv][]" value="{$row_qinshu_disease?$row_qinshu_disease['hiv'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hiv][]" value="{$row_qinshu_disease?$row_qinshu_disease['hiv'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hiv][]" value="{$row_qinshu_disease?$row_qinshu_disease['hiv'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[hiv][]" value="{$row_qinshu_disease?$row_qinshu_disease['hiv'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Kidney Problems</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[kidney][]" value="{$row_qinshu_disease?$row_qinshu_disease['kidney'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[kidney][]" value="{$row_qinshu_disease?$row_qinshu_disease['kidney'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[kidney][]" value="{$row_qinshu_disease?$row_qinshu_disease['kidney'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[kidney][]" value="{$row_qinshu_disease?$row_qinshu_disease['kidney'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Liver Disease</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[liver][]" value="{$row_qinshu_disease?$row_qinshu_disease['liver'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[liver][]" value="{$row_qinshu_disease?$row_qinshu_disease['liver'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[liver][]" value="{$row_qinshu_disease?$row_qinshu_disease['liver'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[liver][]" value="{$row_qinshu_disease?$row_qinshu_disease['liver'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Lung Disease</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[lung][]" value="{$row_qinshu_disease?$row_qinshu_disease['lung'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[lung][]" value="{$row_qinshu_disease?$row_qinshu_disease['lung'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[lung][]" value="{$row_qinshu_disease?$row_qinshu_disease['lung'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[lung][]" value="{$row_qinshu_disease?$row_qinshu_disease['lung'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Mental retardation</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[mental][]" value="{$row_qinshu_disease?$row_qinshu_disease['mental'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[mental][]" value="{$row_qinshu_disease?$row_qinshu_disease['mental'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[mental][]" value="{$row_qinshu_disease?$row_qinshu_disease['mental'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[mental][]" value="{$row_qinshu_disease?$row_qinshu_disease['mental'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Migraines</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[migranes][]" value="{$row_qinshu_disease?$row_qinshu_disease['migranes'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[migranes][]" value="{$row_qinshu_disease?$row_qinshu_disease['migranes'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[migranes][]" value="{$row_qinshu_disease?$row_qinshu_disease['migranes'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[migranes][]" value="{$row_qinshu_disease?$row_qinshu_disease['migranes'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Muscular dystrophy</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[muscular][]" value="{$row_qinshu_disease?$row_qinshu_disease['muscular'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[muscular][]" value="{$row_qinshu_disease?$row_qinshu_disease['muscular'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[muscular][]" value="{$row_qinshu_disease?$row_qinshu_disease['muscular'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[muscular][]" value="{$row_qinshu_disease?$row_qinshu_disease['muscular'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Multiple sclerosis</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[multiple][]" value="{$row_qinshu_disease?$row_qinshu_disease['multiple'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[multiple][]" value="{$row_qinshu_disease?$row_qinshu_disease['multiple'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[multiple][]" value="{$row_qinshu_disease?$row_qinshu_disease['multiple'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[multiple][]" value="{$row_qinshu_disease?$row_qinshu_disease['multiple'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Meningitis</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[meningitis][]" value="{$row_qinshu_disease?$row_qinshu_disease['meningitis'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[meningitis][]" value="{$row_qinshu_disease?$row_qinshu_disease['meningitis'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[meningitis][]" value="{$row_qinshu_disease?$row_qinshu_disease['meningitis'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[meningitis][]" value="{$row_qinshu_disease?$row_qinshu_disease['meningitis'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Ovarian Cyst</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[ovarian][]" value="{$row_qinshu_disease?$row_qinshu_disease['ovarian'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[ovarian][]" value="{$row_qinshu_disease?$row_qinshu_disease['ovarian'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[ovarian][]" value="{$row_qinshu_disease?$row_qinshu_disease['ovarian'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[ovarian][]" value="{$row_qinshu_disease?$row_qinshu_disease['ovarian'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Osteoporosis</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[osteoporosis][]" value="{$row_qinshu_disease?$row_qinshu_disease['osteoporosis'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[osteoporosis][]" value="{$row_qinshu_disease?$row_qinshu_disease['osteoporosis'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[osteoporosis][]" value="{$row_qinshu_disease?$row_qinshu_disease['osteoporosis'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[osteoporosis][]" value="{$row_qinshu_disease?$row_qinshu_disease['osteoporosis'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Sickle Cell Disease</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[sickle][]" value="{$row_qinshu_disease?$row_qinshu_disease['sickle'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[sickle][]" value="{$row_qinshu_disease?$row_qinshu_disease['sickle'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[sickle][]" value="{$row_qinshu_disease?$row_qinshu_disease['sickle'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[sickle][]" value="{$row_qinshu_disease?$row_qinshu_disease['sickle'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Spina Bifida</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[spina][]" value="{$row_qinshu_disease?$row_qinshu_disease['spina'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[spina][]" value="{$row_qinshu_disease?$row_qinshu_disease['spina'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[spina][]" value="{$row_qinshu_disease?$row_qinshu_disease['spina'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[spina][]" value="{$row_qinshu_disease?$row_qinshu_disease['spina'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Stroke</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[stroke][]" value="{$row_qinshu_disease?$row_qinshu_disease['stroke'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[stroke][]" value="{$row_qinshu_disease?$row_qinshu_disease['stroke'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[stroke][]" value="{$row_qinshu_disease?$row_qinshu_disease['stroke'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[stroke][]" value="{$row_qinshu_disease?$row_qinshu_disease['stroke'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Thalassemia</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[thalassemia][]" value="{$row_qinshu_disease?$row_qinshu_disease['thalassemia'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[thalassemia][]" value="{$row_qinshu_disease?$row_qinshu_disease['thalassemia'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[thalassemia][]" value="{$row_qinshu_disease?$row_qinshu_disease['thalassemia'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[thalassemia][]" value="{$row_qinshu_disease?$row_qinshu_disease['thalassemia'][3]:''}"></td>
+                            </tr>
+                            <tr class="border-bottom-success">
+                                <td>Ulcers</td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[ulcers][]" value="{$row_qinshu_disease?$row_qinshu_disease['ulcers'][0]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[ulcers][]" value="{$row_qinshu_disease?$row_qinshu_disease['ulcers'][1]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[ulcers][]" value="{$row_qinshu_disease?$row_qinshu_disease['ulcers'][2]:''}"></td>
+                                <td><input type="text" class="ws_input" name="qinshu_disease[ulcers][]" value="{$row_qinshu_disease?$row_qinshu_disease['ulcers'][3]:''}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid Ends-->
+        </div>
+    </div>
+
+    <!-- Container-fluid Ends-->
+</div>
+<!-- Page content Ends-->
+
+</div>
+
+
+
+</div>
+
+<!-- Page js Start-->
+{include file="ws/js" /}
+<!-- Page js Ends -->
+
+</body>
+<script>
+
+    $('#ws_table').on('click', '.ws_add_btn', function () {
+        var i = $(this).attr('a');
+        i++;
+        var html = '';
+        html += '<tr class="border-bottom-secondary">';
+        html += '<input type="hidden" name="qinshu[type][]" value="7">';
+        html += '<input type="hidden" name="qinshu[number][]" value="'+i+'">';
+        html += '<th scope="row">Sibling #'+i+'</th>';
+        html += '<td><input type="text" class="ws_input" name="qinshu[age][]"></td>';
+        html += '<td><input type="text" class="ws_input" name="qinshu[height][]"></td>';
+        html += '<td><input type="text" class="ws_input" name="qinshu[weight][]"></td>';
+        html += '<td><input type="text" class="ws_input" name="qinshu[hair][]"></td>';
+        html += '<td><input type="text" class="ws_input" name="qinshu[eyes][]"></td>';
+        html += '<td><input type="text" class="ws_input" name="qinshu[race][]"></td>';
+        html += '<td><input type="text" class="ws_input" name="qinshu[health][]"></td>';
+        html += '<td><input type="text" class="ws_input" name="qinshu[die][]"></td>';
+        html += '<td><input type="text" class="ws_input" name="qinshu[highest_education][]"></td>';
+        html += '<td><input type="text" class="ws_input" name="qinshu[career][]"></td>';
+        html += '</tr>';
+        var table = $('#table');
+        var btn = '';
+        btn += '<button class="ws_add_btn btn btn-outline-info" a="'+i+'" type="button" >';
+        btn += 'Add Sibling';
+        btn += '</button>';
+        $(this).css('display', 'none')
+        table.append(html);
+        table.after(btn);
+
+    });
+
+    $('#radioinline2').click(function () {
+        var is_hospital = $("input[name='medical[is_hospital]']:checked").val();
+        if (is_hospital==2){
+            $('.ws_is_hospital').css('display','none');
+        }
+    })
+    $('#radioinline1').click(function () {
+        var is_hospital = $("input[name='medical[is_hospital]']:checked").val();
+        if (is_hospital==1){
+            $('.ws_is_hospital').css('display','inline-block');
+        }
+    })
+    $('#radioinline6').click(function () {
+        var is_surgeries = $("input[name='medical[is_surgeries]']:checked").val();
+        if (is_surgeries==2){
+            $('.ws_is_surgeries').css('display','none');
+        }
+    })
+    $('#radioinline5').click(function () {
+        var is_surgeries = $("input[name='medical[is_surgeries]']:checked").val();
+        if (is_surgeries==1){
+            $('.ws_is_surgeries').css('display','inline-block');
+        }
+    })
+
+    $('#radioinline16').click(function () {
+        var is_drink = $("input[name='medical[is_drink]']:checked").val();
+        if (is_drink==2){
+            $('.ws_is_drink').css('display','none');
+        }
+    })
+    $('#radioinline15').click(function () {
+        var is_drink = $("input[name='medical[is_drink]']:checked").val();
+        if (is_drink==1){
+            $('.ws_is_drink').css('display','inline-block');
+        }
+    })
+
+    $('#radioinline21').click(function () {
+        var is_smoke = $("input[name='medical[is_smoke]']:checked").val();
+        if (is_smoke==2){
+            $('.ws_is_smoke').css('display','none');
+        }
+    })
+    $('#radioinline20').click(function () {
+        var is_smoke = $("input[name='medical[is_smoke]']:checked").val();
+        if (is_smoke==1){
+            $('.ws_is_smoke').css('display','inline-block');
+        }
+    })
+
+    $('#radioinline31').click(function () {
+        var is_pregnant = $("input[name='medical[is_pregnant]']:checked").val();
+        if (is_pregnant==2){
+            $('.ws_is_pregnant').css('display','none');
+        }
+    })
+    $('#radioinline30').click(function () {
+        var is_pregnant = $("input[name='medical[is_pregnant]']:checked").val();
+        if (is_pregnant==1){
+            $('.ws_is_pregnant').css('display','inline-block');
+        }
+    })
+</script>
+<script>
+    function sumbit_sure() {
+        var j = 0;// 表单未完成数量
+        var arr = [];// 表单未完成数组
+        var textarea = $("#medical").find("textarea");
+        for (i = 0; i < textarea.length; i++) {
+            var text = textarea[i].value;
+            if (!text) {
+                j++;
+                one = $(textarea[i]).prev().text();
+                arr.push(one);
+            }
+        }
+        var name_arr = ['medical[is_hospital]','medical[is_surgeries]','medical[is_drink]',
+            'medical[is_smoke]','medical[is_menstrual_cycles]','medical[is_pregnant]'];
+        for (i = 0; i < name_arr.length; i++) {
+            if (!$("input:radio[name='" + name_arr[i] + "']:checked").length) {
+                j++;
+                one = $("input:radio[name='" + name_arr[i] + "']").parents('.form-label').prev().text();
+                arr.push(one);
+            }
+        }
+        $('#form_complate_number').val(j);
+        var html = "Are you sure you want to exit？\n";
+        if (j > 0) {
+            html += j + " mandatory field\n";
+            if (j == 1) {
+                html += "'" + arr[0] + "'\n,";
+
+            } else if (j == 2) {
+                html += "'" + arr[0] + "',\n";
+                html += "'" + arr[1] + "',\n";
+            } else {
+                html += "'" + arr[0] + "',\n";
+                html += "'" + arr[1] + "',\n";
+                html += "'" + arr[2] + "'...\n";
+            }
+            html += "Not filled in.\n";
+            html += "\n";
+        }
+        html += "Please fill in relevant information.";
+        var gnl = confirm(html);
+        if (gnl == true) {
+            if (j == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+</script>
+</html>

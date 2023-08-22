@@ -1,0 +1,208 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Uid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-uid" class="form-control" name="row[uid]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_surrogate')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_surrogate" class="form-control selectpicker" name="row[is_surrogate]">
+                {foreach name="isSurrogateList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Begin_surrogate')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-begin_surrogate" class="form-control" name="row[begin_surrogate]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Apply_surrogate_agency')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-apply_surrogate_agency" class="form-control" name="row[apply_surrogate_agency]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Embryo_transfer_number')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-embryo_transfer_number" class="form-control" name="row[embryo_transfer_number]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_conceive_twins')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_conceive_twins" class="form-control selectpicker" name="row[is_conceive_twins]">
+                {foreach name="isConceiveTwinsList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_fetal_reduction')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_fetal_reduction" class="form-control selectpicker" name="row[is_fetal_reduction]">
+                {foreach name="isFetalReductionList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_induced_abortion')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_induced_abortion" class="form-control selectpicker" name="row[is_induced_abortion]">
+                {foreach name="isInducedAbortionList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_cvs')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_cvs" class="form-control selectpicker" name="row[is_cvs]">
+                {foreach name="isCvsList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_tom')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_tom" class="form-control selectpicker" name="row[is_tom]">
+                {foreach name="isTomList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_meet_parents')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_meet_parents" class="form-control selectpicker" name="row[is_meet_parents]">
+                {foreach name="isMeetParentsList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_relinquish')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_relinquish" class="form-control selectpicker" name="row[is_relinquish]">
+                {foreach name="isRelinquishList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Become_surrogate_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-become_surrogate_content" class="form-control editor" rows="5" name="row[become_surrogate_content]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Rwp_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-rwp_content" class="form-control editor" rows="5" name="row[rwp_content]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_ss')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_ss" class="form-control selectpicker" name="row[is_ss]">
+                {foreach name="isSsList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('No_surrogate_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-no_surrogate_content" class="form-control editor" rows="5" name="row[no_surrogate_content]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_breast_feed')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_breast_feed" class="form-control selectpicker" name="row[is_breast_feed]">
+                {foreach name="isBreastFeedList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_sexual_life')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_sexual_life" class="form-control selectpicker" name="row[is_sexual_life]">
+                {foreach name="isSexualLifeList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Family_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-family_content" class="form-control" name="row[family_content]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Parents_character_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-parents_character_content" class="form-control editor" rows="5" name="row[parents_character_content]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Share_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-share_content" class="form-control editor" rows="5" name="row[share_content]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('About_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-about_content" class="form-control editor" rows="5" name="row[about_content]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

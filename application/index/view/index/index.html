@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreams of Parenthood(DOP) Surrogate in Los Angeles</title>
+
+    <!--    css开始-->
+    {include file="common/css" /}
+    <!--    css结束-->
+
+</head>
+
+<body>
+<!-- HEADER-SECTION -->
+<div class="home-header-section sub-header-section">
+
+    <!--    header开始-->
+    {include file="common/header" /}
+    <!--    header结束-->
+
+    <!-- BANNER-SECTION -->
+    <div class="home-banner-section overflow-hidden position-relative sub-baner">
+        <figure class="banner-img1 mb-0">
+            <img src="__CDN__/assets/bridely/assets/images/banner-img1.png" alt="" class="star">
+        </figure>
+        <figure class="banner-img2 mb-0">
+            <img src="__CDN__/assets/bridely/assets/images/banner-img2.png" alt="" class="star">
+        </figure>
+        <div class="banner-container-box contact-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 order-lg-2 order-1">
+                        <div class="home-banner-text position-relative sub-banner-section" data-aos="fade-up" id="myContentDIV">
+                            <h1>Be a <span class="h1-text"> Surrogate!</span></h1>
+                            <P>
+                                Thank you for your interest in becoming a surrogate mother. This brief admission form will help us quickly determine whether you meet the basic requirements.
+                                After completion, we will reach out to you to let you know whether you can move forward, and discuss the surrogacy process in detail.
+                            </P>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Get-in-touch  -->
+    <div class="get-in-touch">
+        <div class="container">
+            <div class="row">
+                <!--                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">-->
+                <div class="col-xl-10 ">
+                    <div class="send_message_form_box_content">
+                        <figure class="contact-form-img">
+<!--                            <img src="__CDN__/assets/bridely/assets/images/contact-form-img.png" alt="" class="img-fluid">-->
+                            <img src="__CDN__/uploads/index-1.png" alt="" class="img-fluid" style="height: 180px">
+                        </figure>
+                        <form id="contactpage" method="POST" action="{:url('index/index/pre_screen')}" class="contactpage-form nice-validator n-default">
+
+                            <input class="form-control"   name="row[referral_id]" type="hidden"  value="{$aff}">
+
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4">
+                                    <label class="form-label" >First name *</label>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form_style" data-rule="required"  name="row[first_name]">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <label class="form-label" >Middle name </label>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form_style"  name="row[middle_name]">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <label class="form-label" >Last name *</label>
+                                    <div class="form-group mb-0">
+
+                                        <input type="text" class="form_style" data-rule="required" placeholder="" name="row[last_name]">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <label class="form-label" >Date of birth * </label>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form_style datepicker-here  digits birthday_time" data-rule="required"  name="surrogacy[birthday_time]" data-language="en" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <label class="form-label" >Street Address * </label>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form_style" data-rule="required" placeholder="" name="surrogacy[address]">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <label class="form-label" >City *</label>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form_style" data-rule="required" placeholder="" name="surrogacy[city]">
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-md-8">
+                                    <label class="form-label" >Select State *</label>
+                                    <div class="form-group special">
+                                        <select class="form-control select-icon select-event ws_select"  name="surrogacy[state]" data-rule="required">
+                                            <option  value=""></option>
+                                            <option  value="AK">AK</option>
+                                            <option value="AL" >AL</option>
+                                            <option value="AR" >AR</option>
+
+                                            <option value="AZ" >AZ</option>
+                                            <option value="CA" >CA</option>
+                                            <option value="CO" >CO</option>
+                                            <option value="CT" >CT</option>
+                                            <option value="DC" >DC</option>
+                                            <option value="DE" >DE</option>
+                                            <option value="FL" >FL</option>
+                                            <option value="GA" >GA</option>
+                                            <option value="GU" >GU</option>
+                                            <option value="HI" >HI</option>
+                                            <option value="IA" >IA</option>
+                                            <option value="ID" >ID</option>
+                                            <option value="IL">IL</option>
+                                            <option value="IN" >IN</option>
+                                            <option value="KS" >KS</option>
+                                            <option value="KY" >KY</option>
+                                            <option value="LA" >LA</option>
+                                            <option value="MA" >MA</option>
+                                            <option value="MD" >MD</option>
+                                            <option value="ME" >ME</option>
+                                            <option value="MI" >MI</option>
+                                            <option value="MN" >MN</option>
+                                            <option value="MO" >MO</option>
+                                            <option value="MS" >MS</option>
+                                            <option value="MT" >MT</option>
+                                            <option value="NC" >NC</option>
+                                            <option value="ND" >ND</option>
+                                            <option value="NE" >NE</option>
+                                            <option value="NH" >NH</option>
+                                            <option value="NJ" >NJ</option>
+                                            <option value="NM" >NM</option>
+                                            <option value="NV" >NV</option>
+                                            <option value="NY" >NY</option>
+                                            <option value="OH" >OH</option>
+                                            <option value="OK" >OK</option>
+                                            <option value="OR" >OR</option>
+                                            <option value="PA" >PA</option>
+                                            <option value="PR" >PR</option>
+                                            <option value="RI" >RI</option>
+                                            <option value="SC" >SC</option>
+                                            <option value="SD" >SD</option>
+                                            <option value="TN" >TN</option>
+                                            <option value="TX" >TX</option>
+                                            <option value="UT" >UT</option>
+                                            <option value="VA" >VA</option>
+                                            <option value="WA" >WA</option>
+                                            <option value="WI" >WI</option>
+                                            <option value="WV" >WV</option>
+                                            <option value="WY" >WY</option>
+                                            <option value="Others" >Others</option>
+
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-4">
+                                    <label class="form-label" >Zipcode *</label>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form_style" data-rule="required" placeholder="" name="surrogacy[postal_code]">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-4">
+                                    <label class="form-label" >Email *</label>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form_style" data-rule="required,email" placeholder="" name="row[email]">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-4">
+                                    <label class="form-label" >Phone *</label>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form_style" data-rule="required" placeholder="" name="row[mobile]" >
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-4">
+                                    <label class="form-label" >Age *</label>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form_style age" data-rule="required" placeholder="" name="surrogacy[age]">
+                                    </div>
+                                </div>
+                                <style>
+
+
+                                    .ws-ft-f {
+                                        position: relative;
+                                        display: table;
+                                        border-collapse: separate;
+                                        width: 100%;
+                                    }
+                                    .ws-ft {
+                                        position: absolute;
+                                        right: 65%;
+                                        top: 42%;
+                                        font-size: 18px;
+                                        color: #999;
+                                    }
+                                    .ws-in-f {
+                                        position: relative;
+                                        display: table;
+                                        border-collapse: separate;
+                                        width: 100%;
+                                    }
+                                    .ws-in{
+                                        position: absolute;
+                                        right: 22%;
+                                        top: 42%;
+                                        font-size: 18px;
+                                        color: #999;
+                                    }
+                                    .ws_weight_f {
+                                        position: relative;
+                                        display: table;
+                                        border-collapse: separate;
+                                        width: 100%;
+                                    }
+                                    .ws_weight {
+                                        position: absolute;
+                                        top: 42%;
+                                        right: 18%;
+                                        font-size: 18px;
+                                        color: #999;
+                                    }
+
+                                </style>
+                                <div class="col-lg-8 col-md-4">
+                                    <label class="form-label" >Height *</label>
+<!--                                    <label class="form-group" style="padding-left: 20px;font-size: 18px;color: #666">Height *</label>-->
+                                    <div class="form-group mb-20">
+                                        <select class="form-control select-icon select-event ws_select ws-ft-f "  name="surrogacy[height_ft]" style="width: 40%">
+                                            <option  value="0">0</option>
+                                            <option  value="1">1</option>
+                                            <option  value="2">2</option>
+                                            <option  value="3">3</option>
+                                            <option  value="4">4</option>
+                                            <option  value="5">5</option>
+                                            <option  value="6">6</option>
+                                            <option  value="7">7</option>
+                                        </select>
+                                        <span class="ws-ft form-label">
+                                            ft
+                                        </span>
+                                        <select class="form-control  select-icon select-event ws_select ws-in-f"  name="surrogacy[height_in]" style="width: 40%;margin-left: 20px" >
+                                            <option  value="0">0</option>
+                                            <option  value="1">1</option>
+                                            <option  value="2">2</option>
+                                            <option  value="3">3</option>
+                                            <option  value="4">4</option>
+                                            <option  value="5">5</option>
+                                            <option  value="6">6</option>
+                                            <option  value="7">7</option>
+                                            <option  value="8">8</option>
+                                            <option  value="9">9</option>
+                                            <option  value="10">10</option>
+                                            <option  value="11">11</option>
+                                        </select>
+                                        <span class="ws-in form-label">
+                                            in
+                                        </span>
+<!--                                        <input type="text" class="form_style" data-rule="required" placeholder="Height *" name="height">-->
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <label class="form-label" >Weight *</label>
+                                    <div class="form-group mb-0">
+                                        <input type="number" min="0" class="form_style ws_weight_f" data-rule="required"  name="surrogacy[weight]">
+                                        <span class="ws_weight form-label">lb</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                    <label class="form-group form-label" >Are you married or living with a long term relationship partner? *</label>
+                                    <style>
+                                        .ws_group {
+                                            display: flex;
+                                            flex-direction: row;
+                                            height: 35px !important;
+                                        }
+                                        .ws_radio {
+                                            display: flex;
+                                            flex-direction: row;
+                                            margin-right: 20px;
+                                        }
+                                        .radio {
+                                            margin-right: 5px !important;
+                                            width: 18px !important;
+                                            height: 18px !important;
+                                        }
+                                        .ws_r {
+                                            margin-top: 2px !important;
+                                        }
+                                    </style>
+                                    <div class="form-group ws_group">
+                                        <div class="ws_radio">
+                                            <input  type="radio" data-rule="checked" name="surrogacy[marital_status]" value="1" class="radio">
+                                            <label class="form-label ws_r">Yes</label>
+                                        </div>
+                                        <div class="ws_radio">
+                                            <input  type="radio" data-rule="checked" name="surrogacy[marital_status]" value="2" class="radio">
+                                            <label class="form-label ws_r">No</label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                    <label class="form-group form-label" >Are you an US citizen or permanent resident of US? *</label>
+                                    <div class="form-group ws_group">
+                                        <div class="ws_radio">
+                                            <input  type="radio" data-rule="checked" name="surrogacy[is_us]" value="1" class="radio">
+                                            <label class="form-label ws_r">Yes</label>
+                                        </div>
+                                        <div class="ws_radio">
+                                            <input  type="radio" data-rule="checked" name="surrogacy[is_us]" value="2" class="radio">
+                                            <label class="form-label ws_r">No</label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                    <label class="form-label" >Number of vaginal birth *</label>
+                                    <div class="form-group mb-0">
+                                        <input type="number" min="0" class="form_style" data-rule="required" placeholder="" name="surrogacy[product_number]">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <label class="form-label" >Number of caesarean sections *</label>
+                                    <div class="form-group mb-0">
+                                        <input type="number" min="0" class="form_style " data-rule="required" placeholder="" name="surrogacy[caesarean_number]">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <label class="form-label" >Number of miscarriages *</label>
+                                    <div class="form-group mb-0">
+                                        <input type="number" min="0" class="form_style " data-rule="required" placeholder="" name="surrogacy[miscarriage_number]">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <label class="form-label" >Number of abortions *</label>
+                                    <div class="form-group mb-0">
+                                        <input type="number" min="0" class="form_style " data-rule="required" placeholder="" name="surrogacy[abortion_number]">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12">
+                                    <label class="form-label" >If there is any miscarriage/abortion, please give a brief reason *</label>
+                                    <div class="form-group ws_group">
+                                        <div class="ws_radio">
+                                            <input  type="radio" data-rule="checked" name="surrogacy[is_abortion_reason]" value="1" class="radio radioinline1">
+                                            <label class="form-label ws_r">Yes</label>
+                                        </div>
+                                        <div class="ws_radio">
+                                            <input  type="radio" data-rule="checked" name="surrogacy[is_abortion_reason]" value="2" class="radio radioinline2">
+                                            <label class="form-label ws_r">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 ws_so2">
+                                    <label class="form-label" >If so, when and why? *</label>
+                                    <div class="form-group mb-0">
+                                        <textarea class="form_style"  placeholder="" rows="3" name="surrogacy[abortion_reason]"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12">
+                                    <label class="form-label" >Is there any complications during pregnancy or childbirth *</label>
+                                    <div class="form-group ws_group">
+                                        <div class="ws_radio">
+                                            <input  type="radio" data-rule="checked" name="surrogacy[is_complications_of_pregnancy]" value="1" class="radio radioinline3">
+                                            <label class="form-label ws_r">Yes</label>
+                                        </div>
+                                        <div class="ws_radio">
+                                            <input  type="radio" data-rule="checked" name="surrogacy[is_complications_of_pregnancy]" value="2" class="radio radioinline4">
+                                            <label class="form-label ws_r">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 ws_so1">
+                                    <label class="form-label" >If so, when? *</label>
+                                    <div class="form-group mb-0">
+                                        <textarea class="form_style"  placeholder="" rows="3" name="surrogacy[complications_of_pregnancy]"></textarea>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-12 col-md-12">
+                                    <label class="form-label" >Current contraceptive method *</label>
+                                    <div class="form-group mb-0">
+                                        <textarea class="form_style" data-rule="required" placeholder="" rows="3" name="surrogacy[contraceptive_measures]"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <label class="form-label" >How did you hear about us? *</label>
+                                    <div class=" form-group mb-0">
+                                        <textarea class="form_style" data-rule="required" placeholder="" rows="3" name="surrogacy[about_content]"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form_button_wrapper text-center " >
+                                <button type="submit" class="appointment-btn">Submit form</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--    footer开始-->
+{include file="common/footer" /}
+<!--    footer开始结束-->
+
+<!--    js开始-->
+{include file="common/js" /}
+<!--    js结束-->
+
+
+<script>
+    $('.birthday_time').blur(function () {
+        var btime = $('.birthday_time').val()
+        if (btime){
+            var date1 = btime
+            date1 =  date1.split('/');
+
+            date1 = date1[2]+'-'+date1[0]+'-'+date1[1];
+            var age = getAge(date1);
+            console.log(age)
+            $('.age').val(age)
+        }
+    })
+    function getAge(strAge) {
+        var birArr = strAge.split("-");
+        var birYear = birArr[0];
+        var birMonth = birArr[1];
+        var birDay = birArr[2];
+
+        d = new Date();
+        var nowYear = d.getFullYear();
+        var nowMonth = d.getMonth() + 1; //记得加1
+        var nowDay = d.getDate();
+        var returnAge;
+
+        if (birArr == null) {
+            return false
+        };
+        var d = new Date(birYear, birMonth - 1, birDay);
+        if (d.getFullYear() == birYear && (d.getMonth() + 1) == birMonth && d.getDate() == birDay) {
+            if (nowYear == birYear) {
+                returnAge = 0; //
+            } else {
+                var ageDiff = nowYear - birYear; //
+                if (ageDiff > 0) {
+                    if (nowMonth == birMonth) {
+                        var dayDiff = nowDay - birDay; //
+                        if (dayDiff < 0) {
+                            returnAge = ageDiff - 1;
+                        } else {
+                            returnAge = ageDiff;
+                        }
+                    } else {
+                        var monthDiff = nowMonth - birMonth; //
+                        if (monthDiff < 0) {
+                            returnAge = ageDiff - 1;
+                        } else {
+                            returnAge = ageDiff;
+                        }
+                    }
+                } else {
+                    return  "出生日期晚于今天，数据有误"; //返回-1 表示出生日期输入错误 晚于今天
+                }
+            }
+            return returnAge;
+        } else {
+            return ("输入的日期格式错误！");
+        }
+    }
+
+
+</script>
+
+</body>
+
+</html>

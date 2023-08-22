@@ -1,0 +1,142 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Uid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-uid" class="form-control" name="row[uid]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_smoke')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_smoke" class="form-control selectpicker" name="row[is_smoke]">
+                {foreach name="isSmokeList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_family_smoke')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_family_smoke" class="form-control selectpicker" name="row[is_family_smoke]">
+                {foreach name="isFamilySmokeList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_criminal_records')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_criminal_records" class="form-control selectpicker" name="row[is_criminal_records]">
+                {foreach name="isCriminalRecordsList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_crga')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_crga" class="form-control selectpicker" name="row[is_crga]">
+                {foreach name="isCrgaList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_tattoos')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_tattoos" class="form-control selectpicker" name="row[is_tattoos]">
+                {foreach name="isTattoosList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_bankruptcy')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_bankruptcy" class="form-control selectpicker" name="row[is_bankruptcy]">
+                {foreach name="isBankruptcyList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_blood')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_blood" class="form-control selectpicker" name="row[is_blood]">
+                {foreach name="isBloodList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_bb')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_bb" class="form-control selectpicker" name="row[is_bb]">
+                {foreach name="isBbList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_pm')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_pm" class="form-control selectpicker" name="row[is_pm]">
+                {foreach name="isPmList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Hobby')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-hobby" class="form-control " rows="5" name="row[hobby]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Life_geyan')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-life_geyan" class="form-control " rows="5" name="row[life_geyan]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Ecybs')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-ecybs" class="form-control " rows="5" name="row[ecybs]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

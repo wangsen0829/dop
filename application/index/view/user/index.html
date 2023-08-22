@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home | Dreams of Parenthood(DOP) Surrogate in Los Angeles</title>
+    <!-- Page Head Start-->
+
+    {include file="ws/css" /}
+    <!-- Page Head Start-->
+    <style>
+        /*.page-title {*/
+        /*    margin-top: 60px;*/
+        /*}*/
+        .ws-card-between {
+            height: 60px;
+            border: 1px solid rgba(83, 70, 134, 0.1019607843);
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .ws-card {
+            height: 60px;
+            border: 1px solid rgba(83, 70, 134, 0.1019607843);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row
+        }
+        .ws_pro_title {
+            font-size: 16px;
+            border-bottom: 1px solid #9993B4;
+        }
+        .ws_jindu {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+        }
+        .ws_pro_left {
+            margin: auto;width: 5%;
+            padding-left: 10px;
+        }
+        .ws_pro_right {
+            width: 94%;
+            padding-top: 7px;
+            padding-right: 20px;
+        }
+        .sm-progress-bar {
+            margin-top: 8px;
+            padding: 0px;
+        }
+        .ws_one_l {
+            margin-top: 18px;
+            margin-left: 18px;
+        }
+        .ws_one_r{
+            margin-top: 15px;
+            margin-right: 20px;
+        }
+        /* phone */
+        @media only screen and (max-width:767px) {
+            .ws_pro_right {
+                margin-left: 7px;
+                width: 85%;
+            }
+            .ws_pro_left {
+                padding-left: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page nav Start-->
+    {include file="ws/nav" /}
+    <!-- Page nav Ends -->
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+        <!-- Page menu Start-->
+        {include file="ws/menu" /}
+        <!-- Page menu Ends-->
+
+        <style>
+            .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+                margin-top: 24px;
+            }
+        </style>
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Control Panel</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <div class="container-fluid general-widget">
+                {if condition="$row.service == 1"}
+                <div class="row">
+
+                    <div class="col-xl-12 col-lg-6 col-sm-12">
+                        <div class="card browser-table">
+                            <div class="card-header pb-0">
+                                <h3>A few steps to become a surrogate</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row gy-4">
+                                    <div class="col-sm-12">
+                                        <a href="">
+                                            <div class="ws-card-between">
+                                                <div class="ws_one_l">
+                                                    Step1: Complete all application forms.
+                                                </div>
+                                                <div class="ws_one_r">
+                                                    <input  type="checkbox" disabled
+                                                            {if condition="$step eq 1"} checked{/if}
+                                                    style="height: 20px;width: 20px">
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <a href="">
+                                            <div class="ws-card-between">
+                                                <!--                                                <div class="ws_one_l">Step2:Follow the instrutions to retrieve your medical records.-->
+                                                <div class="ws_one_l">Step2: Pass our preliminary screening.
+                                                </div>
+                                                <div class="ws_one_r">
+                                                    <input  type="checkbox" disabled
+                                                            {if condition="$row&&$row['examine_status'] eq '1'"} checked{/if}
+                                                    style="height: 20px;width: 20px">
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 box-col-30 pe-0">
+                        <div class="widget-joins card widget-arrow">
+                            <div class="card-header pb-0">
+                                <h3>Application Status</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row gy-4">
+                                    <div class="col-sm-12">
+                                        <a href="{:url('index/user/pre_screen')}">
+                                            <div class="ws-card">
+                                                <div class="ws_pro_left">
+                                                <span >
+                                                    {if condition="$surrogate_form_data['pre_screen']['lv']==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                </div>
+                                                <div class="ws_pro_right">
+                                                    <div class="ws_pro_title">Pre-screening</div>
+                                                    <div class="ws_jindu ">
+                                                        <div>{$surrogate_form_data['pre_screen']['form_number']} questions</div>
+
+                                                        <div class="progress sm-progress-bar col-sm-8">
+                                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$surrogate_form_data['pre_screen']['lv']}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+
+                                                        <div>
+                                                            {$surrogate_form_data['pre_screen']['form_complate_number']}/{$surrogate_form_data['pre_screen']['form_number']} complated
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <a href="{:url('index/user/personal_info')}">
+                                            <div class="ws-card">
+                                                <div class="ws_pro_left">
+                                                <span >
+                                                    {if condition="$surrogate_form_data['personal']['lv']==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                </div>
+                                                <div class="ws_pro_right">
+                                                    <div class="ws_pro_title">Personal Info</div>
+                                                    <div class="ws_jindu ">
+                                                        <div>{$surrogate_form_data['personal']['form_number']} questions</div>
+
+                                                        <div class="progress sm-progress-bar col-sm-8">
+                                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$surrogate_form_data['personal']['lv']}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+
+                                                        <div>
+                                                            {$surrogate_form_data['personal']['form_complate_number']}/{$surrogate_form_data['personal']['form_number']} complated
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <a href="{:url('index/user/obstetric_history')}">
+                                            <div class="ws-card">
+                                                <div class="ws_pro_left">
+                                                <span >
+                                                    {if condition="$surrogate_form_data['ob']['lv']==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                </div>
+                                                <div class="ws_pro_right">
+                                                    <div class="ws_pro_title">Obstertric History</div>
+                                                    <div class="ws_jindu ">
+                                                        <div>{$surrogate_form_data['ob']['form_number']} questions</div>
+
+                                                        <div class="progress sm-progress-bar col-sm-8">
+                                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$surrogate_form_data['ob']['lv']}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+
+                                                        <div>
+                                                            {$surrogate_form_data['ob']['form_complate_number']}/{$surrogate_form_data['ob']['form_number']} complated
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <a href="{:url('index/user/medical_information')}">
+                                            <div class="ws-card">
+                                                <div class="ws_pro_left">
+                                                <span >
+                                                    {if condition="$surrogate_form_data['medical']['lv']==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                </div>
+                                                <div class="ws_pro_right">
+                                                    <div class="ws_pro_title">Medical Information</div>
+                                                    <div class="ws_jindu ">
+                                                        <div>{$surrogate_form_data['medical']['form_number']} questions</div>
+
+                                                        <div class="progress sm-progress-bar col-sm-8">
+                                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$surrogate_form_data['medical']['lv']}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+
+                                                        <div>
+                                                            {$surrogate_form_data['medical']['form_complate_number']}/{$surrogate_form_data['medical']['form_number']} complated
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <a href="{:url('index/user/about_surrogacy')}">
+                                            <div class="ws-card">
+                                                <div class="ws_pro_left">
+                                                <span >
+                                                    {if condition="$surrogate_form_data['about']['lv']==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                </div>
+                                                <div class="ws_pro_right">
+                                                    <div class="ws_pro_title">About Surrogacy</div>
+                                                    <div class="ws_jindu ">
+                                                        <div>{$surrogate_form_data['about']['form_number']} questions</div>
+
+                                                        <div class="progress sm-progress-bar col-sm-8">
+                                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$surrogate_form_data['about']['lv']}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+
+                                                        <div>
+                                                            {$surrogate_form_data['about']['form_complate_number']}/{$surrogate_form_data['about']['form_number']} complated
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <a href="{:url('index/user/other_information')}">
+                                            <div class="ws-card">
+                                                <div class="ws_pro_left">
+                                                <span >
+                                                    {if condition="$surrogate_form_data['other']['lv']==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                </div>
+                                                <div class="ws_pro_right">
+                                                    <div class="ws_pro_title">Other Information</div>
+                                                    <div class="ws_jindu ">
+                                                        <div>{$surrogate_form_data['other']['form_number']} questions</div>
+
+                                                        <div class="progress sm-progress-bar col-sm-8">
+                                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$surrogate_form_data['other']['lv']}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+
+                                                        <div>
+                                                            {$surrogate_form_data['other']['form_complate_number']}/{$surrogate_form_data['other']['form_number']} complated
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <a href="{:url('index/user/surrogate_photo')}">
+                                            <div class="ws-card">
+                                                <div class="ws_pro_left">
+                                                <span >
+                                                    {if condition="$surrogate_form_data['photos']['lv']==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                </div>
+                                                <div class="ws_pro_right">
+                                                    <div class="ws_pro_title">Photos</div>
+                                                    <div class="ws_jindu ">
+                                                        <div>{$surrogate_form_data['photos']['form_number']} questions</div>
+
+                                                        <div class="progress sm-progress-bar col-sm-8">
+                                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$surrogate_form_data['photos']['lv']}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+
+                                                        <div>
+                                                            {$surrogate_form_data['photos']['form_complate_number']}/{$surrogate_form_data['photos']['form_number']} complated
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+
+
+
+                                    <div class="col-sm-12">
+                                        <a href="{:url('index/user/health_record_release')}">
+                                            <div class="ws-card">
+                                                <div class="ws_pro_left">
+                                                <span >
+                                                    {if condition="$surrogate_form_data['health']['lv']==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                </div>
+                                                <div class="ws_pro_right">
+                                                    <div class="ws_pro_title">Health Record Release</div>
+                                                    <div class="ws_jindu ">
+                                                        <div>{$surrogate_form_data['health']['form_number']} questions</div>
+
+                                                        <div class="progress sm-progress-bar col-sm-8">
+                                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$surrogate_form_data['health']['lv']}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+
+                                                        <div>
+                                                            {$surrogate_form_data['health']['form_complate_number']}/{$surrogate_form_data['health']['form_number']} complated
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                {elseif condition="$row.service == 2"}
+                <div class="row">
+                    <div class="col-xl-12 col-lg-6 col-sm-12">
+                        <div class="card browser-table">
+                            <div class="card-header pb-0">
+                                <h3>A few steps to become an Egg Donor</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row gy-4">
+                                    <div class="col-sm-12">
+                                        <a href="">
+                                            <div class="ws-card-between">
+                                                <div class="ws_one_l">
+                                                    Step1: Complete all application forms.
+                                                </div>
+                                                <div class="ws_one_r">
+                                                    <input  type="checkbox" disabled
+                                                            {if condition="$step eq 1"} checked{/if}
+                                                    style="height: 20px;width: 20px">
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <a href="">
+                                            <div class="ws-card-between">
+                                                <div class="ws_one_l">Step2: Pass our preliminary screening.
+                                                </div>
+                                                <div class="ws_one_r">
+                                                    <input  type="checkbox" disabled
+                                                            {if condition="$row&&$row['examine_status'] eq '1'"} checked{/if}
+                                                    style="height: 20px;width: 20px">
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 box-col-30 pe-0">
+                        <div class="widget-joins card widget-arrow">
+                            <div class="card-header pb-0">
+                                <h3>Application Status</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row gy-4">
+                                    <div class="col-sm-12">
+                                        <a href="{:url('index/donor/pre_screen')}">
+                                            <div class="ws-card">
+                                                <div class="ws_pro_left">
+                                                <span >
+                                                     {if condition="$donor_form_data['pre_screen']['lv']==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                </div>
+                                                <div class="ws_pro_right">
+                                                    <div class="ws_pro_title">Pre-screening</div>
+                                                    <div class="ws_jindu ">
+                                                        <div>{$donor_form_data['pre_screen']['form_number']} questions</div>
+
+                                                        <div class="progress sm-progress-bar col-sm-8">
+                                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$donor_form_data['pre_screen']['lv']}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+
+                                                        <div>
+                                                            {$donor_form_data['pre_screen']['form_complate_number']}/{$donor_form_data['pre_screen']['form_number']} complated
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+
+
+
+                                    <div class="col-sm-12">
+                                        <a href="{:url('index/donor/personal')}">
+                                            <div class="ws-card">
+                                                <div class="ws_pro_left">
+                                                <span >
+                                                     {if condition="$donor_form_data['personal']['lv']==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                </div>
+                                                <div class="ws_pro_right">
+                                                    <div class="ws_pro_title">Personal information</div>
+                                                    <div class="ws_jindu ">
+                                                        <div>{$donor_form_data['personal']['form_number']} questions</div>
+
+                                                        <div class="progress sm-progress-bar col-sm-8">
+                                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$donor_form_data['personal']['lv']}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+
+                                                        <div>
+                                                            {$donor_form_data['personal']['form_complate_number']}/{$donor_form_data['personal']['form_number']} complated
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+
+
+                                    <div class="col-sm-12">
+                                        <a href="{:url('index/donor/photos')}">
+                                            <div class="ws-card">
+                                                <div class="ws_pro_left">
+                                                <span >
+                                                     {if condition="$donor_form_data['photos']['lv']==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                </div>
+                                                <div class="ws_pro_right">
+                                                    <div class="ws_pro_title">Photos</div>
+                                                    <div class="ws_jindu ">
+                                                        <div>{$donor_form_data['photos']['form_number']} questions</div>
+
+                                                        <div class="progress sm-progress-bar col-sm-8">
+                                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$donor_form_data['photos']['lv']}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+
+                                                        <div>
+                                                            {$donor_form_data['photos']['form_complate_number']}/{$donor_form_data['photos']['form_number']} complated
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <a href="{:url('index/donor/education')}">
+                                            <div class="ws-card">
+                                                <div class="ws_pro_left">
+                                                <span >
+                                                     {if condition="$donor_form_data['education']['lv']==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                </div>
+                                                <div class="ws_pro_right">
+                                                    <div class="ws_pro_title">Education</div>
+                                                    <div class="ws_jindu ">
+                                                        <div>{$donor_form_data['education']['form_number']} questions</div>
+
+                                                        <div class="progress sm-progress-bar col-sm-8">
+                                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$donor_form_data['education']['lv']}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+
+                                                        <div>
+                                                            {$donor_form_data['education']['form_complate_number']}/{$donor_form_data['education']['form_number']} complated
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <a href="{:url('index/donor/character')}">
+                                            <div class="ws-card">
+                                                <div class="ws_pro_left">
+                                                <span >
+                                                     {if condition="$donor_form_data['character']['lv']==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                </div>
+                                                <div class="ws_pro_right">
+                                                    <div class="ws_pro_title">Character</div>
+                                                    <div class="ws_jindu ">
+                                                        <div>{$donor_form_data['character']['form_number']} questions</div>
+
+                                                        <div class="progress sm-progress-bar col-sm-8">
+                                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$donor_form_data['character']['lv']}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+
+                                                        <div>
+                                                            {$donor_form_data['character']['form_complate_number']}/{$donor_form_data['character']['form_number']} complated
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <a href="{:url('index/donor/medical')}">
+                                            <div class="ws-card">
+                                                <div class="ws_pro_left">
+                                                <span >
+                                                     {if condition="$donor_form_data['medical']['lv']==100"}
+                                                     <i data-feather="check-circle" style="color: #67c100;"></i>
+                                                     {else}
+                                                     <i data-feather="alert-circle" style="color: #FFC71D;"></i>
+                                                     {/if}
+                                                </span>
+                                                </div>
+                                                <div class="ws_pro_right">
+                                                    <div class="ws_pro_title">Medical history</div>
+                                                    <div class="ws_jindu ">
+                                                        <div>{$donor_form_data['medical']['form_number']} questions</div>
+
+                                                        <div class="progress sm-progress-bar col-sm-8">
+                                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$donor_form_data['medical']['lv']}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+
+                                                        <div>
+                                                            {$donor_form_data['medical']['form_complate_number']}/{$donor_form_data['medical']['form_number']} complated
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                {/if}
+
+            </div>
+            <!-- Container-fluid Ends-->
+        </div>
+        <!-- Page content Ends-->
+
+
+
+    </div>
+</div>
+
+<!-- Page js Start-->
+{include file="ws/js" /}
+
+<!-- Page js Ends -->
+
+</body>
+</html>

@@ -1,0 +1,543 @@
+<div id="main" role="main">
+    <div class="tab-content tab-addtabs">
+        <div id="content">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="content">
+
+                        <style>
+                            .form-group .col-sm-3 {
+                                padding-bottom: 5px;
+                            }
+
+                            .nav-tabs {
+                                border-bottom: unset;
+                            }
+                        </style>
+                        <form id="add-form" class="form-horizontal" role="form" data-toggle="validator"
+                              method="POST"
+                              action="">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="panel panel-default ">
+                                    <div class="panel-heading">
+                                        <div class="panel-lead">
+                                            <div class="panel-title">
+                                                <span style="font-weight: bold;font-style: normal;">Clue information</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body" style="min-height: 248px;">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade active in" id="extra">
+                                                <input class="form-control"   name="row[type]" type="hidden"  value="2">
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">{:__('Status')}:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <select name="row[status]" class="form-control" data-rule="required">
+                                                            <!--                <option value="">All</option>-->
+                                                            <option value="0">New lead</option>
+                                                            <option value="1">Pre-screened</option>
+                                                            <option value="2">DQed</option>
+                                                            <option value="3">Repeated submission</option>
+                                                            <option value="4">Tried contact and waiting</option>
+                                                        </select>
+<!--                                                        <div class="radio">-->
+<!--                                                            {foreach name="statusList" item="vo"}-->
+<!--                                                            <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="0"}checked{/in} /> {$vo}</label>-->
+<!--                                                            {/foreach}-->
+<!--                                                        </div>-->
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Service:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <select name="row[service]" class="form-control" data-rule="required">
+                                                            <option value="1">Be a surrogate</option>
+                                                            <option value="2">Be an egg donor</option>
+                                                            <option value="3">Be an Sperm donation</option>
+                                                            <option value="4">Find a surrogate</option>
+                                                            <option value="5">Other</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">First name:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" name="row[first_name]" data-rule="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Middle name:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input type="text" class="form-control" name="row[middle_name]" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Last name:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" name="row[last_name]" data-rule="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Birthday time:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  class="form-control datetimepicker birthday_time" data-date-format="MM/DD/YYYY" data-use-current="true" name="row[birthday_time]" type="text" value="{:date('Y-m-d H:i:s')}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Address:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" name="row[address]"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">City:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" name="row[city]"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Select State:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <select class="form-control selectpicker"  name="row[state]">
+                                                            <option  value="AK">AK</option>
+                                                            <option value="AL" >AL</option>
+                                                            <option value="AR" >AR</option>
+
+                                                            <option value="AZ" >AZ</option>
+                                                            <option value="CA" >CA</option>
+                                                            <option value="CO" >CO</option>
+                                                            <option value="CT" >CT</option>
+                                                            <option value="DC" >DC</option>
+                                                            <option value="DE" >DE</option>
+                                                            <option value="FL" >FL</option>
+                                                            <option value="GA" >GA</option>
+                                                            <option value="GU" >GU</option>
+                                                            <option value="HI" >HI</option>
+                                                            <option value="IA" >IA</option>
+                                                            <option value="ID" >ID</option>
+                                                            <option value="IL">IL</option>
+                                                            <option value="IN" >IN</option>
+                                                            <option value="KS" >KS</option>
+                                                            <option value="KY" >KY</option>
+                                                            <option value="LA" >LA</option>
+                                                            <option value="MA" >MA</option>
+                                                            <option value="MD" >MD</option>
+                                                            <option value="ME" >ME</option>
+                                                            <option value="MI" >MI</option>
+                                                            <option value="MN" >MN</option>
+                                                            <option value="MO" >MO</option>
+                                                            <option value="MS" >MS</option>
+                                                            <option value="MT" >MT</option>
+                                                            <option value="NC" >NC</option>
+                                                            <option value="ND" >ND</option>
+                                                            <option value="NE" >NE</option>
+                                                            <option value="NH" >NH</option>
+                                                            <option value="NJ" >NJ</option>
+                                                            <option value="NM" >NM</option>
+                                                            <option value="NV" >NV</option>
+                                                            <option value="NY" >NY</option>
+                                                            <option value="OH" >OH</option>
+                                                            <option value="OK" >OK</option>
+                                                            <option value="OR" >OR</option>
+                                                            <option value="PA" >PA</option>
+                                                            <option value="PR" >PR</option>
+                                                            <option value="RI" >RI</option>
+                                                            <option value="SC" >SC</option>
+                                                            <option value="SD" >SD</option>
+                                                            <option value="TN" >TN</option>
+                                                            <option value="TX" >TX</option>
+                                                            <option value="UT" >UT</option>
+                                                            <option value="VA" >VA</option>
+                                                            <option value="WA" >WA</option>
+                                                            <option value="WI" >WI</option>
+                                                            <option value="WV" >WV</option>
+                                                            <option value="WY" >WY</option>
+                                                            <option value="Others" >Others</option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Zipcode:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" name="row[postal_code]"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Email:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" name="row[email]" data-rule="required,email"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Mobile:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  class="form-control" name="row[mobile]" type="text"  data-rule="required">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Age:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  class="form-control age" name="row[age]" type="number" min="0" >
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">{:__('Height')}:</label>
+                                                    <div class="col-xs-12 col-sm-8" style="padding-left: 0px">
+                                                        <style>
+                                                            .ws-ft-f {
+                                                                position: relative;
+                                                                display: table;
+                                                                border-collapse: separate;
+                                                            }
+                                                            .ws-ft {
+                                                                position: absolute;
+                                                                right: 20%;
+                                                                top: 10%;
+                                                                font-size: 16px;
+                                                                color: #000;
+                                                            }
+                                                            .ws_weight_f {
+                                                                position: relative;
+                                                                display: table;
+                                                                border-collapse: separate;
+                                                            }
+                                                            .ws_weight {
+                                                                position: absolute;
+                                                                right: 10%;
+                                                                top: 10%;
+                                                                font-size: 16px;
+                                                                color: #000;
+                                                            }
+                                                        </style>
+                                                        <div class="col-xs-5 ws-ft-f">
+                                                            <select class="form-control"  name="row[height_ft]">
+                                                                <option  value="0">0</option>
+                                                                <option  value="1">1</option>
+                                                                <option  value="2">2</option>
+                                                                <option  value="3">3</option>
+                                                                <option  value="4">4</option>
+                                                                <option  value="5">5</option>
+                                                                <option  value="6">6</option>
+                                                                <option  value="7">7</option>
+                                                            </select>
+                                                            <span class="ws-ft">ft</span>
+
+                                                        </div>
+                                                        <div class="col-xs-5 ws-ft-f">
+                                                            <select class="form-control"  name="row[height_in]">
+                                                                <option  value="0">0</option>
+                                                                <option  value="1">1</option>
+                                                                <option  value="2">2</option>
+                                                                <option  value="3">3</option>
+                                                                <option  value="4">4</option>
+                                                                <option  value="5">5</option>
+                                                                <option  value="6">6</option>
+                                                                <option  value="7">7</option>
+                                                                <option  value="8">8</option>
+                                                                <option  value="9">9</option>
+                                                                <option  value="10">10</option>
+                                                                <option  value="11">11</option>
+                                                            </select>
+                                                            <span class="ws-ft">in</span>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Weight:</label>
+                                                    <div class="col-xs-12 col-sm-8 ws_weight_f">
+                                                        <input id="c-weight" class="form-control" name="row[weight]" type="number">
+                                                        <span class="ws_weight">lb</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Are you married or living with a long term relationship partner?:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+
+                                                        <div class="radio">
+                                                            {foreach name="maritalStatusList" item="vo"}
+                                                            <label for="row[marital_status]-{$key}"><input id="row[marital_status]-{$key}" name="row[marital_status]" type="radio" value="{$key}" {in name="key" value="0"}checked{/in} /> {$vo}</label>
+                                                            {/foreach}
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Are you an US citizen or permanent resident of US?:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+
+                                                        <div class="radio">
+
+                                                            <label for="is_us_1"><input id="is_us_1" name="row[is_us]" type="radio" value="1" /> Yes</label>
+                                                            <label for="is_us_2"><input id="is_us_2" name="row[is_us]" type="radio" value="2" /> No</label>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Number of vaginal birth:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input id="c-product_number" class="form-control" name="row[product_number]" type="number">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Number of caesarean sections:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input id="c-caesarean_number" class="form-control" name="row[caesarean_number]" type="number">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Number of miscarriages:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input id="c-miscarriage_number" class="form-control" name="row[miscarriage_number]" type="number">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Number of abortions:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input id="c-abortion_number" class="form-control" name="row[abortion_number]" type="number">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">If there is any miscarriage/abortion, please give a brief reason:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <div class="radio">
+                                                            <label for="radio1">
+                                                                <input id="radio1" name="row[is_abortion_reason]" type="radio" value="1"  /> Yes
+                                                            </label>
+                                                            <label for="radio2">
+                                                                <input id="radio2" name="row[is_abortion_reason]" type="radio" value="2"  /> No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group abortion_reason">
+                                                    <label class="control-label col-xs-12 col-sm-3">If so, when and why?:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <textarea id="c-abortion_reason" class="form-control " rows="5" name="row[abortion_reason]" cols="50"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Is there any complications during pregnancy or childbirth:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <div class="radio">
+                                                            <label for="radio3">
+                                                                <input id="radio3" name="row[is_complications_of_pregnancy]" type="radio" value="1"  /> Yes
+                                                            </label>
+                                                            <label for="radio4">
+                                                                <input id="radio4" name="row[is_complications_of_pregnancy]" type="radio" value="2"  /> No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group complications_of_pregnancy">
+                                                    <label class="control-label col-xs-12 col-sm-3">If so, when and why?:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <textarea id="c-complications_of_pregnancy" class="form-control " rows="5" name="row[complications_of_pregnancy]" cols="50"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">Current contraceptive method :</label>
+                                                    <div class="col-xs-12 col-sm-8">
+
+                                                        <textarea id="c-contraceptive_measures" class="form-control " rows="5" name="row[contraceptive_measures]" cols="50"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-xs-12 col-sm-3">How did you hear about us?:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <textarea id="c-about_content" class="form-control " rows="5" name="row[about_content]" cols="50"></textarea>
+                                                    </div>
+                                                </div>
+
+
+
+<!--                                                    <div class="form-group">-->
+<!--                                                        <label class="control-label col-xs-12 col-sm-3">{:__('Createtime')}:</label>-->
+<!--                                                        <div class="col-xs-12 col-sm-8">-->
+<!--                                                            <input id="c-createtime" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[createtime]" type="text">-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+
+
+                                                <div class="form-group layer-footer">
+                                                    <label class="control-label col-xs-12 col-sm-3"></label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+                                                        <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 ">
+                                <div class="panel panel-default panel-success">
+                                    <div class="panel-heading">
+                                        <div class="panel-lead">
+                                            <div class="panel-title">
+                                                <span style="font-weight: bold;font-style: normal;">Api information</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body" style="min-height: 248px;">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade active in" id="extra1">
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Lead source:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" name="row[lead_source]"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Media:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input type="text" class="form-control" name="row[media]"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Account:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" name="row[account]"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Campaign:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" name="row[campaign]"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Adgroup:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" name="row[adgroup]"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Adname:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" name="row[adname]"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label  class="control-label col-xs-12 col-sm-3">Referral:</label>
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <input  type="text" class="form-control" name="row[referral]"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__CDN__/assets/bridely/assets/js/jquery-3.6.0.min.js"></script>
+<script>
+    $('#radio2').click(function () {
+        var is_abortion_reason = $("input[name='row[is_abortion_reason]']:checked").val();
+        if (is_abortion_reason==2){
+            $('.abortion_reason').css('display','none');
+        }
+    })
+    $('#radio1').click(function () {
+        var is_abortion_reason = $("input[name='row[is_abortion_reason]']:checked").val();
+        if (is_abortion_reason==1){
+            $('.abortion_reason').css('display','block');
+        }
+    })
+    $('#radio4').click(function () {
+        var is_complications_of_pregnancy = $("input[name='row[is_complications_of_pregnancy]']:checked").val();
+        if (is_complications_of_pregnancy==2){
+
+            $('.complications_of_pregnancy').css('display','none');
+
+        }
+    })
+    $('#radio3').click(function () {
+        var is_complications_of_pregnancy = $("input[name='row[is_complications_of_pregnancy]']:checked").val();
+        if (is_complications_of_pregnancy==1){
+
+            $('.complications_of_pregnancy').css('display','block');
+
+
+        }
+    })
+    $('.birthday_time').blur(function () {
+        var btime = $('.birthday_time').val()
+        if (btime){
+            var date1 = btime
+            date1 =  date1.split('/');
+
+            date1 = date1[2]+'-'+date1[0]+'-'+date1[1];
+            var age = getAge(date1);
+            console.log(age)
+            $('.age').val(age)
+        }
+    })
+    function getAge(strAge) {
+        var birArr = strAge.split("-");
+        var birYear = birArr[0];
+        var birMonth = birArr[1];
+        var birDay = birArr[2];
+
+        d = new Date();
+        var nowYear = d.getFullYear();
+        var nowMonth = d.getMonth() + 1; //记得加1
+        var nowDay = d.getDate();
+        var returnAge;
+
+        if (birArr == null) {
+            return false
+        };
+        var d = new Date(birYear, birMonth - 1, birDay);
+        if (d.getFullYear() == birYear && (d.getMonth() + 1) == birMonth && d.getDate() == birDay) {
+            if (nowYear == birYear) {
+                returnAge = 0; //
+            } else {
+                var ageDiff = nowYear - birYear; //
+                if (ageDiff > 0) {
+                    if (nowMonth == birMonth) {
+                        var dayDiff = nowDay - birDay; //
+                        if (dayDiff < 0) {
+                            returnAge = ageDiff - 1;
+                        } else {
+                            returnAge = ageDiff;
+                        }
+                    } else {
+                        var monthDiff = nowMonth - birMonth; //
+                        if (monthDiff < 0) {
+                            returnAge = ageDiff - 1;
+                        } else {
+                            returnAge = ageDiff;
+                        }
+                    }
+                } else {
+                    return  "出生日期晚于今天，数据有误"; //返回-1 表示出生日期输入错误 晚于今天
+                }
+            }
+            return returnAge;
+        } else {
+            return ("输入的日期格式错误！");
+        }
+    }
+</script>
+

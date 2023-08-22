@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Koho - Personal Info</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+    <link rel="icon" href="__CDN__/assets/koho/assets/images/favicon/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="__CDN__/assets/koho/assets/images/favicon/favicon.png" type="image/x-icon">
+
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/font-awesome.css">
+    <!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/icofont.css">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/themify.css">
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/flag-icon.css">
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/feather-icon.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/animate.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/prism.css">
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/bootstrap.css">
+    <!-- App css-->
+    <link rel="shortcut icon" href="__CDN__/assets/img/favicon.ico" />
+    <link href="__CDN__/assets/css/frontend{$Think.config.app_debug?'':'.min'}.css?v={$Think.config.site.version|htmlentities}" rel="stylesheet">
+    <script type="text/javascript">
+        var require = {
+            config: {$config|json_encode}
+        };
+    </script>
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/style.css">
+    <link id="color" rel="stylesheet" href="__CDN__/assets/koho/assets/css/color-1.css" media="screen">
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="__CDN__/assets/koho/assets/css/vendors/date-picker.css">
+    <style>
+        .form-control {
+            height: 47px;
+        }
+        .progress {
+            height: 10px;
+        }
+        .form-check{
+            display: inline-block !important;
+        }
+    </style>
+
+    <style>
+        .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+            margin-top: 24px;
+        }
+        .ws_jindu {
+            display: flex;
+            justify-content: space-between;
+        }
+        .ws_prodess {
+            margin-top: 5px;width: 75%
+        }
+        .col-xs-3 {
+            width: 12% !important;
+        }
+        @media only screen and (min-width:768px) and (max-width:992px) {
+            .ws_prodess_r {
+                padding-left: 20px;
+            }
+        }
+        /* phone */
+        @media only screen and (max-width:767px) {
+            .ws_prodess {
+                margin-top: 5px;width: 55%
+            }
+            .ws_prodess_r {
+                padding-left: 18px;
+            }
+            .input-group {
+                width: 80%;
+            }
+            .btn-danger {
+                padding: 0px !important;
+            }
+            .col-xs-3 {
+                width: 25% !important;
+            }
+            .thumbnail {
+                height: 50px !important;
+            }
+            .img-responsive{
+                height: 40px !important;
+            }
+        }
+    </style>
+
+</head>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+<!-- Loader starts-->
+<!--<div class="loader-wrapper">-->
+<!--    <div class="loader"></div>-->
+<!--</div>-->
+<!-- Loader ends-->
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page nav Start-->
+    {include file="ws/nav" /}
+    <!-- Page nav Ends -->
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+        <!-- Page menu Start-->
+        {include file="ws/menu" /}
+        <!-- Page menu Ends-->
+
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Additional Information</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">
+                                    <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">Form</li>
+                                <li class="breadcrumb-item active">Additional Information</li>
+                            </ol>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="card-body progress-showcase">
+                                <div class="ws_jindu">
+                                    <div>
+                                        {$form_number} required questions
+                                    </div>
+                                    <div class="col col-9 ws_prodess" >
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$lv}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ws_prodess_r">
+                                        {if condition="$row"} {$row.form_complate_number}/{$form_number} complate
+                                        {else}
+                                        0/{$form_number} complate
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container-fluid starts-->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="card">
+                            <div class="card-header pb-0">
+                                <span style="font-weight: 600;font-size: 14px;color: #534686;">
+                            Please note that the information on the page will not be shared with prospective parents or any other third party. This page is for administrative purposes only and only provides support in this process.
+                                  <br/>
+                             If you need to change any of the following information during processing, please send the updated version to contact@incintafertility.com
+                                </span>
+                            </div>
+                            <div class="card-body">
+                                <form class="row g-3 " id="additional_information" method="POST" action="" role="form" onsubmit="return sumbit_sure()">
+
+                                    <input class="form-control"  name="uid" type="hidden"  value="{$uid}" >
+                                    <input class="form-control"  id="form_complate_number" name="form_complate_number" type="hidden" value="0" >
+                                    <input class="form-control"   name="status" type="hidden"  value="0">
+
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Emergency Contact First Name *</label>
+                                        <input class="form-control" name="emergency_contact_first_name" type="text" data-rule="required" {if condition="$row"} value="{$row.emergency_contact_first_name|htmlentities}"{/if}>
+
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Emergency Contact Last Name *</label>
+                                        <input class="form-control" name="emergency_contact_last_name" type="text" data-rule="required" {if condition="$row"} value="{$row.emergency_contact_last_name|htmlentities}"{/if}>
+
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Emergency Contact Phone Number *</label>
+                                        <input class="form-control" name="emergency_contact_phone_number" type="text" data-rule="required" {if condition="$row"} value="{$row.emergency_contact_phone_number|htmlentities}"{/if}>
+
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <label class="form-label" >Emergency Contact Email *</label>
+                                        <input class="form-control" name="emergency_contact_email" type="text" data-rule="required" {if condition="$row"} value="{$row.emergency_contact_email|htmlentities}"{/if}>
+
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label">Do you have a current health care insurance policy?</label>
+                                        {if condition="$row"}
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline3" type="radio" data-rule="checked" name="is_health_care" value="1"
+                                                       {if condition="$row.is_health_care eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline3">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline4" type="radio" data-rule="checked" name="is_health_care" value="2"
+                                                       {if condition="$row.is_health_care eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline4">No</label>
+                                            </div>
+                                        </div>
+                                        {else}
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline1" type="radio" data-rule="checked" name="is_health_care" value="1">
+                                                <label class="form-check-label mb-0" for="radioinline1">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline2" type="radio" data-rule="checked" name="is_health_care" value="2">
+                                                <label class="form-check-label mb-0" for="radioinline2">No</label>
+                                            </div>
+                                        </div>
+                                        {/if}
+
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >Please upload your health insurance card(front side),if any </label>
+                                        <div>
+                                            <div class="col-md-6">
+                                                <div class="input-group" style="margin-left: -12px">
+                                                    <input id="c-images1" class="form-control" size="50" name="front_side_image" type="text" {if condition="$row"} value="{$row.front_side_image|htmlentities}"{/if}>
+                                                    <div class="input-group-addon ws_choose no-border no-padding">
+                                                        <span>
+                                                            <button style="margin-left: 20px;margin-top: 7px" type="button" id="faupload-images1" class="btn btn-warning faupload" data-input-id="c-images1" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="true" data-preview-id="p-images1"><i class="fa fa-upload"></i> Upload</button></span>
+                                                    </div>
+                                                    <div class="invalid-feedback">Please fill this.</div>
+                                                    <span class="msg-box n-right" for="c-images1"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <ul class="list-inline faupload-preview" id="p-images1" ></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label" >Please upload your health insurance card(back side),if any </label>
+                                        <div>
+                                            <div class="col-md-6">
+                                                <div class="input-group" style="margin-left: -12px">
+                                                    <input id="c-images2" class="form-control" size="50" name="back_side_image" type="text" {if condition="$row"} value="{$row.back_side_image|htmlentities}"{/if}>
+                                                    <div class="input-group-addon ws_choose no-border no-padding">
+                                                        <span>
+                                                            <button style="margin-left: 20px;margin-top: 7px" type="button" id="faupload-images2"
+                                                                    class="btn btn-warning faupload" data-input-id="c-images2"
+                                                                    data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp"
+                                                                    data-multiple="true" data-preview-id="p-images2">
+                                                                <i class="fa fa-upload"></i> Upload
+                                                            </button>
+                                                        </span>
+                                                    </div>
+                                                    <div class="invalid-feedback">Please fill this.</div>
+                                                    <span class="msg-box n-right" for="c-images2"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <ul class="list-inline faupload-preview" id="p-images2" ></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="submit">Submit form</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container-fluid Ends-->
+        </div>
+        <!-- Page content Ends-->
+
+    </div>
+
+
+
+</div>
+
+<!-- Page js Start-->
+{include file="ws/js" /}
+<!-- Page js Ends -->
+
+</body>
+
+
+<script>
+    function sumbit_sure(){
+        var parmas = $("#additional_information").find("input");
+        var name_arr = ['emergency_contact_first_name','emergency_contact_last_name','emergency_contact_phone_number','emergency_contact_email'];
+        var j = 0;
+        var arr = [];
+        for(i=0;i<parmas.length;i++){
+            var value = parmas[i].value;
+            var name = $(parmas[i]).attr('name');
+            if (name_arr.includes(name)&&value.length==0){
+                j++;
+                one = $(parmas[i]).prev().text();
+                arr.push(one);
+            }
+        }
+
+
+
+        var name_arr = ['is_health_care'];
+        for(i=0;i<name_arr.length;i++){
+            if (!$("input:radio[name='"+name_arr[i]+"']:checked").length){
+                j++;
+                one = $("input:radio[name='"+name_arr[i]+"']").parents('.form-label').prev().text();
+                arr.push(one);
+            }
+        }
+
+
+        $('#form_complate_number').val(j);
+        var html = "Are you sure you want to exit？\n";
+        if (j>0){
+            html += j+" mandatory field\n";
+            if(j==1){
+                html += "'"+arr[0]+"'\n," ;
+
+            }else if(j==2){
+                html += "'"+arr[0]+"',\n" ;
+                html += "'"+arr[1]+"',\n" ;
+            }else{
+                html += "'"+arr[0]+"',\n" ;
+                html += "'"+arr[1]+"',\n" ;
+                html += "'"+arr[2]+"'...\n" ;
+            }
+            html += "Not filled in.\n";
+            html += "\n";
+        }
+
+        html += "Please fill in relevant information.";
+        var gnl=confirm(html);
+        if (gnl==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
+
+
+
+</html>

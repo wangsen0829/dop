@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home - Medical Information</title>
+
+    <!-- Page Head Start-->
+    {include file="ws/css" /}
+    <!-- Page Head Start-->
+
+    <style>
+        .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+            margin-top: 24px;
+        }
+        .container-fluid {
+            padding: 0px !important;
+        }
+        .ws_jindu {
+            display: flex;
+            justify-content: space-between;
+        }
+        .ws_prodess {
+            margin-top: 5px;width: 75%
+        }
+        .ws_pd {
+            padding: 0px !important;
+        }
+        .faupload {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        .ws_so .col-xs-3 {
+            width: 18% !important;
+        }
+        @media only screen and (min-width:768px) and (max-width:992px) {
+            .ws_prodess_r {
+                padding-left: 20px;
+            }
+        }
+        /* phone */
+        @media only screen and (max-width:767px) {
+            .ws_prodess {
+                margin-top: 5px;width: 55%
+            }
+            .ws_prodess_r {
+                padding-left: 18px;
+            }
+            .btn-danger {
+                padding: 0px !important;
+            }
+            .faupload {
+                margin-left: 10px;
+            }
+            .ws_so .col-xs-3 {
+                width: 25% !important;
+            }
+        }
+        .ws_dis_no {
+            display: none ;
+        }
+    </style>
+</head>
+<body>
+<!-- tap on top starts-->
+<div class="tap-top"><i data-feather="chevrons-up"></i></div>
+<!-- tap on tap ends-->
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+
+
+        <!-- Page content Start-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Medical Information</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{:url('user/user/detail',['ids'=>$uid])}">
+                                    <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">
+                                    <!--                                    <a  style="cursor:pointer;" onClick="javascript :history.back(-1);"> Forms</a>-->
+                                    <a  style="cursor:pointer;" href="{:url('user/user/detail',['ids'=>$uid])}"> Forms</a>
+                                </li>
+                                <li class="breadcrumb-item active">Medical Information</li>
+                            </ol>
+                        </div>
+                        <div class="col-12">
+
+                            <div class="card-body progress-showcase">
+                                <div class="ws_jindu">
+                                    <div>
+                                        {$form_number} required questions
+                                    </div>
+                                    <div class="col col-9 ws_prodess" >
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: {$lv}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ws_prodess_r">
+                                        {if condition="$row"} {$row.form_complate_number}/{$form_number} complate
+                                        {else}
+                                        0/{$form_number} complate
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container-fluid starts-->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="card">
+                            <div class="card-header pb-0">
+
+                            </div>
+                            <div class="card-body">
+                                <form class="row g-3 " id="medical_information" method="POST" action="" role="form" onsubmit="return sumbit_sure()">
+
+                                    <input class="form-control"  name="uid" type="hidden"  value="{$uid}" >
+                                    <input class="form-control"  id="form_complate_number" name="form_complate_number" type="hidden" value="0" >
+                                    <input class="form-control"   name="status" type="hidden"  value="0">
+                                    <div class="col-md-12 position-relative">
+                                        <label class="form-label">Do you have a current health care insurance policy? *</label>
+
+                                        <div class="form-label">
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline100" type="radio" data-rule="checked" name="is_health_care" value="1"
+
+                                                       {if condition="$row&&$row.is_health_care eq '1'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline100">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline radio radio-primary">
+                                                <input class="form-check-input" id="radioinline101" type="radio" data-rule="checked" name="is_health_care" value="2"
+                                                       {if condition="$row&&$row.is_health_care eq '2'"} checked{/if}
+                                                >
+                                                <label class="form-check-label mb-0" for="radioinline101">No</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12 position-relative ws_so {if condition="$row&&$row.is_health_care eq '2'"} ws_dis_no{/if}">
+                                    <label class="form-label" >Please upload your health insurance card(front side),if any *</label>
+                            </div>
+                            <div class="col-md-8  position-relative ws_so {if condition="$row&&$row.is_health_care eq '2'"} ws_dis_no{/if}"">
+                            <div class="col-md-8 ws_pd ">
+                                <input id="c-images" class="form-control" size="50" name="front_side_image" type="text"  {if condition="$row"} value="{$row.front_side_image|htmlentities}"{/if}>
+                            </div>
+                            <div class="col-md-3 ws_pd">
+                                <button type="button" id="faupload-images" class="btn btn-warning faupload" data-input-id="c-images" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="true" data-preview-id="p-images">
+                                    <i class="fa fa-upload"></i>
+                                    Upload
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-8 ws_so {if condition="$row&&$row.is_health_care eq '2'"} ws_dis_no{/if}"">
+                        <ul class="list-inline faupload-preview" id="p-images" ></ul>
+                    </div>
+
+
+                    <div class="col-md-12 position-relative ws_so {if condition="$row&&$row.is_health_care eq '2'"} ws_dis_no{/if}"">
+                    <label class="form-label" >Please upload your health insurance card(back side),if any *</label>
+                </div>
+                <div class="col-md-8  position-relative ws_so {if condition="$row&&$row.is_health_care eq '2'"} ws_dis_no{/if}"">
+                <div class="col-md-8 ws_pd">
+                    <input id="c-images1" class="form-control" size="50" name="back_side_image" type="text"  {if condition="$row"} value="{$row.back_side_image|htmlentities}"{/if}>
+                </div>
+                <div class="col-md-3 ws_pd">
+                    <button type="button" id="faupload-images1" class="btn btn-warning faupload" data-input-id="c-images1" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="true" data-preview-id="p-images1">
+                        <i class="fa fa-upload"></i>
+                        Upload
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-8 ws_so {if condition="$row&&$row.is_health_care eq '2'"} ws_dis_no{/if}"">
+            <ul class="list-inline faupload-preview" id="p-images1" ></ul>
+        </div>
+
+
+        <div class="col-md-6 m-b-20 position-relative">
+            <label class="form-label" >COVID Vaccination *</label>
+
+            <select class="form-select"  name="covid" required="">
+                <option  value="0" {if condition="$row&&$row.covid eq '0'"} selected{/if}>Vaccinated</option>
+                <option  value="1" {if condition="$row&&$row.covid eq '1'"} selected{/if}>Boosted</option>
+                <option  value="2" {if condition="$row&&$row.covid eq '2'"} selected{/if}>Incomplete</option>
+                <option  value="3" {if condition="$row&&$row.covid eq '3'"} selected{/if}>No,but willing to</option>
+                <option  value="4" {if condition="$row&&$row.covid eq '4'"} selected{/if}>No</option>
+            </select>
+
+        </div>
+
+        <div class="col-md-12 position-relative">
+            <label class="form-label">Do you smoke? *</label>
+
+            <div class="form-label">
+                <div class="form-check form-check-inline radio radio-primary">
+                    <input class="form-check-input" id="radioinline1" type="radio" data-rule="checked" name="is_smoke" value="1"
+                           {if condition="$row&&$row.is_smoke eq '1'"} checked{/if}
+                    >
+                    <label class="form-check-label mb-0" for="radioinline1">Yes</label>
+                </div>
+                <div class="form-check form-check-inline radio radio-primary">
+                    <input class="form-check-input" id="radioinline2" type="radio" data-rule="checked" name="is_smoke" value="2"
+                           {if condition="$row&&$row.is_smoke eq '2'"} checked{/if}
+                    >
+                    <label class="form-check-label mb-0" for="radioinline2">No</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 m-b-20 position-relative ws_smoke {if condition="$row&&$row.is_smoke eq '2'"} ws_dis_no{/if}">
+        <label class="form-label">How often and how much? *</label>
+        <input class="form-control"   name="smoke_content" type="text" {if condition="$row"} value="{$row.smoke_content|htmlentities}"{/if}>
+    </div>
+
+
+
+    <div class="col-md-12 position-relative">
+        <label class="form-label">Do you drink alcoholic beverages? *</label>
+        <div class="form-label">
+            <div class="form-check form-check-inline radio radio-primary">
+                <input class="form-check-input" id="radioinline10" type="radio" data-rule="checked" name="is_alcoholic_beverages" value="1"
+                       {if condition="$row&&$row.is_alcoholic_beverages eq '1'"} checked{/if}
+                >
+                <label class="form-check-label mb-0" for="radioinline10">Yes</label>
+            </div>
+            <div class="form-check form-check-inline radio radio-primary">
+                <input class="form-check-input" id="radioinline11" type="radio" data-rule="checked" name="is_alcoholic_beverages" value="2"
+                       {if condition="$row&&$row.is_alcoholic_beverages eq '2'"} checked{/if}
+                >
+                <label class="form-check-label mb-0" for="radioinline11">No</label>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 m-b-20 position-relative ws_alcoholic {if condition="$row&&$row.is_alcoholic_beverages eq '2'"} ws_dis_no{/if}">
+    <label class="form-label">How often and how much?</label>
+    <input class="form-control"   name="alcoholic_content" type="text" {if condition="$row"} value="{$row.alcoholic_content|htmlentities}"{/if}>
+</div>
+
+
+
+<div class="col-md-12 position-relative">
+    <label class="form-label">Have you or anyone in your home ever been treated for a mental illness? *</label>
+    <div class="form-label">
+        <div class="form-check form-check-inline radio radio-primary">
+            <input class="form-check-input" id="radioinline15" type="radio"  name="is_mental_illness" value="1" data-rule="checked"
+                   {if condition="$row&&$row.is_mental_illness eq '1'"} checked{/if}
+            >
+            <label class="form-check-label mb-0" for="radioinline15">Yes</label>
+        </div>
+        <div class="form-check form-check-inline radio radio-primary">
+            <input class="form-check-input" id="radioinline16" type="radio" name="is_mental_illness" value="2" data-rule="checked"
+                   {if condition="$row&&$row.is_mental_illness eq '2'"} checked{/if}
+            >
+            <label class="form-check-label mb-0" for="radioinline16">No</label>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 m-b-20 position-relative ws_illness {if condition="$row&&$row.is_mental_illness eq '2'"} ws_dis_no{/if}">
+<label class="form-label">Please describe in detail:</label>
+<input class="form-control"   name="illness_content" type="text"  {if condition="$row"} value="{$row.illness_content|htmlentities}"{/if}>
+</div>
+
+
+
+
+
+<div class="col-md-12 position-relative">
+    <label class="form-label">Are you currently taking any medications? *</label>
+    <div class="form-label">
+        <div class="form-check form-check-inline radio radio-primary">
+            <input class="form-check-input" id="radioinline22" type="radio"  name="is_take_any_medicine" value="1" data-rule="checked"
+                   {if condition="$row&&$row.is_take_any_medicine eq '1'"} checked{/if}
+            >
+            <label class="form-check-label mb-0" for="radioinline22">Yes</label>
+        </div>
+        <div class="form-check form-check-inline radio radio-primary">
+            <input class="form-check-input" id="radioinline23" type="radio" name="is_take_any_medicine" value="2" data-rule="checked"
+                   {if condition="$row&&$row.is_take_any_medicine eq '2'"} checked{/if}
+            >
+            <label class="form-check-label mb-0" for="radioinline23">No</label>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 m-b-20 position-relative ws_medications {if condition="$row&&$row.is_take_any_medicine eq '2'"} ws_dis_no{/if}">
+<label class="form-label">Please describe in detail:</label>
+<input class="form-control"   name="any_medicine_content" type="text" {if condition="$row"} value="{$row.any_medicine_content|htmlentities}"{/if}>
+</div>
+
+
+
+
+<div class="col-md-12 position-relative">
+    <label class="form-label">Are you allergic to any medication, food, animals, or anything else? *</label>
+    <div class="form-label">
+        <div class="form-check form-check-inline radio radio-primary">
+            <input class="form-check-input" id="radioinline26" type="radio"  name="is_allergic_medication" value="1" data-rule="checked"
+                   {if condition="$row&&$row.is_allergic_medication eq '1'"} checked{/if}
+            >
+            <label class="form-check-label mb-0" for="radioinline26">Yes</label>
+        </div>
+        <div class="form-check form-check-inline radio radio-primary">
+            <input class="form-check-input" id="radioinline27" type="radio" name="is_allergic_medication" value="2" data-rule="checked"
+                   {if condition="$row&&$row.is_allergic_medication eq '2'"} checked{/if}
+            >
+            <label class="form-check-label mb-0" for="radioinline27">No</label>
+        </div>
+    </div>
+</div>
+<div class="col-md-12 m-b-20 position-relative ws_allergic_medication {if condition="$row&&$row.is_allergic_medication eq '2'"} ws_dis_no{/if}">
+<label class="form-label">Please describe in detail:</label>
+<input class="form-control"   name="allergic_medication_content" type="text" {if condition="$row"} value="{$row.allergic_medication_content|htmlentities}"{/if}>
+</div>
+
+
+<div class="col-md-12 position-relative">
+    <label class="form-label">Have ever been  hospitalized, except childbirth? *</label>
+
+    <div class="form-label">
+        <div class="form-check form-check-inline radio radio-primary">
+            <input class="form-check-input" id="radioinline34" type="radio"  name="is_hospitalized" value="1" data-rule="checked"
+                   {if condition="$row&&$row.is_hospitalized eq '1'"} checked{/if}
+            >
+            <label class="form-check-label mb-0" for="radioinline34">Yes</label>
+        </div>
+        <div class="form-check form-check-inline radio radio-primary">
+            <input class="form-check-input" id="radioinline35" type="radio" name="is_hospitalized" value="2" data-rule="checked"
+                   {if condition="$row&&$row.is_hospitalized eq '2'"} checked{/if}
+            >
+            <label class="form-check-label mb-0" for="radioinline35">No</label>
+        </div>
+    </div>
+</div>
+<div class="col-md-12 m-b-20 position-relative ws_hospitalized {if condition="$row&&$row.is_hospitalized eq '2'"} ws_dis_no{/if}">
+<label class="form-label">Please describe in detail:</label>
+<input class="form-control"   name="hospitalized_content" type="text" {if condition="$row"} value="{$row.hospitalized_content|htmlentities}"{/if}>
+</div>
+
+<div class="col-md-12 position-relative">
+    <label class="form-label">Are there twins or triplets in your family? *</label>
+
+    <div class="form-label">
+        <div class="form-check form-check-inline radio radio-primary">
+            <input class="form-check-input" id="radioinline38" type="radio"  name="is_twins" value="1" data-rule="checked"
+                   {if condition="$row&&$row.is_twins eq '1'"} checked{/if}
+            >
+            <label class="form-check-label mb-0" for="radioinline38">Yes</label>
+        </div>
+        <div class="form-check form-check-inline radio radio-primary">
+            <input class="form-check-input" id="radioinline39" type="radio" name="is_twins" value="2" data-rule="checked"
+                   {if condition="$row&&$row.is_twins eq '2'"} checked{/if}
+            >
+            <label class="form-check-label mb-0" for="radioinline39">No</label>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<!--                                    <div class="col-md-12 position-relative">-->
+<!--                                        <label class="form-label" >How many biological children do you have? *</label>-->
+<!--                                        <textarea class="form-control" id="exampleFormControlTextarea3" data-rule="required" name="many_children"  rows="3">{if condition="$row"} {$row.many_children|htmlentities}{/if}</textarea>-->
+<!--                                    </div>-->
+
+<!--                                    <div class="col-md-12 position-relative">-->
+<!--                                        <label class="form-label">Do you plan on having more children of your own? *</label>-->
+<!--                                        <div class="form-label">-->
+<!--                                            <div class="form-check form-check-inline radio radio-primary">-->
+<!--                                                <input class="form-check-input" id="radioinline42" type="radio"  name="is_having_more_children" value="1" data-rule="checked"-->
+<!--                                                       {if condition="$row&&$row.is_having_more_children eq '1'"} checked{/if}-->
+<!--                                                >-->
+<!--                                                <label class="form-check-label mb-0" for="radioinline42">Yes</label>-->
+<!--                                            </div>-->
+<!--                                            <div class="form-check form-check-inline radio radio-primary">-->
+<!--                                                <input class="form-check-input" id="radioinline43" type="radio" name="is_having_more_children" value="2" data-rule="checked"-->
+<!--                                                       {if condition="$row&&$row.is_having_more_children eq '2'"} checked{/if}-->
+<!--                                                >-->
+<!--                                                <label class="form-check-label mb-0" for="radioinline43">No</label>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                    </div>-->
+
+<div class="col-md-12 position-relative">
+    <label class="form-label" >Have you ever been prescribed any medications in the last 5 years? if yes please explain: *</label>
+    <textarea class="form-control" id="exampleFormControlTextarea2" data-rule="required" name="any_5_medication"  rows="3">{if condition="$row"} {$row.any_5_medication|htmlentities}{/if}</textarea>
+</div>
+
+<div class="col-md-12 position-relative">
+    <label class="form-label" >Have you ever been diagnosed with the follwing diseases: </label>
+    <div class="col">
+        <div class="m-checkbox-inline">
+            <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                <input class="form-check-input" id="inline-2" type="checkbox" name="any_diseases[]" value="1"
+                       {if condition="$row&&in_array('1',$row.any_diseases)"} checked{/if}
+                >
+                <label class="form-check-label" for="inline-2">Cancer</label>
+            </div>
+            <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                <input class="form-check-input" id="inline-4" type="checkbox" name="any_diseases[]" value="2"
+                       {if condition="$row&&in_array('2',$row.any_diseases)"} checked{/if}
+                >
+                <label class="form-check-label" for="inline-4">Heart problems / congenital heart defect</label>
+            </div>
+            <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                <input class="form-check-input" id="inline-5" type="checkbox" name="any_diseases[]" value="3"
+                       {if condition="$row&&in_array('3',$row.any_diseases)"} checked{/if}
+                >
+                <label class="form-check-label" for="inline-5">Head injuries</label>
+            </div>
+            <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                <input class="form-check-input" id="inline-6" type="checkbox" name="any_diseases[]" value="4"
+                       {if condition="$row&&in_array('4',$row.any_diseases)"} checked{/if}
+                >
+                <label class="form-check-label" for="inline-6">Thyroid problems</label>
+            </div>
+            <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                <input class="form-check-input" id="inline-7" type="checkbox" name="any_diseases[]" value="5"
+                       {if condition="$row&&in_array('5',$row.any_diseases)"} checked{/if}
+                >
+                <label class="form-check-label" for="inline-7">Seizures</label>
+            </div>
+            <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                <input class="form-check-input" id="inline-8" type="checkbox" name="any_diseases[]" value="6"
+                       {if condition="$row&&in_array('6',$row.any_diseases)"} checked{/if}
+                >
+                <label class="form-check-label" for="inline-8">Anemia</label>
+            </div>
+            <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                <input class="form-check-input" id="inline-9" type="checkbox" name="any_diseases[]" value="7"
+                       {if condition="$row&&in_array('7',$row.any_diseases)"} checked{/if}
+                >
+                <label class="form-check-label" for="inline-9">Genital warts</label>
+            </div>
+            <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                <input class="form-check-input" id="inline-10" type="checkbox" name="any_diseases[]" value="8"
+                       {if condition="$row&&in_array('8',$row.any_diseases)"} checked{/if}
+                >
+                <label class="form-check-label" for="inline-10">Tuberculosis</label>
+            </div>
+            <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                <input class="form-check-input" id="inline-11" type="checkbox" name="any_diseases[]" value="9"
+                       {if condition="$row&&in_array('9',$row.any_diseases)"} checked{/if}
+                >
+                <label class="form-check-label" for="inline-11">Diabetes</label>
+            </div>
+            <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                <input class="form-check-input" id="inline-12" type="checkbox" name="any_diseases[]" value="10"
+                       {if condition="$row&&in_array('10',$row.any_diseases)"} checked{/if}
+                >
+                <label class="form-check-label" for="inline-11">High blood pressure</label>
+            </div>
+            <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                <input class="form-check-input" id="inline-13" type="checkbox" name="any_diseases[]" value="11"
+                       {if condition="$row&&in_array('11',$row.any_diseases)"} checked{/if}
+                >
+                <label class="form-check-label" for="inline-11">Stroke</label>
+            </div>
+            <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                <input class="form-check-input" id="inline-14" type="checkbox" name="any_diseases[]" value="12"
+                       {if condition="$row&&in_array('12',$row.any_diseases)"} checked{/if}
+                >
+                <label class="form-check-label" for="inline-11">Mental illness</label>
+            </div>
+            <div class="form-check form-check-inline checkbox checkbox-dark mb-0">
+                <input class="form-check-input" id="inline-15" type="checkbox" name="any_diseases[]" value="13"
+                       {if condition="$row&&in_array('13',$row.any_diseases)"} checked{/if}
+                >
+                <label class="form-check-label" for="inline-11">Kidney Trouble</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 position-relative">
+    <label class="form-label">Have you ever had a blood transfusion? *</label>
+    <div class="form-label">
+        <div class="form-check form-check-inline radio radio-primary">
+            <input class="form-check-input" id="radioinline30" type="radio"  name="is_blood" value="1"
+                   {if condition="$row&&$row.is_blood eq '1'"} checked{/if}
+            >
+            <label class="form-check-label mb-0" for="radioinline30">Yes</label>
+        </div>
+        <div class="form-check form-check-inline radio radio-primary">
+            <input class="form-check-input" id="radioinline31" type="radio"  name="is_blood" value="2"
+                   {if condition="$row&&$row.is_blood eq '2'"} checked{/if}
+            >
+            <label class="form-check-label mb-0" for="radioinline31">No</label>
+        </div>
+    </div>
+
+
+</div>
+<div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Container-fluid Ends-->
+</div>
+<!-- Page content Ends-->
+
+</div>
+
+
+
+</div>
+
+<!-- Page js Start-->
+{include file="ws/js" /}
+<!-- Page js Ends -->
+<script>
+    $('#radioinline101').click(function () {
+        var is_spontaneous_abortion = $("input[name='is_health_care']:checked").val();
+        if (is_spontaneous_abortion==2){
+            $('.ws_so').css('display','none');
+        }
+    })
+    $('#radioinline100').click(function () {
+        var is_spontaneous_abortion = $("input[name='is_health_care']:checked").val();
+        if (is_spontaneous_abortion==1){
+            $('.ws_so').css('display','inline-block');
+        }
+    })
+    $('#radioinline1').click(function () {
+        var is_smoke = $("input[name='is_smoke']:checked").val();
+        if (is_smoke==1){
+            $('.ws_smoke').css('display','inline-block');
+        }
+    })
+    $('#radioinline2').click(function () {
+        var is_smoke = $("input[name='is_smoke']:checked").val();
+        if (is_smoke==2){
+            $('.ws_smoke').css('display','none');
+        }
+    })
+
+    $('#radioinline10').click(function () {
+        var is_alcoholic_beverages = $("input[name='is_alcoholic_beverages']:checked").val();
+        if (is_alcoholic_beverages==1){
+            $('.ws_alcoholic').css('display','inline-block');
+        }
+    })
+    $('#radioinline11').click(function () {
+        var is_alcoholic_beverages = $("input[name='is_alcoholic_beverages']:checked").val();
+        if (is_alcoholic_beverages==2){
+            $('.ws_alcoholic').css('display','none');
+        }
+    })
+
+    $('#radioinline15').click(function () {
+        var is_mental_illness = $("input[name='is_mental_illness']:checked").val();
+        if (is_mental_illness==1){
+            $('.ws_illness').css('display','inline-block');
+        }
+    })
+    $('#radioinline16').click(function () {
+        var is_mental_illness = $("input[name='is_mental_illness']:checked").val();
+        if (is_mental_illness==2){
+            $('.ws_illness').css('display','none');
+        }
+    })
+    $('#radioinline22').click(function () {
+        var is_take_any_medicine = $("input[name='is_take_any_medicine']:checked").val();
+        if (is_take_any_medicine==1){
+            $('.ws_medications').css('display','inline-block');
+        }
+    })
+    $('#radioinline23').click(function () {
+        var is_mental_illness = $("input[name='is_take_any_medicine']:checked").val();
+        if (is_mental_illness==2){
+            $('.ws_medications').css('display','none');
+        }
+    })
+    $('#radioinline26').click(function () {
+        var is_allergic_medication = $("input[name='is_allergic_medication']:checked").val();
+        if (is_allergic_medication==1){
+            $('.ws_allergic_medication').css('display','inline-block');
+        }
+    })
+    $('#radioinline27').click(function () {
+        var is_allergic_medication = $("input[name='is_allergic_medication']:checked").val();
+        if (is_allergic_medication==2){
+            $('.ws_allergic_medication').css('display','none');
+        }
+    })
+
+
+    $('#radioinline34').click(function () {
+        var is_hospitalized = $("input[name='is_hospitalized']:checked").val();
+        if (is_hospitalized==1){
+            $('.ws_hospitalized').css('display','inline-block');
+        }
+    })
+    $('#radioinline35').click(function () {
+        var is_hospitalized = $("input[name='is_hospitalized']:checked").val();
+        if (is_hospitalized==2){
+            $('.ws_hospitalized').css('display','none');
+        }
+    })
+</script>
+<script>
+    //表单弹框事件
+    function sumbit_sure(){
+
+
+        var j = 0;// 表单未完成数量
+        var arr = [];// 表单未完成数组
+
+        var textarea = $("#medical_information").find("textarea");
+        for(i=0;i<textarea.length;i++){
+            var text = textarea[i].value;
+            if (!text){
+                j++;
+                one = $(textarea[i]).prev().text();
+                arr.push(one);
+            }
+        }
+        var name_arr = ['is_health_care','is_smoke','is_alcoholic_beverages','is_mental_illness','is_take_any_medicine',
+            'is_allergic_medication','is_hospitalized','is_twins','is_blood'];
+        for(i=0;i<name_arr.length;i++){
+            if (!$("input:radio[name='"+name_arr[i]+"']:checked").length){
+                j++;
+                one = $("input:radio[name='"+name_arr[i]+"']").parents('.form-label').prev().text();
+                arr.push(one);
+            }
+        }
+
+        $('#form_complate_number').val(j);
+        var html = "Are you sure you want to exit？\n";
+        if (j>0){
+            html += j+" mandatory field\n";
+            if(j==1){
+                html += "'"+arr[0]+"'\n," ;
+
+            }else if(j==2){
+                html += "'"+arr[0]+"',\n" ;
+                html += "'"+arr[1]+"',\n" ;
+            }else{
+                html += "'"+arr[0]+"',\n" ;
+                html += "'"+arr[1]+"',\n" ;
+                html += "'"+arr[2]+"'...\n" ;
+            }
+            html += "Not filled in.\n";
+            html += "\n";
+        }
+
+        html += "Please fill in relevant information.";
+        var gnl=confirm(html);
+        if (gnl==true){
+            if (j==0){
+                return true;
+            }else {
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+</script>
+
+</body>
+</html>

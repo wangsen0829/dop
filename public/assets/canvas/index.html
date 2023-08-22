@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        #canvas {
+            border: 0.01rem solid #f30;
+        }
+
+        #canvas-btn {
+            display: block;
+            margin: 0;
+            padding: 0.13rem;
+        }
+
+        #clear_btn {
+            width: 80%;
+            background: #ca4341;
+            margin: auto;
+            text-align: center;
+            line-height: 1rem;
+            margin-top: 0.27rem;
+            color: #fff;
+            border-radius: 1.31rem;
+            clear: both;
+        }
+
+        #save_btn {
+            width: 80%;
+            background: #4cd964;
+            margin: auto;
+            text-align: center;
+            line-height: 1rem;
+            margin-top: 0.27rem;
+            color: #fff;
+            border-radius: 1.31rem;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <canvas id='canvas'></canvas>
+        <div id="canvas-btn">
+            <div id="clear_btn" class="op_btn">重画</div>
+            <div id="save_btn" class="save_btn">保存</div>
+            <div class="cleaerfix"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/dist/layui.js"></script>
+    <script>
+
+
+
+        layui.use(['sign'], function () {
+
+            var $ = layui.$;
+            var sign = layui.sign;
+
+            //渲染
+            var sign1 = sign.init({
+                elem: '#canvas',  //绑定元素,
+                width: 600, //画布宽度
+                height: 280,//画布高度
+                // name: '刘德华',//画布高度
+                // isWatermark: true
+            });
+
+            sign1.watermark(
+                {
+                    watermark: '',
+                    text: '',
+                }
+            );
+
+            //清除  
+            $('#clear_btn').on('click', function (e) {
+                console.log(sign1);
+                sign1.clear();
+                // context.clearRect(0, 0, canvasWidth, canvasHeight);
+            });
+            //保存画图
+            $('#save_btn').on('click', function (e) {
+                var image = sign1.getimg();
+                console.log(image);
+            });
+
+        });
+    </script>
+</body>
+
+</html>
